@@ -1,0 +1,11 @@
+@mixin rgba-background($color){
+  @include filter-gradient($color, $color);
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+    background: transparent;
+    // set filter as none for IE9+, because IE9+ supprot RGBa
+    :root & {
+      filter: none\0/IE9;
+    }
+  }
+  background: $color;
+}

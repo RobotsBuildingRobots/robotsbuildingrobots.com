@@ -1,0 +1,68 @@
+@import 'compass';
+@import 'compass/reset';
+
+@import 'compass_enhancements/effects';
+@import 'compass_enhancements/fonts';
+@import 'compass_enhancements/media-queries';
+
+// Global
+html,
+body {
+  background-color: #000;
+  background: image-url('background-website.jpg') no-repeat 50% 50% fixed;
+  background-position: top center;
+  background-size: cover;
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about-wrapper {
+  @include display-flex;
+  @include flex-direction(column);
+  height: 100vh;
+}
+
+.about-container-outer {
+  @include rgba-background(rgba(0, 0, 0, .6));
+  @include box-shadow(rgba(#fff, .9) 0 0 35px, rgba(#000, .2) 0 0 3px 1px inset);
+  margin: auto;
+  padding-bottom: 15px;
+
+  @include min-screen(768px) {
+    max-width: 600px;
+  }
+
+  @include min-screen-height(900px) {
+    @include border-radius(15px);
+  }
+}
+
+.about-container-inner {
+  @include display-flex;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+  padding: 10px 15px;
+  color: #fff;
+
+  > :not(:last-child) {
+    padding-bottom: 10px;
+  }
+
+  @include min-screen(768px) {
+    padding: 30px 40px;
+  }
+}
+
+// Pages
+@import 'compass_enhancements/avatar';
+@import 'compass_enhancements/social-media-icons';
+
+@import 'vendor/pace';
+@import 'vendor/twemoji-awesome';
