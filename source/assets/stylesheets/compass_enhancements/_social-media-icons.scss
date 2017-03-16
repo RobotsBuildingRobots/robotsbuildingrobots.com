@@ -1,0 +1,36 @@
+.social-media-icons {
+  @include display-flex;
+  @include flex-direction(column);
+
+  div:not(:last-child) {
+    padding-right: 10px;
+  }
+
+  div:not(:last-child) {
+    padding-bottom: 10px;
+  }
+
+  div:last-child {
+    padding-bottom: 15px;
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+
+  a:not(:last-child) {
+    padding-right: 10px;
+  }
+
+  @include min-screen(768px) {
+    @include flex-direction(row);
+    div:not(:last-child) {
+      padding-bottom: 0;
+    }
+
+    div:last-child {
+      padding-bottom: 0;
+    }
+  }
+}

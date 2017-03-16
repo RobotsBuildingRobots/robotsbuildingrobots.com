@@ -1,0 +1,50 @@
+.avatar-author {
+  font-family: 'Prociono', serif;
+  font-size: 2.5em;
+  line-height: 1.4;
+
+  @include min-screen(768px) {
+    font-size: 3em;
+  }
+}
+
+.avatar-image {
+  img {
+    @include border-radius(50%);
+    border: 20px solid rgba(0, 0, 0, 0.7);
+    max-width: 320px;
+  }
+}
+
+.avatar-personal {
+  padding: 0 20px;
+
+  div {
+    padding-bottom: 5px;
+  }
+  .avatar-slogan {
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 1.5em;
+    line-height: 1.5;
+
+    img {
+      height: 20px;
+      padding-left: 10px;
+    }
+  }
+
+  .avatar-location {
+    @include justify-content(space-between);
+    @include align-self(stretch);
+
+    font-family: 'Sorts Mill Goudy', serif;
+    font-size: 1.5em;
+    line-height: 1.5;
+
+    img {
+      height: 15px;
+      width: 15px;
+      padding-right: 5px;
+    }
+  }
+}
