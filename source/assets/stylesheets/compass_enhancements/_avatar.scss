@@ -1,8 +1,12 @@
 .avatar-author {
   font-family: 'Prociono', serif;
-  font-size: 2em;
+  font-size: 25px;
   line-height: 1.4;
   font-weight: bold;
+
+  @include min-screen(350px) {
+    font-size: 2em;
+  }
 
   @include min-screen(768px) {
     font-size: 3em;
@@ -25,8 +29,12 @@
   }
   .avatar-slogan {
     font-family: 'Sorts Mill Goudy', serif;
-    font-size: 1.5em;
+    font-size: 20px;
     line-height: 1.5;
+
+    @include min-screen(350px) {
+      font-size: 1.5em;
+    }
 
     img {
       height: 20px;
@@ -39,8 +47,12 @@
     @include align-self(stretch);
 
     font-family: 'Sorts Mill Goudy', serif;
-    font-size: 1.5em;
+    font-size: 20px;
     line-height: 1.5;
+
+    @include min-screen(350px) {
+      font-size: 1.5em;
+    }
 
     img {
       height: 15px;
