@@ -6,6 +6,9 @@ _theme
 build
 .bundle/*
 !.bundle/config
+backup
+webpack.config.js
+.vscode
 
 ###############################################################################################
 # Ignore all logfiles, tempfiles, and databases.
@@ -25,7 +28,6 @@ build
 *.exe
 *.o
 *.so
-*.psd
 *.ai
 *.ase
 
@@ -65,3 +67,4 @@ Thumbs.db
 codekit-config.json
 node_modules
 _TESTME
+backup
