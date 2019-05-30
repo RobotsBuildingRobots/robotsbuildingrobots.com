@@ -1,0 +1,11 @@
+html,
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: $black-darkest;
+
+  @include primary-font();
+
+  font-size: 1rem;
+  color: $black-lightest;
+}
