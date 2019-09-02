@@ -1,4 +1,4 @@
-.section-action {
+.section-call-to-action {
   height: 100vh;
 
   .video-wrapper {
@@ -37,7 +37,7 @@
     }
   }
 
-  .section-action-wrapper {
+  .section-call-to-action-wrapper {
     @include media-breakpoint-up(xs) {
       max-width: 500px;
     }
@@ -47,9 +47,17 @@
     }
 
     background-color: rgba(255, 255, 255, $backdrop-opacity);
-    box-shadow: 0 0 0.5rem 0.25rem $style-whitest;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    box-shadow: 0 0 1rem 0.5rem $style-highlight;
+
+    @include media-breakpoint-up(xs) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
 
     .call-to-action {
       color: $black-darkest;
@@ -168,12 +176,18 @@
 
   .section-nav {
     text-align: center;
+    padding-top: 2.5rem;
 
-    svg {
+    button {
+      background-color: $style-whitest;
       color: $style-highlight;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 3rem;
+      border-color: $style-highlight;
+
+      &:hover {
+        background-color: $style-highlight;
+        color: $style-whitest;
+        border-color: $style-whitest;
+      }
     }
   }
 }
