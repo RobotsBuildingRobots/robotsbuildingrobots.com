@@ -179,9 +179,11 @@
     padding-top: 2.5rem;
 
     button {
+      @include primary-font();
       background-color: $style-whitest;
       color: $style-highlight;
       border-color: $style-highlight;
+      border-radius: 0;
 
       &:hover {
         background-color: $style-highlight;
