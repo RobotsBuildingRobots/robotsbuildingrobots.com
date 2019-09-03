@@ -1,12 +1,24 @@
 .section-about-us {
-  height: 100vh;
+  background: url('#{$image-path}/backgrounds/dark_wood.png') repeat;
+  min-height: 100vh;
+  color: $style-whitest;
+  border-top: 0.2rem solid $style-highlight;
+  border-bottom: 0.2rem solid $style-highlight;
+
+  .section-header {
+    @include primary-font();
+    font-weight: bold;
+    padding: 2rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
 
   embed {
     margin-left: auto;
     margin-right: auto;
 
     @include media-breakpoint-up(xs) {
-      height: 450px;
+      height: 250px;
     }
   }
 }
