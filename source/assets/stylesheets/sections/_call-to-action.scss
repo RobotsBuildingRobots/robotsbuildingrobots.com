@@ -180,6 +180,7 @@
 
     button {
       @include primary-font();
+
       background-color: $style-whitest;
       color: $style-highlight;
       border-color: $style-highlight;
