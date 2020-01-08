@@ -3,7 +3,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require("webpack-manifest-plugin");
 const outputPath = path.join(__dirname, "build/assets");
@@ -147,10 +147,7 @@ const siteConfig = {
       filename: "vendor-[hash].js",
       minChunks: Infinity
     }),
-    new CleanWebpackPlugin([outputPath], {
-      root: __dirname,
-      verbose: false
-    }){{insert-webpack-plugin-merges}}
+    new CleanWebpackPlugin(){{insert-webpack-plugin-merges}}
   ]
 };
 
