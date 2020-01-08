@@ -15,7 +15,7 @@ namespace :test do
       puts("---------------------------------------------------------->>\n")
       puts('Running esLint')
       puts("---------------------------------------------------------->>\n")
-      system('npm run lintjs')
+      system('npm run lintjs_with_fix')
     end
 
     desc 'Lint SCSS via StyleLint.'
@@ -23,7 +23,7 @@ namespace :test do
       puts("---------------------------------------------------------->>\n")
       puts('Running Style Lint')
       puts("---------------------------------------------------------->>\n")
-      system('npm run lintcss')
+      system('npm run lintcss_with_fix')
     end
 
     desc 'Lint Ruby via rubocop.'
