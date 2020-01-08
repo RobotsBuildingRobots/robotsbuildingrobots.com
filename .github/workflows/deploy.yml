@@ -66,12 +66,12 @@ jobs:
 
       # ----------------------------------------------------Deploy
 
-      - name: Deploy to Github Pages
-        uses: peaceiris/actions-gh-pages@v1.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build
-        with:
-          emptyCommits: false
-        if: github.event.pull_request.merged == true && success()
+      # - name: Deploy to Github Pages
+      #   uses: peaceiris/actions-gh-pages@v1.1.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #     PUBLISH_BRANCH: gh-pages
+      #     PUBLISH_DIR: ./build
+      #   with:
+      #     emptyCommits: false
+      #   if: github.event.pull_request.merged == true && success()
