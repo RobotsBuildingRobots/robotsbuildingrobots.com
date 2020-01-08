@@ -1,0 +1,77 @@
+name: Deploy Static Site
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        if: github.event.pull_request.merged == true
+
+      # ----------------------------------------------------Ruby
+
+      - name: Install Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          version: 2.6.x
+        if: github.event.pull_request.merged == true
+
+      - name: Ruby Version
+        run: |
+          ruby -v
+        if: github.event.pull_request.merged == true
+
+      - name: Setup Ruby Dependencies
+        run: |
+          gem update bundler
+          bundle install --jobs 4 --retry 3
+        if: github.event.pull_request.merged == true
+
+      # ----------------------------------------------------Node
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          version: 10.16.3
+        if: github.event.pull_request.merged == true
+
+      - name: Node Version
+        run: |
+          node --version
+        if: github.event.pull_request.merged == true
+
+      - name: Setup Node Dependencies
+        run: |
+          npm install
+        if: github.event.pull_request.merged == true
+
+      # ----------------------------------------------------Webpack
+
+      - name: Build Webpack File
+        run: |
+          bundle exec rake webpack:build:production
+        if: github.event.pull_request.merged == true
+
+      - name: Build Site
+        run: |
+          export TERM=xterm
+          bundle exec middleman build -e production --verbose
+        if: github.event.pull_request.merged == true
+
+      # ----------------------------------------------------Deploy
+
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./build
+        with:
+          emptyCommits: false
+        if: github.event.pull_request.merged == true && success()
