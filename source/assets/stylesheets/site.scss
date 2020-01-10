@@ -4,8 +4,7 @@
 @import "settings";
 @import "vendor/bootstrap";
 @import "vendor/google_fonts";
+@import "mixins/*";
 @import "components/html-body";
 @import "components/preloader";
-@import "sections/call-to-action";
-@import "sections/about-us";
-@import "sections/clients";
+@import "components/navigation";
