@@ -20,43 +20,42 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
           ruby:
             active_class = current_page.data.id == 'vision-and-passion' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/vision-and-passion/", class: "nav-link") do
+            = link_to("/values/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="fas fa-eye nav-icon"]
                 span[class="nav-description"]
-                  |Vision & Passion
+                  |Values
           ruby:
             active_class = current_page.data.id == 'career-path' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/career-path/", class: "nav-link") do
+            = link_to("/process/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="fas fa-map-signs nav-icon"]
                 span[class="nav-description"]
-                  |Career Path
+                  |Process
           ruby:
             active_class = current_page.data.id == 'working-together' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/working-together/", class: "nav-link") do
+            = link_to("/products/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="fas fa-handshake nav-icon"]
                 span[class="nav-description"]
-                  |Working Together
+                  |Products
           ruby:
             active_class = current_page.data.id == 'family-journey' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
 
-            = link_to("/family-journey/", class: "nav-link") do
+            = link_to("/projects/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="fas fa-map-marker-alt nav-icon"]
                 span[class="nav-description"]
-                  |Family Journey
+                  |Projects
+
           ruby:
             active_class = current_page.data.id == 'contact-me' ? 'active' : ''
-
-          - if current_page.data.id
-            li[class="nav-item flex-fill #{active_class}"]
-              = link_to("/contact-me/", class: "nav-link") do
-                  span[class="nav-button"]
-                    i[class="far fa-envelope nav-icon"]
-                  span[class="nav-description"]
-                    |Email Me
+          li[class="nav-item flex-fill #{active_class}"]
+            = link_to("/contact-me/", class: "nav-link") do
+                span[class="nav-button"]
+                  i[class="far fa-envelope nav-icon"]
+                span[class="nav-description"]
+                  |Contact
