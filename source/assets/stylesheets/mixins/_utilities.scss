@@ -10,13 +10,13 @@
   @include transform(rotate(#{$deg}deg));
 }
 
-@mixin box-shadow($horiz: 0, $vert: 0, $blur: 0.5rem, $spread: 0.25rem, $color: $purple-darkest, $inset: "") {
+@mixin box-shadow($horiz: 0, $vert: 0, $blur: 0.5rem, $spread: 0.25rem, $color: $black-darkest, $inset: "") {
   -webkit-box-shadow: $horiz $vert $blur $spread $color unquote($inset);
   -moz-box-shadow: $horiz $vert $blur $spread $color unquote($inset);
   box-shadow: $horiz $vert $blur $spread $color unquote($inset);
 }
 
-@mixin drop-shadow($horiz: 0, $vert: 0, $spread: 0.25rem, $color: $purple-darkest) {
+@mixin drop-shadow($horiz: 0, $vert: 0, $spread: 0.25rem, $color: $black-darkest) {
   filter: drop-shadow($horiz $vert $spread $color);
 }
 
@@ -26,13 +26,13 @@
 
 @mixin box-shadow-top-bottom-left-sides {
   box-shadow:
-    -0.5rem -0.5rem 0.5rem 0.25rem $purple-darkest,
-    -0.5rem 0 0.5rem 0.25rem $purple-darkest,
-    -0.5rem 0.5rem 0.5rem 0.25rem $purple-darkest;
+    -0.5rem -0.5rem 0.5rem 0.25rem $black-darkest,
+    -0.5rem 0 0.5rem 0.25rem $black-darkest,
+    -0.5rem 0.5rem 0.5rem 0.25rem $black-darkest;
 }
 
 @mixin box-shadow-top-bottom-sides {
   box-shadow:
-    -0.5rem 0 0.5rem 0.25rem $purple-darkest,
-    0 0 0.5rem 0.25rem $purple-darkest;
+    -0.5rem 0 0.5rem 0.25rem $black-darkest,
+    0 0 0.5rem 0.25rem $black-darkest;
 }

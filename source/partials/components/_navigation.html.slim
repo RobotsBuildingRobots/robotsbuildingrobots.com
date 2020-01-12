@@ -1,12 +1,13 @@
-nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
+nav[class="navbar navbar-expand-sm sticky-top navbar-dark d-lg-none"]
   div[class="row flex-fill mx-auto navbar-wrapper"]
-    div[class="col-12 col-lg-4 my-auto navbar-toggler-wrapper"]
+    div[class="col-12 my-auto navbar-toggler-wrapper"]
       div[class="row"]
-        div[class="col-10 col-sm-12 navbar-title"]
+        div[class="col-6 col-sm-12 d-flex my-auto navbar-title"]
           = link_to("/") do
-            |TEST
-
-        div[class="col-2 my-auto d-md-none navbar-button"]
+            embed[id="company-logo" src="#{image_path('logo-blue.svg')}"]
+          = link_to("/", class: 'd-none d-sm-block pt-1') do
+            = data.components.social.title
+        div[class="col-6 my-auto d-md-none navbar-button"]
           button[class="navbar-toggler" type="button" data-toggle="collapse"
                                                       data-target="#navbarCollapse"
                                                       aria-controls="navbarCollapse"
@@ -14,40 +15,40 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                                                       aria-label="Toggle navigation"]
             i[id="nav-button" class="fas fa-bars"]
 
-    div[class="col-12 col-lg-8 navbar-nav-item-wrapper"]
+    div[class="col-12 navbar-nav-item-wrapper"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
           ruby:
-            active_class = current_page.data.id == 'vision-and-passion' ? 'active' : ''
+            active_class = current_page.data.id == 'values' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/values/", class: "nav-link") do
                 span[class="nav-button"]
-                  i[class="fas fa-eye nav-icon"]
+                  i[class="fas fa-hand-holding-heart nav-icon"]
                 span[class="nav-description"]
                   |Values
           ruby:
-            active_class = current_page.data.id == 'career-path' ? 'active' : ''
+            active_class = current_page.data.id == 'process' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/process/", class: "nav-link") do
                 span[class="nav-button"]
-                  i[class="fas fa-map-signs nav-icon"]
+                  i[class="fas fa-directions nav-icon"]
                 span[class="nav-description"]
                   |Process
           ruby:
-            active_class = current_page.data.id == 'working-together' ? 'active' : ''
+            active_class = current_page.data.id == 'products' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/products/", class: "nav-link") do
                 span[class="nav-button"]
-                  i[class="fas fa-handshake nav-icon"]
+                  i[class="fas fa-dollar-sign nav-icon"]
                 span[class="nav-description"]
                   |Products
           ruby:
-            active_class = current_page.data.id == 'family-journey' ? 'active' : ''
+            active_class = current_page.data.id == 'projects' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
 
             = link_to("/projects/", class: "nav-link") do
                 span[class="nav-button"]
-                  i[class="fas fa-map-marker-alt nav-icon"]
+                  i[class="fas fa-project-diagram nav-icon"]
                 span[class="nav-description"]
                   |Projects
 
