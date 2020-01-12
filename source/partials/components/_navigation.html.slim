@@ -19,22 +19,6 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark d-lg-none"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
           ruby:
-            active_class = current_page.data.id == 'values' ? 'active' : ''
-          li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/values/", class: "nav-link") do
-                span[class="nav-button"]
-                  i[class="fas fa-hand-holding-heart nav-icon"]
-                span[class="nav-description"]
-                  |Values
-          ruby:
-            active_class = current_page.data.id == 'process' ? 'active' : ''
-          li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/process/", class: "nav-link") do
-                span[class="nav-button"]
-                  i[class="fas fa-directions nav-icon"]
-                span[class="nav-description"]
-                  |Process
-          ruby:
             active_class = current_page.data.id == 'products' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/products/", class: "nav-link") do
