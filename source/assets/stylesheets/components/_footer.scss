@@ -1,0 +1,32 @@
+footer {
+  @include box-shadow();
+  @include drop-shadow();
+
+  color: $white;
+  background-color: $black-darkest;
+  padding: 0.5rem 0;
+
+  .row {
+    font-size: 0.9rem;
+    padding-top: 0.5rem;
+    text-align: center;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+
+    @include media-breakpoint-up(xs) {
+      padding-bottom: 1rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      border-top: 0.15rem solid $style-highlight;
+      padding-top: 1rem;
+
+      @include media-breakpoint-up(lg) {
+        border: none;
+      }
+    }
+  }
+}
