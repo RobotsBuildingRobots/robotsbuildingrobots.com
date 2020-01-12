@@ -2,5 +2,8 @@
   = partial "partials/components/header"
   = partial "partials/layout/body" do
     = partial "partials/components/navigation"
-    == yield
+
+    main[class="container-fluid content-wrapper"]
+      == yield
+
     = partial "partials/components/javascript"

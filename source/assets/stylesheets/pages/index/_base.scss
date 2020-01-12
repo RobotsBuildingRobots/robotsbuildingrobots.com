@@ -1,97 +1,24 @@
 #index {
-  .content-wrapper {
-    @include media-breakpoint-up(xs) {
-      padding: 0;
+  .section-call-to-action {
+    min-height: 100vh;
+
+    .video-wrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
     }
 
-    @include media-breakpoint-up(sm) {
-      margin-top: 0;
-    }
-
-    @include media-breakpoint-up(md) {
-      padding: 3rem 0 0 0;
-    }
-
-    @include media-breakpoint-up(lg) {
-      margin-top: -10rem;
-      padding: 12rem 0 2rem 0;
-    }
-  }
-
-  .personal-data-wrapper-row {
-    padding: 0;
-
-    .w-100 {
-      @media (min-height: map-get($grid-height-breakpoints, "minimium")) {
-        padding-bottom: 0;
-      }
-    }
-
-    .personal-data-wrapper-container {
-      @include media-breakpoint-up(xs) {
-        padding-top: 2rem;
-      }
-
-      @include media-breakpoint-up(md) {
-        background-color: rgba(4, 1, 5, $backdrop-opacity);
-        padding: 0;
-
-        .row {
-          margin: 0;
-        }
-
-        .personal-data-stacks-wrapper-container {
-          @include box-shadow-all-sides();
-        }
-      }
-
-      @include media-breakpoint-up(xl) {
-        max-width: 800px;
-      }
-
-      // Handle Rectangle Viewing Ports
-      @media (min-height: map-get($grid-height-breakpoints, "minimium")) {
-        margin-top: auto !important;
-        margin-bottom: auto !important;
-      }
-    }
-
-    @import "social-left-right";
-    @import "social-center";
-    @import "social-slogan";
-    @import "social-connect";
-  }
-
-  @import "quotes";
-  @import "values";
-
-  #video-background {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-
-    @include media-breakpoint-up(xs) {
-      visibility: hidden;
-    }
-
-    @include media-breakpoint-up(lg) {
-      visibility: visible;
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
-    .navbar-title {
-      display: none;
-    }
-
-    .navbar-nav-item-wrapper {
-      flex: 0 0 100%;
-      max-width: 100%;
+    #video-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      object-fit: cover;
     }
   }
 }

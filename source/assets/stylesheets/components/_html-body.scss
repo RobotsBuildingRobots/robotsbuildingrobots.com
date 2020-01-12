@@ -2,11 +2,11 @@ html,
 body {
   padding: 0 !important;
   margin: 0 !important;
-  background-color: $style-whitest;
+  background-color: $black-darkest;
   min-width: map-get($grid-breakpoints, 'minimium') !important;
 
   @include primary-font();
 
   font-size: 1rem;
-  color: $black-darkest;
+  color: $style-whitest;
 }
