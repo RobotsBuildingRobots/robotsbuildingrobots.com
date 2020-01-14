@@ -1,4 +1,11 @@
 #index {
+  .content-wrapper {
+    @include media-breakpoint-up(xs) {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
   @import "pages/index/section_call_to_action";
   @import "pages/index/section_call_process";
   @import "pages/index/section_call_metrics";

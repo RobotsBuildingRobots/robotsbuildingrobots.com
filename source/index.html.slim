@@ -2,17 +2,15 @@
 layout: index
 ---
 
-section[class="container d-flex justify-content-center section-call-to-action"]
-  div[class="row justify-content-center align-self-center"]
+section[class="container section-call-to-action"]
+  div[class="row"]
     div[class="col-12 video-wrapper"]
       video[autoplay loop muted playsinline id="video-background"]
         source [src="#{image_path('backgrounds/officespace-frustration.mp4')}" type="video/mp4"]
     div[class="col-12 section-call-to-action-wrapper"]
-      div[class="row call-to-action"]
-        div[class="col-12"]
-          embed[id="about-us-venn" src="#{image_path('venn-our-philosophies.svg')}"]
-
-
+      div[class="row d-flex justify-content-center align-items-center slogan-wrapper"]
+        div[class="col-12 slogan"]
+          embed[src="#{image_path('robot-home-page.svg')}"]
 
 
 section[class="container d-flex justify-content-center section-process"]

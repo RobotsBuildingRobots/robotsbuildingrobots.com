@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans|Merriweather:300|Teko:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight|Work+Sans|Merriweather:300|Teko:700|Ultra&display=swap');
 
 @mixin primary-font { font-family: 'Merriweather', serif; }
 
 @mixin secondary-font { font-family: 'Work Sans', sans-serif; }
+
+@mixin highlight-font { font-family: 'Zilla Slab Highlight', cursive; }
 
 @mixin impact-font { font-family: 'Teko', sans-serif; }

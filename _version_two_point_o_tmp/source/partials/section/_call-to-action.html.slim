@@ -26,3 +26,43 @@ section[class="container d-flex justify-content-center section-call-to-action"]
           |Inspired by true events.
     div[class="col-12 section-nav"]
       <button type="button" id="home-button" class="btn btn-outline-primary btn-lg">Read More</button>
+
+
+section[class="container d-flex justify-content-center section-call-to-action"]
+  div[class="row"]
+    div[class="col-12 video-wrapper"]
+      video[autoplay loop muted playsinline id="video-background"]
+        source [src="#{image_path('backgrounds/officespace-frustration.mp4')}" type="video/mp4"]
+    div[class="col-12 section-call-to-action-wrapper"]
+      div[class="row venn-our-philosophies"]
+        div[class="col-12"]
+          embed[src="#{image_path('venn-our-philosophies.svg')}"]
+      div[class="row slogan"]
+        div[class="col-12"]
+          = data.components.social.slogan
+
+
+
+  .section-call-to-action-wrapper {
+    .venn-our-philosophies {
+      text-align: center;
+
+      embed {
+        @include media-breakpoint-up(xs) {
+          width: 300px;
+          max-width: 300px;
+        }
+      }
+    }
+
+    .slogan {
+      @include highlight-font();
+      @include text-stroke(2, $black-darkest);
+      text-transform: uppercase;
+
+      @include media-breakpoint-up(xs) {
+        padding-top: 1rem;
+      }
+    }
+  }
+}
