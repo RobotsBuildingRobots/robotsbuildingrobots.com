@@ -1,0 +1,7 @@
+.section-venn-wrapper {
+  background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+
+  @import "pages/index/section_call_process";
+  @import "pages/index/section_call_metrics";
+  @import "pages/index/section_call_values";
+}

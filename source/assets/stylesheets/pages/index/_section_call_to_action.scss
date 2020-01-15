@@ -1,5 +1,5 @@
 .section-call-to-action {
-  min-height: 100vh;
+  // min-height: 100vh;
 
   @include media-breakpoint-up(xs) {
     padding: 0;
@@ -34,19 +34,21 @@
 
   .section-call-to-action-wrapper {
     @include media-breakpoint-up(xs) {
-      min-height: 100vh;
+      // min-height: 100vh;
       padding: 0;
       margin: 0;
     }
 
     .slogan-wrapper {
-      min-height: 100vh;
+      // min-height: 100vh;
       text-align: center;
 
       .slogan {
         transform: translateY(-30%);
         background-color: rgba(255, 255, 255, $backdrop-opacity);
         box-shadow: 0 0 1rem 0.5rem $style-highlight;
+        padding: 0;
+        margin: 0;
 
         embed {
           @include media-breakpoint-up(xs) {
@@ -55,6 +57,21 @@
             margin-left: -100px;
             padding: 1rem 0;
           }
+        }
+
+        .slogan-explained {
+          @include secondary-font;
+
+          border-top: 0.2rem solid $black-darkest;
+          background-color: $style-highlight;
+          color: $style-whitest;
+          text-align: center;
+          padding: 1rem;
+          font-size: 1.4rem;
+          text-decoration: underline;
+          cursor: pointer;
+          font-weight: bold;
+          text-transform: uppercase;
         }
       }
     }

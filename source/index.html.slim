@@ -2,7 +2,7 @@
 layout: index
 ---
 
-section[class="container section-call-to-action"]
+section[class="container-fluid d-flex flex-column flex-fill justify-content-center section-call-to-action"]
   div[class="row"]
     div[class="col-12 video-wrapper"]
       video[autoplay loop muted playsinline id="video-background"]
@@ -10,20 +10,21 @@ section[class="container section-call-to-action"]
     div[class="col-12 section-call-to-action-wrapper"]
       div[class="row d-flex justify-content-center align-items-center slogan-wrapper"]
         div[class="col-12 slogan"]
-          embed[src="#{image_path('robot-home-page.svg')}"]
+          div
+            embed[src="#{image_path('robot-home-page.svg')}"]
+          a[href='/']
+            div[class="slogan-explained"]
+              |Tell me what this means!
 
-
-section[class="container d-flex justify-content-center section-process"]
-  div[class="row justify-content-center align-self-center"]
+section[class="container-fluid d-flex flex-column section-venn-wrapper"]
+  div[class="row section-process"]
     div[class="col-12"]
       | TBD
 
-section[class="container d-flex justify-content-center section-metrics"]
-  div[class="row justify-content-center align-self-center"]
+  div[class="row section-metrics"]
     div[class="col-12"]
       | TBD
 
-section[class="container d-flex justify-content-center section-values"]
-  div[class="row justify-content-center align-self-center"]
+  div[class="row section-values"]
     div[class="col-12"]
       | TBD
