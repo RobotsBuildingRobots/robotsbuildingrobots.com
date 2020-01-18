@@ -36,8 +36,11 @@
           @include media-breakpoint-up(xs) {
             width: 450px;
             max-width: 450px;
-            margin-left: -100px;
             padding: 1rem 0;
+
+            @include media-breakpoint-up(xs) {
+              margin-left: -100px;
+            }
           }
         }
 
