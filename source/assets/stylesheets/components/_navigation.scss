@@ -31,14 +31,14 @@
         }
 
         @include media-breakpoint-up(xs) {
+          padding-top: 0.5rem;
+
           embed {
             width: 40px;
           }
         }
 
         @include media-breakpoint-up(sm) {
-          padding-top: 0.5rem;
-
           embed {
             margin-right: 1rem;
           }
