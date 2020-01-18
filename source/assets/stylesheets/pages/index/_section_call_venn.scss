@@ -34,5 +34,10 @@
       width: 325px;
       max-width: 325px;
     }
+
+    @include media-breakpoint-up(xs) {
+      width: 350px;
+      max-width: 350px;
+    }
   }
 }

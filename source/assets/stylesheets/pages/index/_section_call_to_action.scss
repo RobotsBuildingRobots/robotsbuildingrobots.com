@@ -41,6 +41,14 @@
             @include media-breakpoint-up(xs) {
               margin-left: -100px;
             }
+
+            @include media-breakpoint-up(transition) {
+              margin-left: -50px;
+            }
+
+            @include media-breakpoint-up(sm) {
+              margin-left: 0;
+            }
           }
         }
 

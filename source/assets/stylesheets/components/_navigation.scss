@@ -37,6 +37,8 @@
         }
 
         @include media-breakpoint-up(sm) {
+          padding-top: 0.5rem;
+
           embed {
             margin-right: 1rem;
           }
