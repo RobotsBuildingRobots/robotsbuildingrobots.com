@@ -1,0 +1,38 @@
+.section-venn {
+  padding-top: 0;
+
+  .venn-inform,
+  .venn-help {
+    @include secondary-font;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(xs) {
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+  }
+
+  .venn-inform {
+    border-top: 0.2rem solid $style-whitest;
+    border-bottom: 0.2rem solid $style-whitest;
+    background-color: $style-highlight;
+    color: $style-whitest;
+    margin-bottom: 2rem;
+  }
+
+  .venn-help {
+    @include media-breakpoint-up(xs) {
+      margin-top: 1rem;
+    }
+  }
+
+  embed {
+    @include media-breakpoint-up(xs) {
+      width: 325px;
+      max-width: 325px;
+    }
+  }
+}

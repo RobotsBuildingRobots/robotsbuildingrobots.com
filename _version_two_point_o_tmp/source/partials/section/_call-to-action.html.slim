@@ -42,27 +42,20 @@ section[class="container d-flex justify-content-center section-call-to-action"]
           = data.components.social.slogan
 
 
+section[class="container-fluid d-flex flex-column section-venn-wrapper"]
+  div[class="row section-venn"]
+    div[class="col-12 venn-inform"]
+      span
+        |It doesn't have to be
+      =>
+      span
+        |crazy at work!
+    div[class="col-12 col-12 d-flex justify-content-center"]
+      embed[src="#{image_path('venn-our-philosophies.svg')}"]
 
-  .section-call-to-action-wrapper {
-    .venn-our-philosophies {
-      text-align: center;
 
-      embed {
-        @include media-breakpoint-up(xs) {
-          width: 300px;
-          max-width: 300px;
-        }
+
+      span:last-child:before {
+        content: "\A";
+        white-space: pre;
       }
-    }
-
-    .slogan {
-      @include highlight-font();
-      @include text-stroke(2, $black-darkest);
-      text-transform: uppercase;
-
-      @include media-breakpoint-up(xs) {
-        padding-top: 1rem;
-      }
-    }
-  }
-}

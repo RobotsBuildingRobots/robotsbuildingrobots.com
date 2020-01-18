@@ -1,4 +1,15 @@
 #index {
+  #video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+
   .content-wrapper {
     @include media-breakpoint-up(xs) {
       display: flex;
@@ -11,4 +22,17 @@
 
   @import "pages/index/section_call_to_action";
   @import "pages/index/section_venn_wrapper";
+
+  .section-robot-friends {
+    padding-top: 2rem;
+    margin-bottom: -3rem;
+    text-align: center;
+
+    embed {
+      @include media-breakpoint-up(xs) {
+        width: 150px;
+        max-width: 150px;
+      }
+    }
+  }
 }

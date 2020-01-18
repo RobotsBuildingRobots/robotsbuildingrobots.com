@@ -3,28 +3,49 @@ layout: index
 ---
 
 section[class="container-fluid d-flex flex-column flex-fill justify-content-center section-call-to-action"]
-  div[class="row"]
-    div[class="col-12 video-wrapper"]
-      video[autoplay loop muted playsinline id="video-background"]
-        source [src="#{image_path('backgrounds/officespace-frustration.mp4')}" type="video/mp4"]
-    div[class="col-12 section-call-to-action-wrapper"]
-      div[class="row d-flex justify-content-center align-items-center slogan-wrapper"]
-        div[class="col-12 slogan"]
-          div
-            embed[src="#{image_path('robot-home-page.svg')}"]
-          a[href='/']
-            div[class="slogan-explained"]
-              |Tell me what this means!
+  div[class="row call-to-action-wrapper"]
+    div[class="col-12 call-to-action"]
+      div[class="embed-wrapper"]
+        embed[src="#{image_path('robot-home-page.svg')}"]
+        a[href='/']
+          div[class="embed-explained"]
+            |Tell me what this means!
 
 section[class="container-fluid d-flex flex-column section-venn-wrapper"]
+  div[class="row section-venn"]
+    div[class="col-12 venn-inform"]
+      |inspired by real events!
+    div[class="col-12 col-12 d-flex justify-content-center"]
+      embed[src="#{image_path('venn-our-philosophies.svg')}"]
+    div[class="col-12 venn-help"]
+      |How can we help?
+
   div[class="row section-process"]
+    div[class="col-12 summary"]
+      i[class="fas fa-thumbs-up"]
+      |Right Process
     div[class="col-12"]
-      | TBD
+      = data.pages.home.process
 
   div[class="row section-metrics"]
+    div[class="col-12 summary"]
+      i[class="fas fa-thumbs-up"]
+      |Right Metrics
     div[class="col-12"]
-      | TBD
+      = data.pages.home.metrics
 
   div[class="row section-values"]
+    div[class="col-12 summary"]
+      i[class="fas fa-thumbs-up"]
+      |Right Values
     div[class="col-12"]
-      | TBD
+      = data.pages.home.values.last
+
+  div[class="row section-venn-call-to-action"]
+    div[class="col-12"]
+      |It doesn't have to be crazy at work!
+
+section[class="section-robot-friends"]
+  div[class="row"]
+    div[class="col-12"]
+      embed[src="#{image_path('robot-home-child-three.svg')}"]

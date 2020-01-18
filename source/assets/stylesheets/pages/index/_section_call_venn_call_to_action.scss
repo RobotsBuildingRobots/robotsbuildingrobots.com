@@ -1,0 +1,14 @@
+.section-venn-call-to-action {
+  @include secondary-font;
+
+  border-top: 0.2rem solid $style-whitest;
+  border-bottom: 0.2rem solid $style-whitest;
+  background-color: $style-highlight;
+  color: $style-whitest;
+
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
