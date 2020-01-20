@@ -3,8 +3,9 @@
   = partial "partials/layout/body" do
     = partial "partials/components/navigation"
 
-    video[autoplay loop muted playsinline id="video-background"]
-      source [src="#{image_path('backgrounds/officespace-frustration.mp4')}" type="video/mp4"]
+    div[class="video-wrapper"]
+      video[autoplay loop muted playsinline class="video-background"]
+        source [src="#{image_path('backgrounds/officespace-frustration.mp4')}" type="video/mp4"]
 
     main[class="container-fluid content-wrapper"]
       == yield
