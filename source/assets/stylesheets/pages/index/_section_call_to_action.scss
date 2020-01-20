@@ -1,6 +1,12 @@
+.section-call-to-action-ios {
+  min-height: 100vh !important;
+  padding: 200px 0 0 0 !important;
+  margin: -200px 0 0 0 !important;
+}
+
 .section-call-to-action {
   @include media-breakpoint-up(xs) {
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     padding: 0;
     margin: 0;
 
