@@ -31,11 +31,13 @@
 
   embed {
     @include media-breakpoint-up(xs) {
+      height: 215px;
       width: 325px;
       max-width: 325px;
     }
 
-    @include media-breakpoint-up(xs) {
+    @include media-breakpoint-up(md) {
+      height: 325px;
       width: 350px;
       max-width: 350px;
     }
