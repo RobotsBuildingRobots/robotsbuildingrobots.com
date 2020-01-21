@@ -31,6 +31,7 @@
         }
 
         @include media-breakpoint-up(xs) {
+          font-size: 1rem;
           padding-top: 0.5rem;
 
           embed {
@@ -42,6 +43,10 @@
           embed {
             margin-right: 1rem;
           }
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1.2rem;
         }
       }
 
@@ -155,8 +160,6 @@
           }
 
           .nav-link {
-            @include secondary-font();
-
             color: $gray-300;
             padding: 0;
 
@@ -165,6 +168,10 @@
             }
 
             @include media-breakpoint-up(xs) {
+              @include secondary-font();
+
+              font-size: 1rem;
+
               span {
                 display: inline;
               }
@@ -180,7 +187,9 @@
             }
 
             @include media-breakpoint-up(sm) {
-              font-size: 1.2rem;
+              @include primary-font();
+
+              font-size: 1rem;
               padding: 0.9rem 0.5rem;
 
               .nav-button {
@@ -202,7 +211,6 @@
 
               .nav-description {
                 font-size: 1.2rem;
-                text-transform: uppercase;
               }
             }
           }
