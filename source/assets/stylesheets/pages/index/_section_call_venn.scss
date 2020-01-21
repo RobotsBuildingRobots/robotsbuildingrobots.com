@@ -1,6 +1,15 @@
 .section-venn {
   padding-top: 0;
 
+  @include media-breakpoint-up(xs) {
+
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .venn-inform,
   .venn-help {
     @include secondary-font;
@@ -21,6 +30,17 @@
     background-color: $style-highlight;
     color: $style-whitest;
     margin-bottom: 2rem;
+
+    @include media-breakpoint-up(lg) {
+      max-width: map-get($grid-breakpoints, "lg");
+      border-right: 0.2rem solid $style-whitest;
+      border-left: 0.2rem solid $style-whitest;
+
+      .d-none {
+        display: inline-block !important;
+        padding-left: 0.5rem;
+      }
+    }
   }
 
   .venn-help {

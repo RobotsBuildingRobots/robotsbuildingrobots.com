@@ -16,6 +16,14 @@
     }
   }
 
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - 180px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    min-height: calc(100vh - 80px);
+  }
+
   .call-to-action-wrapper {
     @include media-breakpoint-up(xs) {
       padding: 0;
