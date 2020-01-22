@@ -3,7 +3,7 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
     div[class="col-12 col-lg-5 my-auto navbar-toggler-wrapper"]
       div[class="row"]
         div[class="col-6 col-sm-12 d-flex my-auto navbar-title"]
-          = link_to("/") do
+          = link_to("/", class: "d-block d-lg-none") do
             embed[id="company-logo" src="#{image_path('logo-blue.svg')}"]
           = link_to("/", class: 'd-none d-sm-block pt-1') do
             = data.components.social.title
