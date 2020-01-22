@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans|Merriweather:300|Teko:700&display=swap');
+
+@mixin primary-font { font-family: 'Merriweather', serif; }
+
+@mixin secondary-font { font-family: 'Work Sans', sans-serif; }
+
+@mixin impact-font { font-family: 'Teko', sans-serif; }

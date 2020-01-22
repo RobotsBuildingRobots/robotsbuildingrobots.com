@@ -1,0 +1,7 @@
+.section-process {
+  @include media-breakpoint-up(lg) {
+    .summary {
+      border-left: 0.2rem solid $style-highlight;
+    }
+  }
+}

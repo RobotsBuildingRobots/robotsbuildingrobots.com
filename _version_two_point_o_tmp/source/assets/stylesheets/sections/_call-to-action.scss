@@ -1,0 +1,196 @@
+culture-question-ask.section-call-to-action {
+  min-height: 100vh;
+
+  .video-wrapper {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    overflow: hidden;
+  }
+
+  .video-wrapper > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (min-aspect-ratio: 16/9) {
+    .video-wrapper > video {
+      height: 300%;
+      top: -100%;
+    }
+  }
+
+  @media (max-aspect-ratio: 16/9) {
+    .video-wrapper > video {
+      width: 300%;
+      left: -100%;
+    }
+  }
+
+  @supports (object-fit: cover) {
+    .video-wrapper > video {
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .section-call-to-action-wrapper {
+    @include media-breakpoint-up(xs) {
+      max-width: 500px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: 550px;
+    }
+
+    background-color: rgba(255, 255, 255, $backdrop-opacity);
+    box-shadow: 0 0 1rem 0.5rem $style-highlight;
+
+    @include media-breakpoint-up(xs) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .call-to-action {
+      color: $black-darkest;
+
+      .culture-logo {
+        text-align: center;
+        padding-bottom: 1rem;
+
+        embed {
+          @include media-breakpoint-up(xs) {
+            height: 150px;
+            line-height: 2.5rem;
+          }
+
+          @include media-breakpoint-up(lg) {
+            height: 200px;
+            width: 200px;
+          }
+        }
+      }
+
+      .culture-question-inform,
+      .culture-question-ask,
+      .culture-components {
+        text-transform: uppercase;
+      }
+
+      .culture-question-inform {
+        @include impact-font();
+        padding-bottom: 1rem;
+
+
+        @include media-breakpoint-up(xs) {
+          font-size: 3rem;
+          line-height: 2.5rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 4rem;
+          line-height: 3.5rem;
+        }
+      }
+
+      .culture-question-ask {
+        @include primary-font();
+
+        @include media-breakpoint-up(xs) {
+          font-size: 2rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 2.5rem;
+        }
+
+        padding-bottom: 1rem;
+
+        &:after {
+          content: '';
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0.5rem;
+          border-width: 0 0 0.2rem;
+          border-style: solid;
+          border-color: $style-highlight;
+        }
+      }
+
+      .culture-components {
+        @include primary-font();
+
+        @include media-breakpoint-up(xs) {
+          font-size: 1.2rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1.8rem;
+        }
+
+        svg {
+          color: $style-highlight;
+          margin-right: 0.3rem;
+
+          @include media-breakpoint-up(xs) {
+            font-size: 0.9rem;
+            margin-bottom: 0.1rem;
+          }
+
+          @include media-breakpoint-up(lg) {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+          }
+        }
+      }
+
+      .culture-facts {
+        @include primary-font();
+
+        @include media-breakpoint-up(xs) {
+          font-size: 0.8rem;
+          padding-top: 0.5rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 1rem;
+          padding-top: 0.8rem;
+        }
+
+        span {
+          color: $style-highlight;
+          padding-right: 0.3rem;
+        }
+      }
+    }
+  }
+
+  .section-nav {
+    text-align: center;
+    padding-top: 2.5rem;
+
+    button {
+      @include primary-font();
+
+      background-color: $style-whitest;
+      color: $style-highlight;
+      border-color: $style-highlight;
+      border-radius: 0;
+
+      &:hover {
+        background-color: $style-highlight;
+        color: $style-whitest;
+        border-color: $style-whitest;
+      }
+    }
+  }
+}

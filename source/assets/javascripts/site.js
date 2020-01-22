@@ -1,4 +1,5 @@
 import breakpoints from './vendor/breakpoints';
+import navigation from './components/navigation';
 import index from './pages/index';
 
 const hidePreloader = () => {
@@ -12,6 +13,7 @@ $(document).ready(() => {
   const $bodyId = $body.attr('id');
 
   breakpoints();
+  navigation();
 
   switch ($bodyId) {
     case 'index':

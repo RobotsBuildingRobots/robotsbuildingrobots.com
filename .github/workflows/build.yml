@@ -1,0 +1,69 @@
+name: Build Static Site
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      # ----------------------------------------------------Ruby
+
+      - name: Install Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          version: 2.6.x
+      - name: Ruby Version
+        run: |
+          ruby -v
+      - name: Setup Ruby Dependencies
+        run: |
+          gem update bundler
+          bundle install --jobs 4 --retry 3
+      - name: Test Ruby Dependencies
+        run: |
+          bundle exec rake -T
+
+      # ----------------------------------------------------Node
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          version: 10.16.3
+      - name: Node Version
+        run: |
+          node --version
+      - name: Setup Node Dependencies
+        run: |
+          npm install
+
+      # ----------------------------------------------------Webpack
+
+      - name: Build Webpack File
+        run: |
+          bundle exec rake webpack:build:production
+
+      - name: Build Site
+        run: |
+          export TERM=xterm
+          bundle exec middleman build -e production --verbose
+
+      # ----------------------------------------------------Quality
+
+      - name: Rubocop
+        run: |
+          bundle exec rubocop
+
+      - name: ESLint
+        run: |
+          npm run lintjs
+
+      - name: StyleLint
+        run: |
+          npm run lintcss

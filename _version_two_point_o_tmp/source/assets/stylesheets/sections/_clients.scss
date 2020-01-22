@@ -1,0 +1,26 @@
+.section-clients {
+  background-color: $style-whitest;
+  min-height: 100vh;
+  color: $black-darkest;
+  border-top: 0.2rem solid $style-highlight;
+  border-bottom: 0.2rem solid $style-highlight;
+
+  > .container {
+    @include media-breakpoint-up(xs) {
+      width: 100%;
+    }
+  }
+
+  @include media-breakpoint-up(xs) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .section-header {
+    @include primary-font();
+    font-weight: bold;
+    padding: 2rem;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+  }
+}
