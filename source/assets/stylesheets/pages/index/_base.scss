@@ -39,5 +39,14 @@
         max-width: 150px;
       }
     }
+
+    @include media-breakpoint-up(lg) {
+      .row {
+        max-width: map-get($grid-breakpoints, "lg");
+        min-width: map-get($grid-breakpoints, "lg");
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
   }
 }

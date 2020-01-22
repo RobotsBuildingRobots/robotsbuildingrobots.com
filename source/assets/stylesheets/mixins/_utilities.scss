@@ -24,17 +24,11 @@
 	@include box-shadow();
 }
 
-@mixin box-shadow-top-bottom-left-sides {
+@mixin box-shadow-top-left-right-sides {
   box-shadow:
-    -0.5rem -0.5rem 0.5rem 0.25rem $black-darkest,
-    -0.5rem 0 0.5rem 0.25rem $black-darkest,
-    -0.5rem 0.5rem 0.5rem 0.25rem $black-darkest;
-}
-
-@mixin box-shadow-top-bottom-sides {
-  box-shadow:
-    -0.5rem 0 0.5rem 0.25rem $black-darkest,
-    0 0 0.5rem 0.25rem $black-darkest;
+		0 -0.25rem 0.25rem 0 $black-darkest,
+		0.25rem -0.25rem 0.25rem 0 $black-darkest,
+		-0.25rem -0.25rem 0.25rem 0 $black-darkest;
 }
 
 @function text-stroke($size: 2, $color: $style-whitest, $correction: 0) {

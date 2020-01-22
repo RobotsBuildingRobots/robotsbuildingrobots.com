@@ -26,26 +26,28 @@ section[class="container-fluid d-flex flex-column section-venn-wrapper"]
     div[class="col-12 d-lg-none venn-help"]
       |How can we help?
 
-  div[class="row section-process"]
-    div[class="col-12 summary"]
-      i[class="fas fa-thumbs-up"]
-      |Right Process
-    div[class="col-12"]
-      = data.pages.home.process
-
-  div[class="row section-metrics"]
-    div[class="col-12 summary"]
-      i[class="fas fa-thumbs-up"]
-      |Right Metrics
-    div[class="col-12"]
-      = data.pages.home.metrics
-
-  div[class="row section-values"]
-    div[class="col-12 summary"]
-      i[class="fas fa-thumbs-up"]
-      |Right Values
-    div[class="col-12"]
-      = data.pages.home.values.last
+  div[class="row section-details-wrapper"]
+    div[class="col-12 col-lg-4 d-flex flex-column"]
+      div[class="row flex-fill align-items-start section-process"]
+        div[class="col-12 summary"]
+          i[class="fas fa-thumbs-up"]
+          |Right Process
+        div[class="col-12 h-100 description"]
+          = data.pages.home.process
+    div[class="col-12 col-lg-4 d-flex flex-column"]
+      div[class="row flex-fill align-items-start section-metrics"]
+        div[class="col-12 summary"]
+          i[class="fas fa-thumbs-up"]
+          |Right Metrics
+        div[class="col-12 h-100 description"]
+          = data.pages.home.metrics
+    div[class="col-12 col-lg-4 d-flex flex-column"]
+      div[class="row flex-fill align-items-start section-values"]
+        div[class="col-12 summary"]
+          i[class="fas fa-thumbs-up"]
+          |Right Values
+        div[class="col-12 h-100 description"]
+          = data.pages.home.values.last
 
   div[class="row section-venn-call-to-action"]
     div[class="col-12"]
