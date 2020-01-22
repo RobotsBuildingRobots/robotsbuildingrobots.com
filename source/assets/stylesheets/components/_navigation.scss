@@ -17,7 +17,7 @@
       padding: 0.5rem 0;
     }
     @include media-breakpoint-up(maximum) {
-      max-width: map-get($grid-breakpoints, "lg");
+      max-width: map-get($grid-breakpoints, "md");
     }
 
     .navbar-toggler-wrapper {

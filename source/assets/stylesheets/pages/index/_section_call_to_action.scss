@@ -22,6 +22,20 @@
 
   @include media-breakpoint-up(lg) {
     min-height: calc(100vh - 80px);
+
+    .d-lg-block {
+      background: url('#{$image-path}/backgrounds/logo-blue.png') repeat-x;
+      background-size: 200px;
+      transform: translateY(-10%);
+    }
+
+    .d-lg-block:first-child {
+      background-position: right center;
+    }
+
+    .d-lg-block:last-child {
+      background-position: left center;
+    }
   }
 
   .call-to-action-wrapper {
@@ -46,6 +60,15 @@
         border-top: 0.2rem solid $black-darkest;
         padding: 0;
         margin: 0;
+
+        @include media-breakpoint-up(lg) {
+          @include box-shadow($color: $style-whitest);
+
+          border-top: none;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
 
         embed {
           @include media-breakpoint-up(xs) {

@@ -1,9 +1,9 @@
 nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
   div[class="row flex-fill mx-auto navbar-wrapper"]
-    div[class="col-12 col-lg-5 my-auto navbar-toggler-wrapper"]
+    div[class="col-12 d-block d-lg-none my-auto navbar-toggler-wrapper"]
       div[class="row"]
         div[class="col-6 col-sm-12 d-flex my-auto navbar-title"]
-          = link_to("/", class: "d-block d-lg-none") do
+          = link_to("/") do
             embed[id="company-logo" src="#{image_path('logo-blue.svg')}"]
           = link_to("/", class: 'd-none d-sm-block pt-1') do
             = data.components.social.title
@@ -15,7 +15,7 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                                                       aria-label="Toggle navigation"]
             i[id="nav-button" class="fas fa-bars"]
 
-    div[class="col-12 col-lg-7 navbar-nav-item-wrapper"]
+    div[class="col-12 navbar-nav-item-wrapper"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
           ruby:
