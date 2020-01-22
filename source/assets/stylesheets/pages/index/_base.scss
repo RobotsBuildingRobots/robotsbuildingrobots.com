@@ -1,0 +1,52 @@
+#index {
+  .video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    .video-background {
+      object-fit: cover;
+      object-position: center center;
+      width: 100%;
+      height: 100%;;
+    }
+  }
+
+  .content-wrapper {
+    @include media-breakpoint-up(xs) {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  @import "pages/index/section_call_to_action";
+  @import "pages/index/section_venn_wrapper";
+
+  .section-robot-friends {
+    background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+    padding-top: 2rem;
+    margin-bottom: -3rem;
+    text-align: center;
+
+    embed {
+      @include media-breakpoint-up(xs) {
+        width: 150px;
+        max-width: 150px;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      .row {
+        max-width: map-get($grid-breakpoints, "lg");
+        min-width: map-get($grid-breakpoints, "lg");
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

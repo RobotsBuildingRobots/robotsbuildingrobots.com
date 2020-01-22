@@ -1,0 +1,68 @@
+#cover {
+  min-width: map-get($grid-breakpoints, 'minimium') !important;
+  background-color: $style-whitest;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: $zindex-tooltip;
+
+  #preloader {
+    @include secondary-font();
+
+    font-weight: bold;
+    color: $style-highlight;
+    opacity: 0.8;
+
+    .first,
+    .last {
+      animation: pulse 0.4s alternate infinite ease-in-out;
+
+      @include media-breakpoint-up(xs) {
+        font-size: 8rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        font-size: 10rem;
+      }
+    }
+
+    .first {
+      padding-right: 0.5rem;
+    }
+
+    .middle {
+      color: $black-darkest;
+      padding-top: 1rem;
+      text-align: center;
+
+      @include media-breakpoint-up(xs) {
+        max-width: 14rem;
+        font-size: 2rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        max-width: 30rem;
+        font-size: 3rem;
+      }
+    }
+
+    .last {
+      animation-delay: 0.4s;
+      padding-left: 0.5rem;
+    }
+  }
+
+  @keyframes pulse {
+    to {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+}

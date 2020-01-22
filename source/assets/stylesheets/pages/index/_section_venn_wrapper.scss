@@ -1,0 +1,61 @@
+.section-venn-wrapper {
+  background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+  z-index: $zindex-sticky;
+
+  @include media-breakpoint-up(xs) {
+    @include box-shadow();
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include box-shadow-top-left-right-sides();
+  }
+
+  .section-process,
+  .section-metrics,
+  .section-values {
+    .col-12:last-child {
+      padding: 1.5rem;
+    }
+
+    .summary {
+      @include secondary-font;
+
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin: 0;
+      background-color: $style-whitest;
+      color: $style-highlight;
+      border-top: 0.2rem solid $style-highlight;
+      border-bottom: 0.2rem solid $style-highlight;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.4rem;
+      text-align: center;
+
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @import "pages/index/section_venn";
+
+  .section-details-wrapper {
+    padding: 1rem 0 0 0;
+
+    @include media-breakpoint-up(lg) {
+      max-width: map-get($grid-breakpoints, "lg");
+      min-width: map-get($grid-breakpoints, "lg");
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @import "pages/index/section_venn_process";
+    @import "pages/index/section_venn_metrics";
+    @import "pages/index/section_venn_values";
+  }
+
+  @import "pages/index/section_venn_call_to_action";
+}
