@@ -16,6 +16,7 @@
     @include media-breakpoint-up(xs) {
       padding: 0.5rem 0;
     }
+
     @include media-breakpoint-up(maximum) {
       max-width: map-get($grid-breakpoints, "md");
     }
