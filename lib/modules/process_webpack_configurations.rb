@@ -32,6 +32,7 @@ class ProcessWebpackConfigurations
 
   def substitute_plugins
     return remove_plugins unless development?
+
     append_plugins
     process_substitution(insert_webpack_plugins, '{{insert-webpack-plugins}}')
     process_substitution(insert_webpack_plugin_merges, '{{insert-webpack-plugin-merges}}')

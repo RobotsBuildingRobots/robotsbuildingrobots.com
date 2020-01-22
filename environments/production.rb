@@ -37,6 +37,7 @@ end
 def add_to_source(postion:, content:, view_source_file:)
   return write_footer_content(content: content, view_source_file: view_source_file) if postion == 'footer'
   return write_header_content(content: content, view_source_file: view_source_file) if postion == 'header'
+
   raise StandardError, 'Unfortunately the view source postion is not valid!'
 end
 
