@@ -1,6 +1,6 @@
 .section-metrics {
   @include media-breakpoint-up(lg) {
-    .col-12:last-child {
+    .col-12 {
       border-left: 0.2rem dotted $style-highlight;
       border-right: 0.2rem dotted $style-highlight;
     }
