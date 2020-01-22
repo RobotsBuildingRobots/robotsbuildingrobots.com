@@ -37,6 +37,7 @@ end
 helpers do
   def image_url(source)
     return image_path(source) unless external_site_configured?
+
     config[:protocol] + host_with_port + image_path(source)
   end
 
@@ -55,11 +56,13 @@ helpers do
 
   def stylesheet_link_tag(destination)
     return super(destination) unless external_site_configured?
+
     super(external_destination(prep_external_destination(destination)))
   end
 
   def javascript_include_tag(destination)
     return super(destination) unless external_site_configured?
+
     super(external_destination(prep_external_destination(destination)))
   end
 

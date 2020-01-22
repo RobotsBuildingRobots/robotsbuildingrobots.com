@@ -9,11 +9,11 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons/faHandHoldingHeart';
 
 library.add(faBars,
-            faEnvelope,
-            faDirections,
-            faProjectDiagram,
-            faDollarSign,
-            faHandHoldingHeart,
-            faThumbsUp);
+  faEnvelope,
+  faDirections,
+  faProjectDiagram,
+  faDollarSign,
+  faHandHoldingHeart,
+  faThumbsUp);
 
 dom.watch();
