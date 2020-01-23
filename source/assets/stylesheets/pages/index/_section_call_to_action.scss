@@ -24,17 +24,16 @@
     min-height: calc(100vh - 80px);
 
     .d-lg-block {
-      background: url('#{$image-path}/backgrounds/logo-blue.png') repeat-x;
-      background-size: 200px;
+      background: url('#{$image-path}/backgrounds/logo-blue.png') no-repeat;
+      background-size: 250px;
       transform: translateY(-10%);
+      background-position: center center;
     }
+  }
 
-    .d-lg-block:first-child {
-      background-position: right center;
-    }
-
-    .d-lg-block:last-child {
-      background-position: left center;
+  @include media-breakpoint-up(xl) {
+    .d-lg-block {
+      background-size: 350px;
     }
   }
 
@@ -65,7 +64,7 @@
           @include box-shadow($color: $style-whitest);
 
           border-top: none;
-          max-width: 600px;
+          max-width: map-get($grid-breakpoints, "md");
           margin-left: auto;
           margin-right: auto;
         }
@@ -86,6 +85,11 @@
 
             @include media-breakpoint-up(sm) {
               margin-left: 0;
+            }
+
+            @include media-breakpoint-up(xl) {
+              width: 600px;
+              max-width: 600px;
             }
           }
         }
