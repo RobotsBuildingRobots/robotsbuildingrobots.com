@@ -1,0 +1,40 @@
+.form-wrapper {
+  padding-top: 1rem;
+
+  .form-control {
+    border-radius: 0;
+
+    &:hover {
+      outline: $style-highlight 0.3rem solid;
+    }
+  }
+
+  .form-group {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .invalid-feedback {
+    color: $style-highlight;
+  }
+
+  .btn-primary {
+    background-color: $style-highlight;
+    border-color: $style-whitest;
+    border-radius: 0;
+    font-size: 0.9rem;
+    padding: 1rem;
+    line-height: 1.1rem;
+    text-transform: uppercase;
+
+    &:hover {
+      border-color: $black-darkest;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    &:focus {
+      @include box-shadow($blur: 0.2rem, $color: rgba(68, 27, 81, $backdrop-opacity));
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.contact-wrapper-container {
+  @include box-shadow-all-sides();
+
+  background-color: rgba(4, 1, 5, $backdrop-opacity);
+
+  @include media-breakpoint-up(xs) {
+    padding: 1.5rem 0;
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding: 1.5rem;
+  }
+
+  .contact-wrapper {
+    .header-wrapper {
+      @include secondary-font();
+
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: 1rem;
+
+      .header {
+        padding: 0 0 0.5rem 0;
+        text-transform: uppercase;
+      }
+
+      .em-svg {
+        margin: 0 0.3rem;
+        font-size: 0.7rem;
+      }
+
+      @include media-breakpoint-up(xs) {
+        line-height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      @include media-breakpoint-up(transition) {
+        line-height: 3.2rem;
+        font-size: 1.5rem;
+      }
+    }
+
+    .form-description,
+    .form-control {
+      padding: 0.5rem 0.5rem;
+    }
+
+    label,
+    .form-description,
+    .form-control {
+      @include secondary-font();
+
+      @include media-breakpoint-up(xs) {
+        font-size: 0.9rem;
+      }
+
+      a {
+        font-style: normal;
+        color: $style-highlight;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    padding: 1rem;
+
+    @include media-breakpoint-up(xs) {
+      border-top: 0.2rem $style-highlight solid;
+      border-bottom: 0.2rem $style-highlight solid;
+    }
+
+    @include media-breakpoint-up(sm) {
+      border-right: 0.2rem $style-highlight solid;
+      border-left: 0.2rem $style-highlight solid;
+    }
+
+    #connect-signature {
+      @include media-breakpoint-up(xs) {
+        max-height: 50px;
+      }
+    }
+  }
+
+  @import "form";
+}

@@ -1,3 +1,30 @@
 #contact {
+  .content-wrapper {
+    background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+    padding: 0;
+  }
 
+  .contact-wrapper-container-top-row {
+    @include media-breakpoint-up(xs) {
+      padding: 6rem 0 9rem 0;
+    }
+
+    @include media-breakpoint-up(sm) {
+      padding: 6rem 0 13rem 0;
+    }
+
+    .contact-wrapper-container-inner-row {
+      @include media-breakpoint-up(xs) {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-right: auto;
+        margin-left: initial;
+      }
+
+      @import "contact-wrapper-container";
+    }
+  }
 }
