@@ -156,6 +156,7 @@
             }
 
             @include media-breakpoint-up(lg) {
+              margin-top: 0.3rem;
               margin-right: 0.5rem;
             }
           }
@@ -228,7 +229,10 @@
         li.active {
           background-color: $style-highlight;
           font-weight: bold;
-          color: $white;
+
+          a {
+            color: $black-darkest;
+          }
 
           @include media-breakpoint-up(sm) {
             @include box-shadow($color: $style-highlight);

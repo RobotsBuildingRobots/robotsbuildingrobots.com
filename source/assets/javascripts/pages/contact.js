@@ -7,7 +7,7 @@ export default () => {
 
   $.validator.setDefaults({
     submitHandler() {
-      const $socialEmail = 'founders@robotsbuildingrobots.com';
+      const $socialEmail = 'sales@robotsbuildingrobots.com';
       const $inputFirstName = $('#input-first-name').val();
       const $inputLastName = $('#input-last-name').val();
       const $inputEmail = $('#input-email').val();

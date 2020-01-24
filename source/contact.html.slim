@@ -4,7 +4,7 @@ title: Contact
 slug: contact
 layout: page
 ---
-div[class="container-fluid d-flex flex-column flex-fill contact-wrapper-container-top-row"]
+section[class="container-fluid d-flex flex-column flex-fill contact-wrapper-container-top-row"]
   div[class="row no-gutters w-100 mx-auto my-auto"]
     div[class="d-none d-xl-block col-xl-4 col-xxl-3 col-xxxl-2 my-auto ml-auto personal-data-help-graphic"]
       |TBD
@@ -16,8 +16,6 @@ div[class="container-fluid d-flex flex-column flex-fill contact-wrapper-containe
             div[class="col-12 mx-auto header-wrapper"]
               span[class="header"]
                 |How can we help you?
-            div[class="col-12 form-description"]
-              |TBD
             div[class="col-12 form-description"]
               |TBD
             div[class="col-12"]
@@ -46,3 +44,17 @@ div[class="container-fluid d-flex flex-column flex-fill contact-wrapper-containe
                   div[class="form-group col-12"]
                     button[type="submit" id="send-button" class="btn btn-primary btn-lg btn-block"]
                       |Generate Email
+
+section[class="container-fluid section-robot-friends"]
+  div[class="row call-to-action"]
+    div[class="col-12"]
+      |It doesn't have to be crazy at work!
+  div[class="row"]
+    div[class="col-12 d-sm-none"]
+      embed[src="#{image_path('contact-child-one-with-heart.svg')}"]
+    div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
+      embed[src="#{image_path('contact-heart.svg')}"]
+    div[class="col-12 col-sm-4 d-none d-sm-block"]
+      embed[src="#{image_path('contact-child-one-with-heart.svg')}"]
+    div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
+      embed[src="#{image_path('contact-heart.svg')}"]
