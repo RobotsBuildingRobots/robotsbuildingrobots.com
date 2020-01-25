@@ -10,8 +10,14 @@
       padding: 4rem 0 2rem 0;
     }
 
-    @include media-breakpoint-up(sm) {
-
+    @include media-breakpoint-up(xl) {
+      .d-xl-block:first-child,
+      .d-xxl-block {
+        background: url('#{$image-path}/backgrounds/logo-blue.png') no-repeat;
+        background-size: 400px;
+        background-position: top;
+        min-height: 600px;
+      }
     }
 
     .contact-wrapper-container-inner-row {
@@ -51,6 +57,10 @@
       padding: 1rem;
       font-weight: bold;
       font-size: 1.4rem;
+
+      @include media-breakpoint-up(lg) {
+        padding-bottom: 4rem;
+      }
     }
 
     @include media-breakpoint-up(xs) {
