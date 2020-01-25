@@ -18,7 +18,7 @@
     }
 
     @include media-breakpoint-up(maximum) {
-      max-width: map-get($grid-breakpoints, "md");
+      max-width: map-get($grid-breakpoints, "lg");
     }
 
     .navbar-toggler-wrapper {
@@ -237,6 +237,10 @@
 
           a {
             color: $black-darkest;
+          }
+
+          @include media-breakpoint-up(sm) {
+            @include box-shadow($color: $style-highlight);
           }
         }
       }

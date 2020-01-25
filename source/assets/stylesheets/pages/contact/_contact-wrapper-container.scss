@@ -69,17 +69,14 @@
     @include media-breakpoint-up(xs) {
       border-top: 0.2rem $style-highlight solid;
       border-bottom: 0.2rem $style-highlight solid;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
 
     @include media-breakpoint-up(sm) {
       border-right: 0.2rem $style-highlight solid;
       border-left: 0.2rem $style-highlight solid;
-    }
-
-    #connect-signature {
-      @include media-breakpoint-up(xs) {
-        max-height: 50px;
-      }
+      padding: 1rem;
     }
   }
 

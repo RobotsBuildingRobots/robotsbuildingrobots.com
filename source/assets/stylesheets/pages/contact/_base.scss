@@ -11,12 +11,21 @@
     }
 
     @include media-breakpoint-up(xl) {
-      .d-xl-block:first-child,
-      .d-xxl-block {
-        background: url('#{$image-path}/backgrounds/logo-blue.png') no-repeat;
-        background-size: 400px;
-        background-position: top;
-        min-height: 600px;
+      .d-xl-block {
+        text-align: center;
+
+        embed {
+          width: 450px;
+          max-width: 650px;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xxl) {
+      .d-xl-block {
+        embed {
+          width: 650px;
+        }
       }
     }
 
