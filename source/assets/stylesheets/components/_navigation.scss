@@ -149,10 +149,6 @@
           &:hover {
             background-color: $style-highlight;
             color: $white;
-
-            @include media-breakpoint-up(sm) {
-              @include box-shadow($color: $style-highlight);
-            }
           }
 
           .nav-icon {
