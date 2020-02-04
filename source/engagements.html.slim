@@ -4,14 +4,19 @@ title: Engagements
 slug: engagements
 layout: page
 ---
-
-
 section[class="row"]
   div[class="col-12"]
-    div[class="card"]
-      img[class="card-img-top" src="https://via.placeholder.com/280x180.png" alt="Card image cap"]
-      div[class="card-body"]
-        h5[class="card-title"]
-          |Card title
-        p[class="card-text"]
-          |Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    - data.pages.engagements.sort_by { |k| k["id"] }.reverse.each do |engagement|
+      div[class="card"]
+        embed[class="card-img-top" src="#{image_path('engagements/' + engagement.logo + '.svg')}"]
+        div[class="card-body"]
+          h5[class="card-company"]
+            = engagement.company
+          p[class="card-text"]
+            = engagement.description
+
+section[class="row section-robot-friends"]
+  div[class="col-12 call-to-action"]
+    |Let us help!
+  div[class="col-12"]
+    embed[src="#{image_path('robot-engagements-heart.svg')}"]
