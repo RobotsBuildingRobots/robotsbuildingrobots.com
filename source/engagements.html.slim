@@ -4,9 +4,9 @@ title: Engagements
 slug: engagements
 layout: page
 ---
-section[class="row"]
-  div[class="col-12"]
-    - data.pages.engagements.sort_by { |k| k["id"] }.reverse.each do |engagement|
+section[class="row equal mx-auto"]
+  - data.pages.engagements.sort_by { |k| k["id"] }.reverse.each do |engagement|
+    div[class="col-12 col-lg-6 d-flex"]
       div[class="card"]
         embed[class="card-img-top mx-auto" src="#{image_path('engagements/' + engagement.logo + '.svg')}"]
         div[class="card-body"]
@@ -15,7 +15,16 @@ section[class="row"]
           p[class="card-text"]
             = engagement.description
 
-section[class="row section-robot-friends"]
+  div[class="col-12 col-lg-6 d-flex d-none d-lg-block"]
+    div[class="card"]
+      embed[src="#{image_path('robot-engagements-crane-black.svg')}"]
+      div[class="card-body"]
+        h5[class="card-company"]
+          |Let us help!
+        p[class="card-text"]
+          = data.pages.contact.action
+
+section[class="row d-lg-none section-robot-friends"]
   div[class="col-12 call-to-action"]
     |Let us help!
   div[class="col-12 d-sm-none"]
@@ -23,6 +32,6 @@ section[class="row section-robot-friends"]
   div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
     embed[src="#{image_path('robot-engagements-heart.svg')}"]
   div[class="col-12 col-sm-4 d-none d-sm-block"]
-    embed[src="#{image_path('robot-engagements-crane.svg')}"]
+    embed[src="#{image_path('robot-engagements-crane-white.svg')}"]
   div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
     embed[src="#{image_path('robot-engagements-heart.svg')}"]
