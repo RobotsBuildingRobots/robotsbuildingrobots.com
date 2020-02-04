@@ -9,11 +9,21 @@
       padding: 0;
       margin: 0;
     }
+  }
 
-    @include media-breakpoint-up(maximum) {
-      .row:first-child {
-        max-width: map-get($grid-breakpoints, "lg");
-      }
+  @include media-breakpoint-up(xl) {
+    .d-xl-block {
+      background: url('#{$image-path}/backgrounds/logo-blue.png') no-repeat;
+      background-size: 500px;
+      transform: translateY(-10%);
+    }
+
+    .d-xl-block:first-child {
+      background-position: right center;
+    }
+
+    .d-xl-block:last-child {
+      background-position: left center;
     }
   }
 
@@ -71,7 +81,7 @@
       margin-bottom: 2rem;
 
       @include media-breakpoint-up(lg) {
-        padding-bottom: 4rem;
+        padding-bottom: 3rem;
       }
     }
 

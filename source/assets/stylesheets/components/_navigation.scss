@@ -234,10 +234,6 @@
           a {
             color: $black-darkest;
           }
-
-          @include media-breakpoint-up(sm) {
-            @include box-shadow($color: $style-highlight);
-          }
         }
       }
     }
