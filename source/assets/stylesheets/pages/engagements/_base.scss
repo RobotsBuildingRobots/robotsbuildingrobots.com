@@ -1,0 +1,21 @@
+#engagements {
+  .content-wrapper {
+    background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+    min-height: 100vh;
+
+    @include media-breakpoint-up(xs) {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .card {
+    border-radius: 0;
+  }
+
+
+
+
+
+  color: #000;
+}

@@ -27,14 +27,14 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                 span[class="nav-description"]
                   |Products
           ruby:
-            active_class = current_page.data.id == 'projects' ? 'active' : ''
+            active_class = current_page.data.id == 'engagements' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
 
-            = link_to("/projects/", class: "nav-link") do
+            = link_to("/engagements/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="fas fa-project-diagram nav-icon"]
                 span[class="nav-description"]
-                  |Projects
+                  |Engagements
 
           ruby:
             active_class = current_page.data.id == 'contact' ? 'active' : ''
