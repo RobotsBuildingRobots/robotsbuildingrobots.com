@@ -1,7 +1,7 @@
 .navbar {
   @include box-shadow();
 
-  color: $white;
+  color: $style-whitest;
   background-color: $black-darkest;
   width: 100%;
   padding-right: 0;
@@ -27,7 +27,7 @@
         padding-left: 5px;
 
         a {
-          color: $white;
+          color: $style-whitest;
           text-decoration: none;
         }
 
@@ -62,11 +62,11 @@
         }
 
         .navbar-toggler {
-          color: $white;
+          color: $style-whitest;
           font-size: 1.25rem;
           line-height: 1;
           background-color: transparent;
-          border: 1px solid $white;
+          border: 1px solid $style-whitest;
           border-radius: 0.25rem;
           cursor: pointer;
           outline: none;
@@ -147,8 +147,21 @@
           }
 
           &:hover {
-            background-color: $style-highlight;
-            color: $white;
+            @include media-breakpoint-up(xs) {
+              background-color: $style-highlight;
+
+              a {
+                color: $style-whitest;
+              }
+            }
+
+            @include media-breakpoint-up(lg) {
+              background-color: $black-darkest;
+
+              a {
+                color: $style-highlight;
+              }
+            }
           }
 
           .nav-icon {
@@ -163,12 +176,8 @@
           }
 
           .nav-link {
-            color: $gray-300;
+            color: $style-whitest;
             padding: 0;
-
-            &:hover {
-              color: $white;
-            }
 
             @include media-breakpoint-up(xs) {
               @include secondary-font();
@@ -193,7 +202,7 @@
               @include primary-font();
 
               font-size: 1rem;
-              padding: 0.9rem 0.5rem;
+              padding: 0.8rem 0.5rem;
 
               .nav-button {
                 border-right: none;
@@ -228,11 +237,23 @@
         }
 
         li.active {
-          background-color: $style-highlight;
           font-weight: bold;
 
-          a {
-            color: $black-darkest;
+          @include media-breakpoint-up(xs) {
+            background-color: $style-highlight;
+
+            a {
+              color: $black-darkest;
+            }
+          }
+
+          @include media-breakpoint-up(lg) {
+            background-color: $black-darkest;
+            border-bottom: 0.15rem solid $style-highlight;
+
+            a {
+              color: $style-highlight;
+            }
           }
         }
       }

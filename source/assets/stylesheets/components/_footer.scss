@@ -2,7 +2,7 @@ footer {
   @include box-shadow();
   @include drop-shadow();
 
-  color: $white;
+  color: $style-whitest;
   background-color: $black-darkest;
   padding: 0.5rem 0;
   z-index: $zindex-fixed;
@@ -13,7 +13,7 @@ footer {
     text-align: center;
 
     a {
-      color: $white;
+      color: $style-whitest;
       text-decoration: underline;
     }
 
