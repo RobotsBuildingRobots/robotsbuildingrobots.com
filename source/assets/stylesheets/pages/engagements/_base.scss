@@ -9,6 +9,12 @@
       padding: 0;
       margin: 0;
     }
+
+    @include media-breakpoint-up(lg) {
+      .row:first-child {
+        flex-grow: 1;
+      }
+    }
   }
 
   @include media-breakpoint-up(xl) {
@@ -24,6 +30,16 @@
 
     .d-xl-block:last-child {
       background-position: left center;
+    }
+  }
+
+  .contact-us {
+    @include media-breakpoint-up(xs) {
+      display: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
     }
   }
 
@@ -47,7 +63,7 @@
       embed {
         max-width: 500px;
         max-height: 100px;
-        padding: 0 1rem;
+        padding: 0.5rem 1rem;
       }
     }
 
@@ -81,7 +97,7 @@
       margin-bottom: 2rem;
 
       @include media-breakpoint-up(lg) {
-        padding-bottom: 3rem;
+        padding-bottom: 2rem;
       }
     }
 
