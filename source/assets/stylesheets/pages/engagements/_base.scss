@@ -73,6 +73,33 @@
     }
   }
 
+  .btn-primary {
+    @include secondary-font();
+
+    @include media-breakpoint-up(xs) {
+      margin-left: 1rem;
+      color: $style-highlight;
+      background-color: $style-whitest;
+      border-color: $style-whitest;
+      border-radius: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        color: $style-whitest;
+        background-color: $style-highlight;
+        border-color: $style-whitest;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-left: 0;
+      color: $style-highlight;
+      background-color: $style-whitest;
+      border-color: $style-highlight;
+    }
+  }
+
   .section-robot-friends {
     margin-bottom: -3rem;
     text-align: center;

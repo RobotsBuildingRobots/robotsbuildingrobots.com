@@ -2,6 +2,13 @@
   min-height: 100vh !important;
   padding: 200px 0 0 0 !important;
   margin: -200px 0 0 0 !important;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  height: 750px;
 }
 
 .section-call-to-action {

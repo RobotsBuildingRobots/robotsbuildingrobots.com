@@ -26,6 +26,8 @@ section[class="row"]
               |Let us help!
             p[class="card-text"]
               = data.pages.contact.action
+            = link_to("/contact/", class: "btn btn-primary") do
+              | Contact Us
 
   div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
 
@@ -36,6 +38,8 @@ section[class="row d-none d-lg-block section-robot-friends"]
 section[class="row d-lg-none section-robot-friends"]
   div[class="col-12 call-to-action"]
     |Let us help!
+    = link_to("/contact/", class: "btn btn-primary") do
+      | Contact Us
   div[class="col-12 d-sm-none"]
     embed[src="#{image_path('robot-engagements-heart.svg')}"]
   div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
