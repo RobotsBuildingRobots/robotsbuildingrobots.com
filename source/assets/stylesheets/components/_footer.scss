@@ -1,11 +1,9 @@
 footer {
-  @include box-shadow();
-  @include drop-shadow();
-
   color: $style-whitest;
   background-color: $black-darkest;
   padding: 0.5rem 0;
   z-index: $zindex-fixed;
+  margin-top: 0.5rem;
 
   .row {
     font-size: 0.9rem;

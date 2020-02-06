@@ -49,6 +49,7 @@
   .section-call-to-action {
     @include secondary-font;
 
+    margin-top: 2rem;
     border-top: 0.2rem solid $style-whitest;
     border-bottom: 0.2rem solid $style-whitest;
     background-color: $style-highlight;
