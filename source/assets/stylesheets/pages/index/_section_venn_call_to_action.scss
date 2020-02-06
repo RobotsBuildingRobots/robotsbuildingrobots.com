@@ -10,12 +10,4 @@
   padding: 1rem;
   font-weight: bold;
   font-size: 1.4rem;
-
-  @include media-breakpoint-up(lg) {
-    max-width: map-get($grid-breakpoints, "lg");
-    border-right: 0.2rem solid $style-whitest;
-    border-left: 0.2rem solid $style-whitest;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }

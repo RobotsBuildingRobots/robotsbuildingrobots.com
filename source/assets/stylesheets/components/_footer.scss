@@ -22,7 +22,6 @@ footer {
     }
 
     @include media-breakpoint-up(sm) {
-      border-top: 0.15rem solid $style-highlight;
       padding-top: 1rem;
 
       @include media-breakpoint-up(lg) {

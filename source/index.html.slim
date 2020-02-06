@@ -14,8 +14,7 @@ section[class="container-fluid d-flex flex-column flex-fill justify-content-cent
 
 section[class="container-fluid d-flex flex-column section-venn-wrapper"]
   div[class="row"]
-    div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
-    div[class="col-12 col-xl-8 col-xxl-6"]
+    div[class="col-12"]
       div[class="row section-venn"]
         a[name='aboutus']
         div[class="col-12 venn-inform"]
@@ -28,6 +27,9 @@ section[class="container-fluid d-flex flex-column section-venn-wrapper"]
         div[class="col-12 d-lg-none venn-help"]
           |How can we help?
 
+  div[class="row"]
+    div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
+    div[class="col-12 col-xl-8 col-xxl-6"]
       div[class="row section-details-wrapper"]
         div[class="col-12 col-lg-4 d-flex flex-column"]
           div[class="row flex-fill align-items-start section-process"]
@@ -50,19 +52,8 @@ section[class="container-fluid d-flex flex-column section-venn-wrapper"]
               |Right Values
             div[class="col-12 h-100 description"]
               = data.pages.home.values.last
-
-      div[class="row section-venn-call-to-action"]
-        div[class="col-12"]
-          |It doesn't have to be crazy at work!
     div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
 
-section[class="container-fluid section-robot-friends"]
-  div[class="row"]
-    div[class="col-12 d-sm-none"]
-      embed[src="#{image_path('robot-home-child-three-with-heart.svg')}"]
-    div[class="col-12 col-sm-4 d-none d-sm-block"]
-      embed[src="#{image_path('robot-home-child-three-without-heart.svg')}"]
-    div[class="col-12 col-sm-4 d-none d-sm-block"]
-      embed[src="#{image_path('robot-home-heart.svg')}"]
-    div[class="col-12 col-sm-4 d-none d-sm-block"]
-      embed[src="#{image_path('robot-home-child-two.svg')}"]
+  div[class="row section-venn-call-to-action"]
+    div[class="col-12"]
+      |It doesn't have to be crazy at work!
