@@ -15,17 +15,9 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                                                       aria-label="Toggle navigation"]
             i[id="nav-button" class="fas fa-bars"]
 
-    div[class="col-12 col-lg-6 navbar-nav-item-wrapper"]
+    div[class="col-12 col-lg-3 navbar-nav-item-wrapper"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
-          ruby:
-            active_class = current_page.data.id == 'products' ? 'active' : ''
-          li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/products/", class: "nav-link") do
-                span[class="nav-button"]
-                  i[class="fas fa-dollar-sign nav-icon"]
-                span[class="nav-description"]
-                  |Products
           ruby:
             active_class = current_page.data.id == 'engagements' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]

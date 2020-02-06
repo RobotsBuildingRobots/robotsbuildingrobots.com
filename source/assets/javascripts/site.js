@@ -3,7 +3,6 @@ import navigation from './components/navigation';
 import index from './pages/index';
 import contact from './pages/contact';
 import engagements from './pages/engagements';
-import products from './pages/products';
 
 const hidePreloader = () => {
   $('#preloader').fadeOut(1000, () => {
@@ -27,9 +26,6 @@ $(document).ready(() => {
       break;
     case 'engagements':
       engagements();
-      break;
-    case 'products':
-      products();
       break;
     default:
       break;
