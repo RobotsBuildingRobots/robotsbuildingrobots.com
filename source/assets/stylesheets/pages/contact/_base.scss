@@ -1,0 +1,81 @@
+#contact {
+  .content-wrapper {
+    background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .contact-wrapper-container-top-row {
+    @include media-breakpoint-up(xs) {
+      padding: 4rem 0 2rem 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+      .d-xl-block {
+        text-align: center;
+
+        embed {
+          width: 450px;
+          max-width: 650px;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xxl) {
+      .d-xl-block {
+        embed {
+          width: 650px;
+        }
+      }
+    }
+
+    .contact-wrapper-container-inner-row {
+      @include media-breakpoint-up(xs) {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-right: auto;
+        margin-left: initial;
+      }
+
+      @import "contact-wrapper-container";
+    }
+  }
+
+  .section-robot-friends {
+    padding-top: 2rem;
+    margin-bottom: -3rem;
+    text-align: center;
+
+    embed {
+      @include media-breakpoint-up(xs) {
+        width: 150px;
+        max-width: 150px;
+      }
+    }
+
+    .call-to-action {
+      border-top: 0.2rem solid $style-whitest;
+      border-bottom: 0.2rem solid $style-whitest;
+      background-color: $style-highlight;
+      color: $style-whitest;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.4rem;
+
+      @include media-breakpoint-up(lg) {
+        padding-bottom: 4rem;
+      }
+    }
+
+    @include media-breakpoint-up(xs) {
+      .row:last-child {
+        padding-top: 2rem;
+      }
+    }
+  }
+}

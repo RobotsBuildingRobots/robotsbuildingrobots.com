@@ -12,6 +12,22 @@
     @include box-shadow-top-left-right-sides();
   }
 
+  @include media-breakpoint-up(xl) {
+    .d-xl-block {
+      background: url('#{$image-path}/backgrounds/logo-blue.png') no-repeat;
+      background-size: 500px;
+      transform: translateY(-10%);
+    }
+
+    .d-xl-block:first-child {
+      background-position: right center;
+    }
+
+    .d-xl-block:last-child {
+      background-position: left center;
+    }
+  }
+
   .section-process,
   .section-metrics,
   .section-values {
@@ -47,7 +63,6 @@
 
     @include media-breakpoint-up(lg) {
       max-width: map-get($grid-breakpoints, "lg");
-      min-width: map-get($grid-breakpoints, "lg");
       margin-left: auto;
       margin-right: auto;
     }

@@ -1,0 +1,50 @@
+---
+id: engagements
+title: Engagements
+slug: engagements
+layout: page
+---
+section[class="row"]
+  div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
+  div[class="col-12 col-xl-8 col-xxl-6"]
+    div[class="row"]
+      - data.pages.engagements.sort_by { |k| k["id"] }.reverse.each do |engagement|
+        div[class="col-12 col-lg-6 d-flex"]
+          div[class="card"]
+            embed[class="card-img-top mx-auto" src="#{image_path('engagements/' + engagement.logo + '.svg')}"]
+            div[class="card-body"]
+              h5[class="card-company"]
+                = engagement.company
+              p[class="card-text"]
+                = engagement.description
+
+      div[class="col-12 col-lg-6 contact-us"]
+        div[class="card"]
+          embed[class="card-img-top mx-auto" src="#{image_path('robot-engagements-crane-black.svg')}"]
+          div[class="card-body"]
+            h5[class="card-company"]
+              |Let us help!
+            p[class="card-text"]
+              = data.pages.contact.action
+            = link_to("/contact/", class: "btn btn-primary") do
+              | Contact Us
+
+  div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
+
+section[class="row d-none d-lg-block section-robot-friends"]
+  div[class="col-12 call-to-action"]
+    |It doesn't have to be crazy at work!
+
+section[class="row d-lg-none section-robot-friends"]
+  div[class="col-12 call-to-action"]
+    |Let us help!
+    = link_to("/contact/", class: "btn btn-primary") do
+      | Contact Us
+  div[class="col-12 d-sm-none"]
+    embed[src="#{image_path('robot-engagements-heart.svg')}"]
+  div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
+    embed[src="#{image_path('robot-engagements-heart.svg')}"]
+  div[class="col-12 col-sm-4 d-none d-sm-block"]
+    embed[src="#{image_path('robot-engagements-crane-white.svg')}"]
+  div[class="col-12 col-sm-4 mt-auto d-none d-sm-block"]
+    embed[src="#{image_path('robot-engagements-heart.svg')}"]

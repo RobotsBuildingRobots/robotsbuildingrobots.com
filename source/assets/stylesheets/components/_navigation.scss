@@ -1,7 +1,7 @@
 .navbar {
   @include box-shadow();
 
-  color: $white;
+  color: $style-whitest;
   background-color: $black-darkest;
   width: 100%;
   padding-right: 0;
@@ -18,7 +18,7 @@
     }
 
     @include media-breakpoint-up(maximum) {
-      max-width: map-get($grid-breakpoints, "md");
+      max-width: map-get($grid-breakpoints, "lg");
     }
 
     .navbar-toggler-wrapper {
@@ -27,7 +27,7 @@
         padding-left: 5px;
 
         a {
-          color: $white;
+          color: $style-whitest;
           text-decoration: none;
         }
 
@@ -62,11 +62,11 @@
         }
 
         .navbar-toggler {
-          color: $white;
+          color: $style-whitest;
           font-size: 1.25rem;
           line-height: 1;
           background-color: transparent;
-          border: 1px solid $white;
+          border: 1px solid $style-whitest;
           border-radius: 0.25rem;
           cursor: pointer;
           outline: none;
@@ -135,6 +135,11 @@
 
           @include media-breakpoint-up(lg) {
             &:first-child,
+            &:not(:last-child) {
+              margin-right: 2rem;
+            }
+
+            &:first-child,
             &:not(:first-child),
             &:last-child {
               border: none;
@@ -142,11 +147,20 @@
           }
 
           &:hover {
-            background-color: $style-highlight;
-            color: $white;
+            @include media-breakpoint-up(xs) {
+              background-color: $style-highlight;
 
-            @include media-breakpoint-up(sm) {
-              @include box-shadow($color: $style-highlight);
+              a {
+                color: $style-whitest;
+              }
+            }
+
+            @include media-breakpoint-up(lg) {
+              background-color: $black-darkest;
+
+              a {
+                color: $style-highlight;
+              }
             }
           }
 
@@ -156,17 +170,14 @@
             }
 
             @include media-breakpoint-up(lg) {
+              margin-top: 0.3rem;
               margin-right: 0.5rem;
             }
           }
 
           .nav-link {
-            color: $gray-300;
+            color: $style-whitest;
             padding: 0;
-
-            &:hover {
-              color: $white;
-            }
 
             @include media-breakpoint-up(xs) {
               @include secondary-font();
@@ -191,7 +202,7 @@
               @include primary-font();
 
               font-size: 1rem;
-              padding: 0.9rem 0.5rem;
+              padding: 0.8rem 0.5rem;
 
               .nav-button {
                 border-right: none;
@@ -226,12 +237,23 @@
         }
 
         li.active {
-          background-color: $black-medium-light;
           font-weight: bold;
-          color: $white;
 
-          @include media-breakpoint-up(sm) {
-            @include box-shadow($color: $style-highlight);
+          @include media-breakpoint-up(xs) {
+            background-color: $style-highlight;
+
+            a {
+              color: $black-darkest;
+            }
+          }
+
+          @include media-breakpoint-up(lg) {
+            background-color: $black-darkest;
+            border-bottom: 0.15rem solid $style-highlight;
+
+            a {
+              color: $style-highlight;
+            }
           }
         }
       }

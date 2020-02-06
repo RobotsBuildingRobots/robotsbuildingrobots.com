@@ -1,6 +1,6 @@
 nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
   div[class="row flex-fill mx-auto navbar-wrapper"]
-    div[class="col-12 d-block d-lg-none my-auto navbar-toggler-wrapper"]
+    div[class="col-12 col-lg-6 my-auto navbar-toggler-wrapper"]
       div[class="row"]
         div[class="col-6 col-sm-12 d-flex my-auto navbar-title"]
           = link_to("/") do
@@ -15,31 +15,22 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                                                       aria-label="Toggle navigation"]
             i[id="nav-button" class="fas fa-bars"]
 
-    div[class="col-12 navbar-nav-item-wrapper"]
+    div[class="col-12 col-lg-3 navbar-nav-item-wrapper"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
           ruby:
-            active_class = current_page.data.id == 'products' ? 'active' : ''
+            active_class = current_page.data.id == 'engagements' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/products/", class: "nav-link") do
-                span[class="nav-button"]
-                  i[class="fas fa-dollar-sign nav-icon"]
-                span[class="nav-description"]
-                  |Products
-          ruby:
-            active_class = current_page.data.id == 'projects' ? 'active' : ''
-          li[class="nav-item flex-fill #{active_class}"]
-
-            = link_to("/projects/", class: "nav-link") do
+            = link_to("/engagements/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="fas fa-project-diagram nav-icon"]
                 span[class="nav-description"]
-                  |Projects
+                  |Engagements
 
           ruby:
-            active_class = current_page.data.id == 'contact-me' ? 'active' : ''
+            active_class = current_page.data.id == 'contact' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/contact-me/", class: "nav-link") do
+            = link_to("/contact/", class: "nav-link") do
                 span[class="nav-button"]
                   i[class="far fa-envelope nav-icon"]
                 span[class="nav-description"]

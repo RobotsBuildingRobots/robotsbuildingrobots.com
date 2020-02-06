@@ -1,0 +1,10 @@
+= partial "partials/layout/document" do
+  = partial "partials/components/header"
+  = partial "partials/layout/body" do
+    = partial "partials/components/navigation"
+
+    main[class="container-fluid d-flex flex-column flex-fill content-wrapper"]
+      == yield
+
+    = partial "partials/components/javascript"
+    = partial "partials/components/footer"

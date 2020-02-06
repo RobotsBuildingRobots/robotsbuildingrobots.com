@@ -1,57 +1,60 @@
 ---
 layout: index
 ---
-
 section[class="container-fluid d-flex flex-column flex-fill justify-content-center section-call-to-action"]
   div[class="row call-to-action-wrapper"]
-    div[class="col-12 col-lg-3 col-xl-4 d-none d-lg-block"]
-    div[class="col-12 col-lg-6 col-xl-4 call-to-action"]
+    div[class="col-12 col-lg-3 col-xl-3 col-xxl-4 d-none d-lg-block"]
+    div[class="col-12 col-lg-6 col-xl-6 col-xxl-4 call-to-action"]
       div[class="embed-wrapper"]
         embed[src="#{image_path('robot-home-page.svg')}"]
         a[href='#aboutus']
           div[class="embed-explained"]
             |Tell me what this means!
-    div[class="col-12 col-lg-3 col-xl-4 d-none d-lg-block"]
+    div[class="col-12 col-lg-3 col-xl-3 col-xxl-4 d-none d-lg-block"]
 
 section[class="container-fluid d-flex flex-column section-venn-wrapper"]
-  div[class="row section-venn"]
-    a[name='aboutus']
-    div[class="col-12 venn-inform"]
-      span
-        |Inspired by real events!
-      span[class="d-none"]
-        |How can we help?
-    div[class="col-12 col-12 d-flex justify-content-center"]
-      embed[src="#{image_path('venn-our-philosophies.svg')}"]
-    div[class="col-12 d-lg-none venn-help"]
-      |How can we help?
+  div[class="row"]
+    div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
+    div[class="col-12 col-xl-8 col-xxl-6"]
+      div[class="row section-venn"]
+        a[name='aboutus']
+        div[class="col-12 venn-inform"]
+          span
+            |Inspired by real events!
+          span[class="d-none"]
+            |How can we help?
+        div[class="col-12 col-12 d-flex justify-content-center"]
+          embed[src="#{image_path('venn-our-philosophies.svg')}"]
+        div[class="col-12 d-lg-none venn-help"]
+          |How can we help?
 
-  div[class="row section-details-wrapper"]
-    div[class="col-12 col-lg-4 d-flex flex-column"]
-      div[class="row flex-fill align-items-start section-process"]
-        div[class="col-12 summary"]
-          i[class="fas fa-thumbs-up"]
-          |Right Process
-        div[class="col-12 h-100 description"]
-          = data.pages.home.process
-    div[class="col-12 col-lg-4 d-flex flex-column"]
-      div[class="row flex-fill align-items-start section-metrics"]
-        div[class="col-12 summary"]
-          i[class="fas fa-thumbs-up"]
-          |Right Metrics
-        div[class="col-12 h-100 description"]
-          = data.pages.home.metrics
-    div[class="col-12 col-lg-4 d-flex flex-column"]
-      div[class="row flex-fill align-items-start section-values"]
-        div[class="col-12 summary"]
-          i[class="fas fa-thumbs-up"]
-          |Right Values
-        div[class="col-12 h-100 description"]
-          = data.pages.home.values.last
+      div[class="row section-details-wrapper"]
+        div[class="col-12 col-lg-4 d-flex flex-column"]
+          div[class="row flex-fill align-items-start section-process"]
+            div[class="col-12 summary"]
+              i[class="fas fa-thumbs-up"]
+              |Right Process
+            div[class="col-12 h-100 description"]
+              = data.pages.home.process
+        div[class="col-12 col-lg-4 d-flex flex-column"]
+          div[class="row flex-fill align-items-start section-metrics"]
+            div[class="col-12 summary"]
+              i[class="fas fa-thumbs-up"]
+              |Right Metrics
+            div[class="col-12 h-100 description"]
+              = data.pages.home.metrics
+        div[class="col-12 col-lg-4 d-flex flex-column"]
+          div[class="row flex-fill align-items-start section-values"]
+            div[class="col-12 summary"]
+              i[class="fas fa-thumbs-up"]
+              |Right Values
+            div[class="col-12 h-100 description"]
+              = data.pages.home.values.last
 
-  div[class="row section-venn-call-to-action"]
-    div[class="col-12"]
-      |It doesn't have to be crazy at work!
+      div[class="row section-venn-call-to-action"]
+        div[class="col-12"]
+          |It doesn't have to be crazy at work!
+    div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block"]
 
 section[class="container-fluid section-robot-friends"]
   div[class="row"]
