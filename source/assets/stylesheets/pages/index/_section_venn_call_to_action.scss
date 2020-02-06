@@ -10,4 +10,20 @@
   padding: 1rem;
   font-weight: bold;
   font-size: 1.4rem;
+
+  @include media-breakpoint-up(xs) {
+    span {
+      display: block;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    span {
+      display: inline;
+
+      &:first-child {
+        padding-right: 0.5rem;
+      }
+    }
+  }
 }

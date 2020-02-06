@@ -18,11 +18,11 @@
       transform: translateY(-10%);
     }
 
-    .d-xl-block:first-child {
+    .d-xl-block.left {
       background-position: right top;
     }
 
-    .d-xl-block:last-child {
+    .d-xl-block.right {
       background-position: left top;
     }
   }
@@ -30,8 +30,8 @@
   .section-process,
   .section-metrics,
   .section-values {
-    .col-12:last-child {
-      padding: 1.5rem;
+    .description {
+      padding: 1.5rem 2.5rem;
     }
 
     .summary {
