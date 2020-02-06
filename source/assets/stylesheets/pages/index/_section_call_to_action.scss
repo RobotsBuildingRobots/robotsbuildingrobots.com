@@ -11,6 +11,9 @@
 }
 
 .section-call-to-action {
+  margin-left: 0;
+  margin-right: 0;
+
   @include media-breakpoint-up(xs) {
     min-height: calc(100vh - 80px);
   }
