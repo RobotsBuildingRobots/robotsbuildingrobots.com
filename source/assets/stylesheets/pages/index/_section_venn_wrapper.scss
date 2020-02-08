@@ -27,6 +27,16 @@
     }
   }
 
+  @include media-breakpoint-up(xxl) {
+    .d-xl-block.left {
+      background-position: center center;
+    }
+
+    .d-xl-block.right {
+      background-position: center center;
+    }
+  }
+
   .section-process,
   .section-metrics,
   .section-values {
@@ -68,6 +78,10 @@
       height: 325px;
       width: 350px;
       max-width: 350px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: 600px;
     }
   }
 

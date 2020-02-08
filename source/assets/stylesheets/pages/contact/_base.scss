@@ -9,7 +9,6 @@
   .contact-wrapper-container-top-row {
     @include media-breakpoint-up(xs) {
       padding: 4rem 0 0 0;
-      min-height: 100vh;
     }
 
     @include media-breakpoint-up(xl) {
@@ -29,6 +28,10 @@
           width: 650px;
         }
       }
+    }
+
+    .contact-wrapper-container-middle-row {
+      min-height: 100vh;
     }
 
     .contact-wrapper-container-inner-row {
