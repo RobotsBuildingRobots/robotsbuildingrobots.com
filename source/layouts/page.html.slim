@@ -3,7 +3,7 @@
   = partial "partials/layout/body" do
     = partial "partials/components/navigation"
 
-    main[class="container-fluid d-flex flex-column flex-fill content-wrapper"]
+    main[class="container-fluid content-wrapper"]
       == yield
 
     = partial "partials/components/javascript"

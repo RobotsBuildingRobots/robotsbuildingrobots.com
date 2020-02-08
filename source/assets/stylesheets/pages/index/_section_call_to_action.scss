@@ -1,26 +1,21 @@
 .section-call-to-action-ios {
   min-height: 100vh !important;
-  padding: 200px 0 0 0 !important;
+  padding: 325px 0 0 0 !important;
   margin: -200px 0 0 0 !important;
+  height: 750px;
 
   @include media-breakpoint-up(lg) {
     padding: 0 !important;
     margin: 0 !important;
   }
-
-  height: 750px;
 }
 
 .section-call-to-action {
+  margin-left: 0;
+  margin-right: 0;
+
   @include media-breakpoint-up(xs) {
     min-height: calc(100vh - 80px);
-    padding: 0;
-    margin: 0;
-
-    .row {
-      margin: 0;
-      padding: 0;
-    }
   }
 
   @include media-breakpoint-up(md) {
@@ -31,77 +26,70 @@
     min-height: calc(100vh - 80px);
   }
 
-  .call-to-action-wrapper {
+  .call-to-action {
     @include media-breakpoint-up(xs) {
       padding: 0;
       margin: 0;
     }
 
-    .call-to-action {
-      @include media-breakpoint-up(xs) {
-        padding: 0;
-        margin: 0;
+    text-align: center;
+
+    .embed-wrapper {
+      @include box-shadow();
+
+      transform: translateY(-10%);
+      background-color: rgba(255, 255, 255, $backdrop-opacity);
+      border-top: 0.2rem solid $black-darkest;
+      padding: 0;
+      margin: 0;
+
+      @include media-breakpoint-up(lg) {
+        @include box-shadow($color: $style-whitest);
+
+        border-top: none;
+        max-width: map-get($grid-breakpoints, "md");
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      text-align: center;
+      embed {
+        @include media-breakpoint-up(xs) {
+          width: 450px;
+          max-width: 450px;
+          padding: 1rem 0;
 
-      .embed-wrapper {
-        @include box-shadow();
-
-        transform: translateY(-10%);
-        background-color: rgba(255, 255, 255, $backdrop-opacity);
-        border-top: 0.2rem solid $black-darkest;
-        padding: 0;
-        margin: 0;
-
-        @include media-breakpoint-up(lg) {
-          @include box-shadow($color: $style-whitest);
-
-          border-top: none;
-          max-width: map-get($grid-breakpoints, "md");
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        embed {
           @include media-breakpoint-up(xs) {
-            width: 450px;
-            max-width: 450px;
-            padding: 1rem 0;
+            margin-left: -100px;
+          }
 
-            @include media-breakpoint-up(xs) {
-              margin-left: -100px;
-            }
+          @include media-breakpoint-up(transition) {
+            margin-left: -50px;
+          }
 
-            @include media-breakpoint-up(transition) {
-              margin-left: -50px;
-            }
+          @include media-breakpoint-up(sm) {
+            margin-left: 0;
+          }
 
-            @include media-breakpoint-up(sm) {
-              margin-left: 0;
-            }
-
-            @include media-breakpoint-up(xl) {
-              width: 600px;
-              max-width: 600px;
-            }
+          @include media-breakpoint-up(xl) {
+            width: 600px;
+            max-width: 600px;
           }
         }
+      }
 
-        .embed-explained {
-          @include secondary-font;
+      .embed-explained {
+        @include secondary-font;
 
-          border-top: 0.2rem solid $black-darkest;
-          background-color: $style-highlight;
-          color: $style-whitest;
-          text-align: center;
-          padding: 1rem;
-          font-size: 1.4rem;
-          text-decoration: underline;
-          cursor: pointer;
-          font-weight: bold;
-          text-transform: uppercase;
-        }
+        border-top: 0.2rem solid $black-darkest;
+        background-color: $style-highlight;
+        color: $style-whitest;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.4rem;
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     }
   }

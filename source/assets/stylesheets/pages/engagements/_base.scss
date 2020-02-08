@@ -2,7 +2,7 @@
   color: $black-darkest;
 
   .content-wrapper {
-    background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
+    background: url('#{$image-path}/backgrounds/cork-board.png') repeat;
     min-height: 100vh;
 
     @include media-breakpoint-up(xs) {
@@ -17,9 +17,13 @@
     }
   }
 
+  .section-engagements-wrapper {
+    min-height: 100vh;
+  }
+
   @include media-breakpoint-up(xl) {
     .d-xl-block {
-      background: url('#{$image-path}/backgrounds/logo-blue.png') no-repeat;
+      background: url('#{$image-path}/backgrounds/logo-black.png') no-repeat;
       background-size: 500px;
       transform: translateY(-10%);
     }
@@ -30,6 +34,16 @@
 
     .d-xl-block:last-child {
       background-position: left center;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .d-xl-block:first-child {
+      background-position: center center;
+    }
+
+    .d-xl-block:last-child {
+      background-position: center center;
     }
   }
 
@@ -57,8 +71,8 @@
     @include media-breakpoint-up(xs) {
       padding: 1rem 0;
       margin-bottom: 2rem;
-      border-top: 0.2rem solid $style-highlight;
-      border-bottom: 0.2rem solid $style-highlight;
+      border-top: 0.2rem solid $black-darkest;
+      border-bottom: 0.2rem solid $black-darkest;
 
       embed {
         max-width: 500px;
@@ -68,8 +82,8 @@
     }
 
     @include media-breakpoint-up(lg) {
-      border-left: 0.2rem solid $style-highlight;
-      border-right: 0.2rem solid $style-highlight;
+      border-left: 0.2rem solid $black-darkest;
+      border-right: 0.2rem solid $black-darkest;
     }
   }
 
@@ -100,18 +114,11 @@
     }
   }
 
-  .section-robot-friends {
-    margin-bottom: -3rem;
-    text-align: center;
+  .section-call-to-action {
+    .col-12 {
+      @include secondary-font;
 
-    embed {
-      @include media-breakpoint-up(xs) {
-        width: 150px;
-        max-width: 150px;
-      }
-    }
-
-    .call-to-action {
+      margin-top: 2rem;
       border-top: 0.2rem solid $style-whitest;
       border-bottom: 0.2rem solid $style-whitest;
       background-color: $style-highlight;
@@ -121,16 +128,21 @@
       padding: 1rem;
       font-weight: bold;
       font-size: 1.4rem;
-      margin-bottom: 2rem;
 
-      @include media-breakpoint-up(lg) {
-        padding-bottom: 2rem;
+      @include media-breakpoint-up(xs) {
+        span {
+          display: block;
+        }
       }
-    }
 
-    @include media-breakpoint-up(xs) {
-      .row:last-child {
-        padding-top: 2rem;
+      @include media-breakpoint-up(sm) {
+        span {
+          display: inline;
+
+          &:first-child {
+            padding-right: 0.5rem;
+          }
+        }
       }
     }
   }

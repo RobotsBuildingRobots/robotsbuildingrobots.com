@@ -1,7 +1,6 @@
 .section-venn-wrapper {
   background: url('#{$image-path}/backgrounds/dark-brick-wall.png') repeat;
-  padding-top: 0.5rem;
-  padding-bottom: 0;
+  padding: 0.5rem 0 0 0;
   z-index: $zindex-sticky;
 
   @include media-breakpoint-up(xs) {
@@ -19,20 +18,30 @@
       transform: translateY(-10%);
     }
 
-    .d-xl-block:first-child {
+    .d-xl-block.left {
       background-position: right center;
     }
 
-    .d-xl-block:last-child {
+    .d-xl-block.right {
       background-position: left center;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .d-xl-block.left {
+      background-position: center center;
+    }
+
+    .d-xl-block.right {
+      background-position: center center;
     }
   }
 
   .section-process,
   .section-metrics,
   .section-values {
-    .col-12:last-child {
-      padding: 1.5rem;
+    .description {
+      padding: 1.5rem 2.5rem;
     }
 
     .summary {
@@ -58,13 +67,31 @@
 
   @import "pages/index/section_venn";
 
-  .section-details-wrapper {
-    padding: 1rem 0 0 0;
+  embed {
+    @include media-breakpoint-up(xs) {
+      height: 215px;
+      width: 325px;
+      max-width: 325px;
+    }
 
-    @include media-breakpoint-up(lg) {
-      max-width: map-get($grid-breakpoints, "lg");
-      margin-left: auto;
-      margin-right: auto;
+    @include media-breakpoint-up(md) {
+      height: 325px;
+      width: 350px;
+      max-width: 350px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      max-width: 600px;
+    }
+  }
+
+  .section-details-wrapper {
+    @include media-breakpoint-up(xs) {
+      padding: 2rem 0 0 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding: 2rem 1rem 0 1rem;
     }
 
     @import "pages/index/section_venn_process";

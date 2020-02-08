@@ -1,61 +1,34 @@
 .section-venn {
-  padding-top: 0;
+  padding: 0;
 
-  @include media-breakpoint-up(lg) {
-    max-width: map-get($grid-breakpoints, "lg");
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .venn-inform,
-  .venn-help {
+  .venn-inform {
     @include secondary-font;
 
     text-align: center;
     text-transform: uppercase;
-
-    @include media-breakpoint-up(xs) {
-      padding: 1rem;
-      font-weight: bold;
-      font-size: 1.4rem;
-    }
-  }
-
-  .venn-inform {
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.4rem;
     border-top: 0.2rem solid $style-whitest;
     border-bottom: 0.2rem solid $style-whitest;
     background-color: $style-highlight;
     color: $style-whitest;
     margin-bottom: 2rem;
 
-    @include media-breakpoint-up(lg) {
-      border-right: 0.2rem solid $style-whitest;
-      border-left: 0.2rem solid $style-whitest;
-
-      .d-none {
-        display: inline-block !important;
-        padding-left: 0.5rem;
+    @include media-breakpoint-up(xs) {
+      span {
+        display: block;
       }
     }
-  }
 
-  .venn-help {
-    @include media-breakpoint-up(xs) {
-      margin-top: 1rem;
-    }
-  }
+    @include media-breakpoint-up(sm) {
+      span {
+        display: inline;
 
-  embed {
-    @include media-breakpoint-up(xs) {
-      height: 215px;
-      width: 325px;
-      max-width: 325px;
-    }
-
-    @include media-breakpoint-up(md) {
-      height: 325px;
-      width: 350px;
-      max-width: 350px;
+        &:first-child {
+          padding-right: 0.5rem;
+        }
+      }
     }
   }
 }
