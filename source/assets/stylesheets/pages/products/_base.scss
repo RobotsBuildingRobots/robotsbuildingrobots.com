@@ -1,0 +1,15 @@
+#products {
+  .content-wrapper {
+    background: url('#{$image-path}/backgrounds/cranes.jpg') no-repeat;
+    padding: 0;
+    background-size: cover;
+    background-position: top left;
+    min-height: 100vh;
+  }
+
+  .section-products-wrapper {
+    min-height: 100vh;
+  }
+
+  @import "pages/products/section_call_to_action";
+}
