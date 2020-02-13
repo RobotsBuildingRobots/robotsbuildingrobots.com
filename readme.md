@@ -18,4 +18,4 @@ We are human beings and our website and blog reflects and embodies that humanity
 
 *Thank you to all of the amazing oss developers out there.  Without your support the internet would be a ghost town.*
 
-![open-source-projects.jpeg](https://github.com/robotsbuildingrobots/robotsbuildingrobots.com/raw/master/open-source-projects.jpeg)
+![open-source-projects.jpeg](https://robotsbuildingrobots.com/assets/images/open-source-projects.jpeg)
