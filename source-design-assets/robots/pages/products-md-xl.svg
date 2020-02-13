@@ -33,9 +33,10 @@
 	</g>
 </g>
 <rect x="324.1" y="340.8" class="st3" width="332.3" height="554.6"/>
-<rect x="322.2" y="337.4" transform="matrix(0.5051 -0.863 0.863 0.5051 -296.5249 730.0624)" class="st3" width="332.3" height="572.5"/>
-<rect x="197.5" y="457.3" transform="matrix(0.866 -0.5 0.5 0.866 -246.9043 325.3983)" class="st3" width="572.5" height="332.3"/>
-<g id="Layer_2">
+<rect x="197.5" y="457.3" transform="matrix(0.866 -0.5 0.5 0.866 -246.9093 325.4073)" class="st3" width="572.5" height="332.3"/>
+<rect x="638.9" y="607.6" transform="matrix(0.8574 0.5146 -0.5146 0.8574 480.2554 -249.2579)" class="st3" width="102.1" height="269"/>
+<rect x="236.4" y="374.5" transform="matrix(0.866 0.5 -0.5 0.866 292.783 -74.7029)" class="st3" width="98.7" height="269"/>
+<g id="Layer_2_1_">
 	<rect x="226.6" y="160.6" width="121.4" height="55.8"/>
 </g>
 <g id="TV">
@@ -114,12 +115,12 @@
 		<circle class="st2" cx="433.6" cy="727.3" r="2.3"/>
 	</g>
 </g>
-<g id="Layer_2_1_">
+<g id="Layer_2_2_">
 	<text transform="matrix(1 0 0 1 201.9839 572.9833)" class="st2 st4 st5">Thomas Edison once said: &quot;I have not failed. I&apos;ve just</text>
 	<text transform="matrix(1 0 0 1 201.9839 604.1833)" class="st2 st4 st5">found 10,000 ways that won&apos;t work.&quot;  We have products </text>
 	<text transform="matrix(1 0 0 1 201.9839 635.3833)" class="st2 st4 st5">under construction, and never stop trying to bring the most </text>
 	<text transform="matrix(1 0 0 1 201.9839 666.5833)" class="st2 st4 st5">value to our engagements. Stay tuned for announcements</text>
 	<text transform="matrix(1 0 0 1 201.9839 697.7833)" class="st2 st4 st5"> and opportunities to connect. ROBOTS NEVER GIVE UP!</text>
 </g>
-<rect x="745.2" y="709.5" transform="matrix(0.8637 0.5039 -0.5039 0.8637 478.341 -275.9663)" class="st3" width="8.5" height="74.1"/>
+<rect x="712.4" y="742.2" transform="matrix(0.5039 -0.8637 0.8637 0.5039 -272.9824 1017.6454)" class="st3" width="74.1" height="8.5"/>
 </svg>
