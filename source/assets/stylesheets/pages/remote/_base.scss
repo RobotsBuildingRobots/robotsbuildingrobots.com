@@ -1,0 +1,15 @@
+#remote {
+  .content-wrapper {
+    background: url('#{$image-path}/backgrounds/nasa.jpg') no-repeat;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+  }
+
+  .section-remote-wrapper {
+    min-height: 100vh;
+  }
+
+  @import "pages/remote/section_call_to_action";
+}

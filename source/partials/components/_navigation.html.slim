@@ -1,6 +1,6 @@
 nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
   div[class="row flex-fill mx-auto navbar-wrapper"]
-    div[class="col-12 col-lg-8 my-auto navbar-toggler-wrapper"]
+    div[class="col-12 col-lg-6 my-auto navbar-toggler-wrapper"]
       div[class="row"]
         div[class="col-6 col-sm-12 d-flex my-auto navbar-title"]
           = link_to("/") do
@@ -15,23 +15,41 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                                                       aria-label="Toggle navigation"]
             i[id="nav-button" class="fas fa-bars"]
 
-    div[class="col-12 col-lg-4 navbar-nav-item-wrapper"]
+    div[class="col-12 col-lg-6 navbar-nav-item-wrapper"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
+          ruby:
+            active_class = current_page.data.id == 'products' ? 'active' : ''
+          li[class="nav-item flex-fill #{active_class}"]
+            = link_to("/products/", class: "nav-link") do
+                span[class="nav-button d-lg-none"]
+                  i[class="fas fa-hammer nav-icon"]
+                span[class="nav-description"]
+                  |Products
+
           ruby:
             active_class = current_page.data.id == 'engagements' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/engagements/", class: "nav-link") do
-                span[class="nav-button"]
+                span[class="nav-button d-lg-none"]
                   i[class="fas fa-project-diagram nav-icon"]
                 span[class="nav-description"]
                   |Engagements
+
+          / ruby:
+          /   active_class = current_page.data.id == 'remote' ? 'active' : ''
+          / li[class="nav-item flex-fill #{active_class}"]
+          /   = link_to("/remote/", class: "nav-link") do
+          /       span[class="nav-button d-lg-none"]
+          /         i[class="fas fa-broadcast-tower nav-icon"]
+          /       span[class="nav-description"]
+          /         |Remote
 
           ruby:
             active_class = current_page.data.id == 'contact' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/contact/", class: "nav-link") do
-                span[class="nav-button"]
+                span[class="nav-button d-lg-none"]
                   i[class="far fa-envelope nav-icon"]
                 span[class="nav-description"]
                   |Contact

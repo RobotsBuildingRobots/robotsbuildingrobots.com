@@ -137,7 +137,7 @@
           @include media-breakpoint-up(lg) {
             &:first-child,
             &:not(:last-child) {
-              margin-right: 2rem;
+              margin-right: 1rem;
             }
 
             &:first-child,
@@ -168,6 +168,10 @@
           .nav-icon {
             @include media-breakpoint-up(xs) {
               margin-right: 0.3rem;
+            }
+
+            @include media-breakpoint-up(sm) {
+              margin-right: inherit;
             }
 
             @include media-breakpoint-up(lg) {
