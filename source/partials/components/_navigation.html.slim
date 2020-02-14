@@ -36,14 +36,14 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                 span[class="nav-description"]
                   |Engagements
 
-          / ruby:
-          /   active_class = current_page.data.id == 'remote' ? 'active' : ''
-          / li[class="nav-item flex-fill #{active_class}"]
-          /   = link_to("/remote/", class: "nav-link") do
-          /       span[class="nav-button d-lg-none"]
-          /         i[class="fas fa-broadcast-tower nav-icon"]
-          /       span[class="nav-description"]
-          /         |Remote
+          ruby:
+            active_class = current_page.data.id == 'remote' ? 'active' : ''
+          li[class="nav-item flex-fill #{active_class}"]
+            = link_to("/remote/", class: "nav-link") do
+                span[class="nav-button d-lg-none"]
+                  i[class="fas fa-broadcast-tower nav-icon"]
+                span[class="nav-description"]
+                  |Remote
 
           ruby:
             active_class = current_page.data.id == 'contact' ? 'active' : ''
