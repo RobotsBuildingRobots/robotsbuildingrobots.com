@@ -135,8 +135,6 @@
           }
 
           @include media-breakpoint-up(lg) {
-
-
             &:first-child,
             &:not(:last-child) {
               margin-right: 1rem;
