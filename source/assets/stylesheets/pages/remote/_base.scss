@@ -7,9 +7,6 @@
     min-height: 100vh;
   }
 
-  .section-remote-wrapper {
-    min-height: 100vh;
-  }
-
+  @import "pages/remote/ethos-wrapper";
   @import "pages/remote/section_call_to_action";
 }
