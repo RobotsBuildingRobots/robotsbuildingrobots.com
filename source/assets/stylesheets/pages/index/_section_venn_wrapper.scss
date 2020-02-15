@@ -29,11 +29,21 @@
 
   @include media-breakpoint-up(xxl) {
     .d-xl-block.left {
-      background-position: center center;
+      transform: translateY(-10%) translateX(-25%);
     }
 
     .d-xl-block.right {
-      background-position: center center;
+      transform: translateY(-10%) translateX(25%);
+    }
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    .d-xl-block.left {
+      transform: translateY(-10%) translateX(-30%);
+    }
+
+    .d-xl-block.right {
+      transform: translateY(-10%) translateX(30%);
     }
   }
 

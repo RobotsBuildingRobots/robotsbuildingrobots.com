@@ -39,11 +39,21 @@
 
   @include media-breakpoint-up(xxl) {
     .d-xl-block:first-child {
-      background-position: center center;
+      transform: translateY(-10%) translateX(-25%);
     }
 
     .d-xl-block:last-child {
-      background-position: center center;
+      transform: translateY(-10%) translateX(25%);
+    }
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    .d-xl-block:first-child {
+      transform: translateY(-10%) translateX(-10%);
+    }
+
+    .d-xl-block:last-child {
+      transform: translateY(-10%) translateX(10%);
     }
   }
 
