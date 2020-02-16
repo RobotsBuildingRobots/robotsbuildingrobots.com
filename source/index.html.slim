@@ -35,21 +35,21 @@ section[class="row m-0 section-venn-wrapper"]
                 i[class="fas fa-thumbs-up"]
                 |Right Process
               div[class="col-12 h-100 description"]
-                = data.pages.index.process
+                = data.pages.home.process
           div[class="col-12 col-lg-4 d-flex flex-column"]
             div[class="row flex-fill align-items-start section-metrics"]
               div[class="col-12 summary"]
                 i[class="fas fa-thumbs-up"]
                 |Right Metrics
               div[class="col-12 h-100 description"]
-                = data.pages.index.metrics
+                = data.pages.home.metrics
           div[class="col-12 col-lg-4 d-flex flex-column"]
             div[class="row flex-fill align-items-start section-values"]
               div[class="col-12 summary"]
                 i[class="fas fa-thumbs-up"]
                 |Right Values
               div[class="col-12 h-100 description"]
-                = data.pages.index.values.last
+                = data.pages.home.values.last
 
   div[class="col-12 col-xl-2 col-xxl-3 d-none d-xl-block right"]
 
@@ -58,3 +58,5 @@ section[class="row m-0 section-venn-wrapper"]
       |It doesn't have to
     span
       |be crazy at work!
+    span
+       = link_to("We can help you!", "/contact/")

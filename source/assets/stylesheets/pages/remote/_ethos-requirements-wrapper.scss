@@ -1,0 +1,28 @@
+.section-hardware,
+.section-software,
+.section-psychology {
+  .description {
+    background-color: rgba(4, 1, 5, $backdrop-opacity-light);
+    padding: 1.5rem 2.5rem;
+  }
+
+  .summary {
+    @include secondary-font;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
+    background-color: $style-whitest;
+    color: $style-highlight;
+    border-top: 0.2rem solid $style-highlight;
+    border-bottom: 0.2rem solid $style-highlight;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+}
