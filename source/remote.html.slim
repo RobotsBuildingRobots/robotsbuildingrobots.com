@@ -4,12 +4,25 @@ title: Remote
 slug: remote
 layout: page
 ---
-section[class="row m-0 section-remote-wrapper"]
-  div[class="col-12 ethos-wrapper"]
+section[class="row m-0 mx-auto section-remote-wrapper"]
+  div[class="col-12 col-lg-8 ethos-wrapper"]
     = data.pages.remote.ethos
 
-  div[class="col-12 book-wrapper"]
-    |Read:
+  div[class="col-12 col-lg-4 book-wrapper"]
+    span
+      strong
+        |Required
+      =>
+      |Reading for
+    =>
+    span
+      strong
+        |you
+      =>
+      |and
+      =>
+      strong
+        |your organization!
     ul
       li
         = link_to("Remote", "https://basecamp.com/books/remote")

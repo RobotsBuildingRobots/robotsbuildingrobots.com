@@ -7,6 +7,10 @@
     min-height: 100vh;
   }
 
+  .section-remote-wrapper {
+    max-width: map-get($grid-breakpoints, "lg");
+  }
+
   @import "pages/remote/ethos-wrapper";
   @import "pages/remote/book-wrapper";
   @import "pages/remote/ethos-requirements-wrapper";
