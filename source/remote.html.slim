@@ -5,58 +5,65 @@ slug: remote
 layout: page
 ---
 section[class="row m-0 mx-auto section-remote-wrapper"]
-  div[class="col-12 col-lg-8 ethos-wrapper"]
-    = data.pages.remote.ethos
-
-  div[class="col-12 col-lg-4 book-wrapper"]
-    span
-      strong
-        |Required
-      =>
-      |Reading for
-    =>
-    span
-      strong
-        |you
-      =>
-      |and
-      =>
-      strong
-        |your organization!
-    ul
-      li
-        = link_to("Remote", "https://basecamp.com/books/remote")
-      li
-        = link_to("Rework", "https://basecamp.com/books/rework")
-      li
-        = link_to("Calm", "https://basecamp.com/books/calm")
-
-
-  div[class="col-12 ethos-requirements-wrapper"]
-    div[class="row"]
-      div[class="col-12"]
-        div[class="row flex-fill align-items-start section-hardware"]
-          div[class="col-12 summary"]
-            i[class="fas fa-desktop"]
-            |Hardware
-          div[class="col-12 h-100 description"]
-            = data.pages.remote.hardware
-      div[class="col-12"]
-        div[class="row flex-fill align-items-start section-software"]
-          div[class="col-12 summary"]
-            i[class="fas fa-save"]
-            |Software
-          div[class="col-12 h-100 description"]
-            = data.pages.remote.software
-      div[class="col-12"]
-        div[class="row flex-fill align-items-start section-psychology"]
-          div[class="col-12 summary"]
-            i[class="fas fa-brain"]
-            |Psychology
-          div[class="col-12 h-100 description"]
-            = data.pages.remote.psychology
-  div[class="col-12 mx-auto text-center"]
+  div[class="col-12 mx-auto text-center d-none d-xxl-block col-xxl-4 col-xxxl-4"]
     embed[src="#{image_path('robots/remote.svg')}"]
+  div[class="col-12 mx-auto col-lg-10 col-xxl-7 col-xxxl-4"]
+    div[class="row"]
+      div[class="col-12 col-lg-8 ethos-wrapper"]
+        = data.pages.remote.ethos
+      div[class="col-12 col-lg-4 book-wrapper"]
+        span
+          strong
+            |Required
+          =>
+          |Reading for
+        =>
+        span
+          strong
+            |you
+          =>
+          |and
+          =>
+          strong
+            |your organization!
+        ul
+          li
+            = link_to("Remote", "https://basecamp.com/books/remote")
+          li
+            = link_to("Rework", "https://basecamp.com/books/rework")
+          li
+            = link_to("Calm", "https://basecamp.com/books/calm")
+
+    div[class="row"]
+      div[class="col-12 ethos-requirements-wrapper"]
+        div[class="row"]
+          div[class="col-12"]
+            div[class="row flex-fill align-items-start section-hardware"]
+              div[class="col-12 summary"]
+                i[class="fas fa-desktop"]
+                |Hardware
+              div[class="col-12 h-100 description"]
+                = data.pages.remote.hardware
+          div[class="col-12"]
+            div[class="row flex-fill align-items-start section-software"]
+              div[class="col-12 summary"]
+                i[class="fas fa-save"]
+                |Software
+              div[class="col-12 h-100 description"]
+                = data.pages.remote.software
+          div[class="col-12"]
+            div[class="row flex-fill align-items-start section-psychology"]
+              div[class="col-12 summary"]
+                i[class="fas fa-brain"]
+                |Psychology
+              div[class="col-12 h-100 description"]
+                = data.pages.remote.psychology
+
+    div[class="row text-center d-xl-none"]
+      embed[src="#{image_path('robots/remote.svg')}" class="mx-auto"]
+
+  div[class="col-12 mx-auto text-center d-none d-xxl-block col-xxl-1 col-xxxl-4"]
+    embed[src="#{image_path('robots/remote.svg')}" class="mx-auto d-none d-xxxl-block"]
 
 section[class="row m-0 section-call-to-action"]
   div[class="col-12"]

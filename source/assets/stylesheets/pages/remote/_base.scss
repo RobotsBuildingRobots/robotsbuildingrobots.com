@@ -7,20 +7,22 @@
   }
 
   .section-remote-wrapper {
-    max-width: map-get($grid-breakpoints, "lg");
-
     embed {
       @include media-breakpoint-up(xs) {
         padding-top: 2rem;
-        width: 350px;
-      }
-
-      @include media-breakpoint-up(md) {
         width: 400px;
       }
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(md) {
         width: 450px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 500px;
+      }
+
+      @include media-breakpoint-up(xxl) {
+        transform: translateY(70%);
       }
     }
   }
