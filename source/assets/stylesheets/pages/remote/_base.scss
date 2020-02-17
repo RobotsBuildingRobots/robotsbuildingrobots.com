@@ -10,15 +10,15 @@
     embed {
       @include media-breakpoint-up(xs) {
         padding-top: 2rem;
-        width: 400px;
+        height: 300px;
       }
 
       @include media-breakpoint-up(md) {
-        width: 450px;
+        height: 350px;
       }
 
       @include media-breakpoint-up(lg) {
-        width: 500px;
+        height: 400px;
       }
 
       @include media-breakpoint-up(xxl) {
