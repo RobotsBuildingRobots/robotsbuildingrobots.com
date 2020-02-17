@@ -8,9 +8,15 @@
     margin-top: 2rem;
   }
 
+  @include media-breakpoint-up(sm) {
+    border: 0;
+    outline: solid 0.2rem $style-whitest;
+    outline-offset: -0.2rem;
+  }
+
   @include media-breakpoint-up(lg) {
-    border-left: 0.2rem solid $style-highlight;
-    border-right: 0.2rem solid $style-highlight;
+    outline: 0;
+    border: 0.2rem solid $style-highlight;
     margin-bottom: 2rem;
   }
 }
