@@ -17,6 +17,11 @@
       span {
         display: block;
       }
+
+      a {
+        color: $style-whitest;
+        text-decoration: underline;
+      }
     }
 
     @include media-breakpoint-up(sm) {
@@ -25,6 +30,19 @@
 
         &:first-child {
           padding-right: 0.5rem;
+        }
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      span {
+        &:last-child {
+          display: inline;
+          padding-left: 0.5rem;
         }
       }
     }

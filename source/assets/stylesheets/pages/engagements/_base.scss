@@ -21,28 +21,28 @@
     min-height: 100vh;
   }
 
-  @include media-breakpoint-up(xl) {
-    .d-xl-block {
+  @include media-breakpoint-up(xxl) {
+    .d-xxl-block {
       background: url('#{$image-path}/backgrounds/logo-black.png') no-repeat;
       background-size: 500px;
       transform: translateY(-10%);
     }
 
-    .d-xl-block:first-child {
+    .d-xxl-block:first-child {
       background-position: right center;
     }
 
-    .d-xl-block:last-child {
+    .d-xxl-block:last-child {
       background-position: left center;
     }
   }
 
-  @include media-breakpoint-up(xxl) {
-    .d-xl-block:first-child {
+  @include media-breakpoint-up(xxxl) {
+    .d-xxl-block:first-child {
       background-position: center center;
     }
 
-    .d-xl-block:last-child {
+    .d-xxl-block:last-child {
       background-position: center center;
     }
   }

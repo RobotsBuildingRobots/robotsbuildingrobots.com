@@ -5,8 +5,8 @@ slug: engagements
 layout: page
 ---
 section[class="row section-engagements-wrapper"]
-  div[class="col-12 col-xl-2 col-xxl-4 d-none d-xl-block"]
-  div[class="col-12 col-xl-8 col-xxl-4"]
+  div[class="col-12 col-xxl-3 d-none d-xxl-block"]
+  div[class="col-12 col-xl-9 mx-auto col-xxl-6"]
     div[class="row"]
       - data.pages.engagements.sort_by { |k| k["id"] }.reverse.each do |engagement|
         div[class="col-12 col-lg-6 d-flex"]
@@ -29,7 +29,7 @@ section[class="row section-engagements-wrapper"]
             = link_to("/contact/", class: "btn btn-primary") do
               | Contact Us
 
-  div[class="col-12 col-xl-2 col-xxl-4 d-none d-xl-block"]
+  div[class="col-12 col-xxl-3 d-none d-xxl-block"]
 
 section[class="row section-call-to-action"]
   div[class="col-12"]
@@ -37,3 +37,5 @@ section[class="row section-call-to-action"]
       |It doesn't have to
     span
       |be crazy at work!
+    span
+      = link_to("Become a partner now!", "/contact/")
