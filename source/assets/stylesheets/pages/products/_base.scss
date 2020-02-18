@@ -19,6 +19,7 @@
   }
 
   .section-products-wrapper {
+    max-width: map-get($grid-breakpoints, "lg");
     min-height: 100vh;
 
     @include media-breakpoint-up(xs) {
