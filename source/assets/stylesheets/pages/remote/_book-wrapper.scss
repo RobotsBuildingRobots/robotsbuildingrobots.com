@@ -36,6 +36,7 @@
       list-style: none;
       padding-top: 0;
       padding-left: 0;
+      margin-left: inherit;
 
       li {
         display: inline;
@@ -56,6 +57,7 @@
       margin: 0 auto;
       list-style-type: disc;
       padding-top: 1rem;
+      margin-left: 2rem;
 
       li {
         display: list-item;
