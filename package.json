@@ -23,7 +23,7 @@
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-circle-progress": "^1.2.2",
     "jquery-ui": "^1.12.1",
     "jquery-ui-touch-punch": "^0.2.3",
