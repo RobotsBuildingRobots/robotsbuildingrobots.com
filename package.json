@@ -20,7 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "bootstrap": "^4.5.0",
     "breakpoints-js": "^1.0.6",
-    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.5",
     "jquery": "^3.5.1",
