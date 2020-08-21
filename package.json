@@ -12,7 +12,7 @@
     "Last 5 versions"
   ],
   "dependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
@@ -22,7 +22,7 @@
     "breakpoints-js": "^1.0.6",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react": "^7.20.6",
     "jquery": "^3.5.1",
     "jquery-circle-progress": "^1.2.2",
     "jquery-ui": "^1.12.1",
