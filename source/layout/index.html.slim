@@ -1,1 +1,6 @@
-p LAYOUT
+= partial "partials/layout/document" do
+  = partial "partials/components/header"
+  = partial "partials/layout/body" do
+
+    main[class="container-fluid"]
+      == yield
