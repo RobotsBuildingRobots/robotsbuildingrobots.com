@@ -1,6 +1,14 @@
 social:
   email: founders@robotsbuildingrobots.com
   title: RobotsBuildingRobots, LLC
-  title_postfix: How can we help you?
+  focus: How can we help you?
   cta: A boutique product centric business focused on delivering more value to customers than collecting in revenue.
   description: A boutique product centric business focused on delivering more value to customers than collecting in revenue.
+
+preloader:
+  left: '['
+  right: ']'
+  text: Reticulating Splines
+
+analytics:
+  google: UA-93747403-1
