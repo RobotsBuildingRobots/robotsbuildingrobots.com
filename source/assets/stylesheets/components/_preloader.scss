@@ -1,5 +1,5 @@
 #cover {
-  background-color: $style-whitest;
+  background-color: $darkest-color;
   position: fixed;
   left: 0;
   top: 0;
@@ -13,11 +13,12 @@
   z-index: $zindex-tooltip;
 
   #preloader {
-    @include secondary-font();
+    @include primary-font();
 
     font-weight: bold;
-    color: $style-highlight;
-    opacity: 0.8;
+    color: $darkest-color;
+    background-color: $color-white;
+    text-transform: uppercase;
 
     .first,
     .last {
@@ -37,9 +38,9 @@
     }
 
     .middle {
-      color: $black-darkest;
       padding-top: 1rem;
       text-align: center;
+      min-width: 17rem;
 
       @include media-breakpoint-up(xs) {
         max-width: 14rem;

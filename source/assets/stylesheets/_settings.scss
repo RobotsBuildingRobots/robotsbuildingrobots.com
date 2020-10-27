@@ -1,5 +1,17 @@
 $image-path: '../../assets/images/';
 
+$color-white: #ffffff;
+$color-one: #250902;
+$color-two: #38040E;
+$color-three: #640D14;
+$color-four: #800E13;
+$color-five: #AD2831;
+
+@mixin font-color-light { color: $color-white; }
+
+$darkest-color: $color-one;
+$highlight-color: $color-five;
+
 $backdrop-opacity: 0.8;
 $backdrop-opacity-light: 0.6;
 
