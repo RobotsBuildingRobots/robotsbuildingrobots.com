@@ -2,8 +2,14 @@
 
 @import "~normalize-scss/sass/normalize/import-now";
 @import "settings";
+
 @import "vendor/bootstrap";
 @import "vendor/google_fonts";
+
 @import "mixins/*";
+
 @import "components/html-body";
 @import "components/preloader";
+@import "components/navigation";
+
+@import "pages/index/include";

@@ -2,12 +2,12 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
   div[class="row flex-fill mx-auto navbar-wrapper"]
     div[class="col-12 col-lg-6 my-auto navbar-toggler-wrapper"]
       div[class="row"]
-        div[class="col-6 col-sm-12 d-flex my-auto navbar-title"]
-          = link_to("/") do
-            embed[id="company-logo" src="#{image_path('logo-blue.svg')}"]
-          = link_to("/", class: 'd-none d-sm-block pt-1') do
-            = data.components.social.title
-        div[class="col-6 my-auto d-md-none navbar-button"]
+        div[class="col-10 d-flex my-auto"]
+          = link_to("/", class: 'logo-link-logo') do
+            embed[id="company-logo" src="#{image_path('logos/white.svg')}"]
+          = link_to("/", class: 'logo-link-text') do
+            = data.components.social.shortname
+        div[class="col-2 my-auto d-md-none navbar-button"]
           button[class="navbar-toggler" type="button" data-toggle="collapse"
                                                       data-target="#navbarCollapse"
                                                       aria-controls="navbarCollapse"
@@ -19,13 +19,13 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
       div[class="collapse navbar-collapse" id="navbarCollapse"]
         ul[class="navbar-nav flex-fill"]
           ruby:
-            active_class = current_page.data.id == 'products' ? 'active' : ''
+            active_class = current_page.data.id == 'services-banner' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
             = link_to("/products/", class: "nav-link") do
                 span[class="nav-button d-lg-none"]
                   i[class="fas fa-hammer nav-icon"]
                 span[class="nav-description"]
-                  |Products
+                  |Services
 
           ruby:
             active_class = current_page.data.id == 'engagements' ? 'active' : ''
@@ -37,13 +37,13 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                   |Engagements
 
           ruby:
-            active_class = current_page.data.id == 'remote' ? 'active' : ''
+            active_class = current_page.data.id == 'corporate-structure' ? 'active' : ''
           li[class="nav-item flex-fill #{active_class}"]
-            = link_to("/remote/", class: "nav-link") do
+            = link_to("/engagements/", class: "nav-link") do
                 span[class="nav-button d-lg-none"]
-                  i[class="fas fa-broadcast-tower nav-icon"]
+                  i[class="fas fa-brain nav-icon"]
                 span[class="nav-description"]
-                  |Remote
+                  |Structure
 
           ruby:
             active_class = current_page.data.id == 'contact' ? 'active' : ''

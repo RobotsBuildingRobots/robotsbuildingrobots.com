@@ -1,0 +1,160 @@
+.navbar {
+  @include box-shadow();
+
+  color: $color-white;
+  background-color: $darkest-color;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  .navbar-wrapper {
+    @include media-breakpoint-up(xs) {
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    .navbar-toggler-wrapper {
+      @include media-breakpoint-up(xs) {
+        padding: 1rem 1rem 0.5rem 1rem;
+      }
+
+      .logo-link-logo {
+        @include media-breakpoint-up(xs) {
+          font-size: 1rem;
+          text-align: left;
+          text-transform: uppercase;
+
+          embed {
+            width: 40px;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .logo-link-text {
+        @include media-breakpoint-up(xs) {
+          font-size: 1rem;
+          text-align: left;
+          text-transform: uppercase;
+          padding-left: 0.5rem;
+          padding-top: 0.4rem;
+        }
+      }
+
+      .navbar-button {
+        @include media-breakpoint-up(xs) {
+          text-align: right;
+          padding-right: 1rem;
+          padding-left: 0;
+        }
+
+        .navbar-toggler {
+          color: $color-white;
+          font-size: 1.25rem;
+          line-height: 1;
+          background-color: transparent;
+          border: 1px solid $color-white;
+          border-radius: 0.25rem;
+          cursor: pointer;
+          outline: none;
+          padding: 1rem;
+        }
+      }
+    }
+
+    .navbar-nav-item-wrapper {
+      text-transform: uppercase;
+      padding-right: 0;
+      padding-left: 0;
+
+      @include media-breakpoint-up(xs) {
+        padding-top: 5px;
+      }
+
+      .navbar-nav {
+        border: none;
+
+        @include media-breakpoint-up(xs) {
+          padding-top: 10px;
+        }
+
+        li {
+          @include media-breakpoint-up(xs) {
+            &:first-child {
+              border-top: 0.15rem solid $border-color;
+            }
+
+            &:not(:last-child) {
+              border-bottom: 0.15rem solid $border-color;
+
+              @include media-breakpoint-up(sm) {
+                border-right: 0.15rem solid $border-color;
+              }
+            }
+          }
+
+          &:hover {
+            @include media-breakpoint-up(xs) {
+              background-color: $border-color;
+
+              a {
+                color: $color-white;
+              }
+            }
+          }
+
+          .nav-icon {
+            @include media-breakpoint-up(xs) {
+              margin-right: 0.3rem;
+            }
+          }
+
+          .nav-link {
+            color: $color-white;
+            padding: 0;
+
+            @include media-breakpoint-up(xs) {
+              @include secondary-font();
+
+              font-size: 1rem;
+
+              span {
+                display: inline;
+              }
+
+              .nav-button {
+                border-right: 0.15rem solid $border-color;
+                padding: 1rem 1rem 1rem 1.5rem;
+                margin-right: 1rem;
+                display: inline-block;
+                min-width: 75px;
+                text-align: center;
+              }
+            }
+          }
+
+          @include media-breakpoint-up(xs) {
+            text-align: left;
+          }
+        }
+
+        li.active {
+          font-weight: bold;
+
+          @include media-breakpoint-up(xs) {
+            background-color: $border-color;
+
+            a {
+              color: $darkest-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
