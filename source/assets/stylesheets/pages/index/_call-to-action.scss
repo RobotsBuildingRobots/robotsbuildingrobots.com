@@ -1,7 +1,10 @@
 .call-to-action {
   background: url('#{$image-path}/background.jpg') no-repeat;
-  padding: 0;
   background-size: cover;
   background-position: top left;
   min-height: 100vh;
+
+  @include media-breakpoint-up(xs) {
+    padding: 1rem 0 0 0;
+  }
 }

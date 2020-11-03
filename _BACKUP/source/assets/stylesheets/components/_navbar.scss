@@ -1,21 +1,25 @@
-.navbar {
-  @include box-shadow();
+// .navbar {
+//   @include box-shadow();
 
-  color: $color-white;
-  background-color: $darkest-color;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+//   color: $style-whitest;
+//   background-color: $black-darkest;
+//   width: 100%;
+//   padding-right: 0;
+//   padding-left: 0;
+//   padding-bottom: 0;
+
+  @include media-breakpoint-up(xs) {
+    padding-top: 5px;
+  }
 
   .navbar-wrapper {
     @include media-breakpoint-up(xs) {
-      padding: 0;
-      margin: 0;
+      padding: 0.5rem 0;
     }
 
-    // @include media-breakpoint-up(maximum) {
-    //   max-width: map-get($grid-breakpoints, "lg");
-    // }
+    @include media-breakpoint-up(maximum) {
+      max-width: map-get($grid-breakpoints, "lg");
+    }
 
     .navbar-toggler-wrapper {
       .navbar-title {
@@ -23,7 +27,7 @@
         padding-left: 5px;
 
         a {
-          color: $color-white;
+          color: $style-whitest;
           text-decoration: none;
         }
 
@@ -37,15 +41,15 @@
           }
         }
 
-        // @include media-breakpoint-up(sm) {
-        //   embed {
-        //     margin-right: 1rem;
-        //   }
-        // }
+        @include media-breakpoint-up(sm) {
+          embed {
+            margin-right: 1rem;
+          }
+        }
 
-        // @include media-breakpoint-up(lg) {
-        //   font-size: 1.2rem;
-        // }
+        @include media-breakpoint-up(lg) {
+          font-size: 1.2rem;
+        }
       }
 
       .navbar-button {
@@ -59,11 +63,11 @@
         }
 
         .navbar-toggler {
-          color: $color-white;
+          color: $style-whitest;
           font-size: 1.25rem;
           line-height: 1;
           background-color: transparent;
-          border: 1px solid $color-white;
+          border: 1px solid $style-whitest;
           border-radius: 0.25rem;
           cursor: pointer;
           outline: none;
@@ -77,9 +81,9 @@
         padding-bottom: 5px;
       }
 
-      // @include media-breakpoint-up(transition) {
-      //   padding-right: 15px;
-      // }
+      @include media-breakpoint-up(transition) {
+        padding-right: 15px;
+      }
     }
 
     .navbar-nav-item-wrapper {
@@ -90,9 +94,9 @@
         padding-top: 5px;
       }
 
-      // @include media-breakpoint-up(lg) {
-      //   padding-top: 0;
-      // }
+      @include media-breakpoint-up(lg) {
+        padding-top: 0;
+      }
 
       .navbar-nav {
         border: none;
@@ -101,64 +105,64 @@
           padding-top: 10px;
         }
 
-        // @include media-breakpoint-up(lg) {
-        //   padding-top: 0;
-        // }
+        @include media-breakpoint-up(lg) {
+          padding-top: 0;
+        }
 
         li {
           @include media-breakpoint-up(xs) {
             &:first-child {
-              border-top: 0.15rem solid $border-color;
+              border-top: 0.15rem solid $style-highlight;
             }
 
             &:not(:last-child) {
-              border-bottom: 0.15rem solid $border-color;
+              border-bottom: 0.15rem solid $style-highlight;
 
               @include media-breakpoint-up(sm) {
-                border-right: 0.15rem solid $border-color;
+                border-right: 0.15rem solid $style-highlight;
               }
             }
           }
 
-          // @include media-breakpoint-up(sm) {
-          //   &:not(:first-child) {
-          //     border-top: 0.15rem solid $border-color;
-          //   }
+          @include media-breakpoint-up(sm) {
+            &:not(:first-child) {
+              border-top: 0.15rem solid $style-highlight;
+            }
 
-          //   &:last-child {
-          //     border-bottom: 0.15rem solid $border-color;
-          //   }
-          // }
+            &:last-child {
+              border-bottom: 0.15rem solid $style-highlight;
+            }
+          }
 
-          // @include media-breakpoint-up(lg) {
-          //   &:first-child,
-          //   &:not(:last-child) {
-          //     margin-right: 1rem;
-          //   }
+          @include media-breakpoint-up(lg) {
+            &:first-child,
+            &:not(:last-child) {
+              margin-right: 1rem;
+            }
 
-          //   &:first-child,
-          //   &:not(:first-child),
-          //   &:last-child {
-          //     border: none;
-          //   }
-          // }
+            &:first-child,
+            &:not(:first-child),
+            &:last-child {
+              border: none;
+            }
+          }
 
           &:hover {
             @include media-breakpoint-up(xs) {
-              background-color: $border-color;
+              background-color: $style-highlight;
 
               a {
-                color: $color-white;
+                color: $style-whitest;
               }
             }
 
-            // @include media-breakpoint-up(lg) {
-            //   background-color: $darkest-color;
+            @include media-breakpoint-up(lg) {
+              background-color: $black-darkest;
 
-            //   a {
-            //     color: $border-color;
-            //   }
-            // }
+              a {
+                color: $style-highlight;
+              }
+            }
           }
 
           .nav-icon {
@@ -166,18 +170,18 @@
               margin-right: 0.3rem;
             }
 
-            // @include media-breakpoint-up(sm) {
-            //   margin-right: inherit;
-            // }
+            @include media-breakpoint-up(sm) {
+              margin-right: inherit;
+            }
 
-            // @include media-breakpoint-up(lg) {
-            //   margin-top: 0.3rem;
-            //   margin-right: 0.5rem;
-            // }
+            @include media-breakpoint-up(lg) {
+              margin-top: 0.3rem;
+              margin-right: 0.5rem;
+            }
           }
 
           .nav-link {
-            color: $color-white;
+            color: $style-whitest;
             padding: 0;
 
             @include media-breakpoint-up(xs) {
@@ -190,7 +194,7 @@
               }
 
               .nav-button {
-                border-right: 0.15rem solid $border-color;
+                border-right: 0.15rem solid $style-highlight;
                 padding: 1rem 1rem 1rem 1.5rem;
                 margin-right: 1rem;
                 display: inline-block;
@@ -199,63 +203,63 @@
               }
             }
 
-            // @include media-breakpoint-up(sm) {
-            //   @include primary-font();
+            @include media-breakpoint-up(sm) {
+              @include primary-font();
 
-            //   font-size: 1rem;
-            //   padding: 0.8rem 0.5rem;
+              font-size: 1rem;
+              padding: 0.8rem 0.5rem;
 
-            //   .nav-button {
-            //     border-right: none;
-            //     padding: initial;
-            //     margin-right: initial;
-            //     display: block;
-            //     min-width: initial;
-            //   }
+              .nav-button {
+                border-right: none;
+                padding: initial;
+                margin-right: initial;
+                display: block;
+                min-width: initial;
+              }
 
-            //   .nav-description {
-            //     display: block;
-            //     font-size: 1rem;
-            //   }
-            // }
+              .nav-description {
+                display: block;
+                font-size: 1rem;
+              }
+            }
 
-            // @include media-breakpoint-up(lg) {
-            //   display: inline-flex;
+            @include media-breakpoint-up(lg) {
+              display: inline-flex;
 
-            //   .nav-description {
-            //     font-size: 1.2rem;
-            //   }
-            // }
+              .nav-description {
+                font-size: 1.2rem;
+              }
+            }
           }
 
           @include media-breakpoint-up(xs) {
             text-align: left;
           }
 
-          // @include media-breakpoint-up(sm) {
-          //   text-align: center;
-          // }
+          @include media-breakpoint-up(sm) {
+            text-align: center;
+          }
         }
 
         li.active {
           font-weight: bold;
 
           @include media-breakpoint-up(xs) {
-            background-color: $border-color;
+            background-color: $style-highlight;
 
             a {
-              color: $darkest-color;
+              color: $black-darkest;
             }
           }
 
-          // @include media-breakpoint-up(lg) {
-          //   background-color: $darkest-color;
-          //   border-bottom: 0.15rem solid $border-color;
+          @include media-breakpoint-up(lg) {
+            background-color: $black-darkest;
+            border-bottom: 0.15rem solid $style-highlight;
 
-          //   a {
-          //     color: $border-color;
-          //   }
-          // }
+            a {
+              color: $style-highlight;
+            }
+          }
         }
       }
     }
