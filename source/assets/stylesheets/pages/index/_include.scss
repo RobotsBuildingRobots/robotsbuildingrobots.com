@@ -13,6 +13,12 @@
     &:not(:first-child) {
       padding: 1rem;
     }
+
+    .section-wrapper {
+      @include media-breakpoint-up(maximum) {
+        max-width: map-get($grid-breakpoints, "lg");
+      }
+    }
   }
 
   @import "pages/index/call-to-action";
