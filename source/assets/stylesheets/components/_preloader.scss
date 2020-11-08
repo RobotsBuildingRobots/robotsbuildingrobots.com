@@ -42,11 +42,11 @@
       color: $color-four;
       padding-top: 1rem;
       text-align: center;
-      min-width: 17rem;
+      min-width: 10rem;
 
       @include media-breakpoint-up(xs) {
         max-width: 14rem;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
 
       @include media-breakpoint-up(lg) {

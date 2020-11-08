@@ -7,6 +7,12 @@ const hidePreloader = () => {
   });
 };
 
+const resizeContent = () => {
+  let vh = window.innerHeight * 0.01;
+
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+
 $(document).ready(() => {
   const $body = $('body');
   const $bodyId = $body.attr('id');
@@ -16,13 +22,18 @@ $(document).ready(() => {
 
   switch ($bodyId) {
     case 'index':
-      index();
       break;
     default:
       break;
   }
+
+  resizeContent();
 });
 
-$(window).on('load', () => {
+window.addEventListener("load", function(){
   hidePreloader();
+}, false);
+
+window.addEventListener('resize', () => {
+  resizeContent();
 });
