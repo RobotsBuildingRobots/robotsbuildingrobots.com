@@ -1,2 +1,12 @@
 div[class="col-12"]
-  = data.components.social.cta
+  span[class="nav-icon"]
+    i[class="fas fa-quote-left"]
+  span[class="cta"]
+    = data.components.social.cta
+  span[class="nav-icon"]
+    i[class="fas fa-quote-right"]
+div[class="col-12"]
+  span[class="signature"]
+    = data.components.social.founder
+  span[class="quote-icon"]
+    embed[id="signature" src="#{image_path('signature.svg')}"]

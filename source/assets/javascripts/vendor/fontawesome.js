@@ -5,12 +5,16 @@ import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons/faProjectDia
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 import { faBrain } from '@fortawesome/free-solid-svg-icons/faBrain';
 import { faPhoneSquare } from '@fortawesome/free-solid-svg-icons/faPhoneSquare';
+import { faQuoteRight } from '@fortawesome/free-solid-svg-icons/faQuoteRight';
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons/faQuoteLeft';
 
 library.add(faBars,
             faBrain,
             faEnvelope,
             faProjectDiagram,
             faPhoneSquare,
+            faQuoteRight,
+            faQuoteLeft,
             faHammer);
 
 dom.watch();
