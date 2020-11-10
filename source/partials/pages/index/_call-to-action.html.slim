@@ -1,12 +1,19 @@
 div[class="col-12"]
-  span[class="nav-icon"]
+  span
     i[class="fas fa-quote-left"]
   span[class="cta"]
     = data.components.social.cta
-  span[class="nav-icon"]
+  span
     i[class="fas fa-quote-right"]
-div[class="col-12"]
-  span[class="signature"]
-    = data.components.social.founder
-  span[class="quote-icon"]
-    embed[id="signature" src="#{image_path('signature.svg')}"]
+
+div[class="col-12 signature"]
+  span
+    |<
+  embed[id="signature" src="#{image_path('signatures/full-name.svg')}"]
+  span
+    |/
+  span
+    |>
+
+div[class="col-12 startup-project"]
+  |<lottie-player id="lottie" src="#{image_path('pages/index/startup-project.json')}" background="transparent" speed="1" loop autoplay></lottie-player>

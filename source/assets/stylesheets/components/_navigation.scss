@@ -63,7 +63,7 @@
         }
 
         .navbar-toggler {
-          color: $color-white;
+          @include font-highlight-color();
           font-size: 1.25rem;
           line-height: 1;
           background-color: transparent;
@@ -157,6 +157,8 @@
           }
 
           .nav-icon {
+            @include font-highlight-color();
+
             @include media-breakpoint-up(xs) {
               margin-right: 0.3rem;
             }

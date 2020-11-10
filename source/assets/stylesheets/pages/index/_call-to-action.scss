@@ -21,7 +21,63 @@
     padding: 1rem 0 0 0;
   }
 
-  embed {
-    width: 50px;
+  .cta {
+    @include secondary-font();
+
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+
+    embed {
+      width: 50px;
+    }
+  }
+
+  .signature {
+    text-align: center;
+    padding-top: 0.75rem;
+
+    span {
+      font-size: 2rem;
+      font-weight: bold;
+      vertical-align: top;
+      @include font-highlight-color();
+
+      &:first-child {
+        padding-right: 0.75rem;
+      }
+    }
+
+    embed {
+      width: 125px;
+      padding-right: 0.75rem;
+    }
+  }
+
+  .startup-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+
+    #lottie {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .fa-quote-left,
+  .fa-quote-right {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    @include font-highlight-color();
+  }
+
+  .fa-quote-left {
+    padding-right: 0.5rem;
+  }
+
+  .fa-quote-right {
+    padding-left: 0.5rem;
   }
 }
