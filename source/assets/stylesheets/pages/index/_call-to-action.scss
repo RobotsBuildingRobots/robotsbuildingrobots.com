@@ -41,6 +41,7 @@
       font-size: 2rem;
       font-weight: bold;
       vertical-align: top;
+
       @include font-highlight-color();
 
       &:first-child {
@@ -70,6 +71,7 @@
   .fa-quote-right {
     font-size: 1.5rem;
     padding-bottom: 0.5rem;
+
     @include font-highlight-color();
   }
 
