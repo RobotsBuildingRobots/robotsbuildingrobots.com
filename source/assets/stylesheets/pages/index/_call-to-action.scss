@@ -2,8 +2,8 @@
   background: url('#{$image-path}/pages/index/cta-background.jpg') no-repeat;
   background-size: cover;
   background-position: top left;
-
   height: 100vh;
+  padding: 0;
 
   @include media-breakpoint-up(xs) {
     height: calc((var(--vh, 1vh) * 100) - 70px);
@@ -17,69 +17,185 @@
     height: calc((var(--vh, 1vh) * 100) - 69px);
   }
 
-  @include media-breakpoint-up(xs) {
-    padding: 1rem 0 0 0;
-  }
+  .section-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    flex-direction: column;
 
-  .cta {
-    @include secondary-font();
+    @include media-breakpoint-up(xs) {
+      .cta-content-wrapper {
+        flex: auto;
+      }
+    }
 
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    @include media-breakpoint-up(md) {
+      padding-top: 1rem;
 
-    embed {
-      width: 50px;
+      .cta-content-wrapper {
+        flex: 1 1 auto;
+      }
     }
   }
 
-  .signature {
-    text-align: center;
-    padding-top: 0.75rem;
+  .cta-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    span {
-      font-size: 2rem;
+    @include media-breakpoint-up(xs) {
+      padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-left: 2rem;
+    }
+
+    .cta {
+      @include secondary-font();
+
       font-weight: bold;
-      vertical-align: top;
+      text-transform: uppercase;
 
-      @include font-highlight-color();
+      @include media-breakpoint-up(xs) {
+        font-size: 1.2rem;
+      }
 
-      &:first-child {
+      @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+      }
+
+      embed {
+        width: 50px;
+      }
+    }
+
+    .signature {
+      padding-top: 0.75rem;
+
+      @include media-breakpoint-up(xs) {
+        text-align: center;
+      }
+
+      @include media-breakpoint-up(md) {
+        text-align: left;
+      }
+
+      span {
+        font-size: 2rem;
+        font-weight: bold;
+        vertical-align: top;
+
+        @include font-highlight-color();
+
+        &:first-child {
+          padding-right: 0.75rem;
+        }
+      }
+
+      embed {
+        width: 125px;
         padding-right: 0.75rem;
       }
     }
 
-    embed {
-      width: 125px;
-      padding-right: 0.75rem;
+    .fa-quote-left,
+    .fa-quote-right {
+      font-size: 1.5rem;
+      padding-bottom: 0.5rem;
+
+      @include font-highlight-color();
+    }
+
+    .fa-quote-left {
+      padding-right: 0.5rem;
+    }
+
+    .fa-quote-right {
+      padding-left: 0.5rem;
     }
   }
 
-  .startup-project {
+  .startup-project-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 1rem;
 
-    #lottie {
-      width: 300px;
-      height: 300px;
+    @include media-breakpoint-up(xs) {
+      flex: 1 1 auto;
+      padding-top: 1rem;
+
+      #lottie {
+        width: 275px;
+        height: 275px;
+        margin: auto auto;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 0;
+      flex: auto;
+      padding-right: 2rem;
     }
   }
 
-  .fa-quote-left,
-  .fa-quote-right {
-    font-size: 1.5rem;
-    padding-bottom: 0.5rem;
+  .cta-banner-wrapper {
+    @include secondary-font;
 
-    @include font-highlight-color();
-  }
+    color: $darkest-color;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: rgba(230, 233, 242, 0.6);
 
-  .fa-quote-left {
-    padding-right: 0.5rem;
-  }
+    @include media-breakpoint-up(xs) {
+      display: none;
+      padding: 1rem 1rem 2.25rem 1rem;
 
-  .fa-quote-right {
-    padding-left: 0.5rem;
+      span {
+        display: block;
+      }
+
+      a {
+        color: $link-color;
+        text-decoration: underline;
+      }
+    }
+
+    @media (min-height: $minimum-height) {
+      display: block;
+      align-items: flex-end;
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      span {
+        display: inline;
+
+        &:first-child {
+          padding-right: 0.5rem;
+        }
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      span {
+        &:last-child {
+          display: inline;
+          padding-left: 0.5rem;
+        }
+      }
+    }
   }
 }

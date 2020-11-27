@@ -1,19 +1,38 @@
-div[class="col-12"]
-  span
-    i[class="fas fa-quote-left"]
-  span[class="cta"]
-    = data.components.social.cta
-  span
-    i[class="fas fa-quote-right"]
+div[class="row"]
+  div[class="col-12 col-md-7 col-lg-8 cta-wrapper"]
+    div[class="row"]
+      div[class="col-12"]
+        span
+          i[class="fas fa-quote-left"]
+        span[class="cta"]
+          = data.components.social.cta
+        span
+          i[class="fas fa-quote-right"]
 
-div[class="col-12 signature"]
-  span
-    |<
-  embed[id="signature" src="#{image_path('signatures/full-name.svg')}"]
-  span
-    |/
-  span
-    |>
+      div[class="col-12 signature"]
+        span
+          |<
+        embed[id="signature" src="#{image_path('signatures/full-name.svg')}"]
+        span
+          |/
+        span
+          |>
+  div[class="col-md-5 col-lg-4 d-none d-md-block startup-project-wrapper"]
+    |<lottie-player id="lottie" src="#{image_path('pages/index/startup-project.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
 
-div[class="col-12 startup-project"]
-  |<lottie-player id="lottie" src="#{image_path('pages/index/startup-project.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
+div[class="row d-none d-md-block cta-content-wrapper"]
+  |CONTENT HERE
+
+div[class="row d-block d-sm-none startup-project-wrapper"]
+  div[class="col-12"]
+    |<lottie-player id="lottie" src="#{image_path('pages/index/startup-project.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
+
+div[class="row cta-banner-wrapper"]
+  div[class="col-12 cta-banner"]
+    div[class="row"]
+      span
+        |It doesn't have to
+      span
+        |be crazy at work!
+      span
+        = link_to("We can help you!", "/contact/")

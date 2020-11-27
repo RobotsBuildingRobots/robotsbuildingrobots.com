@@ -8,6 +8,7 @@ import { faBrain } from '@fortawesome/free-solid-svg-icons/faBrain';
 import { faPhoneSquare } from '@fortawesome/free-solid-svg-icons/faPhoneSquare';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons/faQuoteRight';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons/faQuoteLeft';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons/faExclamationCircle';
 
 library.add(faBars,
             faBrain,
@@ -17,6 +18,7 @@ library.add(faBars,
             faQuoteRight,
             faQuoteLeft,
             faSlash,
+            faExclamationCircle,
             faHammer);
 
 dom.watch();
