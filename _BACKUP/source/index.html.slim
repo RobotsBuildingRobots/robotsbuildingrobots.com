@@ -60,3 +60,25 @@ section[class="row m-0 section-venn-wrapper"]
       |be crazy at work!
     span
        = link_to("We can help you!", "/contact/")
+
+
+  div[class="col-12 header"]
+    span
+        |Inspired by
+    span
+      |real events
+    span
+      |!
+
+
+
+             div[class="col-12"]
+        span[class="sub-header"]
+          |Right Metrics
+        span[class="description"]
+          = data.services.metrics
+      div[class="col-12"]
+        span[class="sub-header"]
+          |Right Values
+        span[class="description"]
+          = data.services.values.last

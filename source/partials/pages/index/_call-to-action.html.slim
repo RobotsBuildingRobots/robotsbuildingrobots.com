@@ -1,4 +1,4 @@
-div[class="row"]
+div[class="row mx-auto cta-header-wrapper"]
   div[class="col-12 col-md-7 col-lg-8 cta-wrapper"]
     div[class="row"]
       div[class="col-12"]
@@ -20,8 +20,9 @@ div[class="row"]
   div[class="col-md-5 col-lg-4 d-none d-md-block startup-project-wrapper"]
     |<lottie-player id="lottie" src="#{image_path('pages/index/startup-project.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
 
-div[class="row d-none d-md-block cta-content-wrapper"]
-  |CONTENT HERE
+div[class="row mx-auto cta-footer-wrapper services-banner"]
+  div[class="d-none d-lg-block section-wrapper"]
+    = partial "partials/pages/index/services-banner"
 
 div[class="row d-block d-sm-none startup-project-wrapper"]
   div[class="col-12"]

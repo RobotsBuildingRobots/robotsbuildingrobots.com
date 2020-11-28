@@ -1,2 +1,38 @@
-div[class="col-12"]
-  | SERVICES BANNER! Marfa quinoa fixie migas wolf beard schlitz hashtag umami kitsch gluten-free literally fashion axe tofu. Wolf hexagon YOLO activated charcoal, live-edge irony +1 twee freegan gluten-free. Letterpress meggings aesthetic scenester church-key farm-to-table shaman roof party. Chambray twee letterpress cred butcher kombucha paleo raw denim, subway tile microdosing. Swag food truck cardigan, craft beer hoodie lyft banh mi hot chicken farm-to-table everyday carry copper mug humblebrag hexagon gastropub drinking vinegar.
+div[class="row mx-auto services-banner-wrapper"]
+  div[class="col-12 d-block d-lg-none content"]
+    div[class="row"]
+      div[class="col-2 col-md-1 header top"]
+        |Process
+      div[class="col-10 col-md-11 description"]
+        = data.services.process
+    div[class="row"]
+      div[class="col-2 col-md-1 header"]
+        |Metrics
+      div[class="col-10 col-md-11 description"]
+        = data.services.metrics
+    div[class="row"]
+      div[class="col-2 col-md-1 header bottom"]
+        |Values
+      div[class="col-10 col-md-11 description"]
+        = data.services.values.last
+
+  div[class="col-12 d-none d-lg-block content"]
+    div[class="row"]
+      div[class="col-4"]
+        div[class="row header-wrapper"]
+          span[class="col-12 header"]
+            |Process
+        div[class="row description"]
+          = data.services.process
+      div[class="col-4"]
+        div[class="row header-wrapper"]
+          span[class="col-12 header"]
+            |Metrics
+        div[class="row description"]
+          = data.services.metrics
+      div[class="col-4"]
+        div[class="row header-wrapper"]
+          span[class="col-12 header"]
+            |Values
+        div[class="row description"]
+          = data.services.values.last

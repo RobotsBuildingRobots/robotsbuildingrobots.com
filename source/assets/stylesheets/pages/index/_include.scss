@@ -11,13 +11,7 @@
     margin: 0;
 
     &:not(:first-child) {
-      padding: 1rem;
-    }
-
-    .section-wrapper {
-      @include media-breakpoint-up(maximum) {
-        max-width: map-get($grid-breakpoints, "lg");
-      }
+      padding: 1.5rem 0 1rem 0;
     }
   }
 
