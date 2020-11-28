@@ -27,7 +27,6 @@
 
       @include media-breakpoint-up(maximum) {
         background: none;
-        max-width: map-get($grid-breakpoints, "xl");
       }
     }
 
@@ -96,6 +95,13 @@
           background: rgba(230, 233, 242, $backdrop-opacity-light);
           margin-right: 1rem;
           border-radius: $radius;
+          max-width: 300px;
+        }
+      }
+
+      @include media-breakpoint-up(xl) {
+        .col-4 {
+          max-width: 325px;
         }
       }
     }
