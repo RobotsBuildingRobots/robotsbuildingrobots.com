@@ -18,6 +18,7 @@ $link-color: $color-five;
 
 $backdrop-opacity: 0.8;
 $backdrop-opacity-light: 0.7;
+$backdrop-opacity-dark: 0.9;
 $radius: 1rem;
 
 $minimum-height: 700px;
@@ -30,6 +31,7 @@ $grid-breakpoints: (
   lg: 992px,
   maximum: 1000px,
   xl: 1200px,
-  xxl: 1800px,
-  xxxl: 2450px
+  xxl: 1400px,
+  xxxl: 1800px,
+  xxxxl: 2450px
 );

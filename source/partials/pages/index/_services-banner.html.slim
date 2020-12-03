@@ -1,38 +1,65 @@
 div[class="row mx-auto services-banner-wrapper"]
-  div[class="col-12 d-block d-lg-none content"]
+  / XS-SM ------------------------------------------------------------
+  div[class="col-12 d-block d-md-none content-graph"]
+    embed[src="#{image_path('pages/index/right-setup.svg')}"]
+  div[class="col-12 d-block d-md-none content"]
     div[class="row"]
-      div[class="col-2 col-md-1 header top"]
+      div[class="col-2 header"]
         |Process
-      div[class="col-10 col-md-11 description"]
+      div[class="col-10 description"]
         = data.services.process
     div[class="row"]
-      div[class="col-2 col-md-1 header"]
+      div[class="col-2 header"]
         |Metrics
-      div[class="col-10 col-md-11 description"]
+      div[class="col-10 description"]
         = data.services.metrics
     div[class="row"]
-      div[class="col-2 col-md-1 header bottom"]
+      div[class="col-2 col-md-1 header"]
         |Values
       div[class="col-10 col-md-11 description"]
         = data.services.values.last
-
+  / MD -------------------------------------------------------------
+  div[class="col-12 d-none d-md-block d-lg-none content"]
+    div[class="row content-row-wrapper"]
+      div[class="col-6 content-graph"]
+        embed[src="#{image_path('pages/index/right-setup.svg')}"]
+      div[class="col-6 d-flex flex-column"]
+        div[class="row"]
+          span[class="col-12 header top"]
+            |Process
+        div[class="row description bottom"]
+          = data.services.process
+    div[class="row content-row-wrapper"]
+      div[class="col-6 d-flex flex-column"]
+        div[class="row"]
+          span[class="col-12 header top"]
+            |Metrics
+        div[class="row description bottom"]
+          = data.services.metrics
+      div[class="col-6 d-flex flex-column"]
+        div[class="row"]
+          span[class="col-12 header top"]
+            |Values
+        div[class="row description bottom"]
+          = data.services.values.last
+  / LG+ -------------------------------------------------------------
   div[class="col-12 d-none d-lg-block content"]
     div[class="row"]
-      div[class="col-4"]
-        div[class="row header-wrapper"]
-          span[class="col-12 header"]
+      div[class="col-4 d-flex flex-column"]
+        div[class="row"]
+          span[class="col-12 header top"]
             |Process
-        div[class="row description"]
+        div[class="row description bottom"]
           = data.services.process
-      div[class="col-4"]
-        div[class="row header-wrapper"]
-          span[class="col-12 header"]
+      div[class="col-4 d-flex flex-column"]
+        div[class="row"]
+          span[class="col-12 header top"]
             |Metrics
-        div[class="row description"]
+        div[class="row description bottom"]
           = data.services.metrics
-      div[class="col-4"]
-        div[class="row header-wrapper"]
-          span[class="col-12 header"]
+      div[class="col-4 d-flex flex-column"]
+        div[class="row"]
+          span[class="col-12 header top"]
             |Values
-        div[class="row description"]
+        div[class="row description bottom"]
           = data.services.values.last

@@ -1,12 +1,11 @@
 .services-banner {
   @include media-breakpoint-up(xs) {
-    background: url('#{$image-path}/pages/index/vintage-wallpaper.png') repeat;
+    background: url('#{$image-path}/pages/index/always-grey.png') repeat;
     padding: 1rem 0 0 0;
   }
 
   @include media-breakpoint-up(md) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 1rem 1rem 2.5rem 1rem;
   }
 
   @include media-breakpoint-up(lg) {
@@ -16,17 +15,27 @@
   .section-wrapper {
     .services-banner-wrapper {
       @include media-breakpoint-up(xs) {
-        background: rgba(230, 233, 242, $backdrop-opacity-light);
-        border-radius: none;
+
       }
 
       @include media-breakpoint-up(md) {
-        border-radius: $radius;
         max-width: map-get($grid-breakpoints, "lg");
       }
 
-      @include media-breakpoint-up(maximum) {
-        background: none;
+      @include media-breakpoint-up(xxl) {
+        max-width: map-get($grid-breakpoints, "xl");
+      }
+    }
+
+    .content-graph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 1rem 1.5rem 1rem;
+
+      embed {
+        width: 275px;
       }
     }
 
@@ -34,17 +43,64 @@
       font-size: 1rem;
       color: $darkest-color;
 
-      @include media-breakpoint-up(maximum) {
-        > .row:first-child {
-          flex-wrap: nowrap;
+      @include media-breakpoint-up(xs) {
+        border-radius: 0;
+
+        .row:not(:last-child) {
+          margin-bottom: 1rem;
         }
       }
 
-      .header-wrapper {
-        @include media-breakpoint-up(lg) {
-          background: rgba(70, 73, 107, $backdrop-opacity-light);
-          border-top-left-radius: 1rem;
-          border-top-right-radius: 1rem;
+      @include media-breakpoint-up(md) {
+        .row:not(:last-child) {
+          margin-bottom: 0;
+        }
+
+        .content-row-wrapper:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        .content-row-wrapper .col-6:not(:last-child) {
+          padding-right: 1.5rem;
+        }
+
+        .content-row-wrapper .col-6:not(:first-child) {
+          padding-left: 1.5rem;
+        }
+
+        .d-flex {
+          > .row:first-child {
+            flex-grow: 0;
+          }
+
+          > .row:last-child {
+            flex-grow: 1;
+          }
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        .col-4:nth-of-type(1) {
+          padding-right: 1.5rem;
+        }
+
+        .col-4:nth-of-type(2) {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+
+        .col-4:nth-of-type(3) {
+          padding-left: 1.5rem;
+        }
+
+        .d-flex {
+          > .row:first-child {
+            flex-grow: 0;
+          }
+
+          > .row:last-child {
+            flex-grow: 1;
+          }
         }
       }
 
@@ -58,15 +114,14 @@
         max-width: 4rem;
 
         @include media-breakpoint-up(xs) {
-          background: rgba(70, 73, 107, $backdrop-opacity-light);
+          background: rgba(70, 73, 107, $backdrop-opacity-dark);
           text-orientation: upright;
           writing-mode: vertical-rl;
           max-width: 4rem;
         }
 
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(md) {
           border-radius: 0;
-          background: none;
           text-orientation: initial;
           writing-mode: initial;
           max-width: initial;
@@ -76,32 +131,20 @@
 
       @include media-breakpoint-up(md) {
         .top {
-          border-top-left-radius: 1rem;
+          border-top-left-radius: $radius;
+          border-top-right-radius: $radius;
         }
 
         .bottom{
-          border-bottom-left-radius: 1rem;
+          border-bottom-left-radius: $radius;
+          border-bottom-right-radius: $radius;
         }
       }
 
       .description {
         @include media-breakpoint-up(xs) {
-          padding: 1rem 1rem 1rem 1rem;
-        }
-      }
-
-      @include media-breakpoint-up(lg) {
-        .col-4 {
           background: rgba(230, 233, 242, $backdrop-opacity-light);
-          margin-right: 1rem;
-          border-radius: $radius;
-          max-width: 300px;
-        }
-      }
-
-      @include media-breakpoint-up(xl) {
-        .col-4 {
-          max-width: 325px;
+          padding: 1rem 1rem 1rem 1rem;
         }
       }
     }
