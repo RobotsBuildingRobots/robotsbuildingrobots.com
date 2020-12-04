@@ -1,7 +1,7 @@
 .services-banner {
   @include media-breakpoint-up(xs) {
     background: url('#{$image-path}/pages/index/always-grey.png') repeat;
-    padding: 1rem 0 0 0;
+    padding: 0;
   }
 
   @include media-breakpoint-up(md) {
@@ -14,16 +14,68 @@
 
   .section-wrapper {
     .services-banner-wrapper {
-      @include media-breakpoint-up(xs) {
-
-      }
-
       @include media-breakpoint-up(md) {
         max-width: map-get($grid-breakpoints, "lg");
       }
 
       @include media-breakpoint-up(xxl) {
         max-width: map-get($grid-breakpoints, "xl");
+      }
+    }
+
+    @import "pages/index/cta-banner-wrapper";
+
+    @include media-breakpoint-up(xs) {
+      .cta-crazy-banner-wrapper {
+        .cta-banner-wrapper {
+          display: none;
+        }
+      }
+
+      .cta-inspired-banner-wrapper {
+        .cta-banner-wrapper {
+          @include box-shadow();
+
+          display: block;
+          margin-top: 2rem;
+
+          .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    @media (max-height: $minimum-height) {
+      .cta-crazy-banner-wrapper {
+        display: block;
+        margin-bottom: 1rem;
+
+        .cta-banner-wrapper {
+          @include box-shadow();
+
+          display: block;
+
+          .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      .cta-crazy-banner-wrapper {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      .cta-inspired-banner-wrapper {
+        display: none;
       }
     }
 
