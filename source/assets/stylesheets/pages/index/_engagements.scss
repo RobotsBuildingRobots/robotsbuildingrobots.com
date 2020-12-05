@@ -1,3 +1,45 @@
 .engagements {
-  padding: 2rem;
+  background: url('#{$image-path}/pages/index/engagements-background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 0;
+
+  .section-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    .engagements-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 2rem 0;
+    }
+  }
+
+  .engagements-project-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-up(xs) {
+      flex: 1 1 auto;
+
+      #lottie {
+        width: 275px;
+        height: 275px;
+        margin: auto auto;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 0;
+      flex: auto;
+      padding-right: 2rem;
+    }
+  }
+
+  @import "pages/index/cta-banner-wrapper";
 }

@@ -47,12 +47,6 @@
     justify-content: flex-start;
     flex-direction: column;
 
-    @include media-breakpoint-up(xs) {
-      .cta-content-wrapper {
-        flex: auto;
-      }
-    }
-
     @include media-breakpoint-up(md) {
       padding-top: 1rem;
 
