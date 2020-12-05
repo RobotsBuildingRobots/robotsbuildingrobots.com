@@ -55,19 +55,21 @@ div[class="row mx-auto services-banner-wrapper"]
   / LG+ -------------------------------------------------------------
   div[class="col-12 d-none d-lg-block content"]
     div[class="row"]
-      div[class="col-4 d-flex flex-column"]
+      div[class="d-none d-xxl-block my-auto col-xxl-3 content-graph"]
+        embed[src="#{image_path('pages/index/right-setup.svg')}"]
+      div[class="col-4 col-xxl-3 d-flex flex-column"]
         div[class="row"]
           span[class="col-12 header top"]
             |Process
         div[class="row description bottom"]
           = data.services.process
-      div[class="col-4 d-flex flex-column"]
+      div[class="col-4 col-xxl-3 d-flex flex-column"]
         div[class="row"]
           span[class="col-12 header top"]
             |Metrics
         div[class="row description bottom"]
           = data.services.metrics
-      div[class="col-4 d-flex flex-column"]
+      div[class="col-4 col-xxl-3 d-flex flex-column"]
         div[class="row"]
           span[class="col-12 header top"]
             |Values
