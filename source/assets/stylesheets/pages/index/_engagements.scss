@@ -14,12 +14,39 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       padding: 2rem 0;
+
+      .header {
+        background: rgba(240, 157, 55, $backdrop-opacity-super-light);
+        padding: 1rem;
+
+        .cta {
+          @include secondary-font();
+
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .fa-quote-left,
+        .fa-quote-right {
+          font-size: 1.5rem;
+          padding-bottom: 0.5rem;
+
+          @include font-highlight-color();
+        }
+
+        .fa-quote-left {
+          padding-right: 0.5rem;
+        }
+
+        .fa-quote-right {
+          padding-left: 0.5rem;
+        }
+      }
     }
   }
 
-  .engagements-project-wrapper {
+  .engagements-lottie-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
