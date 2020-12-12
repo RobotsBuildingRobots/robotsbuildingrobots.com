@@ -7,19 +7,51 @@ div[class="row mx-auto engagements-wrapper"]
     span
       i[class="fas fa-quote-right"]
 
+/ div[class="row engagements-projects-wrapper"]
+/   div[class="col-12"]
+/     div[class="flexslider"]
+/       ul[class="slides"]
+/         - data.engagements.projects.each do |project|
+/           li
+/             p[class="flex-image"]
+/               embed[src="#{image_path('pages/index/engagements/' + project.logo)}"]
+/             p[class="flex-caption"]
+/               span[class="company"]
+/                 = project.company
+/               span[class="collaboration"]
+/                 = project.collaboration
+
+
 div[class="row engagements-projects-wrapper"]
   div[class="col-12"]
-    div[class="flexslider"]
-      ul[class="slides"]
-        - data.engagements.projects.each do |project|
-          li
-            p[class="flex-image"]
-              embed[src="#{image_path('pages/index/engagements/' + project.logo)}"]
-            p[class="flex-caption"]
-              span[class="company"]
-                = project.company
-              span[class="collaboration"]
-                = project.collaboration
+    div[id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"]
+      ol[class="carousel-indicators"]
+        li[data-target="#carouselExampleIndicators" data-slide-to="0" class="active"]
+        li[data-target="#carouselExampleIndicators" data-slide-to="1"]
+        li[data-target="#carouselExampleIndicators" data-slide-to="2"]
+      div[class="carousel-inner"]
+        - data.engagements.projects.each do |project, index|
+          = binding.pry
+          div[class="carousel-item active"]
+            img[class="d-block w-100" src="#{image_path('pages/index/engagements/' + project.logo)}" alt="First slide"]
+            div[class="carousel-caption d-none d-md-block"]
+              h5
+                |TESTH5
+              p
+                |TESTP
+      a[class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"]
+        span[class="carousel-control-prev-icon" aria-hidden="true"]
+        span[class="sr-only"]
+          |Previous
+      a[class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"]
+        span[class="carousel-control-next-icon" aria-hidden="true"]
+        span[class="sr-only"]
+          |Next
+
+
+
+
+
 
 div[class="row d-block d-sm-none engagements-lottie-wrapper"]
   div[class="col-12"]
