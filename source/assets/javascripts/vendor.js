@@ -7,4 +7,3 @@ require('bootstrap');
 require('breakpoints');
 require('validation');
 require('fontawesome');
-require('flexslider');

@@ -10,7 +10,7 @@
   align-items: center;
   min-height: 100%;
   min-width: 100%;
-  z-index: $zindex-tooltip;
+  z-index: $zindex-cover;
 
   #preloader {
     @include box-shadow-all-sides($color: $highlight-color);

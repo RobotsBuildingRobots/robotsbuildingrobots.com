@@ -47,65 +47,85 @@
   }
 
   .engagements-projects-wrapper {
-    @import "vendor/flexslider";
-
     @include media-breakpoint-up(xs) {
       padding: 0 0 1rem 0;
 
-      .flexslider {
-        margin: initial;
-        border-radius: 0;
-        background: $color-three;
-        border: 4px solid $color-three;
-      }
+      #projects-carousel {
+        background: rgba(230, 233, 242, $backdrop-opacity-dark);
+        min-height: 500px;
 
-      .flex-direction-nav a:before {
-        color: $color-two;
-        font-size: 30px;
-        content: "\276E";
-      }
-      .flex-direction-nav a.flex-next:before {
-        content: "\276F";
-      }
-
-      .flex-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-
-        embed {
-          max-height: 125px;
-          max-width: 275px;
-        }
-      }
-
-      .flex-caption {
-        left: 0;
-        bottom: 0;
-        width: initial;
-        padding: 0.5rem;
-        margin: 0 1.5rem;
-        color: $color-one;
-        font-size: 14px;
-        line-height: 18px;
-
-        span {
-          display: block;
+        .carousel-item {
+          transition-duration: 0.5s;
         }
 
-        .company {
-          @include impact-font();
+        .carousel-logo{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem;
+          min-height: 110px;
 
-          padding-bottom: 0.5rem;
-          font-weight: bold;
-          text-transform: uppercase;
-          font-size: 1rem;
-          color: $color-two;
+          embed {
+            max-height: 100px;
+            max-width: 275px;
+          }
         }
 
-        .collaboration {
-          color: $color-one;
+        .carousel-caption {
+          position: relative;
+          left: 0;
+          top: 0;
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          padding: 1rem 3rem;
+
+          span {
+            display: block;
+          }
+
+          .company {
+            @include impact-font();
+
+            padding-bottom: 0.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1rem;
+            color: $color-two;
+          }
+
+          .collaboration {
+            color: $color-one;
+          }
+        }
+
+        .carousel-control-next,
+        .carousel-control-prev {
+          opacity: initial;
+          z-index: $zindex-tooltip;
+        }
+
+        .carousel-control-next-icon,
+        .carousel-control-prev-icon {
+          background-image: none;
+        }
+
+        .carousel-control-next-icon:after,
+        .carousel-control-prev-icon:after {
+          font-size: 2rem;
+          color: $color-four;
+        }
+
+        .carousel-control-next-icon:after {
+          content: "\276F";
+        }
+
+        .carousel-control-prev-icon:after {
+          content: "\276E";
+        }
+
+        .carousel-indicators li {
+          background-color: $color-four;
         }
       }
     }
