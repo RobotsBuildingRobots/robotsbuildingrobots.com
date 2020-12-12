@@ -106,6 +106,8 @@
         }
 
         li {
+          outline: none;
+
           @include media-breakpoint-up(xs) {
             &:first-child {
               border-top: 0.15rem solid $border-color;
@@ -156,13 +158,17 @@
               background-color: $darkest-color;
 
               a {
-                color: $border-color;
+                color: $color-four;
               }
             }
           }
 
           .nav-icon {
             @include font-highlight-color();
+
+            &:hover {
+              color: $color-four;
+            }
 
             @include media-breakpoint-up(xs) {
               margin-right: 0.3rem;
@@ -180,7 +186,8 @@
           }
 
           .nav-link {
-            color: $color-white;
+            color: $link-color;
+            outline: none;
             padding: 0;
 
             @include media-breakpoint-up(xs) {

@@ -5,7 +5,7 @@ export default () => {
     pause: false
   });
 
-  var checkitem = function() {
+  var carouselNavigation = function() {
     var $this;
     $this = $("#projects-carousel");
     if ($("#projects-carousel .carousel-inner .carousel-item:first").hasClass("active")) {
@@ -20,7 +20,7 @@ export default () => {
     }
   };
 
-  checkitem();
+  carouselNavigation();
 
-  $("#projects-carousel").on("slid.bs.carousel", "", checkitem);
+  $("#projects-carousel").on("slid.bs.carousel", "", carouselNavigation);
 };
