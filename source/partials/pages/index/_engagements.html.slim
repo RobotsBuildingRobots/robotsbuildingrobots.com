@@ -7,38 +7,18 @@ div[class="row mx-auto engagements-wrapper"]
     span
       i[class="fas fa-quote-right"]
 
-
-
-
-
-
 div[class="row engagements-projects-wrapper"]
   div[class="col-12"]
     div[class="flexslider"]
       ul[class="slides"]
-        li
-          img[src="#{image_path('pages/index/engagements/kitchen_adventurer_cheesecake_brownie.jpg')}"]
-          p[class="flex-caption"]
-            |Adventurer Cheesecake Brownie
-        li
-          img[src="#{image_path('pages/index/engagements/kitchen_adventurer_lemon.jpg')}"]
-          p[class="flex-caption"]
-            |Adventurer Lemon
-        li
-          img[src="#{image_path('pages/index/engagements/kitchen_adventurer_donut.jpg')}"]
-          p[class="flex-caption"]
-            |Adventurer Donut
-        li
-          img[src="#{image_path('pages/index/engagements/kitchen_adventurer_caramel.jpg')}"]
-          p[class="flex-caption"]
-            |Adventurer Caramel
-
-
-
-
-
-
-
+        - data.engagements.projects.each do |project|
+          li
+            img[src="#{image_path('pages/index/engagements/' + project.logo)}"]
+            p[class="flex-caption"]
+              span[class="company"]
+                = project.company
+              span[class="collaboration"]
+                = project.collaboration
 
 div[class="row d-block d-sm-none engagements-lottie-wrapper"]
   div[class="col-12"]

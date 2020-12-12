@@ -1,1 +1,28 @@
 process: With engagements helping small startups to large enterprises, we bring both technical knowledge and industry-leading processes to help you achieve your vision.  We are not a cookie-cutter service provider. Through effective collaboration and tailoring the project to the needs of the business, we achieve project success.
+
+projects:
+  -
+    company: Gathrly
+    logo: kitchen_adventurer_cheesecake_brownie.jpg
+    collaboration: >-
+      Partnered with company founders to create a technical product roadmap and setup agile processes. Designed, engineered, and maintained a lead management application utilized by top tier brewers. Coached and mentored a team of junior engineers to meet productivity goals and ensure high-performance.
+  -
+    company: USA Today
+    logo: kitchen_adventurer_cheesecake_brownie.jpg
+    collaboration: >-
+      Developed and architected a backend CMS with frontend content creation interfaces & features. Optimized user flows & improved the customer experience by designing an updated responsive layout.
+  -
+    company: W. W. Norton
+    logo: kitchen_adventurer_cheesecake_brownie.jpg
+    collaboration: >-
+      Designed and architected an interactive delivery platform to serve over 300+ interactives for a global publisher. Setup the GitFlow Process, code reviews, quality guidelines, & workflow management. Coached & mentored junior engineers on best practices to increase their productivity & contributions to the code base.
+  -
+    company: Crowd OX
+    logo: kitchen_adventurer_cheesecake_brownie.jpg
+    collaboration: >-
+      Built out platform features across three ruby-on-rails engines. Rewrote the Partner application testing suite porting it from Minitest to the latest version of RSpec while maintaining testing coverage metrics. Expanded testing coverage from 0% to over 60% in a legacy code base with 100% model testing coverage.
+  -
+    company: Eggplant
+    logo: kitchen_adventurer_cheesecake_brownie.jpg
+    collaboration: >-
+      Expanded the authorization capability of the testing manager application to include Microsoft Active Directory (LDAP). Coordinated daily pair programming sessions to mentor junior engineers, improve team collaboration, and increase overall team performance.
