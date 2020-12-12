@@ -11,6 +11,7 @@
     flex-direction: column;
 
     .engagements-wrapper {
+      max-width: map-get($grid-breakpoints, "lg");
       display: flex;
       align-items: center;
       justify-content: center;
@@ -47,6 +48,8 @@
   }
 
   .engagements-projects-wrapper {
+    max-width: map-get($grid-breakpoints, "lg");
+
     @include media-breakpoint-up(xs) {
       padding: 0 0 1rem 0;
 
@@ -72,6 +75,7 @@
         }
 
         .carousel-caption {
+          max-width: 500px;
           position: relative;
           left: 0;
           top: 0;
@@ -127,6 +131,20 @@
         .carousel-indicators li {
           background-color: $color-four;
         }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      min-width: map-get($grid-breakpoints, "lg");
+
+      #projects-carousel {
+        min-height: 400px;
+      }
+
+      #lottie {
+        width: 325px;
+        height: 325px;
+        margin: auto auto;
       }
     }
   }

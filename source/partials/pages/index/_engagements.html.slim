@@ -7,8 +7,8 @@ div[class="row mx-auto engagements-wrapper"]
     span
       i[class="fas fa-quote-right"]
 
-div[class="row engagements-projects-wrapper"]
-  div[class="col-12"]
+div[class="row mx-auto engagements-projects-wrapper no-gutters"]
+  div[class="col-12 col-md-7"]
     div[id="projects-carousel" class="carousel slide" data-ride="carousel"]
       ol[class="carousel-indicators"]
         - data.engagements.projects.each_with_index do |project, index|
@@ -27,9 +27,9 @@ div[class="row engagements-projects-wrapper"]
                             end
             active_class = index == 0 ? "active" : ""
           div[class="carousel-item #{postion_class} #{active_class}"]
-            div[class="carousel-logo"]
+            div[class="mx-auto carousel-logo"]
               embed[class="d-block" src="#{image_path('pages/index/engagements/' + project.logo)}"]
-            div[class="carousel-caption"]
+            div[class="mx-auto carousel-caption"]
               div[class="company"]
                 = project.company
               div[class="collaboration"]
@@ -42,6 +42,8 @@ div[class="row engagements-projects-wrapper"]
         span[class="carousel-control-next-icon" aria-hidden="true"]
         span[class="sr-only"]
           |Next
+  div[class="d-none d-md-block col-md-5"]
+    |<lottie-player id="lottie" src="#{image_path('pages/index/financial-management.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
 
 div[class="row d-block d-sm-none engagements-lottie-wrapper"]
   div[class="col-12"]
