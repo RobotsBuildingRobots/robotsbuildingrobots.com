@@ -13,7 +13,8 @@ div[class="row engagements-projects-wrapper"]
       ul[class="slides"]
         - data.engagements.projects.each do |project|
           li
-            img[src="#{image_path('pages/index/engagements/' + project.logo)}"]
+            p[class="flex-image"]
+              embed[src="#{image_path('pages/index/engagements/' + project.logo)}"]
             p[class="flex-caption"]
               span[class="company"]
                 = project.company

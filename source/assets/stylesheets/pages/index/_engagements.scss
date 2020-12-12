@@ -68,15 +68,45 @@
         content: "\276F";
       }
 
+      .flex-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+
+        embed {
+          max-height: 125px;
+          max-width: 275px;
+        }
+      }
+
       .flex-caption {
         left: 0;
         bottom: 0;
         width: initial;
-        padding: 1rem;
-        margin: 0;
+        padding: 0.5rem;
+        margin: 0 1.5rem;
         color: $color-one;
         font-size: 14px;
         line-height: 18px;
+
+        span {
+          display: block;
+        }
+
+        .company {
+          @include impact-font();
+
+          padding-bottom: 0.5rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 1rem;
+          color: $color-two;
+        }
+
+        .collaboration {
+          color: $color-one;
+        }
       }
     }
   }

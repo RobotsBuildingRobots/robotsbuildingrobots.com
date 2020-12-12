@@ -13,7 +13,6 @@
   z-index: $zindex-tooltip;
 
   #preloader {
-    @include primary-font();
     @include box-shadow-all-sides($color: $highlight-color);
 
     font-weight: bold;

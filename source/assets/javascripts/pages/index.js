@@ -1,5 +1,6 @@
 export default () => {
   $('.flexslider').flexslider({
-    animation: "slide"
+    animation: "slide",
+    animationLoop: false
   });
 };
