@@ -14,7 +14,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 0;
+      padding: 2rem 0 1rem 0;
 
       .header {
         background: rgba(240, 157, 55, $backdrop-opacity-super-light);
@@ -42,6 +42,41 @@
         .fa-quote-right {
           padding-left: 0.5rem;
         }
+      }
+    }
+  }
+
+  .engagements-projects-wrapper {
+    @import "vendor/flexslider";
+
+    @include media-breakpoint-up(xs) {
+      padding: 0 0 1rem 0;
+
+      .flexslider {
+        margin: initial;
+        border-radius: 0;
+        background: $color-three;
+        border: 4px solid $color-three;
+      }
+
+      .flex-direction-nav a:before {
+        color: $color-two;
+        font-size: 30px;
+        content: "\276E";
+      }
+      .flex-direction-nav a.flex-next:before {
+        content: "\276F";
+      }
+
+      .flex-caption {
+        left: 0;
+        bottom: 0;
+        width: initial;
+        padding: 1rem;
+        margin: 0;
+        color: $color-one;
+        font-size: 14px;
+        line-height: 18px;
       }
     }
   }

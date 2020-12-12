@@ -1,5 +1,6 @@
 import breakpoints from './vendor/breakpoints';
 import navigation from './components/navigation';
+import index from './pages/index';
 
 const hidePreloader = () => {
   $('#preloader').fadeOut(1000, () => {
@@ -22,6 +23,7 @@ $(document).ready(() => {
 
   switch ($bodyId) {
     case 'index':
+      index();
       break;
     default:
       break;
