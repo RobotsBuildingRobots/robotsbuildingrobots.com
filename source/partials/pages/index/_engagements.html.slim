@@ -11,12 +11,12 @@ div[class="row mx-auto engagements-projects-wrapper no-gutters"]
   div[class="col-12 col-md-7"]
     div[id="projects-carousel" class="carousel slide" data-ride="carousel"]
       ol[class="carousel-indicators"]
-        - data.engagements.projects.each_with_index do |project, index|
+        - data.engagements.projects..sort_by { |k| k["id"] }.reverse.each_with_index do |project, index|
           ruby:
               active_class = index == 0 ? "active" : ""
           li[data-target="#projects-carousel" data-slide-to="#{index}" class="#{active_class}"]
       div[class="carousel-inner"]
-        - data.engagements.projects.each_with_index do |project, index|
+        - data.engagements.projects..sort_by { |k| k["id"] }.reverse.each_with_index do |project, index|
           ruby:
             postion_class = if index == 0
                               "first"
