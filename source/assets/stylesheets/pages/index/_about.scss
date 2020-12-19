@@ -3,7 +3,7 @@
 
   @include media-breakpoint-up(xs) {
     background: url('#{$image-path}/pages/index/always-grey.png') repeat;
-    min-height: 500px;
+    min-height: 350px;
     padding: 0;
   }
 
