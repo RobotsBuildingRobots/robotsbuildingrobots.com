@@ -7,10 +7,12 @@ activate :external_pipeline,
 
 activate :asset_hash, exts: %w[.jpg .png]
 
+# https://github.com/middleman/middleman-minify-html
 activate :minify_html do |html|
   html.remove_quotes = false
   html.remove_intertag_spaces = true
   html.remove_http_protocol = false
+  html.remove_quotes = true
 end
 
 set :protocol, 'https://'

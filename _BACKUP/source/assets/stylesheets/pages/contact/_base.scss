@@ -1,0 +1,51 @@
+#contact {
+  .content-wrapper {
+    background: url('#{$image-path}/backgrounds/desk-workspace.jpg') no-repeat;
+    padding: 0;
+    background-size: cover;
+    min-height: 100vh;
+  }
+
+  .contact-wrapper-container-top-row {
+    @include media-breakpoint-up(xs) {
+      padding: 4rem 0 0 0;
+    }
+
+    @include media-breakpoint-up(xl) {
+      .d-xl-block {
+        text-align: center;
+
+        embed {
+          width: 450px;
+          max-width: 650px;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xxl) {
+      .d-xl-block {
+        embed {
+          width: 650px;
+        }
+      }
+    }
+
+    .contact-wrapper-container-middle-row {
+      min-height: 100vh;
+    }
+
+    .contact-wrapper-container-inner-row {
+      @include media-breakpoint-up(xs) {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-right: auto;
+        margin-left: initial;
+      }
+
+      @import "contact-wrapper-container";
+    }
+  }
+}

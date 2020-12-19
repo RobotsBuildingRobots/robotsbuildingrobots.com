@@ -1,5 +1,5 @@
 title
   - if current_page.data.title
-    = data.components.social.title + " | How can we help you? | " + current_page.data.title
+    = "#{data.components.social.formalname} | #{data.components.social.focus} | #{current_page.data.title}"
   - else
-    = data.components.social.title + " | How can we help you?"
+    = "#{data.components.social.formalname} | #{data.components.social.focus}"

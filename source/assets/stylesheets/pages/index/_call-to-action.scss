@@ -1,0 +1,188 @@
+.call-to-action {
+  background: url('#{$image-path}/pages/index/cta-background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  padding: 0;
+
+  @include media-breakpoint-up(xs) {
+    height: calc((var(--vh, 1vh) * 100) - 70px);
+  }
+
+  @include media-breakpoint-up(sm) {
+    height: calc((var(--vh, 1vh) * 100) - 147px);
+  }
+
+  @include media-breakpoint-up(md) {
+    height: auto;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: calc((var(--vh, 1vh) * 100) - 65px);
+  }
+
+  @media only screen
+    and (min-device-width: 1024px)
+    and (max-device-width: 1366px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+    height: auto;
+  }
+
+  .services-banner {
+    background: none;
+
+    @include media-breakpoint-up(md) {
+      padding: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-bottom: 2rem;
+    }
+  }
+
+  .section-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 1rem;
+
+      .cta-header-wrapper {
+        @include media-breakpoint-up(md) {
+          padding-bottom: 1rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          padding-bottom: 0;
+        }
+
+        @include media-breakpoint-up(maximum) {
+          max-width: map-get($grid-breakpoints, "lg");
+        }
+      }
+
+      .cta-footer-wrapper {
+        flex: 1 1 auto;
+
+        @include media-breakpoint-up(maximum) {
+          max-width: map-get($grid-breakpoints, "xl");
+        }
+      }
+    }
+  }
+
+  .cta-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-up(xs) {
+      padding: 1.5rem 1rem 0 1rem;
+
+      .avatar-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        padding-right: 0;
+
+        #avatar {
+          border-radius: 50%;
+          max-height: 75px;
+          border: 2px solid $color-four;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-left: 2rem;
+    }
+
+    .cta {
+      @include secondary-font();
+
+      font-weight: bold;
+      text-transform: uppercase;
+
+      @include media-breakpoint-up(xs) {
+        font-size: 1.2rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .signature {
+      padding-top: 1.5rem;
+
+      @include media-breakpoint-up(xs) {
+        text-align: center;
+        padding-left: 0.5rem;
+      }
+
+      @include media-breakpoint-up(md) {
+        text-align: left;
+      }
+
+      span {
+        font-size: 2rem;
+        font-weight: bold;
+        vertical-align: top;
+
+        @include font-highlight-color();
+
+        &:first-child {
+          padding-right: 0.75rem;
+        }
+      }
+
+      embed {
+        width: 125px;
+        padding-right: 0.75rem;
+      }
+    }
+
+    .fa-quote-left,
+    .fa-quote-right {
+      font-size: 1.5rem;
+      padding-bottom: 0.5rem;
+
+      @include font-highlight-color();
+    }
+
+    .fa-quote-left {
+      padding-right: 0.5rem;
+    }
+
+    .fa-quote-right {
+      padding-left: 0.5rem;
+    }
+  }
+
+  .startup-project-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-breakpoint-up(xs) {
+      flex: 1 1 auto;
+
+      #lottie {
+        width: 275px;
+        height: 275px;
+        margin: auto auto;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-top: 0;
+      flex: auto;
+      padding-right: 2rem;
+    }
+  }
+
+  @import "pages/index/cta-banner-wrapper";
+}

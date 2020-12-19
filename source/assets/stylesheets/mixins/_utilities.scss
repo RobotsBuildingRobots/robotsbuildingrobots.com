@@ -10,28 +10,28 @@
   @include transform(rotate(#{$deg}deg));
 }
 
-@mixin box-shadow($horiz: 0, $vert: 0, $blur: 0.5rem, $spread: 0.25rem, $color: $black-darkest, $inset: "") {
+@mixin box-shadow($horiz: 0, $vert: 0, $blur: 0.5rem, $spread: 0.25rem, $color: $color-black, $inset: "") {
   -webkit-box-shadow: $horiz $vert $blur $spread $color unquote($inset);
   -moz-box-shadow: $horiz $vert $blur $spread $color unquote($inset);
   box-shadow: $horiz $vert $blur $spread $color unquote($inset);
 }
 
-@mixin drop-shadow($horiz: 0, $vert: 0, $spread: 0.25rem, $color: $black-darkest) {
+@mixin drop-shadow($horiz: 0, $vert: 0, $spread: 0.25rem, $color: $color-black) {
   filter: drop-shadow($horiz $vert $spread $color);
 }
 
-@mixin box-shadow-all-sides () {
-	@include box-shadow();
+@mixin box-shadow-all-sides ($color: $color-black) {
+	@include box-shadow($color: $color);
 }
 
 @mixin box-shadow-top-left-right-sides {
   box-shadow:
-		0 -0.25rem 0.25rem 0 $black-darkest,
-		0.25rem -0.25rem 0.25rem 0 $black-darkest,
-		-0.25rem -0.25rem 0.25rem 0 $black-darkest;
+		0 -0.25rem 0.25rem 0 $color-black,
+		0.25rem -0.25rem 0.25rem 0 $color-black,
+		-0.25rem -0.25rem 0.25rem 0 $color-black;
 }
 
-@function text-stroke($size: 2, $color: $style-whitest, $correction: 0) {
+@function text-stroke($size: 2, $color: $color-white, $correction: 0) {
 	$radius: $size - $correction;
 	$stroke: ();
 
@@ -66,6 +66,6 @@
 	@return $stroke;
 }
 
-@mixin text-stroke($size: 2, $color: $style-whitest, $correction: 0) {
+@mixin text-stroke($size: 2, $color: $color-white, $correction: 0) {
 	text-shadow: text-stroke($size, $color, $correction);
 }

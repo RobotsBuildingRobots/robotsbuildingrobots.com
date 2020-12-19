@@ -1,0 +1,178 @@
+.contact-form-container {
+  background-color: rgba(70, 73, 107, $backdrop-opacity);
+
+  @include media-breakpoint-up(xs) {
+    @include box-shadow();
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include box-shadow-all-sides();
+  }
+
+  .form-outer-wrapper {
+    .form-header-wrapper {
+      @include secondary-font();
+
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: 1rem;
+
+      .header {
+        padding: 0 0 0.5rem 0;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+      }
+
+      @include media-breakpoint-up(xs) {
+        line-height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      @include media-breakpoint-up(transition) {
+        line-height: 3.2rem;
+        font-size: 1.5rem;
+      }
+    }
+
+    .form-description,
+    .form-control {
+      padding: 0.5rem 0.5rem;
+    }
+
+    label {
+      text-transform: uppercase;
+    }
+
+    label,
+    .form-description,
+    .form-control {
+      @include secondary-font();
+
+      @include media-breakpoint-up(xs) {
+        font-size: 0.9rem;
+      }
+
+      a {
+        font-style: normal;
+        color: $highlight-color;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    padding: 1rem;
+
+    @include media-breakpoint-up(xs) {
+      border-top: 0.2rem $highlight-color solid;
+      border-bottom: 0.2rem $highlight-color solid;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      border-right: 0.2rem $highlight-color solid;
+      border-left: 0.2rem $highlight-color solid;
+      padding: 1rem;
+    }
+
+    .form-avatar-signature-wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+
+      @include media-breakpoint-up(xs) {
+        padding-left: 0;
+      }
+
+      @include media-breakpoint-up(md) {
+        padding-left: 5rem;
+      }
+
+      .avatar-wrapper {
+        padding-top: 1rem;
+        padding-right: 0;
+
+        #avatar {
+          border-radius: 50%;
+          max-height: 75px;
+          border: 2px solid $color-four;
+        }
+      }
+
+      .signature {
+        padding-top: 1.5rem;
+
+        @include media-breakpoint-up(xs) {
+          text-align: center;
+          padding-left: 0.5rem;
+        }
+
+        @include media-breakpoint-up(md) {
+          text-align: left;
+        }
+
+        span {
+          font-size: 2rem;
+          font-weight: bold;
+          vertical-align: top;
+
+          @include font-highlight-color();
+
+          &:first-child {
+            padding-right: 0.75rem;
+          }
+        }
+
+        embed {
+          width: 125px;
+          padding-right: 0.75rem;
+        }
+      }
+    }
+  }
+
+  .form-inner-wrapper {
+    padding-top: 1rem;
+
+    .form-control {
+      border-radius: 0;
+      text-transform: uppercase;
+
+      &:hover {
+        outline: $highlight-color 0.3rem solid;
+      }
+    }
+
+    .form-group {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .invalid-feedback {
+      color: $highlight-color;
+    }
+
+    .btn-primary {
+      background-color: $color-four;
+      border-color: $color-white;
+      border-radius: 0;
+      font-size: 0.9rem;
+      padding: 1rem;
+      line-height: 1.1rem;
+      text-transform: uppercase;
+
+      &:hover {
+        border-color: $darkest-color;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      &:focus {
+        @include box-shadow($blur: 0.2rem, $color: rgba(68, 27, 81, $backdrop-opacity));
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+copyright: 2016
+
+cta: It has been said there are two ways to build a business. You can either focus on building the tallest building or spend your time and energy tearing other buildings around you down.  Let's work together to build, create, invent, not destroy.
+
+description: Founded in Boulder, Colorado in 2016 we've had successful engagements in Chicago, Boulder, Manhattan, and Portland, Oregon. We are remote-first and can help you establish the same culture. If you are interested in learning more about working together, our process, and how we can help, please reach out.  A quiet warning though, we are very selective of who we work with and are always happy to refer out if we are not the right fit.
+
+locations:
+  -
+    id: 1
+    location: Chicago
+  -
+    id: 2
+    location: Boulder
+  -
+    id: 3
+    location: Manhattan
+  -
+    id: 4
+    location: PDX

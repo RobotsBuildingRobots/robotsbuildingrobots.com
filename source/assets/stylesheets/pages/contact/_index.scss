@@ -1,0 +1,44 @@
+#contact {
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .contact-wrapper-outer {
+    @include box-shadow();
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1 1 auto;
+    background: url('#{$image-path}/pages/contact/background.jpg') no-repeat top center;
+    padding: 0;
+    background-size: cover;
+
+    @include media-breakpoint-up(xs) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .contact-wrapper-inner {
+    @include media-breakpoint-up(md) {
+      max-width: 525px;
+    }
+
+    @include media-breakpoint-up(maximum) {
+      max-width: map-get($grid-breakpoints, "lg");
+    }
+  }
+
+  @import "pages/contact/contact-form";
+
+  @import "pages/index/cta-banner-wrapper";
+
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
