@@ -59,7 +59,7 @@ export default () => {
   });
 
   window.addEventListener("load", function(){
-    var sections = ["#services", "#engagements", "#company"];
+    var sections = ["#services", "#engagements", "#about"];
     var anchor = window.location.hash;
 
     if (sections.includes(anchor)) {

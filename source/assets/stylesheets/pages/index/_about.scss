@@ -1,0 +1,27 @@
+.about {
+  @include box-shadow();
+
+  @include media-breakpoint-up(xs) {
+    background: url('#{$image-path}/pages/index/always-grey.png') repeat;
+    padding: 0;
+  }
+
+  .section-wrapper {
+    @include media-breakpoint-up(xs) {
+      padding: 1rem 1rem;
+    }
+  }
+
+  .description {
+
+  }
+
+  .locations,
+  .company {
+    @include impact-font();
+
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+  }
+}

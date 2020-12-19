@@ -1,6 +1,6 @@
 .services-banner {
   @include media-breakpoint-up(xs) {
-    background: url('#{$image-path}/pages/index/always-grey.png') repeat;
+    background: url('#{$image-path}/pages/index/dark-sharp-edges.png') repeat;
     padding: 0;
   }
 

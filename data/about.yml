@@ -1,0 +1,17 @@
+copyright: 2016
+
+cta: We're a boutique product centric business focused on shipping more ROI to our clients than collecting in fees. Selective and brutally honest.
+
+locations:
+  -
+    id: 1
+    location: Chicago
+  -
+    id: 2
+    location: Boulder
+  -
+    id: 3
+    location: Manhattan
+  -
+    id: 4
+    location: PDX

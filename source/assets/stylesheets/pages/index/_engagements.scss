@@ -134,6 +134,18 @@
       }
     }
 
+    @include media-breakpoint-up(md) {
+      #lottie {
+        width: 250px;
+        height: 250px;
+        margin: auto auto;
+      }
+
+      #projects-carousel {
+        min-height: 450px;
+      }
+    }
+
     @include media-breakpoint-up(lg) {
       min-width: map-get($grid-breakpoints, "lg");
 
@@ -172,4 +184,27 @@
   }
 
   @import "pages/index/cta-banner-wrapper";
+
+  @include media-breakpoint-up(xs) {
+    .cta-offer-banner-wrapper {
+      .cta-banner-wrapper {
+        @include box-shadow();
+
+        display: block;
+        background: none;
+
+        .row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        span {
+          &:first-child {
+            color: $color-three;
+          }
+        }
+      }
+    }
+  }
 }

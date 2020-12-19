@@ -51,6 +51,14 @@
       padding-top: 1rem;
 
       .cta-header-wrapper {
+        @include media-breakpoint-up(md) {
+          padding-bottom: 1rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          padding-bottom: 0;
+        }
+
         @include media-breakpoint-up(maximum) {
           max-width: map-get($grid-breakpoints, "lg");
         }
@@ -73,6 +81,19 @@
 
     @include media-breakpoint-up(xs) {
       padding: 1.5rem 1rem 0 1rem;
+
+      .avatar-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        padding-right: 0;
+
+        #avatar {
+          border-radius: 50%;
+          max-width: 75px;
+          border: 2px solid $color-four;
+        }
+      }
     }
 
     @include media-breakpoint-up(md) {
@@ -92,17 +113,16 @@
       @include media-breakpoint-up(lg) {
         font-size: 1.5rem;
       }
-
-      embed {
-        width: 50px;
-      }
     }
 
     .signature {
-      padding-top: 0.75rem;
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 1.5rem;
 
       @include media-breakpoint-up(xs) {
         text-align: center;
+        padding-left: 0.5rem;
       }
 
       @include media-breakpoint-up(md) {
