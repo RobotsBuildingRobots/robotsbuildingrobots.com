@@ -90,7 +90,7 @@
 
         #avatar {
           border-radius: 50%;
-          max-width: 75px;
+          max-height: 75px;
           border: 2px solid $color-four;
         }
       }
@@ -116,8 +116,6 @@
     }
 
     .signature {
-      display: flex;
-      justify-content: flex-start;
       padding-top: 1.5rem;
 
       @include media-breakpoint-up(xs) {
