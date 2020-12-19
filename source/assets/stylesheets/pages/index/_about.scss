@@ -16,7 +16,15 @@
   }
 
   .description-cta-wrapper {
-    padding: 1rem 2rem;
+    max-width: map-get($grid-breakpoints, "lg");
+
+    @include media-breakpoint-up(xs) {
+      padding: 1rem 2rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: 1rem;
+    }
 
     .description-cta {
       @include secondary-font();
@@ -44,7 +52,8 @@
   }
 
   .description-wrapper {
-    background: rgba(230, 233, 242, $backdrop-opacity-light);
+    max-width: map-get($grid-breakpoints, "lg");
+    background: rgba(230, 233, 242, $backdrop-opacity-dark);
     padding: 1rem 2rem;
     color: $color-one;
   }
