@@ -3,12 +3,49 @@
 
   @include media-breakpoint-up(xs) {
     background: url('#{$image-path}/pages/index/always-grey.png') repeat;
+    min-height: 500px;
     padding: 0;
   }
 
   .section-wrapper {
+    background: url('#{$image-path}/pages/index/buildings.png') no-repeat bottom center;
+
     @include media-breakpoint-up(xs) {
       padding: 1rem 1rem;
     }
+  }
+
+  .description-cta-wrapper {
+    padding: 1rem 2rem;
+
+    .description-cta {
+      @include secondary-font();
+
+      background: rgba(70, 73, 107, $backdrop-opacity-light);
+      text-transform: uppercase;
+      padding: 1rem;
+
+      .fa-quote-left,
+      .fa-quote-right {
+        font-size: 1.5rem;
+        padding-bottom: 0.5rem;
+
+        @include font-highlight-color();
+      }
+
+      .fa-quote-left {
+        padding-right: 0.5rem;
+      }
+
+      .fa-quote-right {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  .description-wrapper {
+    background: rgba(230, 233, 242, $backdrop-opacity-light);
+    padding: 1rem 2rem;
+    color: $color-one;
   }
 }
