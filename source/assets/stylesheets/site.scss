@@ -2,15 +2,15 @@
 
 @import "~normalize-scss/sass/normalize/import-now";
 @import "settings";
+
 @import "vendor/bootstrap";
 @import "vendor/google_fonts";
+
 @import "mixins/*";
+
 @import "components/html-body";
 @import "components/preloader";
 @import "components/navigation";
 @import "components/footer";
-@import "pages/index/base";
-@import "pages/contact/base";
-@import "pages/engagements/base";
-@import "pages/products/base";
-@import "pages/remote/base";
+
+@import "pages/index/include";

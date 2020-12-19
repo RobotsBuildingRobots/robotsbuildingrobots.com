@@ -1,0 +1,30 @@
+footer {
+  color: $style-whitest;
+  background-color: $black-darkest;
+  padding: 0.5rem 0;
+  z-index: $zindex-fixed;
+  margin-top: 0.5rem;
+
+  .row {
+    font-size: 0.9rem;
+    padding-top: 0.5rem;
+    text-align: center;
+
+    a {
+      color: $style-whitest;
+      text-decoration: underline;
+    }
+
+    @include media-breakpoint-up(xs) {
+      padding-bottom: 1rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      padding-top: 1rem;
+
+      @include media-breakpoint-up(lg) {
+        border: none;
+      }
+    }
+  }
+}

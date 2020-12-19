@@ -1,14 +1,9 @@
-= partial "partials/layout/document" do
+= partial "partials/components/document" do
   = partial "partials/components/header"
-  = partial "partials/layout/body" do
+  = partial "partials/components/body" do
     = partial "partials/components/navigation"
 
-    div[class="video-wrapper"]
-      video[autoplay loop muted playsinline class="video-background"]
-        source [src="#{image_path('backgrounds/officespace-frustration.mp4')}" type="video/mp4"]
-
-    main[class="container-fluid content-wrapper"]
+    main[class="container-fluid"]
       == yield
 
     = partial "partials/components/javascript"
-    = partial "partials/components/footer"

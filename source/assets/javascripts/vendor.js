@@ -1,6 +1,6 @@
 window.jQuery = require('jquery');
 
-window.$ = window.jQuery;
+window.jQuery = window.$ = $;
 window.Popper = require('popper.js');
 
 require('bootstrap');

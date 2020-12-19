@@ -1,0 +1,58 @@
+div[class="row mx-auto engagements-wrapper"]
+  div[class="col-12 header"]
+    span
+      i[class="fas fa-quote-left"]
+    span[class="cta"]
+      = data.engagements.process
+    span
+      i[class="fas fa-quote-right"]
+a[name="engagements"]
+div[class="row mx-auto engagements-projects-wrapper no-gutters"]
+  div[class="col-12 col-md-7"]
+    div[id="projects-carousel" class="carousel slide" data-ride="carousel"]
+      ol[class="carousel-indicators"]
+        - data.engagements.projects.sort_by { |k| k["id"] }.reverse.each_with_index do |project, index|
+          ruby:
+              active_class = index == 0 ? "active" : ""
+          li[data-target="#projects-carousel" data-slide-to="#{index}" class="#{active_class}"]
+      div[class="carousel-inner"]
+        - data.engagements.projects.sort_by { |k| k["id"] }.reverse.each_with_index do |project, index|
+          ruby:
+            postion_class = if index == 0
+                              "first"
+                            elsif index == data.engagements.projects.count
+                              "last"
+                            else
+                              ""
+                            end
+            active_class = index == 0 ? "active" : ""
+          div[class="carousel-item #{postion_class} #{active_class}"]
+            div[class="mx-auto carousel-logo"]
+              embed[class="d-block" src="#{image_path('pages/index/engagements/' + project.logo)}"]
+            div[class="mx-auto carousel-caption"]
+              div[class="company"]
+                = project.company
+              div[class="collaboration"]
+                = project.collaboration
+      a[class="carousel-control-prev left" href="#projects-carousel" role="button" data-slide="prev"]
+        span[class="carousel-control-prev-icon" aria-hidden="true"]
+        span[class="sr-only"]
+          |Previous
+      a[class="carousel-control-next right" href="#projects-carousel" role="button" data-slide="next"]
+        span[class="carousel-control-next-icon" aria-hidden="true"]
+        span[class="sr-only"]
+          |Next
+  div[class="d-none d-md-flex col-md-5"]
+    |<lottie-player id="lottie" src="#{image_path('pages/index/financial-management.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
+
+div[class="row d-block d-sm-none engagements-lottie-wrapper"]
+  div[class="col-12"]
+    |<lottie-player id="lottie" src="#{image_path('pages/index/financial-management.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
+
+div[class="row cta-offer-banner-wrapper"]
+  div[class="col-12 cta-banner-wrapper"]
+    div[class="row"]
+      span
+        |What do we offer?
+      span
+        = link_to("products and services!", "/products/")
