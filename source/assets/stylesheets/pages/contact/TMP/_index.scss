@@ -5,7 +5,7 @@
     min-height: 100%;
   }
 
-  .contact-page-outer-wrapper {
+  .contact-wrapper-outer {
     @include box-shadow();
 
     display: flex;
@@ -21,9 +21,19 @@
       padding-top: 4rem;
       padding-bottom: 4rem;
     }
-
-    @import "pages/contact/contact-wrapper-inner";
   }
+
+  .contact-wrapper-inner {
+    @include media-breakpoint-up(md) {
+      max-width: 525px;
+    }
+
+    @include media-breakpoint-up(maximum) {
+      max-width: map-get($grid-breakpoints, "lg");
+    }
+  }
+
+  @import "pages/contact/contact-form";
 
   @import "pages/index/cta-banner-wrapper";
 

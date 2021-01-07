@@ -1,0 +1,59 @@
+---
+id: contact
+layout: page
+---
+section[class="row contact-wrapper-outer"]
+  div[class="col-12 mx-auto contact-wrapper-inner"]
+    div[class="row"]
+      div[class="col-12 d-none d-lg-block col-lg-4"]
+        |TBD
+      div[class="col-12 col-lg-8 contact-form-container"]
+        div[class="row form-outer-wrapper"]
+          div[class="col-12 mx-auto form-header-wrapper"]
+            span[class="header"]
+              |How can we help?
+          div[class="col-12 form-description"]
+            = data.contact.action
+          div[class="col-12 form-avatar-signature-wrapper"]
+            div[class="col-3 avatar-wrapper"]
+              img[id="avatar" class="float-right" src="#{image_path('avatar/20201216.jpg')}"]
+            div[class="col-9 signature"]
+              span
+                |<
+              embed[src="#{image_path('signatures/full-name.svg')}"]
+              span
+                |/
+              span
+                |>
+          div[class="col-12"]
+            form[id="contact-form" method="post" novalidate="novalidate"]
+              div[class="form-row form-inner-wrapper"]
+                div[class="form-group col-12"]
+                  label[for="input-first-name"]
+                    |First Name
+                  input[type="text" class="form-control form-control-lg" id="input-first-name" name="input-first-name" autocomplete="given-name" placeholder="First Name" required]
+                div[class="form-group col-12"]
+                  label[for="input-last-name"]
+                    |Last Name
+                  input[type="text" class="form-control form-control-lg" id="input-last-name" name="input-last-name" autocomplete="family-name" placeholder="Last Name" required]
+                div[class="form-group col-12"]
+                  label[for="input-email"]
+                    |Email Address
+                  input[type="email" class="form-control form-control-lg" id="input-email" name="input-email" autocomplete="email" placeholder="Email Address" required]
+                div[class="form-group col-12"]
+                  label[for="input-subject"]
+                    |Subject
+                  input[type="text" class="form-control form-control-lg" id="input-subject" name="input-subject" placeholder="Subject" required]
+                div[class="form-group col-12"]
+                  label[for="input-email-body"]
+                    |Message
+                  textarea[class="form-control form-control-lg" id="input-email-body" name="input-email-body" rows="5" required]
+                div[class="form-group col-12"]
+                  button[type="submit" id="send-button" class="btn btn-primary btn-lg btn-block"]
+                    |Generate Email
+
+section[class="row cta-offer-banner-wrapper"]
+  div[class="col-12 cta-banner-wrapper"]
+    div[class="row"]
+      span
+        |You are not alone!
