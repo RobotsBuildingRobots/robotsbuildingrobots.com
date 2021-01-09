@@ -1,6 +1,4 @@
 export default () => {
-  const $contactForm = $('#contact-form');
-
   $.validator.addMethod('alphanumeric', function (value, element) { // eslint-disable-line func-names
     return this.optional(element) || /^[a-z0-9!?\-\s]+$/i.test(value);
   });
@@ -25,7 +23,7 @@ export default () => {
     },
   });
 
-  $contactForm.validate({
+  $('#contact-form').validate({
     rules: {
       'input-first-name': {
         required: true,

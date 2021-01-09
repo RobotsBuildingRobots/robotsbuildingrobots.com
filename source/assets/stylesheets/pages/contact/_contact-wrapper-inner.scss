@@ -57,6 +57,7 @@
 
   @include media-breakpoint-up(lg) {
     .contact-form-wrapper-outer {
+      background-color: rgba(70, 73, 107, $backdrop-opacity);
       padding: 0 1rem;
     }
   }
