@@ -9,18 +9,9 @@
 
   @include media-breakpoint-up(lg) {
     max-width: map-get($grid-breakpoints, "md");
-    background-color: initial;
   }
 
   .form-outer-wrapper {
-    @include media-breakpoint-up(xs) {
-      background-color: rgba(70, 73, 107, $backdrop-opacity);
-    }
-
-    @include media-breakpoint-up(lg) {
-      background-color: initial;
-    }
-
     .form-header {
       @include secondary-font();
 

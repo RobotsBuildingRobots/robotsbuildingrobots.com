@@ -7,7 +7,9 @@ export default () => {
 
   var carouselNavigation = function() {
     var $this;
+
     $this = $("#projects-carousel");
+
     if ($("#projects-carousel .carousel-inner .carousel-item:first").hasClass("active")) {
       $this.children(".left").hide();
       $this.children(".right").show();

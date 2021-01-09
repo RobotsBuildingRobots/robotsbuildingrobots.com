@@ -4,37 +4,22 @@ layout: page
 ---
 section[class="row contact-page-outer-wrapper"]
   div[class="col-12 mx-auto contact-wrapper-inner"]
-    div[class="row d-lg-none cta-wrapper-outer"]
-      div[class="col-12 mx-auto cta-wrapper-inner"]
-        span
-          i[class="fas fa-quote-left"]
-        span
-          = data.contact.cta
-        span
-          i[class="fas fa-quote-right"]
-
-    div[class="row d-lg-none contact-form-wrapper-outer"]
-      div[class="col-12 mx-auto contact-form-wrapper-inner"]
-        = partial "partials/pages/contact/contact_form"
-
-    div[class="row d-none d-lg-flex"]
-      div[class="col-5 mx-auto cta-wrapper-outer"]
-        div[class="row"]
-          div[class="col-12"]
-            div[class="cta-wrapper-inner"]
-              span
-                i[class="fas fa-quote-left"]
-              span
-                = data.contact.cta
-              span
-                i[class="fas fa-quote-right"]
-        div[class="row"]
-          div[class="col-12"]
-            |<lottie-player id="lottie" src="#{image_path('pages/index/financial-management.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
-
-      div[class="col-7 mx-auto contact-form-wrapper-outer"]
-        div[class="contact-form-wrapper-inner"]
-          = partial "partials/pages/contact/contact_form"
+    div[class="row"]
+      div[class="col-12 col-lg-5"]
+        div[class="row cta-wrapper-outer"]
+          div[class="col-12 mx-auto cta-wrapper-inner"]
+            span
+              i[class="fas fa-quote-left"]
+            span
+              = data.contact.cta
+            span
+              i[class="fas fa-quote-right"]
+          div[class="col-12 d-none d-lg-flex"]
+            |<lottie-player id="lottie" src="#{image_path('pages/index/startup-project.json')}" background="transparent" speed="1" loop autoplay></lottie-player>
+      div[class="col-12 col-lg-7"]
+        div[class="row contact-form-wrapper-outer"]
+          div[class="col-12 mx-auto contact-form-wrapper-inner"]
+            = partial "partials/pages/contact/contact_form"
 
 section[class="row cta-offer-banner-wrapper"]
   div[class="col-12 cta-banner-wrapper"]
