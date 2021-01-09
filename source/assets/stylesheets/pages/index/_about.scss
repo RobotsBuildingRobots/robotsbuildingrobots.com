@@ -29,7 +29,7 @@
     .description-cta {
       @include secondary-font();
 
-      background: rgba(70, 73, 107, $backdrop-opacity-light);
+      background: rgba(70, 73, 107, $backdrop-opacity-dark);
       text-transform: uppercase;
       padding: 1rem;
 

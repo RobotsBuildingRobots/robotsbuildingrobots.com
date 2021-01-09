@@ -1,6 +1,14 @@
 .contact-form-wrapper-inner {
   background-color: rgba(70, 73, 107, $backdrop-opacity);
 
+  @include media-breakpoint-up(md) {
+    max-width: map-get($grid-breakpoints, "sm");
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: map-get($grid-breakpoints, "md");
+  }
+
   .form-outer-wrapper {
     .form-header {
       @include secondary-font();
