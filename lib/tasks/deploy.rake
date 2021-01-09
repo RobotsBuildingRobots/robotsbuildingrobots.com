@@ -2,7 +2,7 @@
 
 namespace :deploy do
   desc 'Push the built version to github pages'
-  task github: ['utilities:build:purge:middleman_files', 'utilities:build:purge:osx_files'] do
+  task github: ['utilities:build:purge:middleman_files', 'utilities:build:purge:osx_files', 'server:build:production'] do
     puts('---------------------------------------------------------->>')
     puts('Building the production static version of the application')
     puts('---------------------------------------------------------->>')
