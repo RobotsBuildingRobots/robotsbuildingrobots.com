@@ -6,4 +6,9 @@
     main[class="container-fluid"]
       == yield
 
+      section[class="row footer"]
+        div[class="col-12 mx-auto section-wrapper"]
+          div[class="row"]
+            = partial "partials/components/footer"
+
     = partial "partials/components/javascript"

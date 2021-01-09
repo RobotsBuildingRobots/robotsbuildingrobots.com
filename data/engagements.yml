@@ -31,3 +31,9 @@ projects:
     logo: eggplant.svg
     collaboration: >-
       Expanded the authorization capability of the testing manager application to include Microsoft Active Directory (LDAP). Coordinated daily pair programming sessions to mentor junior engineers, improve team collaboration, and increase overall team performance.
+  -
+    id: 6
+    company: Advanced Building & Development, LLC
+    logo: advancedbd.svg
+    collaboration: >-
+      Utilized responsive web design construction techniques to rearchitect version two of this corporation's website.  While version one was not mobile or tablet friendly, iPhones, iPads, and desktops are all now supported. It was successfully launched on time in preparation for new product kickoffs at the start of 2021.
