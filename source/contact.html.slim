@@ -4,15 +4,18 @@ layout: page
 ---
 section[class="row contact-page-outer-wrapper"]
   div[class="col-12 mx-auto contact-wrapper-inner"]
-    div[class="row"]
-      div[class="col-12 cta"]
-        = data.contact.cta
+    div[class="row cta-wrapper-outer"]
+      div[class="col-12 cta-wrapper-inner"]
+        span
+          i[class="fas fa-quote-left"]
+        span
+          = data.contact.cta
+        span
+          i[class="fas fa-quote-right"]
 
-
-
-
-
-
+    div[class="row contact-form-wrapper-outer"]
+      div[class="col-12 contact-form-wrapper-inner"]
+        = partial "partials/pages/contact/contact_form"
 
 section[class="row cta-offer-banner-wrapper"]
   div[class="col-12 cta-banner-wrapper"]
