@@ -66,6 +66,13 @@
 	@return $stroke;
 }
 
-@mixin text-stroke($size: 2, $color: $color-white, $correction: 0) {
-	text-shadow: text-stroke($size, $color, $correction);
+@mixin text-stroke($width, $color) {
+  $shadow: ();
+  @for $i from -$width through $width {
+    $shadow: append($shadow,#{$width}px #{$i}px $color, comma);
+    $shadow: append($shadow,#{-$width}px #{$i}px $color, comma);
+    $shadow: append($shadow,#{$i}px #{$width}px $color, comma);
+    $shadow: append($shadow,#{$i}px #{-$width}px $color, comma);
+  }
+  text-shadow: $shadow;
 }

@@ -1,0 +1,48 @@
+#four-o-four {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: url('#{$image-path}/pages/four-o-four/background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  .section-wrapper {
+    padding: 3rem 2rem 0 2rem;
+
+    .error-code {
+      @include secondary-font();
+      @include text-stroke(1, $color-one);
+
+      text-transform: uppercase;
+      text-align: center;
+      color: $color-four;
+      font-weight: bold;
+
+      @include media-breakpoint-up(xs) {
+        font-size: 8rem;
+      }
+    }
+
+    .error-redirect {
+      .btn-primary {
+        background-color: $color-five;
+        border-color: $color-one;
+        border-radius: 0;
+        font-size: 0.9rem;
+        padding: 1rem;
+        line-height: 1.1rem;
+        text-transform: uppercase;
+        color: $color-one;
+
+        &:hover {
+          border-color: $highlight-color;
+          font-weight: bold;
+        }
+
+        &:focus {
+          @include box-shadow($blur: 0.2rem, $color: rgba(68, 27, 81, $backdrop-opacity));
+        }
+      }
+    }
+  }
+}
