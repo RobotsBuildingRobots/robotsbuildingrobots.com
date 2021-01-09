@@ -4,11 +4,24 @@
   }
 
   @include media-breakpoint-up(lg) {
-    max-width: map-get($grid-breakpoints, "md");
+    max-width: map-get($grid-breakpoints, "lg");
   }
 
   .cta-wrapper-outer {
-    padding: 1rem;
+    @include media-breakpoint-up(xs) {
+      padding: 1rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+
+      #lottie {
+        width: 350px;
+        height: 350px;
+        margin: auto auto;
+        padding-top: 1rem;
+      }
+    }
 
     .cta-wrapper-inner {
       @include secondary-font();
@@ -39,6 +52,12 @@
   @include media-breakpoint-up(xs) {
     .contact-form-wrapper-outer {
       padding: 2rem 0 0 0;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .contact-form-wrapper-outer {
+      padding: 0 1rem;
     }
   }
 

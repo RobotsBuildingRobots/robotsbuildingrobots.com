@@ -1,5 +1,7 @@
 .contact-form-wrapper-inner {
-  background-color: rgba(70, 73, 107, $backdrop-opacity);
+  @include media-breakpoint-up(xs) {
+    background-color: rgba(70, 73, 107, $backdrop-opacity);
+  }
 
   @include media-breakpoint-up(md) {
     max-width: map-get($grid-breakpoints, "sm");
@@ -7,9 +9,18 @@
 
   @include media-breakpoint-up(lg) {
     max-width: map-get($grid-breakpoints, "md");
+    background-color: none;
   }
 
   .form-outer-wrapper {
+    @include media-breakpoint-up(xs) {
+      background-color: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      background-color: rgba(70, 73, 107, $backdrop-opacity);
+    }
+
     .form-header {
       @include secondary-font();
 
