@@ -52,13 +52,13 @@ rescue StandardError
 end
 
 def write_footer_content(content:, view_source_file:)
-  content.insert(content.index('</html>'), "\n#{read_source_file(view_source_file: view_source_file)}\n")
+  content.insert(content.index('</html>') + 7, "\n#{read_source_file(view_source_file: view_source_file)}\n")
 rescue StandardError
   raise StandardError, 'Unfortunately the view source header index can not be located!'
 end
 
 def write_header_content(content:, view_source_file:)
-  content.insert(content.index('<html') + 19, "\n#{read_source_file(view_source_file: view_source_file)}\n")
+  content.insert(0, "#{read_source_file(view_source_file: view_source_file)}\n")
 rescue StandardError
   raise StandardError, 'Unfortunately the view source footer index can not be located!'
 end
