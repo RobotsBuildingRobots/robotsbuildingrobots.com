@@ -16,4 +16,7 @@ locations:
     location: Manhattan
   -
     id: 4
-    location: PDX
+    location: Portland
+  -
+    id: 5
+    location: Las Vegas
