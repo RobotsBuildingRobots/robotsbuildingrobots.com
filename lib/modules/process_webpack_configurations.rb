@@ -40,8 +40,8 @@ class ProcessWebpackConfigurations
 
   def append_plugins
     Dir.glob('webpack/plugins/*.js') do |file|
-      self.insert_webpack_plugins = insert_webpack_plugins + "\n" + File.read(file)
-      self.insert_webpack_plugin_merges = insert_webpack_plugin_merges + ',' + format_constant_name(File.basename(file, '.*'))
+      self.insert_webpack_plugins = "#{insert_webpack_plugins}\n#{File.read(file)}"
+      self.insert_webpack_plugin_merges = "#{insert_webpack_plugin_merges},#{format_constant_name(File.basename(file, '.*'))}"
     end
   end
 

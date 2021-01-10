@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def adjust_final_source
   Dir.glob('build/assets/*.json').select { |file| /manifest/.match file }.each { |file| File.delete(file) }
 
@@ -25,7 +27,7 @@ def add_to_source(postion:, content:, view_source_file:)
 end
 
 def read_source_file(view_source_file:)
-  File.read('source/partials/' + view_source_file).strip
+  File.read("source/partials/#{view_source_file}").strip
 rescue StandardError
   raise StandardError, 'Unfortunately the view source file can not be located!'
 end
@@ -38,8 +40,8 @@ rescue StandardError
 end
 
 def write_header_content(content:, view_source_file:)
-  search_str = "lang=en-US"
-  content.insert(content.index(search_str) + search_str.length+1, "\n\n#{read_source_file(view_source_file: view_source_file)}\n\n")
+  search_str = 'lang=en-US'
+  content.insert(content.index(search_str) + search_str.length + 1, "\n\n#{read_source_file(view_source_file: view_source_file)}\n\n")
 rescue StandardError
   raise StandardError, 'Unfortunately the view source header index can not be located!'
 end
