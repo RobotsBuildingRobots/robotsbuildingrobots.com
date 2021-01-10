@@ -1,17 +1,26 @@
 #four-o-four {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  min-height: 100%;
   background: url('#{$image-path}/pages/four-o-four/background.jpg') no-repeat;
   background-size: cover;
   background-position: center center;
 
+  main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin-top: -70px;
+  }
+
   .section-wrapper {
-    padding: 3rem 2rem 0 2rem;
+    max-width: map-get($grid-breakpoints, "md");
 
     .error-code {
-      @include secondary-font();
-      @include text-stroke(1, $color-one);
+      @include impact-font();
+      @include text-stroke(1, $color-five);
 
       text-transform: uppercase;
       text-align: center;
@@ -19,6 +28,10 @@
       font-weight: bold;
 
       @include media-breakpoint-up(xs) {
+        font-size: 6rem;
+      }
+
+      @include media-breakpoint-up(md) {
         font-size: 8rem;
       }
     }
@@ -42,6 +55,21 @@
         &:focus {
           @include box-shadow($blur: 0.2rem, $color: rgba(68, 27, 81, $backdrop-opacity));
         }
+      }
+    }
+  }
+
+  @import "pages/index/cta-banner-wrapper";
+
+  .cta-offer-banner-wrapper {
+    min-width: 100%;
+
+    .cta-banner-wrapper {
+      background: rgba(230, 233, 242, $backdrop-opacity-dark);
+
+
+      a {
+        color: $color-one;
       }
     }
   }

@@ -2,7 +2,6 @@ import breakpoints from './vendor/breakpoints';
 import navigation from './components/navigation';
 import index from './pages/index';
 import contact from './pages/contact';
-import fourOFour from './pages/four-o-four';
 
 const hidePreloader = () => {
   $('#preloader').fadeOut(1000, () => {
@@ -29,9 +28,6 @@ $(document).ready(() => {
       break;
     case 'contact':
       contact();
-      break;
-    case 'four-o-four':
-      fourOFour();
       break;
     default:
       break;
