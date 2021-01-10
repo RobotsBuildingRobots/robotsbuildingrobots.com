@@ -12,7 +12,7 @@ export default () => {
       const $inputEmailBody = $('#input-email-body').val();
       const $inputSubject = $('#input-subject').val();
 
-      let $inputMsgSubject = 'Project Request Submission';
+      const $inputMsgSubject = 'Project Request Submission';
       let $inputBody = `Project Title: ${$inputSubject}`;
       $inputBody = `${$inputBody}\r\nFirst Name: ${$inputFirstName}`;
       $inputBody = `${$inputBody}\r\nLast Name: ${$inputLastName}`;
@@ -84,7 +84,6 @@ export default () => {
     },
     errorElement: 'div',
     errorPlacement(error, element) {
-      console.log("4");
       error.addClass('invalid-feedback');
       error.insertAfter(element);
     },

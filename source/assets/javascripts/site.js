@@ -10,7 +10,7 @@ const hidePreloader = () => {
 };
 
 const resizeContent = () => {
-  let vh = window.innerHeight * 0.01;
+  const vh = window.innerHeight * 0.01;
 
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 };
@@ -36,7 +36,7 @@ $(document).ready(() => {
   resizeContent();
 });
 
-window.addEventListener("load", function(){
+window.addEventListener('load', () => {
   hidePreloader();
 }, false);
 

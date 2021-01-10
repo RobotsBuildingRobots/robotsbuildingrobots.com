@@ -2,27 +2,25 @@ export default () => {
   $('#projects-carousel').carousel({
     interval: false,
     wrap: false,
-    pause: false
+    pause: false,
   });
 
-  var carouselNavigation = function() {
-    var $this;
+  const carouselNavigation = function () {
+    const $projectsCarousel = $('#projects-carousel');
 
-    $this = $("#projects-carousel");
-
-    if ($("#projects-carousel .carousel-inner .carousel-item:first").hasClass("active")) {
-      $this.children(".left").hide();
-      $this.children(".right").show();
-    } else if ($("#projects-carousel .carousel-inner .carousel-item:last").hasClass("active")) {
-      $this.children(".right").hide();
-      $this.children(".left").show();
+    if ($('#projects-carousel .carousel-inner .carousel-item:first').hasClass('active')) {
+      $projectsCarousel.children('.left').hide();
+      $projectsCarousel.children('.right').show();
+    } else if ($('#projects-carousel .carousel-inner .carousel-item:last').hasClass('active')) {
+      $projectsCarousel.children('.right').hide();
+      $projectsCarousel.children('.left').show();
     } else {
-      $this.children(".right").show();
-      $this.children(".left").show();
+      $projectsCarousel.children('.right').show();
+      $projectsCarousel.children('.left').show();
     }
   };
 
   carouselNavigation();
 
-  $("#projects-carousel").on("slid.bs.carousel", "", carouselNavigation);
+  $('#projects-carousel').on('slid.bs.carousel', '', carouselNavigation);
 };

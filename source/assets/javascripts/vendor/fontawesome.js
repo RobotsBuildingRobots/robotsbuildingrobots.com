@@ -9,12 +9,12 @@ import { faQuoteRight } from '@fortawesome/free-solid-svg-icons/faQuoteRight';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons/faQuoteLeft';
 
 library.add(faBars,
-            faBrain,
-            faEnvelope,
-            faPhoneSquare,
-            faQuoteRight,
-            faQuoteLeft,
-            faProjectDiagram,
-            faHammer);
+  faBrain,
+  faEnvelope,
+  faPhoneSquare,
+  faQuoteRight,
+  faQuoteLeft,
+  faProjectDiagram,
+  faHammer);
 
 dom.watch();

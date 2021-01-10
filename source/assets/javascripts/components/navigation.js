@@ -3,25 +3,23 @@ export default () => {
   const $navLink = $('.nav-link');
 
   const scrollToHomeAnchor = (anchor) => {
-    var anchorTag = $("a[name='"+ anchor +"']");
-    var resetUrl = window.location.protocol + "//" + window.location.host + window.location.pathname
+    const anchorTag = $(`a[name='${anchor}']`);
+    const resetUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
 
     $('.navbar-collapse').collapse('hide');
     $('.navbar-toggler-wrapper').find('svg').removeClass('fa-rotate-90');
-    $('html, body').animate({scrollTop: anchorTag.offset().top},'slow');
+    $('html, body').animate({ scrollTop: anchorTag.offset().top }, 'slow');
 
-    window.history.pushState({path:resetUrl},'',resetUrl);
-  }
+    window.history.pushState({ path: resetUrl }, '', resetUrl);
+  };
 
   const redirectToPage = (element, redirection) => {
     if (redirection === true) {
-      var url = '/#'+ element;
+      $(location).attr('href', `/#${element}`); // eslint-disable-line no-restricted-globals
     } else {
-      var url = '/'+ element;
+      $(location).attr('href', `/${element}`); // eslint-disable-line no-restricted-globals
     }
-
-    $(location).attr('href', url);
-  }
+  };
 
   Breakpoints.on('xs', {
     enter() {
@@ -47,8 +45,8 @@ export default () => {
   $navLink.on('click', (event) => {
     event.preventDefault();
 
-    if ($(event.currentTarget).data('redirection') == true) {
-      if ($(event.currentTarget).data('reference') == "home" ) {
+    if ($(event.currentTarget).data('redirection') === true) {
+      if ($(event.currentTarget).data('reference') === 'home') {
         redirectToPage($(event.currentTarget).attr('id'), true);
       } else {
         redirectToPage($(event.currentTarget).attr('id'), false);
@@ -58,9 +56,9 @@ export default () => {
     }
   });
 
-  window.addEventListener("load", function(){
-    var sections = ["#services", "#engagements", "#about"];
-    var anchor = window.location.hash;
+  window.addEventListener('load', () => {
+    const sections = ['#services', '#engagements', '#about'];
+    const anchor = window.location.hash;
 
     if (sections.includes(anchor)) {
       scrollToHomeAnchor(anchor.substring(1, anchor.length));
