@@ -2,14 +2,17 @@ import breakpoints from './vendor/breakpoints';
 import navigation from './components/navigation';
 import index from './pages/index';
 import contact from './pages/contact';
-import engagements from './pages/engagements';
-import remote from './pages/remote';
-import products from './pages/products';
 
 const hidePreloader = () => {
   $('#preloader').fadeOut(1000, () => {
     $('#cover').remove();
   });
+};
+
+const resizeContent = () => {
+  const vh = window.innerHeight * 0.01;
+
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 };
 
 $(document).ready(() => {
@@ -26,20 +29,17 @@ $(document).ready(() => {
     case 'contact':
       contact();
       break;
-    case 'engagements':
-      engagements();
-      break;
-    case 'remote':
-      remote();
-      break;
-    case 'products':
-      products();
-      break;
     default:
       break;
   }
+
+  resizeContent();
 });
 
-$(window).on('load', () => {
+window.addEventListener('load', () => {
   hidePreloader();
+}, false);
+
+window.addEventListener('resize', () => {
+  resizeContent();
 });

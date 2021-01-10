@@ -30,7 +30,7 @@ ignore 'rev-manifest.json'
 activate :deploy do |deploy|
   deploy.build_before   = true
   deploy.deploy_method  = :git
-  deploy.branch         = 'TEST'
+  deploy.branch         = 'gh-pages'
 end
 
 # rubocop:disable Metrics/BlockLength
@@ -73,7 +73,7 @@ helpers do
   end
 
   def prep_external_destination(destination)
-    '/' + destination
+    "/#{destination}"
   end
 
   def external_site_configured?

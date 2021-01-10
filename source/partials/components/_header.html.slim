@@ -3,3 +3,5 @@ head
   = partial "partials/components/favicons"
   = partial "partials/components/title"
   = stylesheet_link_tag(webpack_asset_path("site.scss", "site"))
+  - if locals[:include_lottie].present?
+    |<script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/tgs-player.js"></script>

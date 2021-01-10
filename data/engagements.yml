@@ -1,0 +1,39 @@
+process: With engagements helping small startups to large enterprises, we bring both technical knowledge and industry-leading processes to help you achieve your vision.  We are not a cookie-cutter service provider. Through effective collaboration and tailoring the project to the needs of the business, we achieve project success.
+
+projects:
+  -
+    id: 1
+    company: Gathrly
+    logo: gathrly.png
+    collaboration: >-
+      Partnered with company founders to create a technical product roadmap and setup agile processes. Designed, engineered, and maintained a lead management application utilized by top tier brewers. Coached and mentored a team of junior engineers to meet productivity goals and ensure high-performance.
+  -
+    id: 2
+    company: USA Today
+    logo: usatoday.png
+    collaboration: >-
+      Developed and architected a backend CMS with frontend content creation interfaces & features. Optimized user flows & improved the customer experience by designing an updated responsive layout.
+  -
+    id: 3
+    company: W. W. Norton
+    logo: wwnorton.png
+    collaboration: >-
+      Designed and architected an interactive delivery platform to serve over 300+ interactives for a global publisher. Setup the GitFlow Process, code reviews, quality guidelines, & workflow management. Coached & mentored junior engineers on best practices to increase their productivity & contributions to the code base.
+  -
+    id: 4
+    company: Crowd OX
+    logo: crowdox.png
+    collaboration: >-
+      Built out platform features across three ruby-on-rails engines. Rewrote the Partner application testing suite porting it from Minitest to the latest version of RSpec while maintaining testing coverage metrics. Expanded testing coverage from 0% to over 60% in a legacy code base with 100% model testing coverage.
+  -
+    id: 5
+    company: Eggplant
+    logo: eggplant.png
+    collaboration: >-
+      Expanded the authorization capability of the testing manager application to include Microsoft Active Directory (LDAP). Coordinated daily pair programming sessions to mentor junior engineers, improve team collaboration, and increase overall team performance.
+  -
+    id: 6
+    company: Advanced Building & Development, LLC
+    logo: advancedbd.png
+    collaboration: >-
+      Utilized responsive web design construction techniques to rearchitect version two of this corporation's website.  While version one was not mobile or tablet friendly, iPhones, iPads, and desktops are all now supported. It was successfully launched on time in preparation for new product kickoffs at the start of 2021.

@@ -2,10 +2,10 @@
 
 module WebpackAssetHelpers
   ASSET_FOLDER = 'assets'
-  DIST_PATH = File.join(Dir.pwd, 'build' + '/' + ASSET_FOLDER)
+  DIST_PATH = File.join(Dir.pwd, "build/#{ASSET_FOLDER}")
 
   def webpack_asset_path(variable, rev_manifest_name)
-    ASSET_FOLDER + '/' + asset(variable, rev_manifest_name)
+    "#{ASSET_FOLDER}/#{asset(variable, rev_manifest_name)}"
   end
 
   def rev_manifest(rev_manifest_name)

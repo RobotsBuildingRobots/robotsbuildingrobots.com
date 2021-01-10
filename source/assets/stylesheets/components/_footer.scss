@@ -1,30 +1,34 @@
-footer {
-  color: $style-whitest;
-  background-color: $black-darkest;
-  padding: 0.5rem 0;
-  z-index: $zindex-fixed;
-  margin-top: 0.5rem;
+.footer {
+  padding: 1rem 0;
 
-  .row {
-    font-size: 0.9rem;
-    padding-top: 0.5rem;
+  .locations,
+  .company {
+    @include impact-font();
+
+    text-transform: uppercase;
     text-align: center;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+  }
 
-    a {
-      color: $style-whitest;
-      text-decoration: underline;
+  @include media-breakpoint-up(xs) {
+    span:nth-of-type(5)::after {
+      content: "\A";
+      white-space: pre;
     }
 
-    @include media-breakpoint-up(xs) {
-      padding-bottom: 1rem;
+    span:nth-of-type(6) {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    span:nth-of-type(5)::after {
+      content: "";
+      white-space: initial;
     }
 
-    @include media-breakpoint-up(sm) {
-      padding-top: 1rem;
-
-      @include media-breakpoint-up(lg) {
-        border: none;
-      }
+    span:nth-of-type(6) {
+      display: inline;
     }
   }
 }

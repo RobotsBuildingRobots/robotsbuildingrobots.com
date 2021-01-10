@@ -1,6 +1,4 @@
 export default () => {
-  const $contactForm = $('#contact-form');
-
   $.validator.addMethod('alphanumeric', function (value, element) { // eslint-disable-line func-names
     return this.optional(element) || /^[a-z0-9!?\-\s]+$/i.test(value);
   });
@@ -14,18 +12,19 @@ export default () => {
       const $inputEmailBody = $('#input-email-body').val();
       const $inputSubject = $('#input-subject').val();
 
-      let $inputBody = `Subject: ${$inputSubject}`;
+      const $inputMsgSubject = 'Project Request Submission';
+      let $inputBody = `Project Title: ${$inputSubject}`;
       $inputBody = `${$inputBody}\r\nFirst Name: ${$inputFirstName}`;
       $inputBody = `${$inputBody}\r\nLast Name: ${$inputLastName}`;
       $inputBody = `${$inputBody}\r\nEmail Address: ${$inputEmail}`;
-      $inputBody = `${$inputBody}\r\n\r\n--------------------------------------------`;
+      $inputBody = `${$inputBody}\r\n\r\n—————————————————————`;
       $inputBody = `${$inputBody}\r\n\r\n${$inputEmailBody}`;
 
-      window.location.href = `mailto:${encodeURIComponent($socialEmail)}?subject=${encodeURIComponent($inputSubject)}&body=${encodeURIComponent($inputBody)}`;
+      window.location.href = `mailto:${encodeURIComponent($socialEmail)}?subject=${encodeURIComponent($inputMsgSubject)}&body=${encodeURIComponent($inputBody)}`;
     },
   });
 
-  $contactForm.validate({
+  $('#contact-form').validate({
     rules: {
       'input-first-name': {
         required: true,
@@ -59,27 +58,27 @@ export default () => {
     },
     messages: {
       'input-first-name': {
-        required: 'You must enter a first name!',
+        required: 'Please provide your first name!',
         minlength: 'Three character minimum!',
         alphanumeric: 'Only alphabetical, numbers, spaces, and dash characters!',
       },
       'input-last-name': {
-        required: 'You must enter a last name!',
+        required: 'Please provide your last name!',
         minlength: 'Three character minimum!',
         alphanumeric: 'Only alphabetical, numbers, spaces, and dash characters!',
       },
       'input-email': {
-        required: 'You must enter an email address!',
+        required: 'Please provide your email address!',
         minlength: 'Three character minimum!',
         email: 'Not a valid email address!',
       },
       'input-subject': {
-        required: 'You must enter a subject!',
+        required: 'Please provide the project title!',
         minlength: 'Three character minimum!',
         alphanumeric: 'Only alphabetical, numbers, spaces, and dash characters!',
       },
       'input-email-body': {
-        required: 'You must enter a message!',
+        required: 'Please provide project details!',
         minlength: 'Three character minimum!',
       },
     },
