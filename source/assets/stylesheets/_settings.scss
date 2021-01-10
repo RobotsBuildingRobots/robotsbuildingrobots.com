@@ -1,7 +1,7 @@
 $image-path: '../../assets/images/';
 
-$color-white: #ffffff;
-$color-black: #000000;
+$color-white: #fff;
+$color-black: #000;
 $color-one: #46496b;
 $color-two: #5f64a2;
 $color-three: #e6e9f2;
@@ -9,6 +9,7 @@ $color-four: #f09d37;
 $color-five: #f6c96d;
 
 @mixin font-color-light { color: $color-white; }
+
 @mixin font-highlight-color { color: $highlight-color; }
 
 $darkest-color: $color-one;

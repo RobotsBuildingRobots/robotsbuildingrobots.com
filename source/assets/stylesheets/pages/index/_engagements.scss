@@ -61,7 +61,7 @@
           padding-bottom: 3rem;
         }
 
-        .carousel-logo{
+        .carousel-logo {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -116,17 +116,17 @@
           background-image: none;
         }
 
-        .carousel-control-next-icon:after,
-        .carousel-control-prev-icon:after {
+        .carousel-control-next-icon::after,
+        .carousel-control-prev-icon::after {
           font-size: 2rem;
           color: $color-four;
         }
 
-        .carousel-control-next-icon:after {
+        .carousel-control-next-icon::after {
           content: "\276F";
         }
 
-        .carousel-control-prev-icon:after {
+        .carousel-control-prev-icon::after {
           content: "\276E";
         }
 
