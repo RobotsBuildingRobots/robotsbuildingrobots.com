@@ -27,6 +27,18 @@
 
   @import "pages/index/cta-banner-wrapper";
 
+  .cta-banner-wrapper {
+    @media screen and (min-height: 1400px) {
+      @media screen and (min-width: 2000px) {
+        font-size: 6rem;
+
+        .cta-banner {
+          max-width: 2400px;
+        }
+      }
+    }
+  }
+
   .footer {
     display: flex;
     justify-content: flex-end;
