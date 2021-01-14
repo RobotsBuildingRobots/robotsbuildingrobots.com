@@ -40,8 +40,13 @@ rescue StandardError
 end
 
 def write_header_content(content:, view_source_file:)
-  search_str = 'lang=en-US'
-  content.insert(content.index(search_str) + search_str.length + 1, "\n\n#{read_source_file(view_source_file: view_source_file)}\n\n")
+  search_str = 'html lang='
+
+  pos_start = content.index(search_str)
+
+  pos_end = content.index('>', pos_start) + 1
+
+  content.insert(pos_end, "\n\n#{read_source_file(view_source_file: view_source_file)}\n\n")
 rescue StandardError
   raise StandardError, 'Unfortunately the view source header index can not be located!'
 end
