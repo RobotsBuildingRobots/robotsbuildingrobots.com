@@ -9,7 +9,6 @@ $color-four: #f09d37;
 $color-five: #f6c96d;
 
 @mixin font-color-light { color: $color-white; }
-
 @mixin font-highlight-color { color: $highlight-color; }
 
 $darkest-color: $color-one;
