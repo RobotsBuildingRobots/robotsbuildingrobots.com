@@ -3,6 +3,7 @@
 Bundler.require(:default)
 require 'pry'
 require 'slim'
+require 'builder'
 Slim::Engine.disable_option_validator!
 
 set :markdown_engine, :redcarpet
@@ -21,6 +22,7 @@ helpers FolderHelpers
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
+page '/sitemap.xml', layout: false
 
 ignore 'assets/stylesheets/*'
 ignore 'assets/javascripts/*'
