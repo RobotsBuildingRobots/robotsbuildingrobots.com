@@ -5,14 +5,6 @@
   height: auto;
   padding: 0;
 
-  @media only screen
-    and (min-device-width: 1024px)
-    and (max-device-width: 1366px)
-    and (-webkit-min-device-pixel-ratio: 2)
-    and (orientation: portrait) {
-    height: auto;
-  }
-
   .services-banner {
     background: none;
 
