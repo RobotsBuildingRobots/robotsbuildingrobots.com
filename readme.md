@@ -9,5 +9,3 @@ Opinions and characterizations of fact here are our own and represent no one els
 We are human beings and our website and blog reflects and embodies that humanity.
 
 *Thank you to all of the amazing oss developers out there.  Without your support the internet would be a ghost town.*
-
-![open-source-projects.jpeg](https://github.com/RobotsBuildingRobots/robotsbuildingrobots.com/blob/master/source-assets/open-source-projects.jpeg?raw=true)

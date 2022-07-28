@@ -1,12 +1,12 @@
 = javascript_include_tag(webpack_asset_path("vendor.js", "site"))
 = javascript_include_tag(webpack_asset_path("site.js", "site"))
 
+|<script data-goatcounter="https://linksaboutchrishough.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 - if app.development?
   javascript:
     $(document).ready(() => {
       console.log("------------------------------------------------------------");
       console.log("Site Mode: Development");
-      console.log("jQuery Version: " + $().jquery);
-      console.log("Bootstrap Version: " + $.fn.tooltip.Constructor.VERSION);
       console.log("------------------------------------------------------------");
     });
