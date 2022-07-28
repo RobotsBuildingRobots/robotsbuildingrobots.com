@@ -9,6 +9,7 @@ build
 backup
 webpack.config.js
 .vscode
+.idea
 
 ###############################################################################################
 # Ignore all logfiles, tempfiles, and databases.
