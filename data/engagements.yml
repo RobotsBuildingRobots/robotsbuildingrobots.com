@@ -34,6 +34,18 @@ projects:
   -
     id: 6
     company: Advanced Building Technology
-    logo: advancedbd.png
+    logo: advancedbd.svg
     collaboration: >-
       Utilized responsive web design construction techniques to rearchitect version two of this corporation's website. While version one was not mobile or tablet friendly, iPhones, iPads, and desktops are all now supported. It was successfully launched on time in preparation for new product kickoffs.
+  -
+    id: 7
+    company: Sidebench
+    logo: sidebench.svg
+    collaboration: >-
+      Serving as a Technical Architect for the Momints NFT Marketplace by researching architecture, selecting components based on scalability needs and risk mitigation, developing the MVP, and compiling marketing materials. Provide high-level documentation on recommendations for system architecture diagrams, server infrastructure, tech stack selection, 3rd Party dependencies, data models and database schema, and API specifications to drive development.
+  -
+    id: 8
+    company: Arthur Maxwell Experience Builder
+    logo: arthur-maxwell.gif
+    collaboration: >-
+      Transforming a corporate eLearning management application with 200+ users from an experience-driven offline solution via iPads to online learning in classrooms using Hotwire, Stimulus, and Ruby on Rails.
