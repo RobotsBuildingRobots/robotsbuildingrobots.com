@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300|Montserrat|Roboto:wght@900&display=swap');
+
+@mixin primary-font { font-family: 'Merriweather', serif; }
+
+@mixin secondary-font { font-family: 'Montserrat', sans-serif; }
+
+@mixin impact-font { font-family: 'Roboto', sans-serif; }

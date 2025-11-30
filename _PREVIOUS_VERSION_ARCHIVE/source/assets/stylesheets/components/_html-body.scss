@@ -1,0 +1,18 @@
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+html,
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100% !important;
+  min-width: map-get($grid-breakpoints, 'minimium') !important;
+  min-height: 100% !important;
+  background-color: $darkest-color;
+  font-size: 1rem;
+
+  @include primary-font();
+  @include font-color-light();
+}

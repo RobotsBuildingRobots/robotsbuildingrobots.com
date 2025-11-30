@@ -15,15 +15,15 @@ namespace :test do
       puts("---------------------------------------------------------->>\n")
       puts('Running esLint')
       puts("---------------------------------------------------------->>\n")
-      system('npm run lintjs_with_fix')
+      system('yarn run lint:js_with_fix')
     end
 
-    desc 'Lint SCSS via StyleLint.'
+    desc 'Lint CSS & SCSS via StyleLint.'
     task :css do
       puts("---------------------------------------------------------->>\n")
       puts('Running Style Lint')
       puts("---------------------------------------------------------->>\n")
-      system('npm run lintcss_with_fix')
+      system('yarn run lint:css_with_fix')
     end
 
     desc 'Lint Ruby via rubocop.'

@@ -1,23 +1,22 @@
 # frozen_string_literal: true
 
 Bundler.require(:default)
+
+require 'dotenv/load'
 require 'pry'
 require 'slim'
-require 'builder'
+
 Slim::Engine.disable_option_validator!
 
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true
-
-require_all 'lib/helpers'
-autoload_all 'lib/helpers'
-
-activate :directory_indexes
-
 set :images_dir, 'assets/images'
 
-helpers WebpackAssetHelpers
-helpers FolderHelpers
+require_relative 'lib/webpack/webpack_assets'
+
+autoload :WebpackAssets, 'lib/webpack/webpack_assets'
+
+helpers WebpackAssets
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -29,13 +28,15 @@ ignore 'assets/javascripts/*'
 ignore 'partials/*'
 ignore 'rev-manifest.json'
 
+activate :directory_indexes
+
 activate :deploy do |deploy|
-  deploy.build_before   = true
-  deploy.deploy_method  = :git
-  deploy.branch         = 'gh-pages'
+  deploy.build_before = true
+  deploy.deploy_method = :git
+  deploy.branch = 'gh-pages'
 end
 
-# rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength, Style/SuperArguments, Performance/BlockGivenWithExplicitBlock
 helpers do
   def image_url(source)
     return image_path(source) unless external_site_configured?
@@ -90,4 +91,4 @@ helpers do
     config[:port] unless config[:port].to_i == 80
   end
 end
-# rubocop:enable Metrics/BlockLength
+# rubocop:enable Metrics/BlockLength, Style/SuperArguments, Performance/BlockGivenWithExplicitBlock

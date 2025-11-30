@@ -1,0 +1,207 @@
+.services-banner {
+  @include media-breakpoint-up(xs) {
+    background: url('#{$image-path}/pages/index/dark-sharp-edges.png') repeat;
+    padding: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 1rem 1rem 2.5rem 1rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    background: none;
+  }
+
+  .section-wrapper {
+    .services-banner-wrapper {
+      @include media-breakpoint-up(md) {
+        max-width: map-get($grid-breakpoints, "lg");
+      }
+
+      @include media-breakpoint-up(xxl) {
+        max-width: map-get($grid-breakpoints, "xl");
+      }
+    }
+
+    @import "pages/index/cta-banner-wrapper";
+
+    @include media-breakpoint-up(xs) {
+      .cta-crazy-banner-wrapper {
+        .cta-banner-wrapper {
+          display: none;
+        }
+      }
+
+      .cta-inspired-banner-wrapper {
+        .cta-banner-wrapper {
+          @include box-shadow();
+
+          display: block;
+          margin-top: 2rem;
+
+          .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    @media (max-height: $minimum-height) {
+      .cta-crazy-banner-wrapper {
+        display: block;
+        margin-bottom: 1rem;
+
+        .cta-banner-wrapper {
+          @include box-shadow();
+
+          display: block;
+
+          .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      .cta-crazy-banner-wrapper {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      .cta-inspired-banner-wrapper {
+        display: none;
+      }
+    }
+
+    .content-graph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 1rem 1.5rem 1rem;
+
+      embed {
+        width: 275px;
+      }
+    }
+
+    .content {
+      font-size: 1rem;
+      color: $darkest-color;
+
+      @include media-breakpoint-up(xs) {
+        border-radius: 0;
+
+        .row:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        .row:not(:last-child) {
+          margin-bottom: 0;
+        }
+
+        .content-row-wrapper:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+
+        .content-row-wrapper .col-6:not(:last-child) {
+          padding-right: 1.5rem;
+        }
+
+        .content-row-wrapper .col-6:not(:first-child) {
+          padding-left: 1.5rem;
+        }
+
+        .d-flex {
+          > .row:first-child {
+            flex-grow: 0;
+          }
+
+          > .row:last-child {
+            flex-grow: 1;
+          }
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        .col-4:nth-of-type(1),
+        .col-xxl-3:nth-of-type(2) {
+          padding-right: 1.5rem;
+        }
+
+        .col-4:nth-of-type(2),
+        .col-xxl-3:nth-of-type(3) {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+
+        .col-4:nth-of-type(3),
+        .col-xxl-3:nth-of-type(4) {
+          padding-left: 1.5rem;
+        }
+
+        .d-flex {
+          > .row:first-child {
+            flex-grow: 0;
+          }
+
+          > .row:last-child {
+            flex-grow: 1;
+          }
+        }
+      }
+
+      .header {
+        @include impact-font();
+
+        color: $highlight-color;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        max-width: 4rem;
+
+        @include media-breakpoint-up(xs) {
+          background: rgba(70, 73, 107, $backdrop-opacity-dark);
+          text-orientation: upright;
+          writing-mode: vertical-rl;
+          max-width: 4rem;
+        }
+
+        @include media-breakpoint-up(md) {
+          border-radius: 0;
+          text-orientation: initial;
+          writing-mode: initial;
+          max-width: initial;
+          padding: 1rem;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        .top {
+          border-top-left-radius: $radius;
+          border-top-right-radius: $radius;
+        }
+
+        .bottom {
+          border-bottom-left-radius: $radius;
+          border-bottom-right-radius: $radius;
+        }
+      }
+
+      .description {
+        @include media-breakpoint-up(xs) {
+          background: rgba(230, 233, 242, $backdrop-opacity-light);
+          padding: 1rem 1rem 1rem 1rem;
+        }
+      }
+    }
+  }
+}

@@ -2,15 +2,17 @@
 
 activate :external_pipeline,
          name: :webpack,
-         command: 'npm run staging',
+         command: 'yarn run staging',
          source: 'build'
 
-Slim::Engine.set_default_options(pretty: true)
+Slim::Engine.set_options(pretty: true)
 
-set :protocol, 'https://'
-set :host, 'robotsbuildingrobots.com'
-set :port, 80
+activate :asset_hash, exts: %w[.jpg .png .webmanifest .ico .svg]
 
-require_relative '../lib/build'
+set :protocol, ENV.fetch('SITE_PROTOCOL', 'https://')
+set :host, ENV.fetch('SITE_HOST', 'localhost')
+set :port, ENV.fetch('SITE_PORT', '80').to_i
+
+require_relative '../lib/build_process_functions'
 
 after_build { adjust_final_source }

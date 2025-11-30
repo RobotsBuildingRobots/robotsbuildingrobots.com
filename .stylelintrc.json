@@ -1,12 +1,18 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss"
+  ],
   "plugins": [
     "stylelint-scss"
   ],
   "rules": {
-    "indentation": null,
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "for", "elseif", "return"]
-    }]
+    "scss/at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["mixin", "extend", "content", "function", "if", "each", "include", "mixin", "for", "elseif", "return"]
+    }],
+    "scss/no-global-function-names": null,
+    "import-notation": null,
+    "no-invalid-position-at-import-rule": null,
+    "at-rule-no-unknown": null
   }
 }

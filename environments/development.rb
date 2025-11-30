@@ -2,9 +2,13 @@
 
 Bundler.require(:development)
 
-Slim::Engine.set_default_options(pretty: true)
+Slim::Engine.set_options(pretty: true)
 
 activate :external_pipeline,
          name: :webpack,
-         command: 'npm run develop',
+         command: 'yarn run develop',
          source: 'build'
+
+require_relative '../lib/build_process_functions'
+
+after_build { adjust_final_source }

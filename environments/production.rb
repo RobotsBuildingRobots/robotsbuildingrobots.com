@@ -2,7 +2,7 @@
 
 activate :external_pipeline,
          name: :webpack,
-         command: 'npm run production',
+         command: 'yarn run production',
          source: 'build'
 
 activate :asset_hash, exts: %w[.jpg .png]
@@ -11,13 +11,12 @@ activate :minify_html do |html|
   html.remove_quotes = false
   html.remove_intertag_spaces = true
   html.remove_http_protocol = false
-  html.remove_quotes = true
 end
 
-set :protocol, 'https://'
-set :host, 'robotsbuildingrobots.com'
-set :port, 80
+set :protocol, ENV.fetch('SITE_PROTOCOL', 'https://')
+set :host, ENV.fetch('SITE_HOST', 'localhost')
+set :port, ENV.fetch('SITE_PORT', '80').to_i
 
-require_relative '../lib/build'
+require_relative '../lib/build_process_functions'
 
 after_build { adjust_final_source }
