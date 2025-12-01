@@ -14,8 +14,6 @@ def adjust_final_source
   add_content_to_source(postion: 'footer', view_source_file: 'view_source_footer.txt') if File.exist?('source/partials/view_source_header.txt')
 end
 
-private
-
 def add_content_to_source(postion:, view_source_file:)
   Dir.glob('build/**/*.html').map { |file| File.realpath(file) }.each do |path|
     File.write(path, add_to_source(postion:,
