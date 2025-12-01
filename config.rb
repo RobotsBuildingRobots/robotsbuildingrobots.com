@@ -91,4 +91,4 @@ helpers do
     config[:port] unless config[:port].to_i == 80
   end
 end
-# rubocop:enable Metrics/BlockLength, Style/SuperArguments, Performance/BlockGivenWithExplicitBlock
+# rubocop:enable Metrics/BlockLength, Style/SuperArguments
