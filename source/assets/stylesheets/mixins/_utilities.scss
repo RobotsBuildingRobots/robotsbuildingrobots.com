@@ -1,8 +1,4 @@
 @mixin transform($transforms) {
-	   transform: $transforms;
-	     transform: $transforms;
-	    transform: $transforms;
-	transform: $transforms;
           transform: $transforms;
 }
 
@@ -11,8 +7,6 @@
 }
 
 @mixin box-shadow($horiz: 0, $vert: 0, $blur: 0.5rem, $spread: 0.25rem, $color: $color-black, $inset: "") {
-  box-shadow: $horiz $vert $blur $spread $color unquote($inset);
-  box-shadow: $horiz $vert $blur $spread $color unquote($inset);
   box-shadow: $horiz $vert $blur $spread $color unquote($inset);
 }
 
@@ -35,8 +29,8 @@
 	$radius: $size - $correction;
 	$stroke: ();
 
-	@for $i from -$size through $size {
-		@for $k from -$size through $size {
+	@for $i from - $size through $size {
+		@for $k from - $size through $size {
 
 			$x: $k;
 			$y: $i;
@@ -57,8 +51,8 @@
 				$y: $i + 0.5;
 			}
 
-			@if ($x*$x + $y*$y <= $radius*$radius) {
-				$stroke: append($stroke, $i*1px $k*1px 0 $color, comma);
+			@if ($x * $x + $y * $y <= $radius * $radius) {
+				$stroke: append($stroke, $i * 1px $k * 1px 0 $color, comma);
 			}
 		}
 	}
@@ -69,7 +63,7 @@
 @mixin text-stroke($width, $color) {
   $shadow: ();
 
-  @for $i from -$width through $width {
+  @for $i from - $width through $width {
     $shadow: append($shadow, #{$width}px #{$i}px $color, comma);
     $shadow: append($shadow, #{-$width}px #{$i}px $color, comma);
     $shadow: append($shadow, #{$i}px #{$width}px $color, comma);
