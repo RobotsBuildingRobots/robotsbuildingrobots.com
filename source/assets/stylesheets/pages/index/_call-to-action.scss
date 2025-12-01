@@ -56,7 +56,7 @@
     justify-content: center;
 
     @include media-breakpoint-up(xs) {
-      padding: 1.5rem 1rem 0 1rem;
+      padding: 1.5rem 1rem 0;
 
       .avatar-wrapper {
         display: flex;
@@ -149,7 +149,7 @@
       #lottie {
         width: 275px;
         height: 275px;
-        margin: auto auto;
+        margin: auto;
       }
     }
 
@@ -163,8 +163,8 @@
   @import "pages/index/cta-banner-wrapper";
 
   .cta-banner-wrapper {
-    @media screen and (min-height: 1400px) {
-      @media screen and (min-width: 2000px) {
+    @media screen and (height >= 1400px) {
+      @media screen and (width >= 2000px) {
         font-size: 6rem;
 
         span {

@@ -11,7 +11,7 @@
     background: url('#{$image-path}/pages/index/buildings.png') no-repeat bottom center;
 
     @include media-breakpoint-up(xs) {
-      padding: 1rem 1rem;
+      padding: 1rem;
     }
   }
 
