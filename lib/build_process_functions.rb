@@ -3,7 +3,7 @@
 def adjust_final_source
   Dir.glob('build/assets/*.json').select { |file| file.include?('manifest') }.each { |file| File.delete(file) }
 
-  File.write('build/CNAME', 'links.aboutchrishough.com')
+  File.write('build/CNAME', ENV['SITE_HOST'])
 
   if File.exist?('build/four-o-four/index.html')
     FileUtils.cp('build/four-o-four/index.html', 'build/404.html')
