@@ -1,25 +1,33 @@
 name: Deploy Static Site
 
+
 on:
   pull_request:
     types: [closed]
     branches:
       - main
 
+# on:
+#   push:
+#     branches:
+#       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SITE_HOST: ${{ vars.SITE_HOST }}
 
     steps:
       - uses: actions/checkout@v1
         if: github.event.pull_request.merged == true
-
-      # ----------------------------------------------------Ruby
-
+      # ---------------------------------------------------------------
+      # Ruby
+      # ---------------------------------------------------------------
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 3.4.3
         if: github.event.pull_request.merged == true
 
       - name: Ruby Version
@@ -33,12 +41,17 @@ jobs:
           bundle install --jobs 4 --retry 3
         if: github.event.pull_request.merged == true
 
-      # ----------------------------------------------------Node
-
+      - name: Test Ruby Dependencies
+        run: |
+          bundle exec rake -T
+        if: github.event.pull_request.merged == true
+      # ---------------------------------------------------------------
+      # Javascript
+      # ---------------------------------------------------------------
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          version: 10.16.3
+          node-version: 22.6.0
         if: github.event.pull_request.merged == true
 
       - name: Node Version
@@ -46,13 +59,23 @@ jobs:
           node --version
         if: github.event.pull_request.merged == true
 
-      - name: Setup Node Dependencies
+      - name: Install Yarn
         run: |
-          npm install
+          npm install --global yarn
         if: github.event.pull_request.merged == true
 
-      # ----------------------------------------------------Webpack
+      - name: Yarn Version
+        run: |
+          yarn --version
+        if: github.event.pull_request.merged == true
 
+      - name: Install Dependencies
+        run: |
+          yarn install
+        if: github.event.pull_request.merged == true
+      # ---------------------------------------------------------------
+      # Webpack
+      # ---------------------------------------------------------------
       - name: Build Webpack File
         run: |
           bundle exec rake webpack:build:production
@@ -63,13 +86,13 @@ jobs:
           export TERM=xterm
           bundle exec middleman build -e production --verbose
         if: github.event.pull_request.merged == true
-
-      # ----------------------------------------------------Deploy
-
-      - name: Deploy to Github Pages
+      # ---------------------------------------------------------------
+      # Deploy
+      # ---------------------------------------------------------------
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
         if: github.event.pull_request.merged == true && success()

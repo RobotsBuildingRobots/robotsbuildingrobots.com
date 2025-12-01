@@ -7,14 +7,15 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    env:
+      SITE_HOST: ${{ vars.SITE_HOST }}
 
     steps:
       - uses: actions/checkout@v1
-
-      # ----------------------------------------------------Ruby
-
+      # ---------------------------------------------------------------
+      # Ruby
+      # ---------------------------------------------------------------
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -29,22 +30,28 @@ jobs:
       - name: Test Ruby Dependencies
         run: |
           bundle exec rake -T
-
-      # ----------------------------------------------------Node
-
+      # ---------------------------------------------------------------
+      # Javascript
+      # ---------------------------------------------------------------
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          version: 10.16.3
+          node-version: 22.6.0
       - name: Node Version
         run: |
           node --version
-      - name: Setup Node Dependencies
+      - name: Install Yarn
         run: |
-          npm install
-
-      # ----------------------------------------------------Webpack
-
+          npm install --global yarn
+      - name: Yarn Version
+        run: |
+          yarn --version
+      - name: Install Dependencies
+        run: |
+          yarn install
+      # ---------------------------------------------------------------
+      # Webpack
+      # ---------------------------------------------------------------
       - name: Build Webpack File
         run: |
           bundle exec rake webpack:build:production
@@ -52,18 +59,19 @@ jobs:
       - name: Build Site
         run: |
           export TERM=xterm
+
           bundle exec middleman build -e production --verbose
-
-      # ----------------------------------------------------Quality
-
+      # ---------------------------------------------------------------
+      # Quality
+      # ---------------------------------------------------------------
       - name: Rubocop
         run: |
           bundle exec rubocop
 
       - name: ESLint
         run: |
-          npm run lintjs
+          yarn run lint:js
 
       - name: StyleLint
         run: |
-          npm run lintcss
+          yarn run lint:css
