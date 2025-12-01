@@ -15,7 +15,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 0 1rem 0;
+      padding: 2rem 0 1rem;
 
       .header {
         background: rgba(240, 157, 55, $backdrop-opacity-super-light);
@@ -51,7 +51,7 @@
     max-width: map-get($grid-breakpoints, "lg");
 
     @include media-breakpoint-up(xs) {
-      padding: 0 0 1rem 0;
+      padding: 0 0 1rem;
 
       #projects-carousel {
         background: rgba(230, 233, 242, $backdrop-opacity-dark);
@@ -140,7 +140,7 @@
       #lottie {
         width: 250px;
         height: 250px;
-        margin: auto auto;
+        margin: auto;
       }
 
       #projects-carousel {
@@ -158,7 +158,7 @@
       #lottie {
         width: 325px;
         height: 325px;
-        margin: auto auto;
+        margin: auto;
       }
     }
   }
@@ -174,7 +174,7 @@
       #lottie {
         width: 275px;
         height: 275px;
-        margin: auto auto;
+        margin: auto;
       }
     }
 

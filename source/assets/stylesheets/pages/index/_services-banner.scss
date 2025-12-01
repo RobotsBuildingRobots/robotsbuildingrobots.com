@@ -5,7 +5,7 @@
   }
 
   @include media-breakpoint-up(md) {
-    padding: 1rem 1rem 2.5rem 1rem;
+    padding: 1rem 1rem 2.5rem;
   }
 
   @include media-breakpoint-up(lg) {
@@ -84,7 +84,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 1rem 1rem 1.5rem 1rem;
+      padding: 1rem 1rem 1.5rem;
 
       embed {
         width: 275px;
@@ -199,7 +199,7 @@
       .description {
         @include media-breakpoint-up(xs) {
           background: rgba(230, 233, 242, $backdrop-opacity-light);
-          padding: 1rem 1rem 1rem 1rem;
+          padding: 1rem;
         }
       }
     }

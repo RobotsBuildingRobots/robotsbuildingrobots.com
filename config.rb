@@ -1,23 +1,22 @@
 # frozen_string_literal: true
 
 Bundler.require(:default)
+
+require 'dotenv/load'
 require 'pry'
 require 'slim'
-require 'builder'
+
 Slim::Engine.disable_option_validator!
 
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true
-
-require_all 'lib/helpers'
-autoload_all 'lib/helpers'
-
-activate :directory_indexes
-
 set :images_dir, 'assets/images'
 
-helpers WebpackAssetHelpers
-helpers FolderHelpers
+require_relative 'lib/webpack/webpack_assets'
+
+autoload :WebpackAssets, 'lib/webpack/webpack_assets'
+
+helpers WebpackAssets
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -29,13 +28,15 @@ ignore 'assets/javascripts/*'
 ignore 'partials/*'
 ignore 'rev-manifest.json'
 
+activate :directory_indexes
+
 activate :deploy do |deploy|
-  deploy.build_before   = true
-  deploy.deploy_method  = :git
-  deploy.branch         = 'gh-pages'
+  deploy.build_before = true
+  deploy.deploy_method = :git
+  deploy.branch = 'gh-pages'
 end
 
-# rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength, Style/SuperArguments
 helpers do
   def image_url(source)
     return image_path(source) unless external_site_configured?
@@ -43,9 +44,9 @@ helpers do
     config[:protocol] + host_with_port + image_path(source)
   end
 
-  def link_to(*args, &block)
-    return super(*args, &block) unless external_site_configured?
-    return super(*args, &block) if args.select { |arg| arg.is_a?(Hash) && arg.include?(:target) }.present?
+  def link_to(*args, &)
+    return super(*args, &) unless external_site_configured?
+    return super(*args, &) if args.select { |arg| arg.is_a?(Hash) && arg.include?(:target) }.present?
 
     if block_given?
       args[0] = external_destination(args[0])
@@ -53,7 +54,7 @@ helpers do
       args[1] = external_destination(args[1])
     end
 
-    super(*args, &block)
+    super(*args, &)
   end
 
   def stylesheet_link_tag(destination)
@@ -90,4 +91,4 @@ helpers do
     config[:port] unless config[:port].to_i == 80
   end
 end
-# rubocop:enable Metrics/BlockLength
+# rubocop:enable Metrics/BlockLength, Style/SuperArguments

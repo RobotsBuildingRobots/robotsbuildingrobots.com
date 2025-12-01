@@ -1,0 +1,47 @@
+url: https://links.aboutchrishough.com
+
+meta:
+  title: Chris Hough
+  focus: Always Happy to Help
+  description: This is the personal landing page of Chris Hough.  From this site you can connect with me on your favorite social networks, see the products I have developed, research my CV, etc. I am happy to connect with you.  If you have a question for me please reach out!
+
+biography:
+  first_name: Chris
+  last_name: Hough
+  links:
+    - id: 1
+      label: Connect
+      url: http://connect.aboutchrishough.com
+    - id: 2
+      label: Company
+      url: http://sidehustle.aboutchrishough.com
+    - id: 3
+      label: Resume
+      url: http://resume.aboutchrishough.com
+    - id: 4
+      label: Thoughts
+      url: http://thoughts.aboutchrishough.com
+    - id: 5
+      label: Biography
+      url: https://aboutchrishough.com
+
+slogan:
+  description: "Engineer. Entrepreneur. AI Enthusiast. Aspiring Triathlete. I build with Ruby, AI, APIs, &amp; lead with heart. Always Happy to Help. Let's craft intelligent systems together, work hard, play hard, &amp; enjoy the video game we call life."
+
+locations:
+  cities:
+    - id: 1
+      city: Chicago
+      state: Illinois
+    - id: 2
+      city: Boulder
+      state: Colorado
+    - id: 3
+      city: Manhattan
+      state: New York
+    - id: 4
+      city: Portland
+      state: Oregon
+    - id: 5
+      city: Las Vegas
+      state: Nevada

@@ -6,7 +6,15 @@ namespace :webpack do
     task :production do
       puts("---------------------------------------------------------->>\n")
       puts('Building Webpack Configurations...')
-      ProcessWebpackConfigurations.new(mode: 'production').run
+      WebpackBuild.new(mode: 'production').run
+      puts("---------------------------------------------------------->>\n")
+    end
+
+    desc 'Build the webpack staging configuration file'
+    task :staging do
+      puts("---------------------------------------------------------->>\n\n")
+      puts('Building Webpack Configurations...')
+      WebpackBuild.new(mode: 'development').run
       puts("---------------------------------------------------------->>\n")
     end
 
@@ -14,7 +22,7 @@ namespace :webpack do
     task :development do
       puts("---------------------------------------------------------->>\n\n")
       puts('Building Webpack Configurations...')
-      ProcessWebpackConfigurations.new(mode: 'development').run
+      WebpackBuild.new(mode: 'development').run
       puts("---------------------------------------------------------->>\n")
     end
   end
@@ -24,6 +32,6 @@ namespace :webpack do
     puts("---------------------------------------------------------->>\n")
     puts('Removing Generated Webpack File')
     puts("---------------------------------------------------------->>\n")
-    File.delete('webpack.config.js') if File.exist?('webpack.config.js')
+    FileUtils.rm_f('webpack.config.js')
   end
 end
