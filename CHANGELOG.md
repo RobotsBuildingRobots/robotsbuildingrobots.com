@@ -28,11 +28,11 @@ This changelog documents the evolution of a personal branding website from a sim
 
 ## [Unreleased]
 
-Changes not yet released.
+No unreleased changes at this time.
 
 ---
 
-## [4.0.0] - 2025-12-01
+## [4.0.0] - 2025-12-01 - RELEASED
 
 ### MAJOR RELEASE - Infrastructure Modernization & Build System Overhaul
 
