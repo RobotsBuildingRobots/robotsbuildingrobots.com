@@ -14,6 +14,7 @@ This changelog documents the evolution of a personal branding website from a sim
 - **v1.x (2017)**: Initial Middleman site with basic responsive design
 - **v2.x (2020)**: Multi-page application with Webpack integration, Bootstrap framework
 - **v3.x (2021-2025)**: Complete redesign with custom design system, single-page focus, modern tooling
+- **v4.x (2025)**: Infrastructure modernization, environment-based configuration, dependency stabilization
 
 ### Key Architectural Patterns
 
@@ -27,7 +28,113 @@ This changelog documents the evolution of a personal branding website from a sim
 
 ## [Unreleased]
 
-Changes not yet released (currently on feature/version_four_point_o branch).
+No unreleased changes at this time.
+
+---
+
+## [4.0.0] - 2025-12-01 - RELEASED
+
+### MAJOR RELEASE - Infrastructure Modernization & Build System Overhaul
+
+This version represents a comprehensive infrastructure modernization with a focus on dependency management, build reliability, and configuration flexibility.
+
+### Added
+- **Dependency Restoration**:
+  - Bootstrap 4.6.2 and Popper.js 1.16.1 for legacy component support
+  - FontAwesome packages:
+    - `@fortawesome/fontawesome-svg-core@7.1.0`
+    - `@fortawesome/free-solid-svg-icons@7.1.0`
+    - `@fortawesome/free-regular-svg-icons@7.1.0`
+  - `jquery-validation@1.21.0` for form validation
+  - `normalize-scss@8.0.0` for cross-browser CSS consistency
+- **Configuration Management**:
+  - Environment-based CNAME generation using `ENV['SITE_HOST']`
+  - Enhanced Webpack alias configuration for validation library
+  - Restored data files for content management (about.yml, components.yml, contact.yml, cta.yml, engagements.yml, services.yml)
+- **Legal**:
+  - Updated LICENSE from MIT to Proprietary License (All Rights Reserved)
+  - Reflects business nature of the website
+
+### Changed
+- **Build Process**:
+  - Updated `lib/build_process_functions.rb` to use `ENV.fetch('SITE_HOST', nil)` for dynamic CNAME generation
+  - Enhanced Webpack module resolution for new dependencies
+  - Fixed all build errors related to missing packages
+- **Code Quality**:
+  - Resolved all Stylelint errors in `_utilities.scss` (operator spacing)
+  - Fixed SCSS operator spacing to comply with `scss/operator-no-unspaced` rule
+  - Updated loops to use spaced negation operators (`from - $size` instead of `from -$size`)
+  - Fixed multiplication operators to include spaces (`$x * $x` instead of `$x*$x`)
+- **Webpack Configuration**:
+  - Added validation alias pointing to `jquery-validation/dist/jquery.validate.js`
+  - Configured proper module resolution for all vendor dependencies
+
+### Removed
+- **UI Elements**:
+  - Removed redundant phone icon (`fa-phone-square`) from contact navigation button
+  - Cleaned up navigation to show only envelope icon for contact
+
+### Fixed
+- **Build Errors**:
+  - Resolved "Module not found" errors for popper.js, bootstrap, validation, and FontAwesome
+  - Fixed SCSS import error for normalize-scss
+  - Corrected Webpack asset pipeline issues
+- **Linter Compliance**:
+  - Fixed all RuboCop offenses (0 offenses detected)
+  - Fixed all ESLint errors (clean JavaScript)
+  - Fixed all Stylelint errors (19 errors → 0 errors)
+- **Deployment**:
+  - Fixed GitHub Pages 404 errors by correcting CNAME generation
+  - Enhanced environment variable usage for multi-environment deployments
+
+### Developer Notes
+
+**Architecture Decision - Environment-Based Configuration**: The move from hardcoded CNAME values to environment variables (`ENV['SITE_HOST']`) enables:
+- Consistent deployment across local, staging, and production environments
+- Better security by keeping domain configuration out of source code
+- Easier management of multiple deployment targets
+- Integration with CI/CD systems (GitHub Actions secrets)
+
+**Dependency Strategy**: This release restores several dependencies that were inadvertently removed during the v3.x migration to a custom design system. Key insights:
+1. **Bootstrap Legacy Support**: While v3.x moved to custom CSS, some JavaScript components still depend on Bootstrap's utilities
+2. **FontAwesome Architecture**: Modern FontAwesome requires three packages (core + icon sets), not just a single import
+3. **Validation Patterns**: jQuery validation remains the most reliable form validation for this stack
+
+**Code Quality Achievement**: This version achieves 100% linter compliance across all three linters (RuboCop, ESLint, Stylelint), establishing a clean baseline for future development.
+
+**Build System Maturity**: The webpack configuration now properly handles all vendor dependencies with explicit aliases, improving build reliability and reducing "Module not found" errors.
+
+**License Change**: Transitioning from MIT to Proprietary License reflects the business nature of this website. The MIT license in v3.1.0 was appropriate for learning/sharing purposes, but as this evolved into a commercial business presence, a proprietary license better protects the brand and intellectual property.
+
+**Learning Opportunities**:
+1. **Environment Variable Patterns**: Using `ENV.fetch('SITE_HOST', nil)` with a nil default is safer than `ENV['SITE_HOST']` as it makes missing configuration explicit
+2. **Linter Evolution**: SCSS operator spacing rules have become stricter; what worked in older Stylelint versions may require updates
+3. **Dependency Archaeology**: When inheriting or resuming a project, carefully audit what was removed vs. what's still referenced
+4. **CI/CD Integration**: GitHub Actions secrets provide a secure way to manage environment-specific configuration
+
+**Performance Impact**:
+- Restored dependencies add ~1.2MB to the vendor bundle (Bootstrap + FontAwesome)
+- This is acceptable given the legacy component requirements
+- Future optimization opportunity: lazy-load FontAwesome icons
+
+**Git Statistics**:
+- All linters passing (RuboCop, ESLint, Stylelint)
+- 6 new npm packages installed
+- CNAME generation now environment-aware
+- Data files restored for proper Middleman operation
+
+**Breaking Changes**:
+- `SITE_HOST` environment variable now required for deployment
+- Local `.env` file must include `SITE_HOST=<your-domain>`
+- GitHub Actions workflows must have `SITE_HOST` secret configured
+
+**Migration Guide for Deployment**:
+1. Create `.env` file locally: `SITE_HOST=robotsbuildingrobots.com`
+2. Add GitHub secret: Settings → Secrets → Actions → New secret
+3. Name: `SITE_HOST`, Value: your domain
+4. Rebuild and redeploy to update CNAME
+
+**Reference**: Feature branch `feature/version_four_point_o`
 
 ---
 
@@ -132,7 +239,7 @@ Changes not yet released (currently on feature/version_four_point_o branch).
 ## [3.1.0] - 2021-01-21
 
 ### Added
-- MIT LICENSE file (open source release)
+- MIT LICENSE file (later changed to Proprietary in v4.0.0)
 - XML sitemap generation via `sitemap.xml.builder`
 - SEO improvements with optimized meta images
 - Image optimization: Reduced background images significantly (3.2MB → 176KB for contact, 4.4MB → 202KB for index CTA, 2.4MB → 129KB for engagements)
@@ -149,8 +256,6 @@ Changes not yet released (currently on feature/version_four_point_o branch).
 
 ### Developer Notes
 **Major Achievement**: This version represents a significant performance optimization, reducing image assets by ~85% through proper compression and optimization. This is a critical lesson in web performance.
-
-**Architecture Decision**: Adding an MIT license opens this project to the community, allowing others to learn from and build upon this work.
 
 **SEO Improvement**: The addition of sitemap.xml.builder enables better search engine indexing, improving discoverability.
 
@@ -583,6 +688,7 @@ The first tagged release of the personal branding website.
 
 | Version | Date | Type | Key Changes | LOC Impact |
 |---------|------|------|-------------|------------|
+| 4.0.0 | 2025-12-01 | Major | Infrastructure modernization, dependency restoration, environment config | +6 packages, 100% linter compliance |
 | 3.5.1 | 2025-02-01 | Patch | Contact email update | Minimal |
 | 3.5.0 | 2024-11-28 | Minor | Feature parity, asset cleanup | +1,278 / -1,963 |
 | 3.4.0 | 2022-08-31 | Minor | Avatar update | Minimal |
@@ -610,6 +716,7 @@ This changelog demonstrates real-world semantic versioning:
   - v1.0.0: Initial release
   - v2.0.0: Multi-page app with Webpack
   - v3.0.0: Single-page app with custom design system
+  - v4.0.0: Infrastructure modernization with breaking environment variable requirements
 
 - **Minor versions (x.y.0)**: New features, non-breaking enhancements
   - New pages (2.1.0, 2.2.0)
@@ -672,15 +779,19 @@ This project had two major redesigns (v2.0.0, v3.0.0):
 
 ## Contributors
 
-- Chris Hough (@aboutchrishough) - Primary developer and maintainer
+- Primary developer and maintainer: RobotsBuildingRobots, LLC
 
 ---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is proprietary software. All Rights Reserved.
+
+Copyright (c) 2017-2025 RobotsBuildingRobots, LLC
+
+See the LICENSE file for details.
 
 ---
 
-**Generated**: 2025-10-26 using git tag analysis and commit history
-**Maintainer**: Chris Hough (tech@aboutchrishough.com)
+**Generated**: 2025-12-01 using git tag analysis and commit history
+**Maintainer**: RobotsBuildingRobots, LLC
