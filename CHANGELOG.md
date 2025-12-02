@@ -51,6 +51,9 @@ This version represents a comprehensive infrastructure modernization with a focu
   - Environment-based CNAME generation using `ENV['SITE_HOST']`
   - Enhanced Webpack alias configuration for validation library
   - Restored data files for content management (about.yml, components.yml, contact.yml, cta.yml, engagements.yml, services.yml)
+- **Legal**:
+  - Updated LICENSE from MIT to Proprietary License (All Rights Reserved)
+  - Reflects business nature of the website
 
 ### Changed
 - **Build Process**:
@@ -100,6 +103,8 @@ This version represents a comprehensive infrastructure modernization with a focu
 **Code Quality Achievement**: This version achieves 100% linter compliance across all three linters (RuboCop, ESLint, Stylelint), establishing a clean baseline for future development.
 
 **Build System Maturity**: The webpack configuration now properly handles all vendor dependencies with explicit aliases, improving build reliability and reducing "Module not found" errors.
+
+**License Change**: Transitioning from MIT to Proprietary License reflects the business nature of this website. The MIT license in v3.1.0 was appropriate for learning/sharing purposes, but as this evolved into a commercial business presence, a proprietary license better protects the brand and intellectual property.
 
 **Learning Opportunities**:
 1. **Environment Variable Patterns**: Using `ENV.fetch('SITE_HOST', nil)` with a nil default is safer than `ENV['SITE_HOST']` as it makes missing configuration explicit
@@ -234,7 +239,7 @@ This version represents a comprehensive infrastructure modernization with a focu
 ## [3.1.0] - 2021-01-21
 
 ### Added
-- MIT LICENSE file (open source release)
+- MIT LICENSE file (later changed to Proprietary in v4.0.0)
 - XML sitemap generation via `sitemap.xml.builder`
 - SEO improvements with optimized meta images
 - Image optimization: Reduced background images significantly (3.2MB → 176KB for contact, 4.4MB → 202KB for index CTA, 2.4MB → 129KB for engagements)
@@ -251,8 +256,6 @@ This version represents a comprehensive infrastructure modernization with a focu
 
 ### Developer Notes
 **Major Achievement**: This version represents a significant performance optimization, reducing image assets by ~85% through proper compression and optimization. This is a critical lesson in web performance.
-
-**Architecture Decision**: Adding an MIT license opens this project to the community, allowing others to learn from and build upon this work.
 
 **SEO Improvement**: The addition of sitemap.xml.builder enables better search engine indexing, improving discoverability.
 
@@ -776,15 +779,19 @@ This project had two major redesigns (v2.0.0, v3.0.0):
 
 ## Contributors
 
-- Chris Hough (@aboutchrishough) - Primary developer and maintainer
+- Primary developer and maintainer: RobotsBuildingRobots, LLC
 
 ---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is proprietary software. All Rights Reserved.
+
+Copyright (c) 2017-2025 RobotsBuildingRobots, LLC
+
+See the LICENSE file for details.
 
 ---
 
 **Generated**: 2025-12-01 using git tag analysis and commit history
-**Maintainer**: Chris Hough (tech@aboutchrishough.com)
+**Maintainer**: RobotsBuildingRobots, LLC
