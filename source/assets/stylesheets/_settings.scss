@@ -1,31 +1,35 @@
 $image-path: '../../assets/images/';
 
+// Base palette
 $color-white: #fff;
 $color-black: #000;
-$color-one: #C99383;
-$color-two: #1e2022;
-$color-three: #d8b2a7;
-$color-four: #ba745f;
-$color-five: #36393d;
-$color-six: #060607;
+$color-one: #C99383;    // Warm rose/terracotta
+$color-two: #1e2022;    // Dark charcoal
+$color-three: #d8b2a7;  // Light blush/dusty pink
+$color-four: #ba745f;   // Muted copper/rust
+$color-five: #36393d;   // Medium dark gray
+$color-six: #060607;    // Near black
 
-@mixin font-color-light { color: $color-white; }
+// Semantic mappings - Backgrounds
+$bg-primary: $color-six;        // Page backgrounds, dark sections
+$bg-secondary: $color-two;      // Cards, containers, elevated surfaces
+$bg-tertiary: $color-five;      // Subtle backgrounds, hover states
 
-@mixin font-highlight-color { color: $highlight-color; }
+// Semantic mappings - Text
+$text-primary: $color-three;    // Body text (light blush - good contrast)
+$text-accent: $color-one;       // Headings, links, important text
+$text-muted: $color-five;       // Secondary/muted text
 
-$darkest-color: $color-one;
-$highlight-color: $color-five;
-$border-color: $color-two;
-$link-color: $color-five;
+// Semantic mappings - Interactive
+$accent-primary: $color-one;    // Buttons, links, CTAs
+$accent-hover: $color-four;     // Hover states for accent elements
+$accent-soft: $color-three;     // Secondary buttons, tags, highlights
 
-$backdrop-opacity: 0.8;
-$backdrop-opacity-dark: 0.9;
-$backdrop-opacity-light: 0.7;
-$backdrop-opacity-medium-light: 0.5;
-$backdrop-opacity-super-light: 0.2;
+// Semantic mappings - Borders
+$border-color: $color-five;     // Borders, dividers, separators
 
+// Layout
 $radius: 1rem;
-
 $minimum-height: 700px;
 $grid-breakpoints: (
   xs: 0,
