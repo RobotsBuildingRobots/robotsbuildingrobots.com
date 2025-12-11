@@ -1,5 +1,5 @@
 #cover {
-  background-color: $darkest-color;
+  background-color: $color-six;
   position: fixed;
   left: 0;
   top: 0;
@@ -8,29 +8,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
-  min-width: 100%;
-  z-index: $zindex-cover;
+  z-index: 10000;
 
   #preloader {
-    @include box-shadow-all-sides($color: $highlight-color);
-
+    display: flex;
+    align-items: center;
     font-weight: bold;
-    color: $darkest-color;
-    background-color: $color-white;
+    color: $color-one;
     text-transform: uppercase;
 
     .first,
     .last {
+      font-size: 6rem;
       animation: pulse 0.4s alternate infinite ease-in-out;
-
-      @include media-breakpoint-up(xs) {
-        font-size: 8rem;
-      }
-
-      @include media-breakpoint-up(lg) {
-        font-size: 10rem;
-      }
     }
 
     .first {
@@ -38,20 +28,10 @@
     }
 
     .middle {
-      color: $color-four;
+      color: $color-three;
       padding-top: 1rem;
       text-align: center;
-      min-width: 10rem;
-
-      @include media-breakpoint-up(xs) {
-        max-width: 14rem;
-        font-size: 1.5rem;
-      }
-
-      @include media-breakpoint-up(lg) {
-        max-width: 30rem;
-        font-size: 3rem;
-      }
+      font-size: 1.5rem;
     }
 
     .last {

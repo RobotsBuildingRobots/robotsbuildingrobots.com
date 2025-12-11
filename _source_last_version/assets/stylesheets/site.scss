@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@import "~normalize-scss/sass/normalize/import-now";
+@import "settings";
+@import "vendor/bootstrap";
+@import "vendor/google_fonts";
+@import "mixins/*";
+@import "components/html-body";
+@import "components/preloader";
+@import "components/navigation";
+@import "components/footer";
+@import "pages/index/index";
+@import "pages/contact/index";
+@import "pages/four-o-four/index";

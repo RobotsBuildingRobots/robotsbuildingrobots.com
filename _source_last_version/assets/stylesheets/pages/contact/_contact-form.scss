@@ -1,0 +1,111 @@
+.contact-form-wrapper-inner {
+  @include media-breakpoint-up(xs) {
+    background-color: rgba(70, 73, 107, $backdrop-opacity);
+  }
+
+  @include media-breakpoint-up(md) {
+    max-width: map-get($grid-breakpoints, "sm");
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: map-get($grid-breakpoints, "md");
+  }
+
+  .form-outer-wrapper {
+    .form-header {
+      @include secondary-font();
+
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem 0 1rem;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+    }
+
+    .form-description,
+    .form-control {
+      padding: 0.5rem;
+    }
+
+    label {
+      text-transform: uppercase;
+    }
+
+    label,
+    .form-control {
+      @include impact-font();
+
+      @include media-breakpoint-up(xs) {
+        font-size: 0.9rem;
+      }
+
+      a {
+        font-style: normal;
+        color: $highlight-color;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xs) {
+      border-top: 0.2rem $highlight-color solid;
+      border-bottom: 0.2rem $highlight-color solid;
+      padding: 1rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+      border-right: 0.2rem $highlight-color solid;
+      border-left: 0.2rem $highlight-color solid;
+      padding: 1rem;
+    }
+  }
+
+  .form-inner-wrapper {
+    padding-top: 1rem;
+
+    ::placeholder {
+      color: $color-two;
+      opacity: $backdrop-opacity-medium-light;
+    }
+
+    .form-control {
+      border-radius: 0;
+      text-transform: uppercase;
+
+      &:hover {
+        outline: $highlight-color 0.2rem solid;
+      }
+    }
+
+    .form-group {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .invalid-feedback {
+      color: $highlight-color;
+    }
+
+    .btn-primary {
+      background-color: $color-five;
+      border-color: $color-one;
+      border-radius: 0;
+      font-size: 0.9rem;
+      padding: 1rem;
+      line-height: 1.1rem;
+      text-transform: uppercase;
+      color: $color-one;
+
+      &:hover {
+        border-color: $highlight-color;
+        font-weight: bold;
+      }
+
+      &:focus {
+        @include box-shadow($blur: 0.2rem, $color: rgba(68, 27, 81, $backdrop-opacity));
+      }
+    }
+  }
+}

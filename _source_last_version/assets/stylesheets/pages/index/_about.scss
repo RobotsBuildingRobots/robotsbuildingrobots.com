@@ -1,0 +1,60 @@
+.about {
+  @include box-shadow();
+
+  @include media-breakpoint-up(xs) {
+    background: url('#{$image-path}/pages/index/always-grey.png') repeat;
+    min-height: 350px;
+    padding: 0;
+  }
+
+  .section-wrapper {
+    background: url('#{$image-path}/pages/index/buildings.png') no-repeat bottom center;
+
+    @include media-breakpoint-up(xs) {
+      padding: 1rem;
+    }
+  }
+
+  .description-cta-wrapper {
+    max-width: map-get($grid-breakpoints, "lg");
+
+    @include media-breakpoint-up(xs) {
+      padding: 1rem 2rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding: 1rem;
+    }
+
+    .description-cta {
+      @include secondary-font();
+
+      background: rgba(70, 73, 107, $backdrop-opacity-dark);
+      text-transform: uppercase;
+      padding: 1rem;
+
+      .fa-quote-left,
+      .fa-quote-right {
+        font-size: 1.5rem;
+        padding-bottom: 0.5rem;
+
+        @include font-highlight-color();
+      }
+
+      .fa-quote-left {
+        padding-right: 0.5rem;
+      }
+
+      .fa-quote-right {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  .description-wrapper {
+    max-width: map-get($grid-breakpoints, "lg");
+    background: rgba(230, 233, 242, $backdrop-opacity-dark);
+    padding: 1rem 2rem;
+    color: $color-one;
+  }
+}
