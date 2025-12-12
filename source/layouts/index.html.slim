@@ -1,5 +1,5 @@
-= partial "partials/components/document" do
+doctype html
+html[lang="en"]
   = partial "partials/components/header"
-  = partial "partials/components/body" do
-    main[class="container-fluid"]
-      == yield
+  body
+    == yield

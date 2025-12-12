@@ -3,7 +3,7 @@ div[class="row mx-auto engagements-wrapper"]
     span
       i[class="fas fa-quote-left"]
     span[class="cta"]
-      = data.engagements.process
+      | With engagements helping small startups to large enterprises, we bring both technical knowledge and industry-leading processes to help you achieve your vision.
     span
       i[class="fas fa-quote-right"]
 
@@ -13,29 +13,16 @@ div[class="row mx-auto engagements-projects-wrapper no-gutters"]
   div[class="col-12 col-md-7"]
     div[id="projects-carousel" class="carousel slide" data-ride="carousel"]
       ol[class="carousel-indicators"]
-        - data.engagements.projects.sort_by { |k| k["id"] }.reverse.each_with_index do |project, index|
-          ruby:
-              active_class = index == 0 ? "active" : ""
-          li[data-target="#projects-carousel" data-slide-to="#{index}" class="#{active_class}"]
+        li[data-target="#projects-carousel" data-slide-to="0" class="active"]
       div[class="carousel-inner"]
-        - data.engagements.projects.sort_by { |k| k["id"] }.reverse.each_with_index do |project, index|
-          ruby:
-            postion_class = if index == 0
-                              "first"
-                            elsif index == data.engagements.projects.count
-                              "last"
-                            else
-                              ""
-                            end
-            active_class = index == 0 ? "active" : ""
-          div[class="carousel-item #{postion_class} #{active_class}"]
-            div[class="mx-auto carousel-logo"]
-              img[src="#{image_path('pages/index/engagements/' + project.logo)}"]
-            div[class="mx-auto carousel-caption"]
-              div[class="company"]
-                = project.company
-              div[class="collaboration"]
-                = project.collaboration
+        div[class="carousel-item first active"]
+          div[class="mx-auto carousel-logo"]
+            img[src="#{image_path('pages/index/engagements/crowdox.png')}"]
+          div[class="mx-auto carousel-caption"]
+            div[class="company"]
+              | Crowd OX
+            div[class="collaboration"]
+              | Built out platform features across three ruby-on-rails engines. Expanded testing coverage in a legacy code base.
       a[class="carousel-control-prev left" href="#projects-carousel" role="button" data-slide="prev"]
         span[class="carousel-control-prev-icon" aria-hidden="true"]
         span[class="sr-only"]
