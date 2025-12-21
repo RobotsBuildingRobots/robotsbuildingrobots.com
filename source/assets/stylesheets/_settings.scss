@@ -1,47 +1,155 @@
+// =============================================================================
+// FORGE Design System - Settings & Tokens
+// =============================================================================
+// "Where precision meets partnership" - Premium craftsmanship meets innovation
+// =============================================================================
+
 $image-path: '../../assets/images/';
 
-// Typography
-$font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-$font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', monospace;
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
 
-// Font weights
+// Font Families
+$font-display: 'Playfair Display', 'Georgia', serif; // Hero headlines, impact statements
+$font-heading: 'Bricolage Grotesque', 'Arial', sans-serif; // Section headers, navigation
+$font-body: 'Libre Franklin', 'Helvetica Neue', sans-serif; // Body text, UI elements
+$font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', monospace; // Code, technical
+
+// Font Weights
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
+$font-weight-extrabold: 800;
 
-// Base palette
+// Type Scale (Major Third - 1.25)
+$type-scale-xs: 0.75rem;     // 12px
+$type-scale-sm: 0.875rem;    // 14px
+$type-scale-base: 1rem;      // 16px
+$type-scale-lg: 1.125rem;    // 18px
+$type-scale-xl: 1.25rem;     // 20px
+$type-scale-2xl: 1.5rem;     // 24px
+$type-scale-3xl: 1.875rem;   // 30px
+$type-scale-4xl: 2.25rem;    // 36px
+$type-scale-5xl: 3rem;       // 48px
+$type-scale-6xl: 3.75rem;    // 60px
+$type-scale-7xl: 4.5rem;     // 72px
+$type-scale-8xl: 6rem;       // 96px
+
+// Line Heights
+$leading-none: 1;
+$leading-tight: 1.15;
+$leading-snug: 1.3;
+$leading-normal: 1.5;
+$leading-relaxed: 1.625;
+$leading-loose: 2;
+
+// Letter Spacing
+$tracking-tighter: -0.05em;
+$tracking-tight: -0.025em;
+$tracking-normal: 0;
+$tracking-wide: 0.025em;
+$tracking-wider: 0.05em;
+$tracking-widest: 0.1em;
+
+// =============================================================================
+// COLORS - FORGE Palette
+// =============================================================================
+
+// Core Palette - The Forge
+$forge-black: #0C0A09;       // Foundation - rich, warm black
+$warm-stone: #1C1917;        // Surface - cards, elevated sections
+$charred: #292524;           // Elevated - tertiary surfaces, hover states
+$ash: #44403C;               // Border - subtle borders, dividers
+$stone-gray: #A8A29E;        // Text Secondary - body text, captions
+$warm-white: #FAFAF9;        // Text Primary - headlines, primary text
+
+// Accent Palette - The Fire
+$ember: #DC6B4A;             // Primary accent - CTAs, links, key highlights
+$copper-glow: #F4A261;       // Secondary accent - hover states, warmth
+$teal-spark: #2DD4BF;        // Tertiary accent - innovation moments, special highlights
+
+// Extended Palette
+$ember-dark: #B5543A;        // Darker ember for active states
+$ember-light: #E8917A;       // Lighter ember for subtle accents
+$teal-dark: #14B8A6;         // Darker teal
+$teal-light: #5EEAD4;        // Lighter teal
+
+// Legacy colors (keeping for backwards compat during transition)
 $color-white: #fff;
 $color-black: #000;
-$color-one: #C99383;    // Warm rose/terracotta
-$color-two: #1e2022;    // Dark charcoal
-$color-three: #d8b2a7;  // Light blush/dusty pink
-$color-four: #ba745f;   // Muted copper/rust
-$color-five: #36393d;   // Medium dark gray
-$color-six: #060607;    // Near black
+$color-one: $ember;
+$color-two: $warm-stone;
+$color-three: $stone-gray;
+$color-four: $copper-glow;
+$color-five: $ash;
+$color-six: $forge-black;
 
-// Semantic mappings - Backgrounds
-$bg-primary: $color-six;        // Page backgrounds, dark sections
-$bg-secondary: $color-two;      // Cards, containers, elevated surfaces
-$bg-tertiary: $color-five;      // Subtle backgrounds, hover states
+// =============================================================================
+// SEMANTIC MAPPINGS
+// =============================================================================
 
-// Semantic mappings - Text
-$text-primary: $color-three;    // Body text (light blush - good contrast)
-$text-accent: $color-one;       // Headings, links, important text
-$text-muted: $color-five;       // Secondary/muted text
+// Backgrounds
+$bg-primary: $forge-black;     // Page backgrounds, dark sections
+$bg-secondary: $warm-stone;    // Cards, containers, elevated surfaces
+$bg-tertiary: $charred;        // Subtle backgrounds, hover states
+$bg-elevated: $charred;        // Modal, dropdown backgrounds
 
-// Semantic mappings - Interactive
-$accent-primary: $color-one;    // Buttons, links, CTAs
-$accent-hover: $color-four;     // Hover states for accent elements
-$accent-soft: $color-three;     // Secondary buttons, tags, highlights
+// Text
+$text-primary: $warm-white;    // Headlines, primary content
+$text-secondary: $stone-gray;  // Body text, descriptions
+$text-muted: $ash;             // Subtle text, placeholders
+$text-accent: $ember;          // Links, emphasized text
 
-// Semantic mappings - Borders
-$border-color: $color-five;     // Borders, dividers, separators
+// Interactive
+$accent-primary: $ember;       // Primary buttons, links, CTAs
+$accent-hover: $copper-glow;   // Hover states for accent elements
+$accent-active: $ember-dark;   // Active/pressed states
+$accent-soft: $stone-gray;     // Secondary buttons, tags
 
-// Layout
-$radius: 1rem;
+// Innovation/Special
+$accent-spark: $teal-spark;    // Special highlights, innovation moments
+$accent-spark-hover: $teal-light;
+
+// Borders & Dividers
+$border-color: $ash;           // Default borders
+$border-subtle: $charred;      // Subtle dividers
+$border-strong: $stone-gray;   // Emphasized borders
+
+// =============================================================================
+// SPACING
+// =============================================================================
+
+$space-0: 0;
+$space-1: 0.25rem;    // 4px
+$space-2: 0.5rem;     // 8px
+$space-3: 0.75rem;    // 12px
+$space-4: 1rem;       // 16px
+$space-5: 1.25rem;    // 20px
+$space-6: 1.5rem;     // 24px
+$space-8: 2rem;       // 32px
+$space-10: 2.5rem;    // 40px
+$space-12: 3rem;      // 48px
+$space-16: 4rem;      // 64px
+$space-20: 5rem;      // 80px
+$space-24: 6rem;      // 96px
+$space-32: 8rem;      // 128px
+
+// =============================================================================
+// LAYOUT
+// =============================================================================
+
+$radius-sm: 0.25rem;
+$radius: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-full: 9999px;
+
 $minimum-height: 700px;
+
 $grid-breakpoints: (
   xs: 0,
   minimium: 375px,
@@ -56,4 +164,52 @@ $grid-breakpoints: (
   xxxxl: 2450px
 );
 
+$container-max-width: 1200px;
+$container-padding: $space-6;
+
+// =============================================================================
+// SHADOWS & EFFECTS
+// =============================================================================
+
+$shadow-sm: 0 1px 2px 0 rgba($forge-black, 0.3);
+$shadow: 0 4px 6px -1px rgba($forge-black, 0.4), 0 2px 4px -2px rgba($forge-black, 0.3);
+$shadow-md: 0 10px 15px -3px rgba($forge-black, 0.4), 0 4px 6px -4px rgba($forge-black, 0.3);
+$shadow-lg: 0 25px 50px -12px rgba($forge-black, 0.5);
+$shadow-inner: inset 0 2px 4px 0 rgba($forge-black, 0.3);
+
+// Glow effects for accents
+$glow-ember: 0 0 20px rgba($ember, 0.3);
+$glow-teal: 0 0 20px rgba($teal-spark, 0.3);
+
+// =============================================================================
+// TRANSITIONS
+// =============================================================================
+
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-slow: 350ms ease;
+$transition-slower: 500ms ease;
+
+// =============================================================================
+// Z-INDEX
+// =============================================================================
+
+$z-base: 0;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-modal-backdrop: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-tooltip: 700;
 $zindex-cover: 10000 !default;
+
+// =============================================================================
+// BACKDROP OPACITY (for layered backgrounds)
+// =============================================================================
+
+$backdrop-dark: 0.9;
+$backdrop-regular: 0.8;
+$backdrop-light: 0.7;
+$backdrop-medium-light: 0.5;
+$backdrop-super-light: 0.2;

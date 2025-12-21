@@ -1,16 +1,23 @@
+// =============================================================================
+// Base HTML/Body Styles - FORGE Design System
+// =============================================================================
+
 html,
 body {
   background-color: $bg-primary;
-  color: $text-primary;
+  color: $text-secondary;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: $font-body;
+  font-size: $type-scale-base;
   font-weight: $font-weight-regular;
+  line-height: $leading-normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Code elements
 code,
 pre,
 kbd,
@@ -18,169 +25,591 @@ samp {
   font-family: $font-mono;
 }
 
-// Design System Page
-.design-system {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
+// Links
+a {
+  color: $accent-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
 
-  .page-title {
-    font-size: 2.5rem;
-    font-weight: $font-weight-light;
-    color: $text-accent;
-    margin-bottom: 3rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid $border-color;
+  &:hover {
+    color: $accent-hover;
+  }
+}
+
+// =============================================================================
+// FORGE Design System Preview Page
+// =============================================================================
+
+.design-system {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $space-12 $space-6;
+
+  // Page Header
+  .page-header {
+    margin-bottom: $space-16;
+    text-align: center;
+
+    .badge {
+      display: inline-block;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      font-weight: $font-weight-medium;
+      color: $teal-spark;
+      background: rgba($teal-spark, 0.1);
+      padding: $space-2 $space-4;
+      border-radius: $radius-full;
+      letter-spacing: $tracking-wider;
+      text-transform: uppercase;
+      margin-bottom: $space-4;
+    }
+
+    .page-title {
+      font-family: $font-display;
+      font-size: $type-scale-6xl;
+      font-weight: $font-weight-regular;
+      color: $text-primary;
+      margin: 0 0 $space-4 0;
+      line-height: $leading-tight;
+      letter-spacing: $tracking-tight;
+
+      @media (max-width: 768px) {
+        font-size: $type-scale-4xl;
+      }
+    }
+
+    .page-tagline {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-regular;
+      color: $text-secondary;
+      margin: 0;
+    }
+  }
+
+  // Section styling
+  .section {
+    margin-bottom: $space-16;
   }
 
   .section-title {
-    font-size: 1.25rem;
-    font-weight: $font-weight-medium;
-    color: $text-accent;
-    margin-bottom: 1.5rem;
+    font-family: $font-heading;
+    font-size: $type-scale-sm;
+    font-weight: $font-weight-semibold;
+    color: $ember;
+    margin-bottom: $space-6;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: $tracking-widest;
   }
 
-  // Color Swatches
-  .palette-section {
-    margin-bottom: 3rem;
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    margin-bottom: $space-8;
+    max-width: 600px;
   }
+
+  // =============================================================================
+  // Color Palette Section
+  // =============================================================================
 
   .color-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-
-    &.semantic {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-4;
   }
 
   .color-swatch {
     background: $bg-secondary;
-    border-radius: $radius;
+    border-radius: $radius-lg;
     overflow: hidden;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
 
     .swatch-preview {
-      height: 80px;
+      height: 100px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba($forge-black, 0.2);
+      }
     }
 
     .swatch-info {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
+      padding: $space-4;
+
+      .color-name {
+        font-family: $font-heading;
+        font-size: $type-scale-base;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        margin: 0 0 $space-1 0;
+      }
 
       .var-name {
         font-family: $font-mono;
-        font-size: 0.875rem;
-        color: $text-accent;
+        font-size: $type-scale-xs;
+        color: $ember;
+        margin: 0 0 $space-2 0;
       }
 
-      .hex-value,
-      .mapping {
+      .hex-value {
         font-family: $font-mono;
-        font-size: 0.75rem;
+        font-size: $type-scale-xs;
         color: $text-muted;
+        margin: 0;
       }
 
       .description {
-        font-size: 0.875rem;
-        color: $text-primary;
-        margin-top: 0.25rem;
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $text-secondary;
+        margin: $space-2 0 0 0;
       }
     }
   }
 
-  // Base palette colors
-  .color-one .swatch-preview { background-color: $color-one; }
-  .color-two .swatch-preview { background-color: $color-two; }
-  .color-three .swatch-preview { background-color: $color-three; }
-  .color-four .swatch-preview { background-color: $color-four; }
-  .color-five .swatch-preview { background-color: $color-five; }
-  .color-six .swatch-preview { background-color: $color-six; border: 1px solid $border-color; }
+  // Core palette colors
+  .forge-black .swatch-preview { background-color: $forge-black; border: 1px solid $ash; }
+  .warm-stone .swatch-preview { background-color: $warm-stone; }
+  .charred .swatch-preview { background-color: $charred; }
+  .ash .swatch-preview { background-color: $ash; }
+  .stone-gray .swatch-preview { background-color: $stone-gray; }
+  .warm-white .swatch-preview { background-color: $warm-white; }
 
-  // Semantic background colors
-  .bg-primary .swatch-preview { background-color: $bg-primary; border: 1px solid $border-color; }
-  .bg-secondary .swatch-preview { background-color: $bg-secondary; }
-  .bg-tertiary .swatch-preview { background-color: $bg-tertiary; }
+  // Accent colors
+  .ember .swatch-preview { background-color: $ember; }
+  .copper-glow .swatch-preview { background-color: $copper-glow; }
+  .teal-spark .swatch-preview { background-color: $teal-spark; }
 
-  // Semantic text colors
-  .text-primary-swatch .swatch-preview { background-color: $text-primary; }
-  .text-accent-swatch .swatch-preview { background-color: $text-accent; }
-  .text-muted-swatch .swatch-preview { background-color: $text-muted; }
-
-  // Semantic interactive colors
-  .accent-primary .swatch-preview { background-color: $accent-primary; }
-  .accent-hover .swatch-preview { background-color: $accent-hover; }
-  .accent-soft .swatch-preview { background-color: $accent-soft; }
-
+  // =============================================================================
   // Typography Section
-  .typography-section {
-    margin-bottom: 3rem;
+  // =============================================================================
+
+  .typography-grid {
+    display: grid;
+    gap: $space-6;
   }
 
-  .font-family {
+  .font-card {
     background: $bg-secondary;
-    border-radius: $radius;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
+    border-radius: $radius-lg;
+    padding: $space-8;
+    border: 1px solid $border-subtle;
 
-    .font-name {
-      font-size: 1.5rem;
-      font-weight: $font-weight-semibold;
-      color: $text-accent;
-      margin: 0 0 0.5rem 0;
+    .font-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: $space-6;
+      flex-wrap: wrap;
+      gap: $space-4;
     }
 
     .font-meta {
-      font-family: $font-mono;
-      font-size: 0.875rem;
-      color: $text-muted;
-      margin: 0 0 1.5rem 0;
+      .font-name {
+        font-size: $type-scale-xl;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        margin: 0 0 $space-1 0;
+      }
+
+      .font-role {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $ember;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wide;
+      }
     }
 
     .font-weights {
       display: flex;
+      gap: $space-2;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
     }
 
-    .weight-sample {
-      padding: 0.5rem 1rem;
+    .weight-pill {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      padding: $space-1 $space-3;
       background: $bg-tertiary;
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
-
-      &.weight-300 { font-weight: 300; }
-      &.weight-400 { font-weight: 400; }
-      &.weight-500 { font-weight: 500; }
-      &.weight-600 { font-weight: 600; }
-      &.weight-700 { font-weight: 700; }
+      border-radius: $radius-full;
+      color: $text-secondary;
     }
 
-    .font-sample {
-      font-size: 1.5rem;
-      color: $text-primary;
-      margin: 0;
+    .font-samples {
+      display: flex;
+      flex-direction: column;
+      gap: $space-4;
+    }
+
+    .sample-row {
+      display: flex;
+      align-items: baseline;
+      gap: $space-4;
+      padding-bottom: $space-4;
+      border-bottom: 1px solid $border-subtle;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .sample-size {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+        min-width: 60px;
+        flex-shrink: 0;
+      }
+
+      .sample-text {
+        color: $text-primary;
+        margin: 0;
+      }
+    }
+
+    // Font-specific styling
+    &.display {
+      .font-name,
+      .sample-text {
+        font-family: $font-display;
+      }
+    }
+
+    &.heading {
+      .font-name,
+      .sample-text {
+        font-family: $font-heading;
+      }
+    }
+
+    &.body {
+      .font-name,
+      .sample-text {
+        font-family: $font-body;
+      }
     }
 
     &.mono {
       .font-name,
-      .font-sample,
-      .weight-sample {
+      .sample-text {
         font-family: $font-mono;
       }
 
-      .font-sample {
-        font-size: 1.25rem;
+      .sample-text {
         background: $bg-tertiary;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        display: block;
+        padding: $space-3 $space-4;
+        border-radius: $radius;
       }
+    }
+  }
+
+  // =============================================================================
+  // Type Scale Section
+  // =============================================================================
+
+  .type-scale-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+  }
+
+  .type-scale-item {
+    display: flex;
+    align-items: baseline;
+    gap: $space-6;
+    padding: $space-4 0;
+    border-bottom: 1px solid $border-subtle;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .scale-meta {
+      min-width: 100px;
+      flex-shrink: 0;
+
+      .scale-name {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $ember;
+      }
+
+      .scale-size {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+      }
+    }
+
+    .scale-sample {
+      font-family: $font-display;
+      color: $text-primary;
+      margin: 0;
+      line-height: $leading-tight;
+    }
+
+    &.xs .scale-sample { font-size: $type-scale-xs; }
+    &.sm .scale-sample { font-size: $type-scale-sm; }
+    &.base .scale-sample { font-size: $type-scale-base; }
+    &.lg .scale-sample { font-size: $type-scale-lg; }
+    &.xl .scale-sample { font-size: $type-scale-xl; }
+    &.xxl .scale-sample { font-size: $type-scale-2xl; }
+    &.xxxl .scale-sample { font-size: $type-scale-3xl; }
+    &.xxxxl .scale-sample { font-size: $type-scale-4xl; }
+    &.xxxxxl .scale-sample { font-size: $type-scale-5xl; }
+    &.xxxxxxl .scale-sample { font-size: $type-scale-6xl; }
+  }
+
+  // =============================================================================
+  // Components Section
+  // =============================================================================
+
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $space-6;
+  }
+
+  .component-card {
+    background: $bg-secondary;
+    border-radius: $radius-lg;
+    padding: $space-6;
+    border: 1px solid $border-subtle;
+
+    .component-title {
+      font-family: $font-heading;
+      font-size: $type-scale-sm;
+      font-weight: $font-weight-semibold;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wide;
+      margin: 0 0 $space-4 0;
+    }
+
+    .component-content {
+      display: flex;
+      flex-direction: column;
+      gap: $space-3;
+    }
+  }
+
+  // Buttons
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-heading;
+    font-size: $type-scale-sm;
+    font-weight: $font-weight-semibold;
+    padding: $space-3 $space-6;
+    border-radius: $radius;
+    border: none;
+    cursor: pointer;
+    transition: all $transition-fast;
+    text-decoration: none;
+
+    &.btn-primary {
+      background: $ember;
+      color: $warm-white;
+
+      &:hover {
+        background: $copper-glow;
+        box-shadow: $glow-ember;
+      }
+    }
+
+    &.btn-secondary {
+      background: transparent;
+      color: $ember;
+      border: 1px solid $ember;
+
+      &:hover {
+        background: rgba($ember, 0.1);
+      }
+    }
+
+    &.btn-spark {
+      background: $teal-spark;
+      color: $forge-black;
+
+      &:hover {
+        background: $teal-light;
+        box-shadow: $glow-teal;
+      }
+    }
+
+    &.btn-ghost {
+      background: transparent;
+      color: $text-secondary;
+
+      &:hover {
+        color: $text-primary;
+        background: $bg-tertiary;
+      }
+    }
+  }
+
+  // Input fields
+  .input-field {
+    width: 100%;
+    font-family: $font-body;
+    font-size: $type-scale-base;
+    padding: $space-3 $space-4;
+    background: $bg-tertiary;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    color: $text-primary;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $ember;
+      box-shadow: 0 0 0 3px rgba($ember, 0.1);
+    }
+  }
+
+  // Cards
+  .sample-card {
+    background: $bg-tertiary;
+    border-radius: $radius;
+    padding: $space-4;
+
+    .card-title {
+      font-family: $font-heading;
+      font-size: $type-scale-base;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      margin: 0 0 $space-2 0;
+    }
+
+    .card-text {
+      font-size: $type-scale-sm;
+      color: $text-secondary;
+      margin: 0;
+    }
+  }
+
+  // =============================================================================
+  // Hero Preview Section
+  // =============================================================================
+
+  .hero-preview {
+    background: linear-gradient(135deg, $bg-secondary 0%, $bg-tertiary 100%);
+    border-radius: $radius-xl;
+    padding: $space-16 $space-8;
+    text-align: center;
+    margin-bottom: $space-8;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba($ember, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba($teal-spark, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      font-weight: $font-weight-medium;
+      color: $teal-spark;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+      margin-bottom: $space-4;
+    }
+
+    .hero-title {
+      font-family: $font-display;
+      font-size: $type-scale-7xl;
+      font-weight: $font-weight-regular;
+      color: $text-primary;
+      margin: 0 0 $space-4 0;
+      line-height: $leading-none;
+      letter-spacing: $tracking-tight;
+
+      .accent {
+        color: $ember;
+      }
+
+      @media (max-width: 768px) {
+        font-size: $type-scale-5xl;
+      }
+    }
+
+    .hero-subtitle {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-regular;
+      color: $text-secondary;
+      margin: 0 0 $space-8 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: $space-4;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  // =============================================================================
+  // Spacing Preview
+  // =============================================================================
+
+  .spacing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4;
+    align-items: flex-end;
+  }
+
+  .spacing-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+
+    .spacing-box {
+      background: $ember;
+      border-radius: $radius-sm;
+    }
+
+    .spacing-label {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
     }
   }
 }

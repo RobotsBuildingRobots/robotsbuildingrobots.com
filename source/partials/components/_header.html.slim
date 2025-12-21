@@ -1,11 +1,15 @@
 head
   meta[charset="utf-8"]
   meta[name="viewport" content="width=device-width, initial-scale=1"]
-  title RobotsBuildingRobots | Design System
+  = partial "partials/components/title"
 
-  / Google Fonts - Inter and JetBrains Mono
+  / FORGE Design System Fonts
+  / - Playfair Display: Hero headlines, editorial gravitas
+  / - Bricolage Grotesque: Section headers, innovative spirit
+  / - Libre Franklin: Body text, clean professionalism
+  / - JetBrains Mono: Code, technical credibility
   link[rel="preconnect" href="https://fonts.googleapis.com"]
   link[rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""]
-  link[rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"]
+  link[rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500;600&family=Libre+Franklin:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"]
 
   = stylesheet_link_tag(webpack_asset_path("site.scss", "site"))
