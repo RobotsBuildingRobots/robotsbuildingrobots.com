@@ -37,6 +37,35 @@ a {
 }
 
 // =============================================================================
+// Minimal Page (RBR Landing)
+// =============================================================================
+
+.minimal-page {
+  background-color: $warm-white;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.minimal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $space-4;
+}
+
+.rbr-title {
+  font-family: $font-heading;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: $font-weight-bold;
+  color: $forge-black;
+  margin: 0;
+  letter-spacing: $tracking-tight;
+  line-height: 1;
+}
+
+// =============================================================================
 // FORGE Design System Preview Page
 // =============================================================================
 
