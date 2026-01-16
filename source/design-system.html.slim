@@ -339,3 +339,60 @@ layout: index
       .spacing-item
         .spacing-box[style="width: 64px; height: 64px;"]
         span.spacing-label 16 (64px)
+
+  / Brand Assets - Logos
+  .section
+    h2.section-title Brand Assets - Logos
+    p.section-subtitle The FORGE mark. Displayed at multiple sizes across light and dark backgrounds.
+
+    .logo-showcase
+      / Full size preview
+      .logo-card.full-size
+        .logo-preview.dark-bg
+          = image_tag 'logos/logo.png', alt: 'FORGE Logo'
+        .logo-info
+          p.logo-name Primary Logo
+          p.logo-file logo.png
+          p.logo-dimensions 500 × 500px
+
+      / Size variations
+      .logo-card.size-variations
+        h4.variation-title Size Variations
+        .size-grid
+          .size-item
+            .logo-preview.dark-bg
+              = image_tag 'logos/logo.png', alt: 'Logo 200px', style: 'width: 200px; height: 200px;'
+            span.size-label 200px
+          .size-item
+            .logo-preview.dark-bg
+              = image_tag 'logos/logo.png', alt: 'Logo 100px', style: 'width: 100px; height: 100px;'
+            span.size-label 100px
+          .size-item
+            .logo-preview.dark-bg
+              = image_tag 'logos/logo.png', alt: 'Logo 50px', style: 'width: 50px; height: 50px;'
+            span.size-label 50px
+
+      / Background variations
+      .logo-card.bg-variations
+        h4.variation-title Background Contrast
+        .bg-grid
+          .bg-item.dark-bg
+            = image_tag 'logos/logo.png', alt: 'Logo on dark', style: 'width: 150px; height: 150px;'
+            span.bg-label Dark Background
+          .bg-item.light-bg
+            = image_tag 'logos/logo.png', alt: 'Logo on light', style: 'width: 150px; height: 150px;'
+            span.bg-label Light Background
+
+  / Brand Assets - Favicons
+  .section
+    h2.section-title Brand Assets - Favicons
+    p.section-subtitle Browser and device icons at their intended display sizes.
+
+    .favicon-grid
+      .favicon-item
+        .favicon-preview
+          = image_tag 'favicons/favicon.png', alt: 'Favicon', style: 'width: 50px; height: 50px;'
+        .favicon-info
+          p.favicon-name Favicon
+          p.favicon-file favicon.png
+          p.favicon-dimensions 50 × 50px

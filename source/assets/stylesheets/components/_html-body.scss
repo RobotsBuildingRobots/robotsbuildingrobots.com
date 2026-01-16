@@ -98,11 +98,11 @@ a {
       font-size: $type-scale-6xl;
       font-weight: $font-weight-regular;
       color: $text-primary;
-      margin: 0 0 $space-4 0;
+      margin: 0 0 $space-4;
       line-height: $leading-tight;
       letter-spacing: $tracking-tight;
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         font-size: $type-scale-4xl;
       }
     }
@@ -183,14 +183,14 @@ a {
         font-size: $type-scale-base;
         font-weight: $font-weight-semibold;
         color: $text-primary;
-        margin: 0 0 $space-1 0;
+        margin: 0 0 $space-1;
       }
 
       .var-name {
         font-family: $font-mono;
         font-size: $type-scale-xs;
         color: $ember;
-        margin: 0 0 $space-2 0;
+        margin: 0 0 $space-2;
       }
 
       .hex-value {
@@ -210,7 +210,10 @@ a {
   }
 
   // Core palette colors
-  .forge-black .swatch-preview { background-color: $forge-black; border: 1px solid $ash; }
+  .forge-black .swatch-preview {
+    background-color: $forge-black;
+    border: 1px solid $ash;
+  }
   .warm-stone .swatch-preview { background-color: $warm-stone; }
   .charred .swatch-preview { background-color: $charred; }
   .ash .swatch-preview { background-color: $ash; }
@@ -251,7 +254,7 @@ a {
         font-size: $type-scale-xl;
         font-weight: $font-weight-semibold;
         color: $text-primary;
-        margin: 0 0 $space-1 0;
+        margin: 0 0 $space-1;
       }
 
       .font-role {
@@ -426,7 +429,7 @@ a {
       color: $text-muted;
       text-transform: uppercase;
       letter-spacing: $tracking-wide;
-      margin: 0 0 $space-4 0;
+      margin: 0 0 $space-4;
     }
 
     .component-content {
@@ -526,7 +529,7 @@ a {
       font-size: $type-scale-base;
       font-weight: $font-weight-semibold;
       color: $text-primary;
-      margin: 0 0 $space-2 0;
+      margin: 0 0 $space-2;
     }
 
     .card-text {
@@ -552,10 +555,7 @@ a {
     &::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: radial-gradient(circle at 30% 20%, rgba($ember, 0.1) 0%, transparent 50%),
                   radial-gradient(circle at 70% 80%, rgba($teal-spark, 0.05) 0%, transparent 50%);
       pointer-events: none;
@@ -581,7 +581,7 @@ a {
       font-size: $type-scale-7xl;
       font-weight: $font-weight-regular;
       color: $text-primary;
-      margin: 0 0 $space-4 0;
+      margin: 0 0 $space-4;
       line-height: $leading-none;
       letter-spacing: $tracking-tight;
 
@@ -589,7 +589,7 @@ a {
         color: $ember;
       }
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         font-size: $type-scale-5xl;
       }
     }
@@ -599,7 +599,7 @@ a {
       font-size: $type-scale-xl;
       font-weight: $font-weight-regular;
       color: $text-secondary;
-      margin: 0 0 $space-8 0;
+      margin: 0 0 $space-8;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
@@ -639,6 +639,209 @@ a {
       font-family: $font-mono;
       font-size: $type-scale-xs;
       color: $text-muted;
+    }
+  }
+
+  // =============================================================================
+  // Favicon Grid Section
+  // =============================================================================
+
+  .favicon-grid {
+    display: flex;
+    gap: $space-6;
+    flex-wrap: wrap;
+  }
+
+  .favicon-item {
+    background: $bg-secondary;
+    border-radius: $radius-lg;
+    padding: $space-6;
+    border: 1px solid $border-subtle;
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+  }
+
+  .favicon-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-3;
+    background: $forge-black;
+    border: 1px solid $ash;
+    border-radius: $radius;
+
+    img {
+      display: block;
+    }
+  }
+
+  .favicon-info {
+    .favicon-name {
+      font-family: $font-heading;
+      font-size: $type-scale-base;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      margin: 0 0 $space-1;
+    }
+
+    .favicon-file {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $ember;
+      margin: 0 0 $space-1;
+    }
+
+    .favicon-dimensions {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+
+  // =============================================================================
+  // Logo Showcase Section
+  // =============================================================================
+
+  .logo-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $space-6;
+  }
+
+  .logo-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-4;
+    border-radius: $radius;
+
+    &.dark-bg {
+      background: $forge-black;
+      border: 1px solid $ash;
+    }
+
+    &.light-bg {
+      background: $warm-white;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .logo-card {
+    background: $bg-secondary;
+    border-radius: $radius-lg;
+    padding: $space-6;
+    border: 1px solid $border-subtle;
+
+    .variation-title {
+      font-family: $font-heading;
+      font-size: $type-scale-sm;
+      font-weight: $font-weight-semibold;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wide;
+      margin: 0 0 $space-4;
+    }
+
+    &.full-size {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: $space-6;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .logo-preview {
+        flex-shrink: 0;
+
+        img {
+          max-width: 200px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .logo-info {
+    .logo-name {
+      font-family: $font-heading;
+      font-size: $type-scale-lg;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      margin: 0 0 $space-2;
+    }
+
+    .logo-file {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $ember;
+      margin: 0 0 $space-1;
+    }
+
+    .logo-dimensions {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+
+  .size-grid {
+    display: flex;
+    gap: $space-6;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .size-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+
+    .size-label {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
+    }
+  }
+
+  .bg-grid {
+    display: flex;
+    gap: $space-6;
+    flex-wrap: wrap;
+  }
+
+  .bg-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-4;
+    border-radius: $radius;
+
+    &.dark-bg {
+      background: $forge-black;
+      border: 1px solid $ash;
+    }
+
+    &.light-bg {
+      background: $warm-white;
+    }
+
+    .bg-label {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
+    }
+
+    &.light-bg .bg-label {
+      color: $ash;
     }
   }
 }
