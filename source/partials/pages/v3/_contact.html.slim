@@ -1,0 +1,33 @@
+/ V3 Contact Section - Transmission
+section#contact.v3-contact
+  .transmission-container
+    .transmission-header.scroll-animate
+      .signal-bars
+        .bar
+        .bar
+        .bar
+        .bar
+      span.signal-label SIGNAL STRONG
+
+    .transmission-content.scroll-animate.delay-1
+      h2.transmission-title Open Transmission Channel
+      p.transmission-subtitle = data.components.social.focus
+
+      .transmission-action
+        a.transmission-btn[href=data.components.social.linkedin target="_blank" rel="noopener noreferrer"]
+          .btn-signal
+            .signal-wave
+            .signal-wave
+            .signal-wave
+          span.btn-text Establish Connection
+          svg.btn-arrow[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"]
+            path[d="M13 7l5 5m0 0l-5 5m5-5H6"]
+
+    .transmission-footer.scroll-animate.delay-2
+      .coordinates
+        span.coord-label Coordinates:
+        span.coord-value LinkedIn HQ
+
+      .frequency
+        span.freq-label Frequency:
+        span.freq-value Always Open

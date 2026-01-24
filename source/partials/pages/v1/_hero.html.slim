@@ -1,0 +1,24 @@
+/ V1 Hero Section - Forge Foundry
+section#hero.v1-hero
+  / Particle Canvas for Ember Effects
+  .hero-particles[data-particles="ember"]
+
+  .hero-container
+    .hero-content
+      .hero-logo
+        = image_tag 'logos/logo.png', alt: 'RobotsBuildingRobots', class: 'hero-logo-img'
+
+      .hero-text
+        p.hero-eyebrow.scroll-animate Agentic AI Solutions
+        h1.hero-title.scroll-animate.delay-1
+          span.title-line Robots Building
+          span.title-accent  Robots
+        p.hero-subtitle.scroll-animate.delay-2 Architecting products and services across emerging technologies. Creating win-win strategic partnerships through precision engineering.
+
+      .hero-cta.scroll-animate.delay-3
+        a.btn-forge-primary[href="#contact"] Start a Conversation
+        a.btn-forge-secondary[href="#engagements"] View Our Work
+
+    .hero-scroll-indicator
+      .scroll-line
+      span.scroll-text Scroll to explore

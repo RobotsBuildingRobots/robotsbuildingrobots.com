@@ -1,0 +1,43 @@
+/ V2 About Section - Blueprint Layout
+section#about.v2-about
+  .section-container
+    .about-wrapper
+      .about-content.scroll-animate
+        .blueprint-label
+          span.label-marker
+          span About
+
+        h2.about-title Company Profile
+
+        blockquote.about-quote
+          .quote-mark
+            svg[viewBox="0 0 24 24" fill="currentColor"]
+              path[d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"]
+          p = data.about.cta
+
+        p.about-description = data.about.description
+
+        .about-locations
+          span.locations-label Locations
+          .locations-list
+            - data.about.locations.each_with_index do |loc, index|
+              .location-item
+                span.location-marker[data-index="#{index + 1}"]
+                span.location-name = loc.location
+
+        .about-footer
+          .footer-item
+            span.label Company
+            span.value = data.components.social.formalname
+          .footer-item
+            span.label Established
+            span.value = data.about.copyright
+
+      .about-visual.scroll-animate.delay-2
+        .blueprint-schematic
+          .schematic-frame
+            = image_tag 'logos/logo.png', alt: 'RBR', class: 'schematic-logo'
+          .schematic-labels
+            .label-item.label-top Founded 2016
+            .label-item.label-right Remote-First
+            .label-item.label-bottom Boulder, CO

@@ -1,0 +1,100 @@
+/ V3 Services Section - Mission Control Dashboard
+section#services.v3-services
+  .section-container
+    .section-header.scroll-animate
+      span.section-eyebrow Mission Parameters
+      h2.section-title How We Operate
+      p.section-subtitle Systems and protocols that drive mission success
+
+    .dashboard-grid
+      / Values Panel - Wide
+      .dashboard-panel.panel-wide.scroll-animate.delay-1
+        .panel-header
+          .panel-indicator.active
+          span.panel-title SYS: VALUES
+        .panel-content
+          .panel-status
+            .status-item
+              span.status-dot.online
+              span Craftsmen
+            .status-item
+              span.status-dot.online
+              span Detail-Oriented
+            .status-item
+              span.status-dot.online
+              span Adaptive
+          p.panel-text = data.services.values
+
+      / Process Panel
+      .dashboard-panel.scroll-animate.delay-2
+        .panel-header
+          .panel-indicator.active
+          span.panel-title SYS: PROCESS
+        .panel-content
+          .panel-gauge
+            .gauge-ring
+              svg[viewBox="0 0 100 100"]
+                circle.gauge-bg[cx="50" cy="50" r="45"]
+                circle.gauge-fill[cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="70"]
+            .gauge-value 75%
+          p.panel-text = data.services.process
+
+      / Technology Panel
+      .dashboard-panel.scroll-animate.delay-3
+        .panel-header
+          .panel-indicator.active
+          span.panel-title SYS: TECHNOLOGY
+        .panel-content
+          .panel-status
+            .status-item
+              span.status-dot.online
+              span AI/ML Ready
+            .status-item
+              span.status-dot.online
+              span Cloud-Native
+            .status-item
+              span.status-dot.online
+              span CI/CD
+          p.panel-text = data.services.technology
+
+      / ROI Panel
+      .dashboard-panel.scroll-animate.delay-4
+        .panel-header
+          .panel-indicator.active
+          span.panel-title SYS: ROI
+        .panel-content
+          .panel-bars
+            .bar-item
+              .bar-label Value
+              .bar-track
+                .bar-fill[style="width: 95%;"]
+            .bar-item
+              .bar-label Results
+              .bar-track
+                .bar-fill[style="width: 88%;"]
+            .bar-item
+              .bar-label Growth
+              .bar-track
+                .bar-fill[style="width: 82%;"]
+          p.panel-text = data.services.roi
+
+      / Metrics Panel
+      .dashboard-panel.scroll-animate.delay-5
+        .panel-header
+          .panel-indicator.active
+          span.panel-title SYS: METRICS
+        .panel-content
+          .panel-bars
+            .bar-item
+              .bar-label Coverage
+              .bar-track
+                .bar-fill[style="width: 85%;"]
+            .bar-item
+              .bar-label Quality
+              .bar-track
+                .bar-fill[style="width: 92%;"]
+            .bar-item
+              .bar-label Velocity
+              .bar-track
+                .bar-fill[style="width: 78%;"]
+          p.panel-text = data.services.metrics

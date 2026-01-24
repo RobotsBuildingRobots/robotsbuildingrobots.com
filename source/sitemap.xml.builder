@@ -5,7 +5,7 @@ xml.urlset 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' do
   sitemap.resources.select { |page| page.path.include?('.html') }.each do |page|
     next unless page.data.seo != false
 
-    site_url = "https://robotsbuildingrobots.com"
+    site_url = 'https://robotsbuildingrobots.com'
     location = if page.url == '/'
                  "#{site_url}/index.html"
                else

@@ -1,0 +1,1265 @@
+// =============================================================================
+// V2: BLUEPRINT - Architect/Technical Drawing Theme
+// =============================================================================
+
+// Blueprint Theme Colors
+$blueprint-blue: #1E3A5F;
+$blueprint-light: #2A4A72;
+$blueprint-dark: #0D1B2A;
+$blueprint-bg: #F8F9FA;
+$blueprint-grid: #E1E5EA;
+$blueprint-accent: $ember; // Technical orange from design system
+
+// =============================================================================
+// V2 HERO SECTION
+// =============================================================================
+
+.v2-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: $blueprint-bg;
+
+  // Blueprint grid background
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient($blueprint-grid 1px, transparent 1px),
+      linear-gradient(90deg, $blueprint-grid 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $space-6;
+  }
+
+  .hero-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+    align-items: center;
+    position: relative;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: $space-12;
+    }
+  }
+
+  // Blueprint annotations
+  .blueprint-annotation {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+    gap: $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      display: flex;
+    }
+
+    &.annotation-top {
+      top: -$space-8;
+    }
+
+    &.annotation-bottom {
+      bottom: -$space-8;
+    }
+
+    .annotation-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $blueprint-blue, transparent);
+    }
+
+    .annotation-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      letter-spacing: $tracking-wider;
+      white-space: nowrap;
+    }
+  }
+
+  .hero-content {
+    order: 2;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      order: 1;
+    }
+  }
+
+  .blueprint-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    background: rgba($blueprint-blue, 0.1);
+    border: 1px solid $blueprint-blue;
+    border-radius: $radius-sm;
+    margin-bottom: $space-6;
+
+    .badge-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+    }
+  }
+
+  .hero-title {
+    font-family: $font-display;
+    font-size: $type-scale-5xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-tight;
+    margin: 0 0 $space-6;
+    color: $blueprint-dark;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-6xl;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      font-size: $type-scale-7xl;
+    }
+
+    .title-main {
+      display: block;
+    }
+
+    .title-accent {
+      color: $blueprint-accent;
+    }
+  }
+
+  .hero-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 550px;
+    margin: 0 0 $space-10;
+    line-height: $leading-relaxed;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-xl;
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-direction: row;
+    }
+  }
+
+  // Logo with blueprint frame
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      order: 2;
+    }
+  }
+
+  .blueprint-frame {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 350px;
+      height: 350px;
+    }
+
+    .frame-corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: $blueprint-blue;
+      border-style: solid;
+      border-width: 0;
+
+      &.top-left {
+        top: 0;
+        left: 0;
+        border-top-width: 2px;
+        border-left-width: 2px;
+      }
+
+      &.top-right {
+        top: 0;
+        right: 0;
+        border-top-width: 2px;
+        border-right-width: 2px;
+      }
+
+      &.bottom-left {
+        bottom: 0;
+        left: 0;
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+      }
+
+      &.bottom-right {
+        bottom: 0;
+        right: 0;
+        border-bottom-width: 2px;
+        border-right-width: 2px;
+      }
+    }
+
+    .dimension-marker {
+      position: absolute;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+
+      &.horizontal {
+        bottom: -$space-6;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          width: $space-8;
+          height: 1px;
+          background: $blueprint-blue;
+        }
+
+        &::before {
+          right: calc(100% + $space-2);
+        }
+
+        &::after {
+          left: calc(100% + $space-2);
+        }
+      }
+
+      &.vertical {
+        right: -$space-10;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+
+        @media (max-width: map-get($grid-breakpoints, md) - 1px) {
+          display: none;
+        }
+      }
+    }
+
+    .blueprint-logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// BLUEPRINT BUTTONS
+// =============================================================================
+
+.btn-blueprint-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: $blueprint-blue;
+  color: $warm-white;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border: 2px solid $blueprint-blue;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $blueprint-dark;
+    border-color: $blueprint-dark;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-blueprint-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: transparent;
+  color: $blueprint-blue;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border: 2px solid $blueprint-blue;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba($blueprint-blue, 0.1);
+  }
+}
+
+// =============================================================================
+// V2 SERVICES SECTION
+// =============================================================================
+
+.v2-services {
+  padding: $space-24 $space-6;
+  background: $warm-white;
+  position: relative;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .blueprint-label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    .label-marker {
+      width: 12px;
+      height: 12px;
+      background: $blueprint-accent;
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    color: $blueprint-dark;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .blueprint-card {
+    position: relative;
+    background: $blueprint-bg;
+    border: 1px solid $blueprint-grid;
+    padding: $space-8;
+    transition: all $transition-base;
+
+    .card-number {
+      position: absolute;
+      top: $space-4;
+      right: $space-4;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: rgba($blueprint-blue, 0.3);
+      font-weight: $font-weight-bold;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-4;
+      margin-bottom: $space-4;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($blueprint-blue, 0.1);
+      border: 1px solid $blueprint-blue;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: $blueprint-blue;
+      }
+    }
+
+    .card-title {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-semibold;
+      color: $blueprint-dark;
+      margin: $space-2 0 0;
+    }
+
+    .card-description {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $blueprint-light;
+      line-height: $leading-relaxed;
+      margin: 0;
+    }
+
+    .card-corner {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid $blueprint-blue;
+      border-bottom: 2px solid $blueprint-blue;
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+
+    &:hover {
+      border-color: $blueprint-blue;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba($blueprint-dark, 0.1);
+
+      .card-corner {
+        opacity: 1;
+      }
+    }
+
+    // First card (Values) spans 2 columns on larger screens
+    &:first-child {
+      @media (min-width: map-get($grid-breakpoints, xl)) {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// V2 ENGAGEMENTS SECTION
+// =============================================================================
+
+.v2-engagements {
+  padding: $space-24 $space-6;
+  background: $blueprint-bg;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .blueprint-label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    .label-marker {
+      width: 12px;
+      height: 12px;
+      background: $blueprint-accent;
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    color: $blueprint-dark;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: $leading-relaxed;
+  }
+
+  .engagements-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .timeline-track {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-line {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, $blueprint-blue, transparent);
+    }
+  }
+
+  .timeline-items {
+    position: relative;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-6;
+    margin-bottom: $space-8;
+    padding-left: $space-12;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      padding: 0;
+
+      &.item-left {
+        justify-content: flex-end;
+        padding-right: calc(50% + $space-8);
+
+        .timeline-marker {
+          left: auto;
+          right: calc(50% - 10px);
+        }
+
+        .timeline-card {
+          text-align: right;
+        }
+      }
+
+      &.item-right {
+        justify-content: flex-start;
+        padding-left: calc(50% + $space-8);
+
+        .timeline-marker {
+          left: calc(50% - 10px);
+        }
+      }
+    }
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 10px;
+
+    .marker-dot {
+      width: 20px;
+      height: 20px;
+      background: $blueprint-bg;
+      border: 3px solid $blueprint-blue;
+      transform: rotate(45deg);
+    }
+  }
+
+  .timeline-card {
+    background: $warm-white;
+    border: 1px solid $blueprint-grid;
+    padding: $space-6;
+    flex: 1;
+    max-width: 400px;
+    transition: all $transition-base;
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      gap: $space-3;
+      margin-bottom: $space-3;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .item-left & {
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    .project-index {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-accent;
+      font-weight: $font-weight-bold;
+    }
+
+    .project-name {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-semibold;
+      color: $blueprint-dark;
+      margin: 0;
+    }
+
+    .project-description {
+      font-family: $font-body;
+      font-size: $type-scale-sm;
+      color: $blueprint-light;
+      line-height: $leading-relaxed;
+      margin: 0 0 $space-4;
+    }
+
+    .card-footer {
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .item-left & {
+          text-align: right;
+        }
+      }
+    }
+
+    .status-badge {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+      padding: $space-1 $space-3;
+      background: rgba($blueprint-blue, 0.1);
+      border: 1px solid rgba($blueprint-blue, 0.3);
+    }
+
+    &:hover {
+      border-color: $blueprint-blue;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba($blueprint-dark, 0.08);
+    }
+  }
+}
+
+// =============================================================================
+// V2 COMING SOON SECTION
+// =============================================================================
+
+.v2-coming-soon {
+  padding: $space-24 $space-6;
+  background: $warm-white;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .blueprint-label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    .label-marker {
+      width: 12px;
+      height: 12px;
+      background: $blueprint-accent;
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    color: $blueprint-dark;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .construction-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .construction-card {
+    position: relative;
+    background: $blueprint-bg;
+    border: 1px dashed $blueprint-blue;
+    padding: $space-8;
+    transition: all $transition-base;
+
+    .card-blueprint-corner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-top: 2px solid $blueprint-accent;
+      border-left: 2px solid $blueprint-accent;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: $space-4;
+    }
+
+    .product-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($blueprint-blue, 0.1);
+      border: 1px solid $blueprint-blue;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: $blueprint-blue;
+      }
+    }
+
+    .product-status {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-accent;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+    }
+
+    .card-content {
+      margin-bottom: $space-6;
+    }
+
+    .product-name {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-semibold;
+      color: $blueprint-dark;
+      margin: 0 0 $space-2;
+    }
+
+    .product-tagline {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $blueprint-light;
+      margin: 0;
+    }
+
+    .card-progress {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 4px;
+      background: $blueprint-grid;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, $blueprint-blue, $blueprint-accent);
+      transition: width 0.5s ease;
+    }
+
+    .progress-label {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-light;
+      white-space: nowrap;
+    }
+
+    &:hover {
+      border-style: solid;
+      border-color: $blueprint-blue;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba($blueprint-dark, 0.1);
+    }
+  }
+}
+
+// =============================================================================
+// V2 ABOUT SECTION
+// =============================================================================
+
+.v2-about {
+  padding: $space-24 $space-6;
+  background: $blueprint-bg;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .about-content {
+    .blueprint-label {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-3;
+      margin-bottom: $space-4;
+
+      .label-marker {
+        width: 12px;
+        height: 12px;
+        background: $blueprint-accent;
+        transform: rotate(45deg);
+      }
+
+      span:last-child {
+        font-family: $font-mono;
+        font-size: $type-scale-sm;
+        color: $blueprint-blue;
+        text-transform: uppercase;
+        letter-spacing: $tracking-widest;
+      }
+    }
+
+    .about-title {
+      font-family: $font-display;
+      font-size: $type-scale-4xl;
+      font-weight: $font-weight-bold;
+      color: $blueprint-dark;
+      margin: 0 0 $space-6;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-5xl;
+      }
+    }
+
+    .about-quote {
+      position: relative;
+      margin: 0 0 $space-6;
+      padding: $space-6;
+      padding-left: $space-10;
+      background: $warm-white;
+      border: 1px solid $blueprint-grid;
+      border-left: 4px solid $blueprint-blue;
+
+      .quote-mark {
+        position: absolute;
+        top: $space-4;
+        left: $space-3;
+        width: 24px;
+        height: 24px;
+        color: rgba($blueprint-blue, 0.3);
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        font-family: $font-display;
+        font-size: $type-scale-lg;
+        font-style: italic;
+        color: $blueprint-dark;
+        line-height: $leading-relaxed;
+        margin: 0;
+      }
+    }
+
+    .about-description {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $blueprint-light;
+      line-height: $leading-relaxed;
+      margin: 0 0 $space-8;
+    }
+
+    .about-locations {
+      margin-bottom: $space-8;
+
+      .locations-label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $blueprint-blue;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        display: block;
+        margin-bottom: $space-3;
+      }
+
+      .locations-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-4;
+      }
+
+      .location-item {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2;
+      }
+
+      .location-marker {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $blueprint-blue;
+        color: $warm-white;
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        font-weight: $font-weight-bold;
+
+        &::before {
+          content: attr(data-index);
+        }
+      }
+
+      .location-name {
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $blueprint-dark;
+      }
+    }
+
+    .about-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-8;
+    }
+
+    .footer-item {
+      display: flex;
+      flex-direction: column;
+      gap: $space-1;
+
+      .label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $blueprint-light;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+      }
+
+      .value {
+        font-family: $font-heading;
+        font-size: $type-scale-base;
+        color: $blueprint-dark;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+
+  .about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: map-get($grid-breakpoints, lg) - 1px) {
+      order: -1;
+    }
+  }
+
+  .blueprint-schematic {
+    position: relative;
+    padding: $space-12;
+  }
+
+  .schematic-frame {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $blueprint-blue;
+    background: $warm-white;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 280px;
+      height: 280px;
+    }
+
+    .schematic-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  }
+
+  .schematic-labels {
+    .label-item {
+      position: absolute;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      letter-spacing: $tracking-wider;
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background: $blueprint-blue;
+      }
+
+      &.label-top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::before {
+          width: 1px;
+          height: $space-4;
+          left: 50%;
+          top: 100%;
+          margin-top: $space-1;
+        }
+      }
+
+      &.label-right {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &::before {
+          width: $space-4;
+          height: 1px;
+          right: 100%;
+          top: 50%;
+          margin-right: $space-1;
+        }
+      }
+
+      &.label-bottom {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::before {
+          width: 1px;
+          height: $space-4;
+          left: 50%;
+          bottom: 100%;
+          margin-bottom: $space-1;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// V2 CONTACT SECTION
+// =============================================================================
+
+.v2-contact {
+  padding: $space-24 $space-6;
+  background: $blueprint-blue;
+
+  .contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    position: relative;
+    background: $warm-white;
+    padding: $space-12;
+    text-align: center;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      padding: $space-16;
+    }
+  }
+
+  .card-blueprint-border {
+    position: absolute;
+    inset: $space-4;
+    border: 1px dashed $blueprint-grid;
+    pointer-events: none;
+  }
+
+  .contact-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .blueprint-label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    .label-marker {
+      width: 12px;
+      height: 12px;
+      background: $blueprint-accent;
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  .contact-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    color: $blueprint-dark;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .contact-description {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 500px;
+    margin: 0 auto $space-8;
+    line-height: $leading-relaxed;
+  }
+
+  .contact-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-blueprint-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-8;
+    background: $blueprint-blue;
+    color: $warm-white;
+    font-family: $font-heading;
+    font-size: $type-scale-base;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 2px solid $blueprint-blue;
+    transition: all $transition-base;
+
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background: $blueprint-dark;
+      border-color: $blueprint-dark;
+      transform: translateY(-2px);
+    }
+  }
+}

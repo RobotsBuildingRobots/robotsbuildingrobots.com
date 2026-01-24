@@ -1,0 +1,1334 @@
+// =============================================================================
+// V3: ORBITAL DYNAMICS - Global Reach & Motion Theme
+// =============================================================================
+
+// =============================================================================
+// V3 HERO SECTION
+// =============================================================================
+
+.v3-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, $bg-primary 0%, darken($bg-primary, 2%) 100%);
+
+  // Star field
+  .hero-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: $warm-white;
+      border-radius: 50%;
+      left: var(--x);
+      top: var(--y);
+      animation: star-twinkle 3s ease-in-out infinite;
+      animation-delay: var(--delay);
+      opacity: 0.5;
+    }
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $space-6;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  // Orbital system
+  .hero-orbital-system {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 400px;
+      height: 400px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, lg) - 1px) {
+      order: -1;
+    }
+
+    .orbital-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      z-index: 3;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        width: 140px;
+        height: 140px;
+      }
+
+      .core-logo {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .core-glow {
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient(circle, rgba($copper-glow, 0.3) 0%, transparent 70%);
+        animation: core-glow 4s ease-in-out infinite;
+      }
+    }
+
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: 1px dashed rgba($copper-glow, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+
+      .orbit-label {
+        position: absolute;
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $copper-glow;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        white-space: nowrap;
+        opacity: 0.7;
+      }
+
+      &.orbit-1 {
+        width: 180px;
+        height: 180px;
+        animation: orbit-rotate 20s linear infinite;
+
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          width: 240px;
+          height: 240px;
+        }
+
+        .orbit-label {
+          top: -$space-6;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &.orbit-2 {
+        width: 240px;
+        height: 240px;
+        animation: orbit-rotate 30s linear infinite reverse;
+        border-color: rgba($ember, 0.2);
+
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          width: 320px;
+          height: 320px;
+        }
+
+        .orbit-label {
+          right: -$space-16;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $ember;
+        }
+      }
+
+      &.orbit-3 {
+        width: 300px;
+        height: 300px;
+        animation: orbit-rotate 40s linear infinite;
+        border-color: rgba($teal-spark, 0.15);
+
+        @media (min-width: map-get($grid-breakpoints, md)) {
+          width: 400px;
+          height: 400px;
+        }
+
+        .orbit-label {
+          bottom: -$space-6;
+          left: 50%;
+          transform: translateX(-50%);
+          color: $teal-spark;
+        }
+      }
+    }
+  }
+
+  .hero-content {
+    text-align: center;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      text-align: left;
+    }
+  }
+
+  .hero-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $copper-glow;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-4;
+  }
+
+  .hero-title {
+    font-family: $font-display;
+    font-size: $type-scale-5xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-tight;
+    margin: 0 0 $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-6xl;
+    }
+
+    .title-line {
+      display: block;
+    }
+
+    .title-accent {
+      color: $copper-glow;
+    }
+  }
+
+  .hero-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 500px;
+    margin: 0 auto $space-10;
+    line-height: $leading-relaxed;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      margin: 0 0 $space-10;
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-direction: row;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      justify-content: flex-start;
+    }
+  }
+
+  // Trajectory line decoration
+  .hero-trajectory {
+    position: absolute;
+    bottom: $space-16;
+    left: 0;
+    right: 0;
+    height: 50px;
+    opacity: 0.2;
+    pointer-events: none;
+
+    .trajectory-line {
+      width: 100%;
+      height: 100%;
+
+      .trajectory-path {
+        stroke: $copper-glow;
+        stroke-dasharray: 10 5;
+        animation: trajectory-dash 2s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes core-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes orbit-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes trajectory-dash {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 30;
+  }
+}
+
+// =============================================================================
+// ORBITAL BUTTONS
+// =============================================================================
+
+.btn-orbital-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4 $space-8;
+  background: $copper-glow;
+  color: $forge-black;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border-radius: $radius-full;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  .btn-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform $transition-fast;
+  }
+
+  &:hover {
+    background: $ember;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba($copper-glow, 0.4);
+
+    .btn-icon {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.btn-orbital-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: transparent;
+  color: $text-primary;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border-radius: $radius-full;
+  border: 1px solid $border-color;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $copper-glow;
+    color: $copper-glow;
+    background: rgba($copper-glow, 0.1);
+  }
+}
+
+// =============================================================================
+// V3 SERVICES SECTION - Dashboard
+// =============================================================================
+
+.v3-services {
+  padding: $space-24 $space-6;
+  background: $bg-secondary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .section-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $copper-glow;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .dashboard-panel {
+    background: $bg-primary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    overflow: hidden;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: $copper-glow;
+      box-shadow: 0 0 20px rgba($copper-glow, 0.1);
+    }
+
+    &.panel-wide {
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        grid-column: span 1;
+      }
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      padding: $space-4;
+      background: $bg-tertiary;
+      border-bottom: 1px solid $border-subtle;
+
+      .panel-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $ash;
+
+        &.active {
+          background: #27C93F;
+          box-shadow: 0 0 8px rgba(#27C93F, 0.5);
+        }
+      }
+
+      .panel-title {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+      }
+    }
+
+    .panel-content {
+      padding: $space-6;
+    }
+
+    // Gauge visualization
+    .panel-gauge {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+      margin-bottom: $space-6;
+
+      .gauge-ring {
+        width: 60px;
+        height: 60px;
+
+        svg {
+          transform: rotate(-90deg);
+
+          .gauge-bg {
+            fill: none;
+            stroke: $bg-tertiary;
+            stroke-width: 8;
+          }
+
+          .gauge-fill {
+            fill: none;
+            stroke: $copper-glow;
+            stroke-width: 8;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+          }
+        }
+      }
+
+      .gauge-value {
+        font-family: $font-mono;
+        font-size: $type-scale-2xl;
+        font-weight: $font-weight-bold;
+        color: $copper-glow;
+      }
+    }
+
+    // Bar visualization
+    .panel-bars {
+      margin-bottom: $space-6;
+
+      .bar-item {
+        margin-bottom: $space-3;
+
+        .bar-label {
+          font-family: $font-mono;
+          font-size: $type-scale-xs;
+          color: $text-muted;
+          margin-bottom: $space-1;
+        }
+
+        .bar-track {
+          height: 6px;
+          background: $bg-tertiary;
+          border-radius: $radius-full;
+          overflow: hidden;
+
+          .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, $ember, $copper-glow);
+            border-radius: $radius-full;
+            transition: width 1s ease;
+          }
+        }
+      }
+    }
+
+    // Status visualization
+    .panel-status {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-3;
+      margin-bottom: $space-6;
+
+      .status-item {
+        display: flex;
+        align-items: center;
+        gap: $space-2;
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-secondary;
+
+        .status-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: $ash;
+
+          &.online {
+            background: #27C93F;
+          }
+        }
+      }
+    }
+
+    .panel-text {
+      font-family: $font-body;
+      font-size: $type-scale-sm;
+      color: $text-secondary;
+      line-height: $leading-relaxed;
+      margin: 0;
+    }
+  }
+}
+
+// =============================================================================
+// V3 ENGAGEMENTS SECTION - Mission Log
+// =============================================================================
+
+.v3-engagements {
+  padding: $space-24 0;
+  background: $bg-primary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $space-6;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  .section-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $copper-glow;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: $leading-relaxed;
+  }
+
+  .missions-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: $copper-glow $bg-tertiary;
+    padding: $space-4 0 $space-8 0;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $bg-tertiary;
+      border-radius: $radius-full;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $copper-glow;
+      border-radius: $radius-full;
+    }
+  }
+
+  .missions-track {
+    display: flex;
+    gap: $space-6;
+    padding: 0 $space-6;
+    width: max-content;
+  }
+
+  .mission-card {
+    flex-shrink: 0;
+    width: 350px;
+    background: $bg-secondary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    padding: $space-6;
+    position: relative;
+    transition: all $transition-base;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 400px;
+    }
+
+    &:hover {
+      border-color: $copper-glow;
+      transform: translateY(-4px);
+
+      .mission-trajectory {
+        opacity: 1;
+      }
+    }
+
+    .mission-status {
+      display: flex;
+      align-items: center;
+      gap: $space-2;
+      margin-bottom: $space-4;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: #27C93F;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+
+      .status-complete {
+        width: 8px;
+        height: 8px;
+        background: #27C93F;
+        border-radius: 50%;
+      }
+    }
+
+    .mission-content {
+      .mission-id {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+        display: block;
+        margin-bottom: $space-2;
+      }
+
+      .mission-name {
+        font-family: $font-display;
+        font-size: $type-scale-2xl;
+        font-weight: $font-weight-semibold;
+        color: $copper-glow;
+        margin: 0 0 $space-4;
+      }
+
+      .mission-brief {
+        font-family: $font-body;
+        font-size: $type-scale-base;
+        color: $text-secondary;
+        line-height: $leading-relaxed;
+        margin: 0;
+      }
+    }
+
+    .mission-trajectory {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, $copper-glow, $ember, transparent);
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+  }
+}
+
+// =============================================================================
+// V3 COMING SOON - Launch Pad
+// =============================================================================
+
+.v3-coming-soon {
+  padding: $space-24 $space-6;
+  background: $bg-secondary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .section-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $copper-glow;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .launchpad-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .launchpad-item {
+    background: $bg-primary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    padding: $space-6;
+    text-align: center;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: $copper-glow;
+      transform: translateY(-4px);
+
+      .rocket-platform .launch-smoke {
+        opacity: 1;
+      }
+    }
+
+    .rocket-platform {
+      position: relative;
+      height: 40px;
+      margin-bottom: $space-6;
+
+      .platform-base {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: $ash;
+        border-radius: $radius-sm;
+      }
+
+      .launch-smoke {
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 30px;
+        background: radial-gradient(ellipse at bottom, rgba($copper-glow, 0.3) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity $transition-base;
+      }
+    }
+
+    .launch-content {
+      .launch-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba($copper-glow, 0.1);
+        border-radius: $radius-md;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto $space-4;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          color: $copper-glow;
+        }
+      }
+
+      .launch-name {
+        font-family: $font-heading;
+        font-size: $type-scale-xl;
+        font-weight: $font-weight-semibold;
+        margin: 0 0 $space-2;
+      }
+
+      .launch-tagline {
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $text-secondary;
+        margin: 0;
+      }
+    }
+
+    .countdown {
+      margin-top: $space-6;
+      padding-top: $space-4;
+      border-top: 1px solid $border-subtle;
+
+      .countdown-label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        display: block;
+        margin-bottom: $space-2;
+      }
+
+      .countdown-display {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: $space-2;
+
+        .countdown-value {
+          font-family: $font-mono;
+          font-size: $type-scale-2xl;
+          font-weight: $font-weight-bold;
+          color: $copper-glow;
+        }
+
+        .countdown-unit {
+          font-family: $font-mono;
+          font-size: $type-scale-sm;
+          color: $text-muted;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// V3 ABOUT - Ground Stations
+// =============================================================================
+
+.v3-about {
+  padding: $space-24 $space-6;
+  background: $bg-primary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    margin-bottom: $space-12;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .about-mission {
+    .mission-brief {
+      margin-bottom: $space-8;
+
+      .brief-label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $copper-glow;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        display: block;
+        margin-bottom: $space-4;
+      }
+
+      .brief-quote {
+        font-family: $font-display;
+        font-size: $type-scale-2xl;
+        font-weight: $font-weight-medium;
+        line-height: $leading-snug;
+        border-left: 3px solid $copper-glow;
+        padding-left: $space-6;
+        margin: 0;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .mission-description {
+      p {
+        font-family: $font-body;
+        font-size: $type-scale-lg;
+        color: $text-secondary;
+        line-height: $leading-relaxed;
+        margin: 0;
+      }
+    }
+  }
+
+  .about-stations {
+    .stations-title {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $space-6;
+    }
+
+    .world-map {
+      position: relative;
+      height: 200px;
+      background: $bg-secondary;
+      border: 1px solid $border-subtle;
+      border-radius: $radius-md;
+      margin-bottom: $space-6;
+      overflow: hidden;
+
+      .map-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 20% 40%, rgba($copper-glow, 0.1) 0%, transparent 30%),
+          radial-gradient(circle at 60% 30%, rgba($copper-glow, 0.1) 0%, transparent 25%),
+          radial-gradient(circle at 80% 60%, rgba($copper-glow, 0.1) 0%, transparent 20%);
+      }
+
+      .station-pin {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        // Position pins roughly on map
+        // Chicago
+        &[data-station="0"] {
+          top: 30%;
+          left: 25%;
+        }
+
+        // Boulder
+        &[data-station="1"] {
+          top: 40%;
+          left: 30%;
+        }
+
+        // Manhattan
+        &[data-station="2"] {
+          top: 28%;
+          left: 75%;
+        }
+
+        // Portland
+        &[data-station="3"] {
+          top: 35%;
+          left: 12%;
+        }
+
+        // Las Vegas
+        &[data-station="4"] {
+          top: 50%;
+          left: 20%;
+        }
+
+        .pin-pulse {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border: 1px solid rgba($copper-glow, 0.5);
+          border-radius: 50%;
+          animation: pin-pulse 2s ease-out infinite;
+        }
+
+        .pin-dot {
+          width: 8px;
+          height: 8px;
+          background: $copper-glow;
+          border-radius: 50%;
+          position: relative;
+          z-index: 1;
+        }
+
+        .pin-label {
+          font-family: $font-mono;
+          font-size: $type-scale-xs;
+          color: $text-secondary;
+          margin-top: $space-1;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .stations-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-3;
+
+      .station-item {
+        display: flex;
+        align-items: center;
+        gap: $space-2;
+        padding: $space-2 $space-4;
+        background: $bg-secondary;
+        border-radius: $radius-sm;
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $text-secondary;
+
+        .station-indicator {
+          width: 6px;
+          height: 6px;
+          background: $copper-glow;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .about-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: $space-4;
+    padding-top: $space-8;
+    border-top: 1px solid $border-subtle;
+
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      font-family: $font-heading;
+      font-size: $type-scale-base;
+      font-weight: $font-weight-semibold;
+
+      .badge-icon {
+        width: 24px;
+        height: 24px;
+        color: $copper-glow;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .footer-meta {
+      display: flex;
+      gap: $space-4;
+
+      .meta-item {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+      }
+    }
+  }
+}
+
+@keyframes pin-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+// =============================================================================
+// V3 CONTACT - Transmission
+// =============================================================================
+
+.v3-contact {
+  padding: $space-24 $space-6;
+  background: $bg-secondary;
+
+  .transmission-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .transmission-header {
+    margin-bottom: $space-8;
+
+    .signal-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 3px;
+      margin-bottom: $space-3;
+
+      .bar {
+        width: 4px;
+        background: $copper-glow;
+        border-radius: 2px;
+
+        &:nth-child(1) {
+          height: 8px;
+        }
+
+        &:nth-child(2) {
+          height: 12px;
+        }
+
+        &:nth-child(3) {
+          height: 16px;
+        }
+
+        &:nth-child(4) {
+          height: 20px;
+        }
+      }
+    }
+
+    .signal-label {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $copper-glow;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+      display: block;
+    }
+  }
+
+  .transmission-content {
+    .transmission-title {
+      font-family: $font-display;
+      font-size: $type-scale-4xl;
+      font-weight: $font-weight-bold;
+      margin: 0 0 $space-4;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-5xl;
+      }
+    }
+
+    .transmission-subtitle {
+      font-family: $font-body;
+      font-size: $type-scale-xl;
+      color: $text-secondary;
+      margin: 0 0 $space-10;
+    }
+
+    .transmission-action {
+      margin-bottom: $space-8;
+    }
+
+    .transmission-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-4;
+      padding: $space-5 $space-10;
+      background: $copper-glow;
+      color: $forge-black;
+      font-family: $font-heading;
+      font-size: $type-scale-lg;
+      font-weight: $font-weight-semibold;
+      text-decoration: none;
+      border-radius: $radius-full;
+      transition: all $transition-base;
+
+      .btn-signal {
+        position: relative;
+        width: 20px;
+        height: 20px;
+
+        .signal-wave {
+          position: absolute;
+          inset: 0;
+          border: 2px solid $forge-black;
+          border-radius: 50%;
+          opacity: 0;
+          animation: signal-wave 1.5s ease-out infinite;
+
+          &:nth-child(2) {
+            animation-delay: 0.3s;
+          }
+
+          &:nth-child(3) {
+            animation-delay: 0.6s;
+          }
+        }
+      }
+
+      .btn-arrow {
+        width: 20px;
+        height: 20px;
+        transition: transform $transition-fast;
+      }
+
+      &:hover {
+        background: $ember;
+        transform: translateY(-4px);
+        box-shadow: 0 0 30px rgba($copper-glow, 0.4);
+
+        .btn-arrow {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  .transmission-footer {
+    display: flex;
+    justify-content: center;
+    gap: $space-8;
+
+    .coordinates,
+    .frequency {
+      text-align: left;
+
+      span {
+        display: block;
+
+        &:first-child {
+          font-family: $font-mono;
+          font-size: $type-scale-xs;
+          color: $text-muted;
+          text-transform: uppercase;
+          letter-spacing: $tracking-wider;
+          margin-bottom: $space-1;
+        }
+
+        &:last-child {
+          font-family: $font-body;
+          font-size: $type-scale-sm;
+          color: $text-secondary;
+        }
+      }
+    }
+  }
+}
+
+@keyframes signal-wave {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

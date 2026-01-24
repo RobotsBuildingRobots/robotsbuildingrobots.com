@@ -1,0 +1,16 @@
+doctype html
+html[lang="en"]
+  = partial "partials/components/header"
+  body[id="#{current_page.data.id}" class="landing-page"]
+    / Page Loader
+    = partial "partials/components/loader"
+
+    / Floating Navigation
+    = partial "partials/components/floating-nav"
+
+    / Main Content
+    main.landing-content
+      == yield
+
+    / Scripts
+    = partial "partials/components/javascript"

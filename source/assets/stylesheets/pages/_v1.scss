@@ -1,0 +1,845 @@
+// =============================================================================
+// V1: FORGE FOUNDRY - Industrial Craftsmanship Theme
+// =============================================================================
+
+// Landing page base styles
+.landing-page {
+  background: $bg-primary;
+  color: $text-primary;
+  min-height: 100vh;
+
+  .landing-content {
+    overflow-x: hidden;
+  }
+}
+
+// =============================================================================
+// V1 HERO SECTION
+// =============================================================================
+
+.v1-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, $bg-primary 0%, $bg-secondary 50%, $bg-primary 100%);
+
+  // Particle container
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // Radial gradient overlays
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::before {
+    width: 60%;
+    height: 60%;
+    bottom: -20%;
+    left: -10%;
+    background: radial-gradient(circle, rgba($ember, 0.15) 0%, transparent 70%);
+  }
+
+  &::after {
+    width: 40%;
+    height: 40%;
+    top: -10%;
+    right: -5%;
+    background: radial-gradient(circle, rgba($teal-spark, 0.08) 0%, transparent 70%);
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: $space-6;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-logo {
+    margin-bottom: $space-10;
+
+    .hero-logo-img {
+      width: 150px;
+      height: 150px;
+      animation: float 6s ease-in-out infinite;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  .hero-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $ember;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-4;
+  }
+
+  .hero-title {
+    font-family: $font-display;
+    font-size: $type-scale-5xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-tight;
+    margin: 0 0 $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-7xl;
+    }
+
+    .title-line {
+      display: block;
+    }
+
+    .title-accent {
+      color: $ember;
+    }
+  }
+
+  .hero-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto $space-10;
+    line-height: $leading-relaxed;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-xl;
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: $space-8;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, $ember, transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+    }
+  }
+}
+
+@keyframes scroll-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+// =============================================================================
+// FORGE BUTTONS
+// =============================================================================
+
+.btn-forge-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: $ember;
+  color: $warm-white;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border-radius: $radius-full;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $copper-glow;
+    transform: translateY(-2px);
+    box-shadow: $glow-ember;
+  }
+}
+
+.btn-forge-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: transparent;
+  color: $text-primary;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border-radius: $radius-full;
+  border: 1px solid $border-color;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $ember;
+    color: $ember;
+    background: rgba($ember, 0.1);
+  }
+}
+
+// =============================================================================
+// V1 SERVICES SECTION
+// =============================================================================
+
+.v1-services {
+  padding: $space-24 $space-6;
+  background: $bg-primary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .section-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $ember;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .services-bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .bento-card {
+    background: $bg-secondary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $space-8;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: $ember;
+      box-shadow: $shadow-lg, $glow-ember;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba($ember, 0.1);
+      border-radius: $radius-md;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: $space-6;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: $ember;
+      }
+    }
+
+    .card-title {
+      font-family: $font-heading;
+      font-size: $type-scale-2xl;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $space-4;
+    }
+
+    .card-description {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $text-secondary;
+      line-height: $leading-relaxed;
+      margin: 0;
+    }
+
+    &.bento-large {
+      @media (min-width: map-get($grid-breakpoints, lg)) {
+        grid-column: span 1;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// V1 ENGAGEMENTS SECTION
+// =============================================================================
+
+.v1-engagements {
+  padding: $space-24 0;
+  background: $bg-secondary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $space-6;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  .section-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $teal-spark;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: $leading-relaxed;
+  }
+
+  .engagements-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: $ember $bg-tertiary;
+    padding: $space-4 0 $space-8 0;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $bg-tertiary;
+      border-radius: $radius-full;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $ember;
+      border-radius: $radius-full;
+    }
+  }
+
+  .engagements-track {
+    display: flex;
+    gap: $space-6;
+    padding: 0 $space-6;
+    width: max-content;
+  }
+
+  .engagement-card {
+    flex-shrink: 0;
+    width: 350px;
+    background: $bg-tertiary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $space-8;
+    position: relative;
+    overflow: hidden;
+    transition: all $transition-base;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 400px;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .company-name {
+      font-family: $font-display;
+      font-size: $type-scale-2xl;
+      font-weight: $font-weight-semibold;
+      color: $ember;
+      margin: 0 0 $space-4;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-3xl;
+      }
+    }
+
+    .collaboration {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $text-secondary;
+      line-height: $leading-relaxed;
+      margin: 0;
+    }
+
+    .card-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, $ember, $copper-glow);
+      transform: translateX(-100%);
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      border-color: $ember;
+      transform: translateY(-4px);
+
+      .card-accent {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// V1 COMING SOON SECTION
+// =============================================================================
+
+.v1-coming-soon {
+  padding: $space-24 $space-6;
+  background: $bg-primary;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .section-eyebrow {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $teal-spark;
+    text-transform: uppercase;
+    letter-spacing: $tracking-widest;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .products-forge {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .product-card {
+    background: $bg-secondary;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-lg;
+    padding: $space-8;
+    display: flex;
+    flex-direction: column;
+    gap: $space-6;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: $teal-spark;
+      transform: translateY(-4px);
+      box-shadow: $shadow-lg, $glow-teal;
+
+      .forge-bar {
+        animation: forge-progress 2s ease-out forwards;
+      }
+    }
+
+    .product-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba($teal-spark, 0.1);
+      border-radius: $radius-md;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 28px;
+        height: 28px;
+        color: $teal-spark;
+      }
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-name {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $space-2;
+    }
+
+    .product-tagline {
+      font-family: $font-body;
+      font-size: $type-scale-sm;
+      color: $teal-spark;
+      font-weight: $font-weight-medium;
+      margin: 0 0 $space-3;
+    }
+
+    .product-description {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $text-secondary;
+      line-height: $leading-relaxed;
+      margin: 0;
+    }
+
+    .product-status {
+      display: flex;
+      align-items: center;
+      gap: $space-4;
+
+      .status-badge {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $copper-glow;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        padding: $space-1 $space-3;
+        background: rgba($copper-glow, 0.1);
+        border-radius: $radius-sm;
+      }
+
+      .forge-progress {
+        flex: 1;
+        height: 4px;
+        background: $bg-tertiary;
+        border-radius: $radius-full;
+        overflow: hidden;
+
+        .forge-bar {
+          height: 100%;
+          width: 0;
+          background: linear-gradient(90deg, $ember, $copper-glow);
+          border-radius: $radius-full;
+        }
+      }
+    }
+  }
+}
+
+@keyframes forge-progress {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 65%;
+  }
+}
+
+// =============================================================================
+// V1 ABOUT SECTION
+// =============================================================================
+
+.v1-about {
+  padding: $space-24 $space-6;
+  background: $bg-secondary;
+
+  .about-split {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .about-quote {
+    position: relative;
+
+    blockquote {
+      font-family: $font-display;
+      font-size: $type-scale-2xl;
+      font-weight: $font-weight-medium;
+      line-height: $leading-snug;
+      color: $text-primary;
+      margin: 0;
+      padding-left: $space-8;
+      border-left: 3px solid $ember;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-3xl;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .quote-decoration {
+      position: absolute;
+      top: -$space-8;
+      left: 0;
+      font-family: $font-display;
+      font-size: $type-scale-8xl;
+      color: rgba($ember, 0.1);
+      line-height: 1;
+      pointer-events: none;
+
+      &::before {
+        content: '"';
+      }
+    }
+  }
+
+  .about-content {
+    .about-title {
+      font-family: $font-heading;
+      font-size: $type-scale-3xl;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $space-6;
+    }
+
+    .about-description {
+      font-family: $font-body;
+      font-size: $type-scale-lg;
+      color: $text-secondary;
+      line-height: $leading-relaxed;
+      margin: 0 0 $space-8;
+    }
+
+    .locations-list {
+      margin-bottom: $space-8;
+
+      .locations-label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $text-muted;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        display: block;
+        margin-bottom: $space-3;
+      }
+
+      .locations {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-2;
+      }
+
+      .location-tag {
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $text-secondary;
+        padding: $space-2 $space-4;
+        background: $bg-tertiary;
+        border-radius: $radius-full;
+        transition: all $transition-fast;
+
+        &:hover {
+          background: rgba($ember, 0.1);
+          color: $ember;
+        }
+      }
+    }
+
+    .about-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-4;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+    }
+  }
+}
+
+// =============================================================================
+// V1 CONTACT SECTION
+// =============================================================================
+
+.v1-contact {
+  padding: $space-24 $space-6;
+  background: $bg-primary;
+  position: relative;
+  overflow: hidden;
+
+  .contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .contact-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-xl;
+    color: $text-secondary;
+    margin: 0 0 $space-10;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-5 $space-10;
+    background: $ember;
+    color: $warm-white;
+    font-family: $font-heading;
+    font-size: $type-scale-lg;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border-radius: $radius-full;
+    transition: all $transition-base;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      background: $copper-glow;
+      transform: translateY(-4px);
+      box-shadow: $glow-ember;
+    }
+  }
+
+  .contact-glow {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    bottom: -20%;
+    left: 25%;
+    background: radial-gradient(circle, rgba($ember, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+}

@@ -1,0 +1,20 @@
+/ V3 Engagements Section - Mission Log
+section#engagements.v3-engagements
+  .section-container
+    .section-header.scroll-animate
+      span.section-eyebrow Mission Log
+      h2.section-title Successful Launches
+      p.section-subtitle = data.engagements.process
+
+  .missions-scroll
+    .missions-track
+      - data.engagements.projects.each_with_index do |project, index|
+        .mission-card.scroll-animate
+          .mission-status
+            span.status-complete
+            | COMPLETE
+          .mission-content
+            span.mission-id MISSION #{"%03d" % (index + 1)}
+            h3.mission-name = project.company
+            p.mission-brief = project.collaboration
+          .mission-trajectory
