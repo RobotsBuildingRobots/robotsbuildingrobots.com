@@ -1,4 +1,4 @@
-name: SECURITY
+name: Security
 
 # gitleaks detect \
 #   --source=. \
