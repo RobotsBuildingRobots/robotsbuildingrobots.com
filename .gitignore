@@ -10,6 +10,7 @@ backup
 webpack.config.js
 .vscode
 .idea
+.playwright-mcp
 
 ###############################################################################################
 # Environment variables
