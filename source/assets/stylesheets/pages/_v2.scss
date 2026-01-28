@@ -1187,27 +1187,27 @@ $blueprint-accent: $ember; // Technical orange from design system
   .contact-content {
     position: relative;
     z-index: 1;
-  }
 
-  .blueprint-label {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-3;
-    margin-bottom: $space-4;
+    .blueprint-label {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-3;
+      margin-bottom: $space-4;
 
-    .label-marker {
-      width: 12px;
-      height: 12px;
-      background: $blueprint-accent;
-      transform: rotate(45deg);
-    }
+      .label-marker {
+        width: 12px;
+        height: 12px;
+        background: $blueprint-accent;
+        transform: rotate(45deg);
+      }
 
-    span:last-child {
-      font-family: $font-mono;
-      font-size: $type-scale-sm;
-      color: $blueprint-blue;
-      text-transform: uppercase;
-      letter-spacing: $tracking-widest;
+      span:last-child {
+        font-family: $font-mono;
+        font-size: $type-scale-sm;
+        color: $blueprint-blue;
+        text-transform: uppercase;
+        letter-spacing: $tracking-widest;
+      }
     }
   }
 

@@ -234,16 +234,6 @@ function initTextScramble() {
 }
 
 // =============================================================================
-// V2 NODE CARDS - Click to Expand
-// =============================================================================
-
-function initNodeCards() {
-  $(document).on('click', '.node-card', function () {
-    $(this).toggleClass('expanded');
-  });
-}
-
-// =============================================================================
 // INITIALIZE ALL COMPONENTS
 // =============================================================================
 
@@ -254,5 +244,4 @@ $(document).ready(() => {
   initBackToTop();
   initSmoothScroll();
   initTextScramble();
-  initNodeCards();
 });
