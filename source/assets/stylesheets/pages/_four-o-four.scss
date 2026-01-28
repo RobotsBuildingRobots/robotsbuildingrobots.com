@@ -39,16 +39,16 @@
     margin-bottom: $space-8;
 
     .four-o-four-logo-img {
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
       object-fit: contain;
       filter: grayscale(100%) contrast(1.2);
       opacity: 0.8;
       transition: all $transition-base;
 
       @media (min-width: map-get($grid-breakpoints, md)) {
-        width: 150px;
-        height: 150px;
+        width: 220px;
+        height: 220px;
       }
 
       &:hover {
