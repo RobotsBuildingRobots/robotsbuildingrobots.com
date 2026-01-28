@@ -67,8 +67,8 @@
         font-weight: $font-weight-medium;
         text-transform: uppercase;
         letter-spacing: $tracking-wide;
-        opacity: 0;
-        transform: translateX(-10px);
+        opacity: 1;
+        transform: translateX(0);
         transition: all $transition-fast;
         white-space: nowrap;
       }
