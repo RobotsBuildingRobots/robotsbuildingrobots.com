@@ -27,7 +27,7 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.3
+          ruby-version: 4.0.0
         if: github.event.pull_request.merged == true
 
       - name: Ruby Version
