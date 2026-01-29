@@ -689,6 +689,12 @@ $blueprint-accent: $ember; // Technical orange from design system
       padding: $space-1 $space-3;
       background: rgba($blueprint-blue, 0.1);
       border: 1px solid rgba($blueprint-blue, 0.3);
+
+      &--ongoing {
+        color: $teal-spark;
+        background: rgba($teal-spark, 0.15);
+        border-color: rgba($teal-spark, 0.4);
+      }
     }
 
     &:hover {

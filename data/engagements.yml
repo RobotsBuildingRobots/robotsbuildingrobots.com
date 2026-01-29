@@ -44,5 +44,6 @@ projects:
   -
     id: 9
     company: Serenity
+    status: on-going
     collaboration: >-
       Pioneering ongoing AI-assisted development methodology using Claude to build and enhance a production-ready Rails 8 application featuring Rodauth authentication, Hotwire (Turbo + Stimulus) for reactive interfaces, Solid Suite integration (Queue, Cache, Cable), and service-oriented design patterns. Collaborating with AI to implement custom UI components, establish comprehensive testing infrastructure, and ensure strict code quality standards, reducing traditional development time by 10x while maintaining professional-grade architecture and deployment practices on Heroku with full monitoring and error tracking capabilities.

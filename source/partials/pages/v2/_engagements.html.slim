@@ -25,4 +25,4 @@ section#engagements.v2-engagements
                 h3.project-name = project.company
               p.project-description = project.collaboration
               .card-footer
-                span.status-badge Completed
+                span.status-badge[class="#{project.status == 'on-going' ? 'status-badge--ongoing' : ''}"] = project.status || 'Completed'
