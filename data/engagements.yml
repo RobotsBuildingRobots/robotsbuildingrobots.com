@@ -41,3 +41,8 @@ projects:
     company: Arthur Maxwell Experience Builder
     collaboration: >-
       Transforming a corporate eLearning management application with 200+ users from an experience-driven offline solution via iPads to online learning in classrooms using Hotwire, Stimulus, and Ruby on Rails.
+  -
+    id: 9
+    company: Serenity
+    collaboration: >-
+      Pioneering ongoing AI-assisted development methodology using Claude to build and enhance a production-ready Rails 8 application featuring Rodauth authentication, Hotwire (Turbo + Stimulus) for reactive interfaces, Solid Suite integration (Queue, Cache, Cable), and service-oriented design patterns. Collaborating with AI to implement custom UI components, establish comprehensive testing infrastructure, and ensure strict code quality standards, reducing traditional development time by 10x while maintaining professional-grade architecture and deployment practices on Heroku with full monitoring and error tracking capabilities.
