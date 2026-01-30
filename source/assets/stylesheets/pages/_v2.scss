@@ -409,14 +409,33 @@ $blueprint-accent: $ember; // Technical orange from design system
     padding: $space-8;
     transition: all $transition-base;
 
+    // Left accent border (hidden by default, appears on hover)
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: $ember;
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+
     .card-number {
       position: absolute;
       top: $space-4;
       right: $space-4;
       font-family: $font-mono;
-      font-size: $type-scale-xs;
-      color: rgba($blueprint-blue, 0.3);
+      font-size: $type-scale-sm;
+      color: $ember;
       font-weight: $font-weight-bold;
+
+      &::before {
+        content: '//';
+        margin-right: $space-1;
+        color: rgba($blueprint-blue, 0.4);
+      }
     }
 
     .card-header {
@@ -427,28 +446,32 @@ $blueprint-accent: $ember; // Technical orange from design system
     }
 
     .card-icon {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba($blueprint-blue, 0.1);
-      border: 1px solid $blueprint-blue;
+      background: rgba($blueprint-blue, 0.08);
+      border: 1px solid rgba($blueprint-blue, 0.3);
+      transition: all $transition-base;
 
       svg {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         color: $blueprint-blue;
+        transition: color $transition-base;
       }
     }
 
     .card-title {
       font-family: $font-heading;
-      font-size: $type-scale-xl;
-      font-weight: $font-weight-semibold;
+      font-size: $type-scale-2xl;
+      font-weight: $font-weight-bold;
       color: $blueprint-dark;
       margin: $space-2 0 0;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
     }
 
     .card-description {
@@ -457,31 +480,108 @@ $blueprint-accent: $ember; // Technical orange from design system
       color: $blueprint-light;
       line-height: $leading-relaxed;
       margin: 0;
+
+      // Style for inline emphasis
+      strong {
+        color: $blueprint-dark;
+        font-weight: $font-weight-semibold;
+      }
+
+      em {
+        color: $ember;
+        font-style: normal;
+        font-weight: $font-weight-medium;
+      }
     }
 
     .card-corner {
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 24px;
-      height: 24px;
-      border-right: 2px solid $blueprint-blue;
-      border-bottom: 2px solid $blueprint-blue;
+      width: 32px;
+      height: 32px;
       opacity: 0;
       transition: opacity $transition-base;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        background: $ember;
+      }
+
+      &::before {
+        bottom: 0;
+        right: 0;
+        width: 2px;
+        height: 20px;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        width: 20px;
+        height: 2px;
+      }
     }
 
     &:hover {
-      border-color: $blueprint-blue;
+      border-color: $ember;
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba($blueprint-dark, 0.1);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .card-icon {
+        background: rgba($ember, 0.12);
+        border-color: $ember;
+        box-shadow: 0 0 16px rgba($ember, 0.2);
+
+        svg {
+          color: $ember;
+        }
+      }
 
       .card-corner {
         opacity: 1;
       }
     }
 
-    // First card (Values) spans 2 columns on larger screens
+    // Alternating accent colors for even cards (teal)
+    &:nth-child(even) {
+      &::before {
+        background: $teal-spark;
+      }
+
+      .card-number {
+        color: $teal-spark;
+      }
+
+      .card-corner {
+        &::before,
+        &::after {
+          background: $teal-spark;
+        }
+      }
+
+      &:hover {
+        border-color: $teal-spark;
+
+        .card-icon {
+          background: rgba($teal-spark, 0.12);
+          border-color: $teal-spark;
+          box-shadow: 0 0 16px rgba($teal-spark, 0.2);
+
+          svg {
+            color: $teal-spark;
+          }
+        }
+      }
+    }
+
+    // First card (Obsession) spans 2 columns on larger screens
     &:first-child {
       @media (min-width: map-get($grid-breakpoints, xl)) {
         grid-column: span 2;

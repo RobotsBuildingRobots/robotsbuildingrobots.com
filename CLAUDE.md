@@ -118,3 +118,18 @@ source/
 5. **Data**: Site configuration in `data/settings.yml`
 6. **Images**: Store in `source/assets/images/`, use Middleman image helpers
 7. **Videos**: Place in `source/assets/images/videos/` for proper asset pipeline handling
+
+## Session Cleanup
+
+**IMPORTANT**: Always kill background processes when finishing a task or ending a session.
+
+```bash
+# Kill Middleman server on port 4567
+lsof -ti:4567 | xargs kill -9 2>/dev/null
+
+# Kill any other background processes started during the session
+```
+
+Before ending any work session, ensure:
+1. All background dev servers are stopped
+2. No orphaned processes are left running on development ports (4567, 3000, etc.)
