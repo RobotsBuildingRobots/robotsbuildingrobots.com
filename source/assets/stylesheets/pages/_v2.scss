@@ -581,12 +581,6 @@ $blueprint-accent: $ember; // Technical orange from design system
       }
     }
 
-    // First card (Obsession) spans 2 columns on larger screens
-    &:first-child {
-      @media (min-width: map-get($grid-breakpoints, xl)) {
-        grid-column: span 2;
-      }
-    }
   }
 }
 
