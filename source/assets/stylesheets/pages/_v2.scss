@@ -1363,3 +1363,25 @@ $blueprint-accent: $ember; // Technical orange from design system
     }
   }
 }
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+.site-footer {
+  padding: $space-8 $space-6;
+  background: $blueprint-dark;
+  text-align: center;
+
+  .footer-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: rgba($warm-white, 0.6);
+    margin: 0;
+  }
+}
