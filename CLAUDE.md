@@ -119,6 +119,20 @@ source/
 6. **Images**: Store in `source/assets/images/`, use Middleman image helpers
 7. **Videos**: Place in `source/assets/images/videos/` for proper asset pipeline handling
 
+## Design System Maintenance
+
+**IMPORTANT**: When making any design changes, always update the design system documentation.
+
+The design system page is located at: `source/design-system.html.slim`
+
+When modifying:
+- **Fonts** (`_settings.scss`) → Update typography section in design-system.html.slim
+- **Colors** (`_settings.scss`) → Update color palette section in design-system.html.slim
+- **Spacing** → Update spacing scale section
+- **Components** → Update component examples
+
+The design system page must always reflect the actual implementation. Never change fonts, colors, or core design tokens without updating the design system documentation.
+
 ## Session Cleanup
 
 **IMPORTANT**: Always kill background processes when finishing a task or ending a session.
