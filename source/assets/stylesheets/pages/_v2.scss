@@ -1334,7 +1334,17 @@ $blueprint-accent: $ember; // Technical orange from design system
 
   .contact-cta {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+  }
+
+  .cta-subtext {
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: $stone-gray;
+    margin-top: $space-3;
+    text-align: center;
   }
 
   .btn-blueprint-cta {
