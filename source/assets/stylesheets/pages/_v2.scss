@@ -1254,123 +1254,300 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// V2 CONTACT SECTION
+// V2 CONTACT SECTION - Terminal Connection
 // =============================================================================
 
 .v2-contact {
+  position: relative;
   padding: $space-24 $space-6;
-  background: $blueprint-blue;
+  background: $blueprint-dark;
+  overflow: hidden;
 
-  .contact-container {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .contact-card {
-    position: relative;
-    background: $warm-white;
-    padding: $space-12;
-    text-align: center;
-
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      padding: $space-16;
-    }
-  }
-
-  .card-blueprint-border {
+  // Blueprint grid background
+  .blueprint-grid {
     position: absolute;
-    inset: $space-4;
-    border: 1px dashed $blueprint-grid;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($blueprint-blue, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($blueprint-blue, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
     pointer-events: none;
   }
 
-  .contact-content {
+  .contact-container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    align-items: center;
 
-    .blueprint-label {
-      display: inline-flex;
-      align-items: center;
-      gap: $space-3;
-      margin-bottom: $space-4;
-
-      .label-marker {
-        width: 12px;
-        height: 12px;
-        background: $blueprint-accent;
-        transform: rotate(45deg);
-      }
-
-      span:last-child {
-        font-family: $font-mono;
-        font-size: $type-scale-sm;
-        color: $blueprint-blue;
-        text-transform: uppercase;
-        letter-spacing: $tracking-widest;
-      }
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: $space-16;
     }
+  }
+
+  // Terminal marker
+  .terminal-marker {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    margin-bottom: $space-6;
+
+    .marker-icon {
+      color: $ember;
+      font-size: $type-scale-lg;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    .marker-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $ember;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.4; }
   }
 
   .contact-title {
     font-family: $font-display;
-    font-size: $type-scale-4xl;
+    font-size: $type-scale-5xl;
     font-weight: $font-weight-bold;
-    color: $blueprint-dark;
-    margin: 0 0 $space-4;
+    line-height: $leading-tight;
+    color: $warm-white;
+    margin: 0 0 $space-6;
 
     @media (min-width: map-get($grid-breakpoints, md)) {
-      font-size: $type-scale-5xl;
+      font-size: $type-scale-6xl;
+    }
+
+    .title-line {
+      display: block;
+    }
+
+    .title-accent {
+      color: $ember;
     }
   }
 
   .contact-description {
     font-family: $font-body;
     font-size: $type-scale-lg;
-    color: $blueprint-light;
-    max-width: 500px;
-    margin: 0 auto $space-8;
+    color: $stone-gray;
     line-height: $leading-relaxed;
+    max-width: 480px;
+    margin-bottom: $space-8;
   }
 
+  // CTA Button
   .contact-cta {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    gap: $space-3;
   }
 
-  .cta-subtext {
-    font-family: $font-mono;
-    font-size: $type-scale-xs;
-    color: $stone-gray;
-    margin-top: $space-3;
-    text-align: center;
-  }
-
-  .btn-blueprint-cta {
+  .btn-terminal {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: $space-3;
     padding: $space-4 $space-8;
-    background: $blueprint-blue;
+    background: $ember;
     color: $warm-white;
     font-family: $font-heading;
     font-size: $type-scale-base;
     font-weight: $font-weight-semibold;
     text-decoration: none;
-    border: 2px solid $blueprint-blue;
+    border: none;
     transition: all $transition-base;
+    overflow: hidden;
+
+    .btn-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba($copper-glow, 0.3), transparent);
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
 
     .btn-icon {
       width: 20px;
       height: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    span:last-child {
+      position: relative;
+      z-index: 1;
     }
 
     &:hover {
-      background: $blueprint-dark;
-      border-color: $blueprint-dark;
       transform: translateY(-2px);
+      box-shadow: $glow-ember;
+
+      .btn-glow {
+        opacity: 1;
+      }
     }
+  }
+
+  .cta-subtext {
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: rgba($stone-gray, 0.7);
+  }
+
+  // Visual Element
+  .contact-visual {
+    display: none;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      display: block;
+    }
+  }
+
+  .visual-frame {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  // Corner brackets
+  .frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: rgba($ember, 0.6);
+    border-style: solid;
+
+    &.top-left {
+      top: 0;
+      left: 0;
+      border-width: 2px 0 0 2px;
+    }
+
+    &.top-right {
+      top: 0;
+      right: 0;
+      border-width: 2px 2px 0 0;
+    }
+
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      border-width: 0 0 2px 2px;
+    }
+
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      border-width: 0 2px 2px 0;
+    }
+  }
+
+  // Coordinate markers
+  .coordinate-marker {
+    position: absolute;
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: $stone-gray;
+    letter-spacing: $tracking-wide;
+
+    &.coord-x {
+      bottom: -$space-6;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.coord-y {
+      right: -$space-12;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  // Signal animation
+  .visual-content {
+    position: absolute;
+    inset: $space-8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signal-rings {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ring {
+    position: absolute;
+    border: 2px solid rgba($ember, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba($ember, 0.15);
+    animation: pulse-ring 3s ease-out infinite;
+
+    &.ring-1 {
+      width: 60%;
+      height: 60%;
+      animation-delay: 0s;
+    }
+
+    &.ring-2 {
+      width: 80%;
+      height: 80%;
+      animation-delay: 0.5s;
+    }
+
+    &.ring-3 {
+      width: 100%;
+      height: 100%;
+      animation-delay: 1s;
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      opacity: 0.8;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 0.1;
+      transform: scale(1);
+    }
+  }
+
+  .signal-core {
+    width: 30px;
+    height: 30px;
+    background: $ember;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba($ember, 0.6), 0 0 60px rgba($ember, 0.3);
+    animation: pulse-core 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-core {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba($ember, 0.6), 0 0 60px rgba($ember, 0.3); }
+    50% { transform: scale(1.15); box-shadow: 0 0 40px rgba($ember, 0.8), 0 0 80px rgba($ember, 0.4); }
   }
 }
 
