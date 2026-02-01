@@ -19,7 +19,7 @@ This is a personal branding/portfolio website built with Middleman static site g
 
 ### Development Server
 ```bash
-rake server:development     # Start server on http://localhost:4567
+rbe rake server:development     # Start server on http://localhost:4567
 ```
 
 ### Building
@@ -137,13 +137,21 @@ The design system page must always reflect the actual implementation. Never chan
 
 **IMPORTANT**: Always kill background processes when finishing a task or ending a session.
 
+### Development Server Rules
+- Always start with: `rbe rake server:development`
+- Only run ONE instance at a time
+- Always kill the server when done with the task
+
+### Cleanup Commands
 ```bash
-# Kill Middleman server on port 4567
+# Kill Middleman server
+pkill -f "middleman" 2>/dev/null
 lsof -ti:4567 | xargs kill -9 2>/dev/null
 
 # Kill any other background processes started during the session
 ```
 
-Before ending any work session, ensure:
-1. All background dev servers are stopped
-2. No orphaned processes are left running on development ports (4567, 3000, etc.)
+### Before Ending Any Session
+1. Kill all background dev servers you started
+2. Verify no orphaned processes on development ports (4567, 3000, etc.)
+3. Never leave background tasks running

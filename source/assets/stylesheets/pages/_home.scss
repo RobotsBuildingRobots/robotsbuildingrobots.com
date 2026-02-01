@@ -934,95 +934,119 @@ $blueprint-accent: $ember; // Technical orange from design system
     margin: 0;
   }
 
-  // Forge visual animation
+  // Gear mechanism animation
   .forge-visual {
     display: flex;
     justify-content: center;
     margin-bottom: $space-8;
   }
 
-  .forge-container {
+  .gear-mechanism {
     position: relative;
-    width: 120px;
-    height: 80px;
+    width: 160px;
+    height: 120px;
   }
 
-  .anvil {
+  .gear {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .anvil-top {
-    width: 60px;
-    height: 20px;
-    background: linear-gradient(180deg, $ash, $charred);
-    border-radius: 4px 4px 0 0;
-    margin: 0 auto;
-  }
-
-  .anvil-base {
-    width: 80px;
-    height: 30px;
-    background: linear-gradient(180deg, $charred, $forge-black);
-    border-radius: 0 0 8px 8px;
-    margin: 0 auto;
-  }
-
-  .spark-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 50px;
-  }
-
-  .spark {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: $ember;
     border-radius: 50%;
-    animation: spark 2s ease-out infinite;
+    background: linear-gradient(135deg, $ash, $charred);
+    border: 2px solid rgba($ember, 0.3);
 
-    &.spark-1 { left: 30%; animation-delay: 0s; }
-    &.spark-2 { left: 50%; animation-delay: 0.3s; }
-    &.spark-3 { left: 70%; animation-delay: 0.6s; }
-    &.spark-4 { left: 40%; animation-delay: 0.9s; }
-    &.spark-5 { left: 60%; animation-delay: 1.2s; }
+    // Notched edge effect (cog silhouette)
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba($ember, 0.25) 0deg 12deg,
+        transparent 12deg 24deg
+      );
+      mask: radial-gradient(circle, transparent 55%, black 56%);
+      -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
+    }
+
+    .gear-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, $copper-glow, $charred);
+      border: 2px solid rgba($ember, 0.5);
+      z-index: 1;
+    }
   }
 
-  @keyframes spark {
-    0% {
-      opacity: 1;
-      transform: translateY(30px) scale(1);
-    }
-    50% {
-      opacity: 0.8;
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-20px) scale(0.5);
+  // Large gear - center
+  .gear-large {
+    width: 70px;
+    height: 70px;
+    top: 25px;
+    left: 10px;
+    animation: rotate-clockwise 8s linear infinite;
+
+    .gear-center {
+      width: 24px;
+      height: 24px;
     }
   }
 
-  .ember-glow {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+  // Medium gear - top right
+  .gear-medium {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    right: 15px;
+    animation: rotate-counter 5s linear infinite;
+
+    .gear-center {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // Small gear - bottom right
+  .gear-small {
     width: 40px;
-    height: 20px;
-    background: radial-gradient(ellipse, rgba($ember, 0.6), transparent);
-    filter: blur(8px);
-    animation: glow-pulse 2s ease-in-out infinite;
+    height: 40px;
+    bottom: 10px;
+    right: 25px;
+    animation: rotate-clockwise 3s linear infinite;
+
+    .gear-center {
+      width: 12px;
+      height: 12px;
+    }
   }
 
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
+  // Glow effect at mesh points
+  .gear-glow {
+    position: absolute;
+    top: 35px;
+    right: 45px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba($ember, 0.4), transparent);
+    filter: blur(8px);
+    animation: gear-glow-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes rotate-clockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes rotate-counter {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+
+  @keyframes gear-glow-pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
   }
 }
 
