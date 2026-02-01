@@ -1,5 +1,5 @@
 // =============================================================================
-// V2: BLUEPRINT - Architect/Technical Drawing Theme
+// BLUEPRINT - Architect/Technical Drawing Theme
 // =============================================================================
 
 // Blueprint Theme Colors
@@ -11,10 +11,10 @@ $blueprint-grid: #E1E5EA;
 $blueprint-accent: $ember; // Technical orange from design system
 
 // =============================================================================
-// V2 HERO SECTION
+// HERO SECTION
 // =============================================================================
 
-.v2-hero {
+.hero-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -328,10 +328,10 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// V2 SERVICES SECTION
+//SERVICES SECTION
 // =============================================================================
 
-.v2-services {
+.services-section {
   padding: $space-24 $space-6;
   background: $warm-white;
   position: relative;
@@ -585,10 +585,10 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// V2 ENGAGEMENTS SECTION
+//ENGAGEMENTS SECTION
 // =============================================================================
 
-.v2-engagements {
+.engagements-section {
   padding: $space-24 $space-6;
   background: $blueprint-bg;
 
@@ -800,10 +800,10 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// V2 COMING SOON SECTION
+//COMING SOON SECTION
 // =============================================================================
 
-.v2-coming-soon {
+.coming-soon-section {
   padding: $space-24 $space-6;
   background: $warm-white;
 
@@ -976,10 +976,10 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// V2 ABOUT SECTION
+//ABOUT SECTION
 // =============================================================================
 
-.v2-about {
+.about-section {
   padding: $space-24 $space-6;
   background: $blueprint-bg;
 
@@ -1254,10 +1254,10 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// V2 CONTACT SECTION - Terminal Connection
+//CONTACT SECTION - Terminal Connection
 // =============================================================================
 
-.v2-contact {
+.contact-section {
   position: relative;
   padding: $space-24 $space-6;
   background: $blueprint-dark;
