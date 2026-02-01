@@ -29,6 +29,7 @@
       width: 0%;
       background: linear-gradient(90deg, $ember, $copper-glow, $teal-spark);
       transition: width 0.1s linear;
+      border-radius: 0 $radius-full $radius-full 0;
     }
   }
 
@@ -40,7 +41,6 @@
     padding: $space-4;
     background: rgba($bg-secondary, 0.9);
     backdrop-filter: blur(10px);
-    border-radius: $radius-lg;
     border: 1px solid $border-subtle;
 
     .nav-dot {
