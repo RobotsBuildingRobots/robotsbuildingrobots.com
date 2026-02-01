@@ -1056,7 +1056,7 @@ $blueprint-accent: $ember; // Technical orange from design system
 
 .about-section {
   padding: $space-24 $space-6;
-  background: $blueprint-bg;
+  background: #F5F5F4;  // Warmer stone-tinted white for visual separation from Principles
 
   .section-container {
     max-width: $container-max-width;
