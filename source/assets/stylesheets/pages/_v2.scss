@@ -1556,19 +1556,62 @@ $blueprint-accent: $ember; // Technical orange from design system
 // =============================================================================
 
 .site-footer {
+  position: relative;
   padding: $space-8 $space-6;
-  background: $blueprint-dark;
+  background: linear-gradient(180deg, $blueprint-dark 0%, $forge-black 100%);
   text-align: center;
+  overflow: hidden;
 
-  .footer-container {
-    max-width: $container-max-width;
-    margin: 0 auto;
+  // Glowing ember accent line at top
+  .footer-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $ember, transparent);
+    box-shadow: 0 0 20px rgba($ember, 0.5), 0 0 40px rgba($ember, 0.3);
   }
 
-  .copyright {
+  // Subtle blueprint grid
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($blueprint-blue, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($blueprint-blue, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .footer-container {
+    position: relative;
+    z-index: 1;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-4;
+  }
+
+  .footer-marker {
     font-family: $font-mono;
     font-size: $type-scale-sm;
-    color: rgba($warm-white, 0.6);
-    margin: 0;
+    color: $ember;
+    letter-spacing: $tracking-wide;
+  }
+
+  .footer-divider {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: rgba($warm-white, 0.5);
+  }
+
+  .footer-name {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $warm-white;
+    letter-spacing: $tracking-wide;
   }
 }
