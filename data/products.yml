@@ -1,26 +1,13 @@
-headline: Innovation Pipeline
+headline: Products in the Fire
+description: We're forging tools to solve real problems.
 
-description: We're forging new tools to amplify your engineering capabilities. Stay tuned for groundbreaking solutions.
-
-products:
-  -
-    id: 1
-    name: FORGE CLI
-    tagline: AI-powered development workflow automation
-    description: Streamline your development process with intelligent automation that adapts to your team's patterns.
-    status: coming_soon
-    icon: terminal
-  -
-    id: 2
-    name: Agentic Workflows
-    tagline: Custom AI agents for your business processes
-    description: Purpose-built AI agents that integrate seamlessly with your existing systems and scale with your needs.
-    status: coming_soon
-    icon: robot
-  -
-    id: 3
-    name: RBR Templates
-    tagline: Production-ready project starters
-    description: Battle-tested boilerplates built from our years of experience shipping software at scale.
-    status: coming_soon
-    icon: template
+categories:
+  - name: SaaS Tools
+    icon: cloud
+    description: Subscription software that scales
+  - name: E-Commerce
+    icon: cart
+    description: Products you can buy and use
+  - name: Open Source
+    icon: code
+    description: Free tools for the community

@@ -1,0 +1,42 @@
+/ Products Section - The Workshop
+section#products.products-section
+  .blueprint-grid
+
+  .section-container
+    .section-header.scroll-animate
+      .workshop-marker
+        span.marker-icon ▸
+        span.marker-text THE WORKSHOP
+
+      h2.section-title = data.products.headline
+      p.section-subtitle = data.products.description
+
+    .category-grid.scroll-animate.delay-1
+      - data.products.categories.each do |category|
+        .category-card
+          .card-icon
+            - case category.icon
+            - when 'cloud'
+              svg[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"]
+                path[d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"]
+            - when 'cart'
+              svg[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"]
+                path[d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"]
+            - when 'code'
+              svg[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"]
+                path[d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"]
+          h4.card-title = category.name
+          p.card-description = category.description
+
+    .forge-visual.scroll-animate.delay-2
+      .forge-container
+        .anvil
+          .anvil-top
+          .anvil-base
+        .spark-container
+          .spark.spark-1
+          .spark.spark-2
+          .spark.spark-3
+          .spark.spark-4
+          .spark.spark-5
+        .ember-glow

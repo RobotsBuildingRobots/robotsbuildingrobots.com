@@ -800,40 +800,56 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-//COMING SOON SECTION
+// PRODUCTS SECTION - The Workshop
 // =============================================================================
 
-.coming-soon-section {
+.products-section {
+  position: relative;
   padding: $space-24 $space-6;
-  background: $warm-white;
+  background: linear-gradient(180deg, $warm-stone 0%, $charred 100%);
+  overflow: hidden;
+
+  // Ember-tinted grid background (warm workshop feel)
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($ember, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($ember, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
   .section-container {
+    position: relative;
+    z-index: 2;
     max-width: $container-max-width;
     margin: 0 auto;
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: $space-16;
+    margin-bottom: $space-12;
   }
 
-  .blueprint-label {
+  // Workshop marker (like terminal marker)
+  .workshop-marker {
     display: inline-flex;
     align-items: center;
-    gap: $space-3;
-    margin-bottom: $space-4;
+    gap: $space-2;
+    margin-bottom: $space-6;
 
-    .label-marker {
-      width: 12px;
-      height: 12px;
-      background: $blueprint-accent;
-      transform: rotate(45deg);
+    .marker-icon {
+      color: $ember;
+      font-size: $type-scale-lg;
+      animation: blink 1.5s ease-in-out infinite;
     }
 
-    span:last-child {
+    .marker-text {
       font-family: $font-mono;
-      font-size: $type-scale-sm;
-      color: $blueprint-blue;
+      font-size: $type-scale-xs;
+      color: $ember;
       text-transform: uppercase;
       letter-spacing: $tracking-widest;
     }
@@ -843,7 +859,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     font-family: $font-display;
     font-size: $type-scale-4xl;
     font-weight: $font-weight-bold;
-    color: $blueprint-dark;
+    color: $warm-white;
     margin: 0 0 $space-4;
 
     @media (min-width: map-get($grid-breakpoints, md)) {
@@ -854,124 +870,158 @@ $blueprint-accent: $ember; // Technical orange from design system
   .section-subtitle {
     font-family: $font-body;
     font-size: $type-scale-lg;
-    color: $blueprint-light;
-    max-width: 600px;
+    color: $stone-gray;
+    max-width: 500px;
     margin: 0 auto;
   }
 
-  .construction-grid {
+  // Category cards grid
+  .category-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: $space-6;
+    margin-bottom: $space-12;
 
     @media (min-width: map-get($grid-breakpoints, md)) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: map-get($grid-breakpoints, lg)) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  .construction-card {
-    position: relative;
-    background: $blueprint-bg;
-    border: 1px dashed $blueprint-blue;
+  .category-card {
+    background: rgba($warm-stone, 0.5);
+    border: 1px solid rgba($ember, 0.2);
     padding: $space-8;
+    text-align: center;
     transition: all $transition-base;
 
-    .card-blueprint-corner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 24px;
-      height: 24px;
-      border-top: 2px solid $blueprint-accent;
-      border-left: 2px solid $blueprint-accent;
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: $space-4;
-    }
-
-    .product-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba($blueprint-blue, 0.1);
-      border: 1px solid $blueprint-blue;
-
-      svg {
-        width: 24px;
-        height: 24px;
-        color: $blueprint-blue;
-      }
-    }
-
-    .product-status {
-      font-family: $font-mono;
-      font-size: $type-scale-xs;
-      color: $blueprint-accent;
-      text-transform: uppercase;
-      letter-spacing: $tracking-wider;
-    }
-
-    .card-content {
-      margin-bottom: $space-6;
-    }
-
-    .product-name {
-      font-family: $font-heading;
-      font-size: $type-scale-xl;
-      font-weight: $font-weight-semibold;
-      color: $blueprint-dark;
-      margin: 0 0 $space-2;
-    }
-
-    .product-tagline {
-      font-family: $font-body;
-      font-size: $type-scale-base;
-      color: $blueprint-light;
-      margin: 0;
-    }
-
-    .card-progress {
-      display: flex;
-      align-items: center;
-      gap: $space-4;
-    }
-
-    .progress-track {
-      flex: 1;
-      height: 4px;
-      background: $blueprint-grid;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, $blueprint-blue, $blueprint-accent);
-      transition: width 0.5s ease;
-    }
-
-    .progress-label {
-      font-family: $font-mono;
-      font-size: $type-scale-xs;
-      color: $blueprint-light;
-      white-space: nowrap;
-    }
-
     &:hover {
-      border-style: solid;
-      border-color: $blueprint-blue;
+      border-color: rgba($ember, 0.5);
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba($blueprint-dark, 0.1);
+      box-shadow: 0 0 30px rgba($ember, 0.15);
     }
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($ember, 0.1);
+    border-radius: 50%;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      color: $ember;
+    }
+  }
+
+  .card-title {
+    font-family: $font-heading;
+    font-size: $type-scale-lg;
+    font-weight: $font-weight-semibold;
+    color: $warm-white;
+    margin: 0 0 $space-2;
+  }
+
+  .card-description {
+    font-family: $font-body;
+    font-size: $type-scale-sm;
+    color: $stone-gray;
+    margin: 0;
+  }
+
+  // Forge visual animation
+  .forge-visual {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $space-8;
+  }
+
+  .forge-container {
+    position: relative;
+    width: 120px;
+    height: 80px;
+  }
+
+  .anvil {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .anvil-top {
+    width: 60px;
+    height: 20px;
+    background: linear-gradient(180deg, $ash, $charred);
+    border-radius: 4px 4px 0 0;
+    margin: 0 auto;
+  }
+
+  .anvil-base {
+    width: 80px;
+    height: 30px;
+    background: linear-gradient(180deg, $charred, $forge-black);
+    border-radius: 0 0 8px 8px;
+    margin: 0 auto;
+  }
+
+  .spark-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 50px;
+  }
+
+  .spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: $ember;
+    border-radius: 50%;
+    animation: spark 2s ease-out infinite;
+
+    &.spark-1 { left: 30%; animation-delay: 0s; }
+    &.spark-2 { left: 50%; animation-delay: 0.3s; }
+    &.spark-3 { left: 70%; animation-delay: 0.6s; }
+    &.spark-4 { left: 40%; animation-delay: 0.9s; }
+    &.spark-5 { left: 60%; animation-delay: 1.2s; }
+  }
+
+  @keyframes spark {
+    0% {
+      opacity: 1;
+      transform: translateY(30px) scale(1);
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.5);
+    }
+  }
+
+  .ember-glow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background: radial-gradient(ellipse, rgba($ember, 0.6), transparent);
+    filter: blur(8px);
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
   }
 }
 
