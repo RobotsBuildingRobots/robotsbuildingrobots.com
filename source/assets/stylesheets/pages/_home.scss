@@ -924,6 +924,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     font-weight: $font-weight-semibold;
     color: $warm-white;
     margin: 0 0 $space-2;
+    text-transform: uppercase;
   }
 
   .card-description {

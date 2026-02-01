@@ -2,12 +2,12 @@ headline: Products in the Fire
 description: We're forging tools to solve real problems.
 
 categories:
-  - name: SaaS Tools
+  - name: SAAS TOOLS
     icon: cloud
-    description: Subscription software that scales
-  - name: E-Commerce
+    description: Subscription software that scales.
+  - name: E-COMMERCE
     icon: cart
-    description: Products you can buy and use
-  - name: Open Source
+    description: Products you can buy and use.
+  - name: OPEN SOURCE
     icon: code
-    description: Free tools for the community
+    description: Free tools for the community.
