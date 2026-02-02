@@ -36,7 +36,20 @@ section#about.about-section
       .about-visual.scroll-animate.delay-2
         .blueprint-schematic
           .schematic-frame
-            = image_tag 'logos/logo.png', alt: 'RBR', class: 'schematic-logo'
+            / Abstract geometric network diagram
+            svg.geometric-visual[viewBox="0 0 200 200" fill="none"]
+              / Connection lines
+              line[x1="50" y1="100" x2="150" y2="100" stroke="currentColor" stroke-width="1" opacity="0.3"]
+              line[x1="100" y1="50" x2="100" y2="150" stroke="currentColor" stroke-width="1" opacity="0.3"]
+              line[x1="50" y1="100" x2="100" y2="50" stroke="currentColor" stroke-width="1" opacity="0.3"]
+              line[x1="150" y1="100" x2="100" y2="150" stroke="currentColor" stroke-width="1" opacity="0.3"]
+              / Nodes
+              circle[cx="100" cy="100" r="20" stroke="currentColor" stroke-width="2" fill="none"]
+              circle.node-center[cx="100" cy="100" r="8" fill="currentColor"]
+              circle.node-point[cx="50" cy="100" r="6" fill="currentColor"]
+              circle.node-point[cx="150" cy="100" r="6" fill="currentColor"]
+              circle.node-point[cx="100" cy="50" r="6" fill="currentColor"]
+              circle.node-point[cx="100" cy="150" r="6" fill="currentColor"]
           .schematic-labels
             .label-item.label-top Founded 2016
             .label-item.label-bottom Remote-First

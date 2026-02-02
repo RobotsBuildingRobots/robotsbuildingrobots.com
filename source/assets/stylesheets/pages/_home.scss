@@ -1256,16 +1256,29 @@ $blueprint-accent: $ember; // Technical orange from design system
       height: 280px;
     }
 
-    .schematic-logo {
+    .geometric-visual {
       width: 120px;
       height: 120px;
-      object-fit: contain;
+      color: $ember;
 
       @media (min-width: map-get($grid-breakpoints, md)) {
         width: 180px;
         height: 180px;
       }
+
+      .node-center {
+        animation: node-pulse 3s ease-in-out infinite;
+      }
+
+      .node-point {
+        opacity: 0.6;
+      }
     }
+  }
+
+  @keyframes node-pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
   }
 
   .schematic-labels {
