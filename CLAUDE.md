@@ -8,7 +8,7 @@ This is a personal branding/portfolio website built with Middleman static site g
 
 ## Technology Stack
 
-- **Ruby 3.4.3** with Middleman 4.5+
+- **Ruby 4.0.0** with Middleman 4.5+
 - **Webpack 5.94.0** for asset bundling
 - **Slim** templating engine
 - **SCSS** with custom design system (no longer using Bootstrap)
@@ -97,7 +97,7 @@ source/
 ### Ruby
 - Follow `.rubocop.yml` configuration
 - Max line length: 180 characters
-- Target Ruby 3.4.3 syntax
+- Target Ruby 4.0.0 syntax
 
 ### JavaScript
 - ESLint with Airbnb base configuration

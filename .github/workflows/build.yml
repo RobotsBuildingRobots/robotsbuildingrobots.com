@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE_HOST: ${{ vars.SITE_HOST }}
+      THOR_SILENCE_DEPRECATION: 1
 
     steps:
       - uses: actions/checkout@v1
