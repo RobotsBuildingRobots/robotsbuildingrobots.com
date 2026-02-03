@@ -15,6 +15,7 @@ This changelog documents the evolution of a personal branding website from a sim
 - **v2.x (2020)**: Multi-page application with Webpack integration, Bootstrap framework
 - **v3.x (2021-2025)**: Complete redesign with custom design system, single-page focus, modern tooling
 - **v4.x (2025)**: Infrastructure modernization, environment-based configuration, dependency stabilization
+- **v5.x (2026)**: Complete visual redesign with blueprint/schematic aesthetic, animated SVG schematics
 
 ### Key Architectural Patterns
 
@@ -29,6 +30,75 @@ This changelog documents the evolution of a personal branding website from a sim
 ## [Unreleased]
 
 No unreleased changes at this time.
+
+---
+
+## [5.0.0] - 2026-02-03 - RELEASED
+
+### MAJOR RELEASE - Complete Visual Redesign with Blueprint Aesthetic & Ruby 4.0.0 Upgrade
+
+This version represents a complete visual redesign with a cohesive technical blueprint/schematic aesthetic across all sections, along with a major Ruby runtime upgrade.
+
+### Added
+- **Blueprint Design System**:
+  - Technical schematic visual language across all sections
+  - Animated SVG schematics with industrial/robotic theme
+  - Blueprint grid overlays and coordinate markers
+  - Frame corners and technical labels
+- **New Section Schematics**:
+  - About section: Robot arm schematic with animated joints and motion arcs
+  - Products/Workshop section: Forge assembly with furnace, anvil, hammer, and conveyor
+  - Contact section: Communication beacon with signal waves and data packets
+- **Enhanced Animations**:
+  - Flame flicker effects in forge schematic
+  - Hammer strike and spark burst animations
+  - Signal wave expansion for communication beacon
+  - Temperature gauge swing and LED status indicators
+  - Conveyor belt movement and QC scanner beam
+- **Stacked Category Tiles**: Workshop section redesigned with vertical tile stack
+- **Ruby 4.0.0 Compatibility**:
+  - Added `cgi` gem (removed from Ruby 4.0.0 stdlib, required by Rack)
+  - Added `tsort` gem (removed from Ruby 4.0.0 stdlib, required by RuboCop)
+  - Added `rdoc` gem (removed from Ruby 4.0.0 stdlib, required by various tools)
+
+### Changed
+- **Ruby Version**: Upgraded from Ruby 3.4.3 to Ruby 4.0.0
+- **Section Layouts**: All content sections now use consistent two-column layout (content + schematic)
+- **Visual Consistency**: Unified technical/industrial aesthetic replacing previous design
+- **Navigation Logic**: Fixed Connect nav dot highlighting when scrolling to bottom of page
+- **GitHub Actions**: Added `THOR_SILENCE_DEPRECATION: 1` environment variable to silence Thor deprecation warnings about boolean default values
+
+### Fixed
+- **Nav Highlighting Bug**: Connect section nav dot now properly highlights when user scrolls to page bottom
+- **70 Stylelint Errors**: Fixed all CSS linting errors in `_home.scss`:
+  - Expanded 17 single-line keyframes to multi-line format (`declaration-block-single-line-max-declarations`)
+  - Added URL quotes for all `url()` functions (`function-url-quotes`)
+  - Added `stylelint-disable` comments for intentional selector specificity patterns (`.frame-corner`, `.terminal-marker`, `svg`, `span:last-child`)
+- **Ruby 4.0.0 LoadError**: Resolved `cannot load such file -- cgi/cookie` by adding stdlib gems removed in Ruby 4.0.0
+
+### Developer Notes
+
+**Architecture Decision - Blueprint Aesthetic**: The move to a technical blueprint/schematic visual language creates unique brand identity distinct from typical portfolio sites. SVG-based animations provide smooth performance and consistent visual vocabulary across all sections reinforces brand.
+
+**Design Philosophy**:
+1. **Robot Arm (About)**: Represents the engineering/technical foundation
+2. **Forge Assembly (Workshop)**: Industrial metaphor for building products
+3. **Communication Beacon (Contact)**: Signal transmission for connection/outreach
+
+**Animation Strategy**: Each schematic uses CSS keyframe animations with careful timing. Products section includes 11 coordinated animations: `flame-flicker`, `shimmer-rise`, `gauge-swing`, `led-heat-blink`, `led-ready-blink`, `led-cycle-blink`, `hammer-strike`, `spark-burst`, `conveyor-move`, `scan-sweep`, `scan-indicator-blink`. About section features: `joint-pulse`, `gripper-open`, `grip-pulse`, `value-update`, `ghost-fade`. Contact section includes: `beacon-grid-breathe`, `packet-north/east/south/west/northeast/southwest`, `core-ring-pulse`, `beacon-core-glow`, `focus-pulse`, `beacon-led-blink`, `beacon-led-steady`, `beam-rotate`, `dish-scan`.
+
+**Navigation Fix**: The scroll highlighting issue was fixed by adding a "near bottom" check that prioritizes the last section (contact) when within 100px of the page bottom.
+
+**Ruby 4.0.0 Migration Notes**:
+- Ruby 4.0.0 removed several gems from the standard library that were previously bundled
+- The `cgi` gem is required by Rack for cookie handling
+- The `tsort` gem is required by RuboCop for dependency sorting
+- The `rdoc` gem is required by various documentation tools
+- Thor deprecation warnings about boolean default values can be silenced with `THOR_SILENCE_DEPRECATION=1`
+
+**Code Quality Achievement**: All linters passing (RuboCop, ESLint, Stylelint) after fixing 70 stylelint errors in the new animation keyframes.
+
+**Reference**: Feature branch `feature/version_five_o`
 
 ---
 
@@ -688,6 +758,7 @@ The first tagged release of the personal branding website.
 
 | Version | Date | Type | Key Changes | LOC Impact |
 |---------|------|------|-------------|------------|
+| 5.0.0 | 2026-02-03 | Major | Visual redesign, blueprint aesthetic, SVG schematics, Ruby 4.0.0 | New design system, +3 gems |
 | 4.0.0 | 2025-12-01 | Major | Infrastructure modernization, dependency restoration, environment config | +6 packages, 100% linter compliance |
 | 3.5.1 | 2025-02-01 | Patch | Contact email update | Minimal |
 | 3.5.0 | 2024-11-28 | Minor | Feature parity, asset cleanup | +1,278 / -1,963 |
@@ -717,6 +788,7 @@ This changelog demonstrates real-world semantic versioning:
   - v2.0.0: Multi-page app with Webpack
   - v3.0.0: Single-page app with custom design system
   - v4.0.0: Infrastructure modernization with breaking environment variable requirements
+  - v5.0.0: Blueprint/schematic redesign with Ruby 4.0.0 upgrade
 
 - **Minor versions (x.y.0)**: New features, non-breaking enhancements
   - New pages (2.1.0, 2.2.0)
@@ -787,11 +859,11 @@ This project had two major redesigns (v2.0.0, v3.0.0):
 
 This project is proprietary software. All Rights Reserved.
 
-Copyright (c) 2017-2025 RobotsBuildingRobots, LLC
+Copyright (c) 2017-2026 RobotsBuildingRobots, LLC
 
 See the LICENSE file for details.
 
 ---
 
-**Generated**: 2025-12-01 using git tag analysis and commit history
+**Generated**: 2026-02-03 using git tag analysis and commit history
 **Maintainer**: RobotsBuildingRobots, LLC

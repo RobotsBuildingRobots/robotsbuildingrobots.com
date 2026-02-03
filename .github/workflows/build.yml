@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SITE_HOST: ${{ vars.SITE_HOST }}
+      THOR_SILENCE_DEPRECATION: 1
 
     steps:
       - uses: actions/checkout@v1
@@ -19,7 +20,7 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.3
+          ruby-version: 4.0.0
       - name: Ruby Version
         run: |
           ruby -v

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.4.3'
+ruby '4.0.0'
 
 if Gem::Version.new( Bundler::VERSION ) < Gem::Version.new( '2.0.0' )
   abort 'Bundler version >= 2.X.X is required'
@@ -32,6 +32,12 @@ gem 'titleize'
 gem 'bigdecimal'
 gem 'mutex_m'
 gem 'csv'
+
+# Ruby 4.0.0 removed these gems from the standard library
+# Required by Middleman, Rack, RuboCop, and Tilt
+gem 'cgi'
+gem 'tsort'
+gem 'rdoc'
 
 group :development do
   gem 'pry'

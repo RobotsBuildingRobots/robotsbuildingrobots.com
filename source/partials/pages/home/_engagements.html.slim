@@ -1,0 +1,28 @@
+/ Engagements Section - Blueprint Timeline
+section#engagements.engagements-section
+  .section-container
+    .section-header.scroll-animate
+      .blueprint-label
+        span.label-marker
+        span Portfolio
+      h2.section-title Project Archive
+      p.section-subtitle = data.engagements.process
+
+    .engagements-timeline
+      .timeline-track
+        .timeline-line
+
+      .timeline-items
+        - data.engagements.projects.each_with_index do |project, index|
+          .timeline-item.scroll-animate[class="delay-#{(index % 4) + 1}" class="#{index.even? ? 'item-left' : 'item-right'}"]
+            .timeline-marker
+              .marker-dot
+              .marker-line
+
+            .timeline-card
+              .card-header
+                span.project-index #{'%02d' % (index + 1)}
+                h3.project-name = project.company
+              p.project-description = project.collaboration
+              .card-footer
+                span.status-badge[class="#{project.status == 'on-going' ? 'status-badge--ongoing' : ''}"] = project.status || 'Completed'

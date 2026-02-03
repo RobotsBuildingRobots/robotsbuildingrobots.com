@@ -1,0 +1,160 @@
+/ Contact Section - Terminal Connection
+section#contact.contact-section
+  .blueprint-grid
+
+  .contact-container
+    / Left: Content
+    .contact-content.scroll-animate
+      .terminal-marker
+        span.marker-icon ▸
+        span.marker-text OPEN CHANNEL
+
+      h2.contact-title
+        span.title-line Let's Build
+        span.title-accent Something
+
+      p.contact-description The best partnerships start with a conversation. Whether you're scaling a team, architecting a new system, or exploring AI integration.
+
+      .contact-cta
+        a.btn-terminal[href=data.components.social.linkedin target="_blank" rel="noopener noreferrer"]
+          span.btn-glow
+          svg.btn-icon[viewBox="0 0 24 24" fill="currentColor"]
+            path[d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"]
+          span Let's Connect
+        p.cta-subtext Why LinkedIn? Zero spam. Professional context. Real conversations.
+
+    / Right: Enhanced Communication Beacon
+    .contact-visual.scroll-animate.delay-1
+      .visual-frame
+        .frame-corner.top-left
+        .frame-corner.top-right
+        .frame-corner.bottom-left
+        .frame-corner.bottom-right
+        .coordinate-marker.coord-x
+          span X: 2016
+        .coordinate-marker.coord-y
+          span Y: NOW
+        .visual-content
+          svg.comm-beacon-schematic[viewBox="0 0 300 300" fill="none"]
+            defs
+              filter#beacon-glow[x="-50%" y="-50%" width="200%" height="200%"]
+                feGaussianBlur[stdDeviation="3" result="blur"]
+                feMerge
+                  feMergeNode[in="blur"]
+                  feMergeNode[in="SourceGraphic"]
+              linearGradient#beacon-gradient[x1="0%" y1="0%" x2="100%" y2="100%"]
+                stop[offset="0%" stop-color="currentColor" stop-opacity="0.1"]
+                stop[offset="50%" stop-color="currentColor" stop-opacity="0.25"]
+                stop[offset="100%" stop-color="currentColor" stop-opacity="0.1"]
+
+            / Background grid with radial circles
+            g.grid-layer[opacity="0.06"]
+              - (1..5).each do |i|
+                line[x1="#{i * 50}" y1="0" x2="#{i * 50}" y2="300" stroke="currentColor" stroke-width="0.5"]
+                line[x1="0" y1="#{i * 50}" x2="300" y2="#{i * 50}" stroke="currentColor" stroke-width="0.5"]
+              circle[cx="150" cy="150" r="40" stroke="currentColor" stroke-width="0.5" fill="none"]
+              circle[cx="150" cy="150" r="80" stroke="currentColor" stroke-width="0.5" fill="none"]
+
+            / Signal waves (expanding outward)
+            g.signal-waves
+              circle.wave.wave-1[cx="150" cy="150" r="50" stroke-width="1.5" fill="none"]
+              circle.wave.wave-2[cx="150" cy="150" r="75" stroke-width="1.5" fill="none"]
+              circle.wave.wave-3[cx="150" cy="150" r="100" stroke-width="1.5" fill="none"]
+              circle.wave.wave-4[cx="150" cy="150" r="125" stroke-width="1" fill="none"]
+
+            / Data packets (traveling outward)
+            g.data-packets
+              circle.packet.packet-n[cx="150" cy="150" r="4"]
+              circle.packet.packet-e[cx="150" cy="150" r="4"]
+              circle.packet.packet-s[cx="150" cy="150" r="4"]
+              circle.packet.packet-w[cx="150" cy="150" r="4"]
+              circle.packet.packet-ne[cx="150" cy="150" r="3"]
+              circle.packet.packet-sw[cx="150" cy="150" r="3"]
+
+            / Main beacon structure
+            g.beacon-main
+              / Central transmission core
+              g.transmission-core
+                circle.core-housing[cx="150" cy="150" r="28" stroke="currentColor" stroke-width="2" fill="url(#beacon-gradient)"]
+                circle.core-chamber[cx="150" cy="150" r="18" stroke="currentColor" stroke-width="1.5" fill="none"]
+                line[x1="150" y1="122" x2="150" y2="132" stroke="currentColor" stroke-width="1"]
+                line[x1="150" y1="168" x2="150" y2="178" stroke="currentColor" stroke-width="1"]
+                line[x1="122" y1="150" x2="132" y2="150" stroke="currentColor" stroke-width="1"]
+                line[x1="168" y1="150" x2="178" y2="150" stroke="currentColor" stroke-width="1"]
+                circle.core-active[cx="150" cy="150" r="10" fill="none" stroke="currentColor" stroke-width="2"]
+                circle.core-pulse[cx="150" cy="150" r="5"]
+
+              / Primary antenna (top)
+              g.antenna-primary
+                rect[x="146" y="70" width="8" height="52" stroke="currentColor" stroke-width="1.5" fill="url(#beacon-gradient)" rx="2"]
+                ellipse.antenna-dish[cx="150" cy="55" rx="35" ry="12" stroke="currentColor" stroke-width="1.5" fill="none"]
+                ellipse[cx="150" cy="55" rx="22" ry="8" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"]
+                rect[x="145" y="42" width="10" height="18" stroke="currentColor" stroke-width="1" fill="none" rx="1"]
+                circle.focus-point[cx="150" cy="35" r="4"]
+                line[x1="120" y1="67" x2="146" y2="95" stroke="currentColor" stroke-width="1" opacity="0.6"]
+                line[x1="180" y1="67" x2="154" y2="95" stroke="currentColor" stroke-width="1" opacity="0.6"]
+
+              / Secondary antenna (right)
+              g.antenna-secondary
+                rect[x="200" y="145" width="40" height="6" stroke="currentColor" stroke-width="1" fill="url(#beacon-gradient)" rx="1"]
+                ellipse[cx="248" cy="148" rx="18" ry="6" stroke="currentColor" stroke-width="1" fill="none"]
+                circle[cx="248" cy="148" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+
+              / Tertiary antenna (left)
+              g.antenna-tertiary
+                rect[x="60" y="145" width="40" height="6" stroke="currentColor" stroke-width="1" fill="url(#beacon-gradient)" rx="1"]
+                ellipse[cx="52" cy="148" rx="18" ry="6" stroke="currentColor" stroke-width="1" fill="none"]
+                circle[cx="52" cy="148" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+
+              / Base platform
+              g.platform-base
+                rect[x="110" y="200" width="80" height="12" stroke="currentColor" stroke-width="1.5" fill="url(#beacon-gradient)" rx="2"]
+                rect[x="135" y="178" width="30" height="22" stroke="currentColor" stroke-width="1.5" fill="none" rx="2"]
+                rect[x="100" y="212" width="100" height="8" stroke="currentColor" stroke-width="1" fill="none" rx="1"]
+                circle[cx="115" cy="216" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+                circle[cx="150" cy="216" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+                circle[cx="185" cy="216" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+
+            / Status LEDs
+            g.status-panel
+              circle.status-led.led-tx[cx="125" cy="192" r="3"]
+              circle.status-led.led-rx[cx="140" cy="192" r="3"]
+              circle.status-led.led-link[cx="155" cy="192" r="3"]
+              circle.status-led.led-pwr[cx="170" cy="192" r="3"]
+              g[font-size="5" fill="currentColor" opacity="0.4"]
+                text[x="122" y="186"] TX
+                text[x="137" y="186"] RX
+                text[x="150" y="186"] LNK
+                text[x="166" y="186"] PWR
+
+            / Scanning beam
+            g.scan-beam
+              path.beam-sweep[d="M 150 150 L 250 80 L 255 95 Z" fill="currentColor" opacity="0.15"]
+
+            / Technical labels
+            g.tech-labels[font-size="7" fill="currentColor" opacity="0.4"]
+              text[x="158" y="158"] CORE
+              text[x="155" y="40"] FEED
+              text[x="30" y="152"] SEC-A
+              text[x="255" y="152"] SEC-B
+
+            / Data readout
+            g.data-readout[opacity="0.5"]
+              rect[x="8" y="8" width="80" height="60" stroke="currentColor" stroke-width="0.5" fill="none"]
+              g[font-size="7" fill="currentColor"]
+                text[x="12" y="20"] FREQ:
+                text.freq-val[x="40" y="20"] 2.4GHz
+                text[x="12" y="32"] SIGNAL:
+                text.signal-val[x="48" y="32"] -42dBm
+                text[x="12" y="44"] LINK:
+                text.link-val[x="36" y="44"] ACTIVE
+                text[x="12" y="56"] UPTIME:
+                text.uptime-val[x="48" y="56"] 99.9%
+              text[x="220" y="290" font-size="6" opacity="0.3"] RBR-COMM
+              text[x="220" y="298" font-size="5" opacity="0.3"] v2.0
+
+            / Dimension lines
+            g.dimensions[opacity="0.25"]
+              line[x1="270" y1="35" x2="270" y2="220" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 2"]
+              line[x1="265" y1="35" x2="275" y2="35" stroke="currentColor" stroke-width="0.75"]
+              line[x1="265" y1="220" x2="275" y2="220" stroke="currentColor" stroke-width="0.75"]

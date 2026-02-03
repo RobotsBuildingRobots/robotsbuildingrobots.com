@@ -30,6 +30,9 @@ ignore 'rev-manifest.json'
 
 activate :directory_indexes
 
+# 404 page must be at root level for GitHub Pages
+page '/404.html', directory_index: false
+
 activate :deploy do |deploy|
   deploy.build_before = true
   deploy.deploy_method = :git

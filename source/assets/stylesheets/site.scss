@@ -1,14 +1,21 @@
 @charset "utf-8";
 
+// =============================================================================
+// FORGE Design System - Main Stylesheet
+// =============================================================================
+
+// Vendor
 @import "~normalize-scss/sass/normalize/import-now";
+
+// Settings & Tokens
 @import "settings";
-@import "vendor/bootstrap";
-@import "vendor/google_fonts";
-@import "mixins/*";
+
+// Base Components
 @import "components/html-body";
-@import "components/preloader";
-@import "components/navigation";
-@import "components/footer";
-@import "pages/index/index";
-@import "pages/contact/index";
-@import "pages/four-o-four/index";
+@import "components/animations";
+@import "components/loader";
+@import "components/floating-nav";
+
+// Pages
+@import "pages/four-o-four";
+@import "pages/home";

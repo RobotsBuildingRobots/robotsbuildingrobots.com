@@ -1,0 +1,156 @@
+/ Products Section - The Workshop
+section#products.products-section
+  .blueprint-grid
+
+  .section-container
+    .products-wrapper
+      / Left: Stacked Category Tiles
+      .products-content.scroll-animate
+        .workshop-marker
+          span.marker-icon ▸
+          span.marker-text THE WORKSHOP
+
+        h2.section-title = data.products.headline
+        p.section-subtitle = data.products.description
+
+        .category-stack
+          - data.products.categories.each_with_index do |category, index|
+            .category-tile
+              .tile-index
+                span = "%02d" % (index + 1)
+              .tile-icon
+                - case category.icon
+                - when 'cloud'
+                  svg[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"]
+                    path[d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"]
+                - when 'cart'
+                  svg[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"]
+                    path[d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"]
+                - when 'code'
+                  svg[viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"]
+                    path[d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"]
+              .tile-content
+                h4.tile-title = category.name
+                p.tile-description = category.description
+              .tile-indicator
+                span.status-dot
+
+      / Right: Forge Assembly Schematic
+      .products-visual.scroll-animate.delay-1
+        .visual-frame
+          .frame-corner.top-left
+          .frame-corner.top-right
+          .frame-corner.bottom-left
+          .frame-corner.bottom-right
+          .coordinate-marker.coord-x
+            span TEMP: 2400K
+          .coordinate-marker.coord-y
+            span YIELD: 98.7%
+          .visual-content
+            svg.forge-assembly-schematic[viewBox="0 0 300 300" fill="none"]
+              defs
+                linearGradient#forge-gradient[x1="0%" y1="0%" x2="100%" y2="100%"]
+                  stop[offset="0%" stop-color="currentColor" stop-opacity="0.1"]
+                  stop[offset="50%" stop-color="currentColor" stop-opacity="0.25"]
+                  stop[offset="100%" stop-color="currentColor" stop-opacity="0.1"]
+                filter#forge-glow[x="-50%" y="-50%" width="200%" height="200%"]
+                  feGaussianBlur[stdDeviation="3" result="blur"]
+                  feMerge
+                    feMergeNode[in="blur"]
+                    feMergeNode[in="SourceGraphic"]
+
+              / Background grid
+              g.grid-layer[opacity="0.06"]
+                - (1..5).each do |i|
+                  line[x1="#{i * 50}" y1="0" x2="#{i * 50}" y2="300" stroke="currentColor" stroke-width="0.5"]
+                  line[x1="0" y1="#{i * 50}" x2="300" y2="#{i * 50}" stroke="currentColor" stroke-width="0.5"]
+
+              / === FORGE FURNACE ===
+              g.forge-furnace
+                rect.furnace-body[x="90" y="60" width="120" height="140" stroke="currentColor" stroke-width="2" fill="url(#forge-gradient)" rx="4"]
+                rect.furnace-window[x="110" y="80" width="80" height="60" stroke="currentColor" stroke-width="1.5" fill="none" rx="2"]
+                g.fire-chamber
+                  rect[x="115" y="85" width="70" height="50" fill="rgba(220, 107, 74, 0.15)"]
+                  path.flame.flame-1[d="M 130 135 Q 135 115 130 100 Q 140 110 145 100 Q 145 120 140 135 Z"]
+                  path.flame.flame-2[d="M 150 135 Q 155 110 150 95 Q 160 105 165 95 Q 165 115 160 135 Z"]
+                  path.flame.flame-3[d="M 170 135 Q 175 118 170 105 Q 180 112 182 105 Q 180 122 175 135 Z"]
+                g.exhaust-vents
+                  rect[x="105" y="50" width="15" height="15" stroke="currentColor" stroke-width="1" fill="none"]
+                  rect[x="142" y="50" width="15" height="15" stroke="currentColor" stroke-width="1" fill="none"]
+                  rect[x="180" y="50" width="15" height="15" stroke="currentColor" stroke-width="1" fill="none"]
+                  path.heat-shimmer.shimmer-1[d="M 112 45 Q 115 35 112 25" stroke="currentColor" stroke-width="0.75" fill="none"]
+                  path.heat-shimmer.shimmer-2[d="M 150 45 Q 153 32 150 20" stroke="currentColor" stroke-width="0.75" fill="none"]
+                  path.heat-shimmer.shimmer-3[d="M 187 45 Q 190 35 187 25" stroke="currentColor" stroke-width="0.75" fill="none"]
+
+              / === CONTROL PANEL ===
+              g.control-panel
+                rect[x="40" y="90" width="40" height="80" stroke="currentColor" stroke-width="1.5" fill="url(#forge-gradient)" rx="2"]
+                circle.temp-gauge[cx="60" cy="115" r="15" stroke="currentColor" stroke-width="1" fill="none"]
+                line.temp-needle[x1="60" y1="115" x2="60" y2="103" stroke="currentColor" stroke-width="1.5"]
+                circle[cx="60" cy="115" r="3" fill="currentColor"]
+                circle.status-led.led-heat[cx="50" cy="145" r="3"]
+                circle.status-led.led-ready[cx="60" cy="145" r="3"]
+                circle.status-led.led-cycle[cx="70" cy="145" r="3"]
+                rect[x="55" y="155" width="10" height="10" stroke="currentColor" stroke-width="1" fill="none"]
+                line.control-lever[x1="60" y1="160" x2="60" y2="168" stroke="currentColor" stroke-width="2"]
+
+              / === ANVIL ASSEMBLY ===
+              g.anvil-assembly
+                rect[x="100" y="230" width="100" height="12" stroke="currentColor" stroke-width="1.5" fill="url(#forge-gradient)" rx="2"]
+                path.anvil-body[d="M 120 230 L 125 215 L 175 215 L 180 230 Z" stroke="currentColor" stroke-width="2" fill="url(#forge-gradient)"]
+                rect[x="130" y="205" width="40" height="12" stroke="currentColor" stroke-width="1.5" fill="none"]
+                path.anvil-horn[d="M 120 217 L 100 220 L 100 225 L 125 222 Z" stroke="currentColor" stroke-width="1" fill="none"]
+                g.hammer-arm
+                  rect[x="145" y="160" width="10" height="35" stroke="currentColor" stroke-width="1.5" fill="url(#forge-gradient)" rx="1"]
+                  rect.hammer-head[x="138" y="195" width="24" height="12" stroke="currentColor" stroke-width="2" fill="none" rx="1"]
+                  circle.pivot-point[cx="150" cy="165" r="5" stroke="currentColor" stroke-width="1" fill="none"]
+                g.sparks-zone
+                  circle.spark.spark-1[cx="150" cy="207" r="2"]
+                  circle.spark.spark-2[cx="145" cy="205" r="1.5"]
+                  circle.spark.spark-3[cx="155" cy="203" r="1.5"]
+                  circle.spark.spark-4[cx="142" cy="208" r="1"]
+                  circle.spark.spark-5[cx="158" cy="206" r="1"]
+
+              / === OUTPUT CONVEYOR ===
+              g.output-system
+                rect.conveyor-belt[x="220" y="215" width="60" height="8" stroke="currentColor" stroke-width="1" fill="none" rx="4"]
+                line[x1="230" y1="215" x2="230" y2="223" stroke="currentColor" stroke-width="0.5" opacity="0.5"]
+                line[x1="245" y1="215" x2="245" y2="223" stroke="currentColor" stroke-width="0.5" opacity="0.5"]
+                line[x1="260" y1="215" x2="260" y2="223" stroke="currentColor" stroke-width="0.5" opacity="0.5"]
+                rect.product-item.item-1[x="225" y="208" width="10" height="7" stroke="currentColor" stroke-width="0.75" fill="none"]
+                rect.product-item.item-2[x="250" y="208" width="10" height="7" stroke="currentColor" stroke-width="0.75" fill="none"]
+                rect[x="265" y="195" width="15" height="25" stroke="currentColor" stroke-width="1" fill="none"]
+                line.scan-beam[x1="270" y1="200" x2="270" y2="215" stroke="currentColor" stroke-width="0.5"]
+                circle.scan-indicator[cx="272" cy="202" r="2"]
+
+              / Dimension lines
+              g.dimensions[opacity="0.25"]
+                line[x1="30" y1="60" x2="30" y2="200" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 2"]
+                line[x1="25" y1="60" x2="35" y2="60" stroke="currentColor" stroke-width="0.75"]
+                line[x1="25" y1="200" x2="35" y2="200" stroke="currentColor" stroke-width="0.75"]
+                line[x1="90" y1="260" x2="210" y2="260" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 2"]
+                line[x1="90" y1="255" x2="90" y2="265" stroke="currentColor" stroke-width="0.75"]
+                line[x1="210" y1="255" x2="210" y2="265" stroke="currentColor" stroke-width="0.75"]
+
+              / Technical labels
+              g.tech-labels[font-size="7" fill="currentColor" opacity="0.4"]
+                text[x="130" y="150"] FURNACE
+                text[x="42" y="85"] CTRL
+                text[x="128" y="250"] ANVIL
+                text[x="230" y="235"] OUTPUT
+                text[x="265" y="190"] QC
+
+              / Data readout
+              g.data-readout[opacity="0.5"]
+                rect[x="8" y="8" width="75" height="55" stroke="currentColor" stroke-width="0.5" fill="none"]
+                g[font-size="7" fill="currentColor"]
+                  text[x="12" y="20"] TEMP:
+                  text.temp-val[x="40" y="20"] 2400K
+                  text[x="12" y="32"] CYCLE:
+                  text.cycle-val[x="42" y="32"] 1,847
+                  text[x="12" y="44"] YIELD:
+                  text.yield-val[x="40" y="44"] 98.7%
+                  text[x="12" y="55"] STATUS:
+                  text.status-val[x="48" y="55"] FORGE
+                text[x="220" y="290" font-size="6" opacity="0.3"] RBR-FORGE
+                text[x="220" y="298" font-size="5" opacity="0.3"] v1.0

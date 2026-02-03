@@ -4,48 +4,46 @@ projects:
   -
     id: 1
     company: Gathrly
-    logo: gathrly.png
     collaboration: >-
-      Partnered with company founders to create a technical product roadmap and setup agile processes. Designed, engineered, and maintained a lead management application utilized by top tier brewers. Coached and mentored a team of junior engineers to meet productivity goals and ensure high-performance.
+      Partnered with founders to define the technical roadmap and implement agile workflows from the ground up. Architected and delivered a lead management platform adopted by top-tier craft breweries. Mentored junior engineers, accelerating their growth while building a high-performance engineering culture.
   -
     id: 2
     company: USA Today
-    logo: usatoday.png
     collaboration: >-
-      Developed and architected a backend CMS with frontend content creation interfaces & features. Optimized user flows & improved the customer experience by designing an updated responsive layout.
+      Architected a robust backend CMS with intuitive content creation tools for editorial teams. Redesigned the responsive frontend experience, streamlining user flows and elevating engagement across devices.
   -
     id: 3
     company: W. W. Norton
-    logo: wwnorton.png
     collaboration: >-
-      Designed and architected an interactive delivery platform to serve over 300+ interactives for a global publisher. Setup the GitFlow Process, code reviews, quality guidelines, & workflow management. Coached & mentored junior engineers on best practices to increase their productivity & contributions to the code base.
+      Architected an interactive content delivery platform serving 300+ educational experiences for a leading global publisher. Established GitFlow workflows, code review standards, and quality guidelines. Elevated team capabilities through hands-on mentorship, driving measurable gains in productivity and code quality.
   -
     id: 4
     company: Crowd OX
-    logo: crowdox.png
     collaboration: >-
-      Built out platform features across three ruby-on-rails engines. Rewrote the Partner application testing suite porting it from Minitest to the latest version of RSpec while maintaining testing coverage metrics. Expanded testing coverage from 0% to over 60% in a legacy code base with 100% model testing coverage.
+      Extended platform capabilities across three interconnected Rails engines. Modernized the testing infrastructure by migrating from Minitest to RSpec, increasing coverage from 0% to 60% overall with complete model-layer coverage—transforming a legacy codebase into a maintainable foundation.
   -
     id: 5
     company: Eggplant
-    logo: eggplant.png
     collaboration: >-
-      Expanded the authorization capability of the testing manager application to include Microsoft Active Directory (LDAP). Coordinated daily pair programming sessions to mentor junior engineers, improve team collaboration, and increase overall team performance.
+      Integrated Microsoft Active Directory (LDAP) authentication into the testing management platform, enabling enterprise-grade access control. Led daily pair programming sessions that strengthened team collaboration and accelerated junior engineer development.
   -
     id: 6
     company: Advanced Building Technology
-    logo: advancedbd.svg
     collaboration: >-
-      Utilized responsive web design construction techniques to rearchitect version two of this corporation's website. While version one was not mobile or tablet friendly, iPhones, iPads, and desktops are all now supported. It was successfully launched on time in preparation for new product kickoffs.
+      Rebuilt the corporate website from the ground up with a mobile-first responsive architecture. Delivered on schedule to support new product launches, transforming a desktop-only experience into a seamless presence across all devices.
   -
     id: 7
     company: Sidebench
-    logo: sidebench.svg
     collaboration: >-
-      Serving as a Technical Architect for the Momints NFT Marketplace by researching architecture, selecting components based on scalability needs and risk mitigation, developing the MVP, and compiling marketing materials. Provide high-level documentation on recommendations for system architecture diagrams, server infrastructure, tech stack selection, 3rd Party dependencies, data models and database schema, and API specifications to drive development.
+      Served as Technical Architect for the Momints NFT Marketplace, guiding technology decisions from concept through MVP delivery. Defined system architecture, infrastructure strategy, and API specifications—balancing scalability requirements with risk mitigation to establish a solid foundation for growth.
   -
     id: 8
     company: Arthur Maxwell Experience Builder
-    logo: arthur-maxwell.gif
     collaboration: >-
-      Transforming a corporate eLearning management application with 200+ users from an experience-driven offline solution via iPads to online learning in classrooms using Hotwire, Stimulus, and Ruby on Rails.
+      Modernized a corporate eLearning platform serving 200+ users, transitioning from offline iPad-based delivery to a real-time classroom experience. Built with Rails, Hotwire, and Stimulus for responsive, interactive learning at scale.
+  -
+    id: 9
+    company: Serenity
+    status: on-going
+    collaboration: >-
+      Pioneering ongoing AI-assisted development methodology using Claude to build and enhance a production-ready Rails 8 application featuring Rodauth authentication, Hotwire (Turbo + Stimulus) for reactive interfaces, Solid Suite integration (Queue, Cache, Cable), and service-oriented design patterns. Collaborating with AI to implement custom UI components, establish comprehensive testing infrastructure, and ensure strict code quality standards, reducing traditional development time by 10x while maintaining professional-grade architecture and deployment practices on Heroku with full monitoring and error tracking capabilities.

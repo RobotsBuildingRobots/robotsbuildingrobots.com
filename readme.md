@@ -1,22 +1,22 @@
 # RobotsBuildingRobots.com
 
-A modern, responsive portfolio and business presence website built with Middleman, featuring a custom design system with space/galaxy theming and responsive "easter eggs" at various viewport sizes.
+A modern, responsive portfolio and business presence website built with Middleman, featuring a custom blueprint/schematic design system with animated SVG graphics and responsive "easter eggs" at various viewport sizes.
 
 ## Overview
 
-This is a professional portfolio and business website showcasing services, engagements, and expertise. The site features a single-page application design with smooth scrolling, modern animations, and a unique custom design system.
+This is a professional portfolio and business website showcasing services, engagements, and expertise. The site features a single-page application design with smooth scrolling, animated technical schematics, and a unique industrial/blueprint visual language.
 
 ## Technology Stack
 
 ### Core Framework
 - **Middleman 4.5+** - Ruby-based static site generator
-- **Ruby 3.4.3** - Server-side language
+- **Ruby 4.0.0** - Server-side language
 - **Slim** - Template engine for clean, semantic markup
 
 ### Asset Pipeline
 - **Webpack 5.94.0** - Modern JavaScript bundling and asset compilation
 - **Babel** - ES6+ JavaScript transpilation
-- **SCSS/Sass** - Custom design system (no Bootstrap framework)
+- **SCSS/Sass** - Custom design system with blueprint aesthetic
 
 ### JavaScript Libraries
 - **jQuery 3.7.1** - DOM manipulation and interactions
@@ -63,7 +63,7 @@ This is a professional portfolio and business website showcasing services, engag
 ## Development Setup
 
 ### Prerequisites
-- Ruby 3.4.3 (use `.ruby-version`)
+- Ruby 4.0.0 (use `.ruby-version`)
 - Node.js (use `.nvmrc` for version)
 - Yarn package manager
 - Bundler gem
@@ -138,10 +138,14 @@ rake deploy:github
 ## Features
 
 ### Custom Design System
-- Galaxy/space-themed custom CSS (no Bootstrap CSS)
+- Blueprint/schematic visual language with industrial aesthetic
+- Animated SVG schematics in each section:
+  - **Robot Arm** (About): Articulated arm with animated joints and motion arcs
+  - **Forge Assembly** (Workshop): Furnace, anvil, hammer with flame and spark effects
+  - **Communication Beacon** (Contact): Signal waves and data packet animations
 - Responsive design with breakpoints from xs to xxxl (2500px)
 - "Easter egg" content reveals at different viewport sizes
-- Modern animations and transitions
+- 20+ coordinated CSS keyframe animations
 - Custom CSS variables and design tokens
 
 ### Content Management
@@ -187,9 +191,10 @@ Content managed through YAML files in `data/`:
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history and architectural decisions.
 
-**Current Version**: 4.0.0
+**Current Version**: 5.0.0
 
 Major releases:
+- **v5.x (2026)**: Complete visual redesign with blueprint/schematic aesthetic, animated SVG schematics, Ruby 4.0.0 upgrade
 - **v4.x (2025)**: Infrastructure modernization, environment-based configuration
 - **v3.x (2021-2025)**: Complete redesign with custom design system
 - **v2.x (2020)**: Multi-page application with Webpack integration
@@ -201,7 +206,7 @@ This is a proprietary business website. Contributions are not accepted.
 
 ## License
 
-Copyright (c) 2017-2025 RobotsBuildingRobots, LLC
+Copyright (c) 2017-2026 RobotsBuildingRobots, LLC
 
 All Rights Reserved. See [LICENSE](LICENSE) for details.
 

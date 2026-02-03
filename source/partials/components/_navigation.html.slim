@@ -4,9 +4,9 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
       div[class="row"]
         div[class="col-10 col-sm-12 d-flex my-auto"]
           = link_to("/", class: "logo-link-logo") do
-            embed[id="company-logo" src="#{image_path('logos/yellow.svg')}"]
+            = image_tag 'logos/logo.png', id: 'company-logo', alt: 'RobotsBuildingRobots Logo'
           = link_to("/", class: "logo-link-text") do
-            = data.components.social.shortname
+            | RobotsBuildingRobots
         div[class="col-2 my-auto d-md-none navbar-button"]
           button[class="navbar-toggler" type="button" data-toggle="collapse"
                                                       data-target="#navbarCollapse"
@@ -38,9 +38,3 @@ nav[class="navbar navbar-expand-sm sticky-top navbar-dark"]
                   i[class="fas fa-brain nav-icon"]
                 span[class="nav-description"]
                   |About
-          li[class="nav-item flex-fill"]
-            = link_to("/", id: "contact", class: "nav-link", data: { reference: "page", redirection: true }) do
-                span[class="nav-button"]
-                  i[class="far fa-envelope nav-icon"]
-                span[class="nav-description d-lg-none"]
-                  |Contact

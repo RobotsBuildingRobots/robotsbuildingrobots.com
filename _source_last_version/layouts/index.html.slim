@@ -1,0 +1,9 @@
+= partial "partials/components/document" do
+  = partial "partials/components/header", locals: { include_lottie: true }
+  = partial "partials/components/body" do
+    = partial "partials/components/navigation"
+
+    main[class="container-fluid"]
+      == yield
+
+    = partial "partials/components/javascript"

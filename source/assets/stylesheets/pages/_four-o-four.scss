@@ -1,0 +1,133 @@
+// =============================================================================
+// 404 Page Styles
+// =============================================================================
+
+.four-o-four-body {
+  background: #FFF;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.four-o-four-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6;
+  background: #FFF;
+  position: relative;
+
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#E1E5EA 1px, transparent 1px),
+      linear-gradient(90deg, #E1E5EA 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .four-o-four-content {
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+  }
+
+  .four-o-four-logo {
+    margin-bottom: $space-8;
+
+    .four-o-four-logo-img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      filter: grayscale(100%) contrast(1.2);
+      opacity: 0.8;
+      transition: all $transition-base;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        width: 220px;
+        height: 220px;
+      }
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+    }
+  }
+
+  .four-o-four-code {
+    // Use system font to prevent layout shift from web font loading
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 8rem;
+    font-weight: $font-weight-bold;
+    color: $forge-black;
+    line-height: $leading-none;
+    margin: 0 0 $space-6;
+    letter-spacing: $tracking-tight;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: 12rem;
+    }
+  }
+
+  .four-o-four-message {
+    margin-bottom: $space-10;
+
+    .message-primary {
+      // Use system font to prevent layout shift from web font loading
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: $type-scale-2xl;
+      font-weight: $font-weight-semibold;
+      color: $forge-black;
+      margin: 0 0 $space-2;
+      white-space: nowrap; // Prevent text wrap during page load
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-3xl;
+      }
+    }
+
+    .message-secondary {
+      // Use system font to prevent layout shift from web font loading
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: $type-scale-lg;
+      font-weight: $font-weight-regular;
+      color: $stone-gray;
+      margin: 0;
+    }
+  }
+
+  .four-o-four-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-8;
+    background: $forge-black;
+    color: #FFF;
+    // Use system font to prevent layout shift from web font loading
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: $type-scale-base;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border-radius: $radius-full;
+    transition: all $transition-base;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background: $ember;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba($ember, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

@@ -8,7 +8,7 @@ This is a personal branding/portfolio website built with Middleman static site g
 
 ## Technology Stack
 
-- **Ruby 3.4.3** with Middleman 4.5+
+- **Ruby 4.0.0** with Middleman 4.5+
 - **Webpack 5.94.0** for asset bundling
 - **Slim** templating engine
 - **SCSS** with custom design system (no longer using Bootstrap)
@@ -19,7 +19,7 @@ This is a personal branding/portfolio website built with Middleman static site g
 
 ### Development Server
 ```bash
-rake server:development     # Start server on http://localhost:4567
+rbe rake server:development     # Start server on http://localhost:4567
 ```
 
 ### Building
@@ -97,7 +97,7 @@ source/
 ### Ruby
 - Follow `.rubocop.yml` configuration
 - Max line length: 180 characters
-- Target Ruby 3.4.3 syntax
+- Target Ruby 4.0.0 syntax
 
 ### JavaScript
 - ESLint with Airbnb base configuration
@@ -118,3 +118,40 @@ source/
 5. **Data**: Site configuration in `data/settings.yml`
 6. **Images**: Store in `source/assets/images/`, use Middleman image helpers
 7. **Videos**: Place in `source/assets/images/videos/` for proper asset pipeline handling
+
+## Design System Maintenance
+
+**IMPORTANT**: When making any design changes, always update the design system documentation.
+
+The design system page is located at: `source/design-system.html.slim`
+
+When modifying:
+- **Fonts** (`_settings.scss`) → Update typography section in design-system.html.slim
+- **Colors** (`_settings.scss`) → Update color palette section in design-system.html.slim
+- **Spacing** → Update spacing scale section
+- **Components** → Update component examples
+
+The design system page must always reflect the actual implementation. Never change fonts, colors, or core design tokens without updating the design system documentation.
+
+## Session Cleanup
+
+**IMPORTANT**: Always kill background processes when finishing a task or ending a session.
+
+### Development Server Rules
+- Always start with: `rbe rake server:development`
+- Only run ONE instance at a time
+- Always kill the server when done with the task
+
+### Cleanup Commands
+```bash
+# Kill Middleman server
+pkill -f "middleman" 2>/dev/null
+lsof -ti:4567 | xargs kill -9 2>/dev/null
+
+# Kill any other background processes started during the session
+```
+
+### Before Ending Any Session
+1. Kill all background dev servers you started
+2. Verify no orphaned processes on development ports (4567, 3000, etc.)
+3. Never leave background tasks running

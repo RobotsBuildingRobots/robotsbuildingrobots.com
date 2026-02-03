@@ -1,14 +1,8 @@
-div[class="col-12 locations"]
-  - data.about.locations.sort_by { |k| k["id"] }.each_with_index do |l, index|
-    span
-      = l.location
-    span[class="divider"]
-      - if index < data.about.locations.count - 1
-        |&#10073;
-
-div[class="col-12 company"]
-  |&#169;
-  =>
-  = data.about.copyright
-  =>
-  = data.components.social.formalname
+/ Footer Section
+footer.site-footer
+  .footer-accent-line
+  .blueprint-grid
+  .footer-container
+    span.footer-marker © 2016 - Present
+    span.footer-divider /
+    span.footer-name RobotsBuildingRobots, LLC

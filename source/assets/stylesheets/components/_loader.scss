@@ -1,0 +1,143 @@
+// =============================================================================
+// Page Loader Component
+// =============================================================================
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $bg-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $zindex-cover;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s $transition-slow, visibility 0.6s $transition-slow;
+
+  &.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-8;
+  }
+
+  .loader-logo {
+    position: relative;
+    width: 120px;
+    height: 120px;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 150px;
+      height: 150px;
+    }
+
+    .loader-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: loader-spin 8s linear infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: $radius-full;
+      background: radial-gradient(circle, rgba($ember, 0.2) 0%, transparent 70%);
+      animation: loader-glow 2s ease-in-out infinite;
+    }
+  }
+
+  .loader-text {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $text-secondary;
+    letter-spacing: $tracking-wider;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: $space-1;
+
+    .loader-cursor {
+      animation: loader-blink 0.8s step-end infinite;
+      color: $ember;
+    }
+  }
+
+  .loader-progress {
+    width: 200px;
+    height: 2px;
+    background: $bg-tertiary;
+    border-radius: $radius-full;
+    overflow: hidden;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 250px;
+    }
+
+    .loader-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, $ember, $copper-glow);
+      border-radius: $radius-full;
+      animation: loader-progress 2s ease-out forwards;
+      box-shadow: $glow-ember;
+    }
+  }
+}
+
+// Loader Animations
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loader-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes loader-progress {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 70%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

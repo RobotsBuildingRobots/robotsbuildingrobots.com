@@ -1,0 +1,45 @@
+/ Hero Section - Blueprint/Architect
+section#hero.hero-section
+  / Blueprint Grid Background
+  .blueprint-grid
+
+  .hero-container
+    .hero-content-wrapper
+      / Dimension annotation
+      .blueprint-annotation.annotation-top
+        span.annotation-line
+        span.annotation-text SPEC: RBR-2016
+
+      .hero-content.scroll-animate
+        .blueprint-badge
+          span.badge-text Engineering Excellence
+
+        h1.hero-title
+          span.title-main Robots Building
+          span.title-accent Robots
+
+        p.hero-subtitle Strategic software engineering and AI-driven solutions. We architect systems that scale, perform, and deliver measurable results.
+
+        .hero-cta
+          a.btn-blueprint-primary[href="#contact"]
+            span Connect With Us
+          a.btn-blueprint-secondary[href="#engagements"]
+            span View Projects
+
+      / Logo with dimension markers
+      .hero-visual.scroll-animate.delay-1
+        .blueprint-frame
+          .frame-corner.top-left
+          .frame-corner.top-right
+          .frame-corner.bottom-left
+          .frame-corner.bottom-right
+          .dimension-marker.horizontal
+            span 500px
+          .dimension-marker.vertical
+            span 500px
+          = image_tag 'logos/logo.png', alt: 'RBR Logo', class: 'blueprint-logo'
+
+      / Dimension annotation
+      .blueprint-annotation.annotation-bottom
+        span.annotation-line
+        span.annotation-text REV: 5.0

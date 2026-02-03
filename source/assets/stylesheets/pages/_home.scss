@@ -1,0 +1,2554 @@
+// =============================================================================
+// BLUEPRINT - Architect/Technical Drawing Theme
+// =============================================================================
+
+// Blueprint Theme Colors
+$blueprint-blue: #1E3A5F;
+$blueprint-light: #2A4A72;
+$blueprint-dark: #0D1B2A;
+$blueprint-bg: #F8F9FA;
+$blueprint-grid: #E1E5EA;
+$blueprint-accent: $ember; // Technical orange from design system
+
+// =============================================================================
+// HERO SECTION
+// =============================================================================
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: $blueprint-bg;
+
+  // Blueprint grid background
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient($blueprint-grid 1px, transparent 1px),
+      linear-gradient(90deg, $blueprint-grid 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $space-6;
+  }
+
+  .hero-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-8;
+    align-items: center;
+    position: relative;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: $space-12;
+    }
+  }
+
+  // Blueprint annotations
+  .blueprint-annotation {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+    gap: $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      display: flex;
+    }
+
+    &.annotation-top {
+      top: -$space-8;
+    }
+
+    &.annotation-bottom {
+      bottom: -$space-8;
+    }
+
+    .annotation-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $blueprint-blue, transparent);
+    }
+
+    .annotation-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      letter-spacing: $tracking-wider;
+      white-space: nowrap;
+    }
+  }
+
+  .hero-content {
+    order: 2;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      order: 1;
+    }
+  }
+
+  .blueprint-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    background: rgba($blueprint-blue, 0.1);
+    border: 1px solid $blueprint-blue;
+    border-radius: $radius-sm;
+    margin-bottom: $space-6;
+
+    .badge-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+    }
+  }
+
+  .hero-title {
+    font-family: $font-display;
+    font-size: $type-scale-5xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-tight;
+    margin: 0 0 $space-6;
+    color: $blueprint-dark;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-6xl;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      font-size: $type-scale-7xl;
+    }
+
+    .title-main {
+      display: block;
+    }
+
+    .title-accent {
+      color: $blueprint-accent;
+    }
+  }
+
+  .hero-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 550px;
+    margin: 0 0 $space-10;
+    line-height: $leading-relaxed;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-xl;
+    }
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      flex-direction: row;
+    }
+  }
+
+  // Logo with blueprint frame
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      order: 2;
+    }
+  }
+
+  .blueprint-frame {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 350px;
+      height: 350px;
+    }
+
+    .frame-corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: $blueprint-blue;
+      border-style: solid;
+      border-width: 0;
+
+      &.top-left {
+        top: 0;
+        left: 0;
+        border-top-width: 2px;
+        border-left-width: 2px;
+      }
+
+      &.top-right {
+        top: 0;
+        right: 0;
+        border-top-width: 2px;
+        border-right-width: 2px;
+      }
+
+      &.bottom-left {
+        bottom: 0;
+        left: 0;
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+      }
+
+      &.bottom-right {
+        bottom: 0;
+        right: 0;
+        border-bottom-width: 2px;
+        border-right-width: 2px;
+      }
+    }
+
+    .dimension-marker {
+      position: absolute;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+
+      &.horizontal {
+        bottom: -$space-6;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          width: $space-8;
+          height: 1px;
+          background: $blueprint-blue;
+        }
+
+        &::before {
+          right: calc(100% + $space-2);
+        }
+
+        &::after {
+          left: calc(100% + $space-2);
+        }
+      }
+
+      &.vertical {
+        right: -$space-10;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+
+        @media (max-width: map-get($grid-breakpoints, md) - 1px) {
+          display: none;
+        }
+      }
+    }
+
+    .blueprint-logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// BLUEPRINT BUTTONS
+// =============================================================================
+
+.btn-blueprint-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: $blueprint-blue;
+  color: $warm-white;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border: 2px solid $blueprint-blue;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $blueprint-dark;
+    border-color: $blueprint-dark;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-blueprint-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-8;
+  background: transparent;
+  color: $blueprint-blue;
+  font-family: $font-heading;
+  font-size: $type-scale-base;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border: 2px solid $blueprint-blue;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba($blueprint-blue, 0.1);
+  }
+}
+
+// =============================================================================
+//SERVICES SECTION
+// =============================================================================
+
+.services-section {
+  padding: $space-24 $space-6;
+  background: $warm-white;
+  position: relative;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .blueprint-label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    .label-marker {
+      width: 12px;
+      height: 12px;
+      background: $blueprint-accent;
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    color: $blueprint-dark;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .blueprint-card {
+    position: relative;
+    background: $blueprint-bg;
+    border: 1px solid $blueprint-grid;
+    padding: $space-8;
+    transition: all $transition-base;
+
+    // Left accent border (hidden by default, appears on hover)
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: $ember;
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+
+    .card-number {
+      position: absolute;
+      top: $space-4;
+      right: $space-4;
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $ember;
+      font-weight: $font-weight-bold;
+
+      &::before {
+        content: '//';
+        margin-right: $space-1;
+        color: rgba($blueprint-blue, 0.4);
+      }
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-4;
+      margin-bottom: $space-4;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($blueprint-blue, 0.08);
+      border: 1px solid rgba($blueprint-blue, 0.3);
+      transition: all $transition-base;
+
+      svg {
+        width: 28px;
+        height: 28px;
+        color: $blueprint-blue;
+        transition: color $transition-base;
+      }
+    }
+
+    .card-title {
+      font-family: $font-heading;
+      font-size: $type-scale-2xl;
+      font-weight: $font-weight-bold;
+      color: $blueprint-dark;
+      margin: $space-2 0 0;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+    }
+
+    .card-description {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $blueprint-light;
+      line-height: $leading-relaxed;
+      margin: 0;
+
+      // Style for inline emphasis
+      strong {
+        color: $blueprint-dark;
+        font-weight: $font-weight-semibold;
+      }
+
+      em {
+        color: $ember;
+        font-style: normal;
+        font-weight: $font-weight-medium;
+      }
+    }
+
+    .card-corner {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      opacity: 0;
+      transition: opacity $transition-base;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        background: $ember;
+      }
+
+      &::before {
+        bottom: 0;
+        right: 0;
+        width: 2px;
+        height: 20px;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        width: 20px;
+        height: 2px;
+      }
+    }
+
+    &:hover {
+      border-color: $ember;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba($blueprint-dark, 0.1);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .card-icon {
+        background: rgba($ember, 0.12);
+        border-color: $ember;
+        box-shadow: 0 0 16px rgba($ember, 0.2);
+
+        svg {
+          color: $ember;
+        }
+      }
+
+      .card-corner {
+        opacity: 1;
+      }
+    }
+
+    // Alternating accent colors for even cards (teal)
+    &:nth-child(even) {
+      &::before {
+        background: $teal-spark;
+      }
+
+      .card-number {
+        color: $teal-spark;
+      }
+
+      .card-corner {
+        &::before,
+        &::after {
+          background: $teal-spark;
+        }
+      }
+
+      &:hover {
+        border-color: $teal-spark;
+
+        .card-icon {
+          background: rgba($teal-spark, 0.12);
+          border-color: $teal-spark;
+          box-shadow: 0 0 16px rgba($teal-spark, 0.2);
+
+          svg {
+            color: $teal-spark;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+// =============================================================================
+//ENGAGEMENTS SECTION
+// =============================================================================
+
+.engagements-section {
+  padding: $space-24 $space-6;
+  background: $blueprint-bg;
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $space-16;
+  }
+
+  .blueprint-label {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+
+    .label-marker {
+      width: 12px;
+      height: 12px;
+      background: $blueprint-accent;
+      transform: rotate(45deg);
+    }
+
+    span:last-child {
+      font-family: $font-mono;
+      font-size: $type-scale-sm;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+
+  .section-title {
+    font-family: $font-display;
+    font-size: $type-scale-4xl;
+    font-weight: $font-weight-bold;
+    color: $blueprint-dark;
+    margin: 0 0 $space-4;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-5xl;
+    }
+  }
+
+  .section-subtitle {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $blueprint-light;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: $leading-relaxed;
+  }
+
+  .engagements-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .timeline-track {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-line {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, $blueprint-blue, transparent);
+    }
+  }
+
+  .timeline-items {
+    position: relative;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-6;
+    margin-bottom: $space-8;
+    padding-left: $space-12;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      padding: 0;
+
+      &.item-left {
+        justify-content: flex-end;
+        padding-right: calc(50% + $space-8);
+
+        .timeline-marker {
+          left: auto;
+          right: calc(50% - 10px);
+        }
+
+        .timeline-card {
+          text-align: right;
+        }
+      }
+
+      &.item-right {
+        justify-content: flex-start;
+        padding-left: calc(50% + $space-8);
+
+        .timeline-marker {
+          left: calc(50% - 10px);
+        }
+      }
+    }
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 10px;
+
+    .marker-dot {
+      width: 20px;
+      height: 20px;
+      background: $blueprint-bg;
+      border: 3px solid $blueprint-blue;
+      transform: rotate(45deg);
+    }
+  }
+
+  .timeline-card {
+    background: $warm-white;
+    border: 1px solid $blueprint-grid;
+    padding: $space-6;
+    flex: 1;
+    max-width: 400px;
+    transition: all $transition-base;
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      gap: $space-3;
+      margin-bottom: $space-3;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .item-left & {
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    .project-index {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-accent;
+      font-weight: $font-weight-bold;
+    }
+
+    .project-name {
+      font-family: $font-heading;
+      font-size: $type-scale-xl;
+      font-weight: $font-weight-semibold;
+      color: $blueprint-dark;
+      margin: 0;
+    }
+
+    .project-description {
+      font-family: $font-body;
+      font-size: $type-scale-sm;
+      color: $blueprint-light;
+      line-height: $leading-relaxed;
+      margin: 0 0 $space-4;
+    }
+
+    .card-footer {
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        .item-left & {
+          text-align: right;
+        }
+      }
+    }
+
+    .status-badge {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      text-transform: uppercase;
+      letter-spacing: $tracking-wider;
+      padding: $space-1 $space-3;
+      background: rgba($blueprint-blue, 0.1);
+      border: 1px solid rgba($blueprint-blue, 0.3);
+
+      &--ongoing {
+        color: $teal-spark;
+        background: rgba($teal-spark, 0.15);
+        border-color: rgba($teal-spark, 0.4);
+      }
+    }
+
+    &:hover {
+      border-color: $blueprint-blue;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba($blueprint-dark, 0.08);
+    }
+  }
+}
+
+// =============================================================================
+// PRODUCTS SECTION - The Workshop
+// =============================================================================
+
+// =============================================================================
+// PRODUCTS SECTION - The Workshop (Two-Column with Forge Schematic)
+// =============================================================================
+
+.products-section {
+  position: relative;
+  padding: $space-24 $space-6;
+  background: linear-gradient(180deg, $warm-stone 0%, $charred 100%);
+  overflow: hidden;
+
+  // Ember-tinted grid background (warm workshop feel)
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($ember, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($ember, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .section-container {
+    position: relative;
+    z-index: 2;
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  // === TWO-COLUMN WRAPPER ===
+  .products-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1fr 1fr;
+      gap: $space-16;
+    }
+  }
+
+  // === LEFT CONTENT AREA ===
+  .products-content {
+    .workshop-marker {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-2;
+      margin-bottom: $space-6;
+
+      .marker-icon {
+        color: $ember;
+        font-size: $type-scale-lg;
+        animation: blink 1.5s ease-in-out infinite;
+      }
+
+      .marker-text {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $ember;
+        text-transform: uppercase;
+        letter-spacing: $tracking-widest;
+      }
+    }
+
+    .section-title {
+      font-family: $font-display;
+      font-size: $type-scale-4xl;
+      font-weight: $font-weight-bold;
+      color: $warm-white;
+      margin: 0 0 $space-4;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-5xl;
+      }
+    }
+
+    .section-subtitle {
+      font-family: $font-body;
+      font-size: $type-scale-lg;
+      color: $stone-gray;
+      max-width: 400px;
+      margin: 0 0 $space-8;
+    }
+  }
+
+  // === STACKED CATEGORY TILES ===
+  .category-stack {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+  }
+
+  .category-tile {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    gap: $space-4;
+    align-items: center;
+    padding: $space-4 $space-6;
+    background: rgba($warm-stone, 0.6);
+    border: 1px solid rgba($ember, 0.2);
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: rgba($ember, 0.5);
+      background: rgba($warm-stone, 0.8);
+      transform: translateX(8px);
+      box-shadow: -4px 0 20px rgba($ember, 0.15);
+    }
+
+    .tile-index {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $ember;
+      font-weight: $font-weight-bold;
+      opacity: 0.7;
+    }
+
+    .tile-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($ember, 0.1);
+      border-radius: $radius-sm;
+
+      // stylelint-disable-next-line no-descending-specificity
+      svg {
+        width: 20px;
+        height: 20px;
+        color: $ember;
+      }
+    }
+
+    .tile-content {
+      min-width: 0;
+
+      .tile-title {
+        font-family: $font-heading;
+        font-size: $type-scale-base;
+        font-weight: $font-weight-semibold;
+        color: $warm-white;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wide;
+      }
+
+      .tile-description {
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $stone-gray;
+        margin: $space-1 0 0;
+      }
+    }
+
+    .tile-indicator {
+      .status-dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: $ember;
+        border-radius: 50%;
+        animation: status-pulse 2s ease-in-out infinite;
+      }
+    }
+
+    // Alternating accent for visual variety
+    &:nth-child(2) {
+      .tile-icon {
+        background: rgba($teal-spark, 0.1);
+
+        // stylelint-disable-next-line no-descending-specificity
+        svg {
+          color: $teal-spark;
+        }
+      }
+
+      .tile-indicator .status-dot {
+        background: $teal-spark;
+      }
+
+      &:hover {
+        border-color: rgba($teal-spark, 0.5);
+        box-shadow: -4px 0 20px rgba($teal-spark, 0.15);
+      }
+    }
+  }
+
+  @keyframes status-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+  }
+
+  // === RIGHT VISUAL AREA ===
+  .products-visual {
+    display: none;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      display: block;
+    }
+  }
+
+  .visual-frame {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  // Frame corners (matching contact section)
+  // stylelint-disable no-descending-specificity
+  .frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: rgba($ember, 0.6);
+    border-style: solid;
+
+    &.top-left {
+      top: 0;
+      left: 0;
+      border-width: 2px 0 0 2px;
+    }
+
+    &.top-right {
+      top: 0;
+      right: 0;
+      border-width: 2px 2px 0 0;
+    }
+
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      border-width: 0 0 2px 2px;
+    }
+
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      border-width: 0 2px 2px 0;
+    }
+  }
+  // stylelint-enable no-descending-specificity
+
+  // Coordinate markers
+  .coordinate-marker {
+    position: absolute;
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: $stone-gray;
+    letter-spacing: $tracking-wide;
+
+    &.coord-x {
+      bottom: -$space-6;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.coord-y {
+      right: -$space-16;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  .visual-content {
+    position: absolute;
+    inset: $space-8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // === FORGE ASSEMBLY SCHEMATIC ===
+  .forge-assembly-schematic {
+    width: 100%;
+    height: 100%;
+    color: rgba($warm-white, 0.8);
+
+    // Grid breathing
+    .grid-layer {
+      animation: forge-grid-breathe 8s ease-in-out infinite;
+    }
+
+    // Flame animations
+    .flame {
+      fill: $ember;
+      filter: url("#forge-glow");
+      animation: flame-flicker 0.5s ease-in-out infinite alternate;
+
+      &.flame-1 {
+        animation-delay: 0s;
+      }
+
+      &.flame-2 {
+        animation-delay: 0.15s;
+      }
+
+      &.flame-3 {
+        animation-delay: 0.3s;
+      }
+    }
+
+    // Heat shimmer
+    .heat-shimmer {
+      stroke: rgba($ember, 0.4);
+      animation: shimmer-rise 2s ease-in-out infinite;
+
+      &.shimmer-1 {
+        animation-delay: 0s;
+      }
+
+      &.shimmer-2 {
+        animation-delay: 0.5s;
+      }
+
+      &.shimmer-3 {
+        animation-delay: 1s;
+      }
+    }
+
+    // Temperature gauge needle
+    .temp-needle {
+      transform-origin: 60px 115px;
+      animation: gauge-swing 4s ease-in-out infinite;
+    }
+
+    // Status LEDs
+    .status-led {
+      fill: transparent;
+      stroke: rgba($warm-white, 0.3);
+      stroke-width: 1;
+      animation: forge-led-blink 2s ease-in-out infinite;
+
+      &.led-heat {
+        fill: $ember;
+        stroke: $ember;
+        filter: url("#forge-glow");
+        animation: none;
+      }
+
+      &.led-ready {
+        animation-delay: 0.3s;
+      }
+
+      &.led-cycle {
+        animation-delay: 0.6s;
+      }
+    }
+
+    // Hammer mechanism
+    .hammer-arm {
+      transform-origin: 150px 165px;
+      animation: hammer-strike 2s ease-in-out infinite;
+    }
+
+    // Sparks
+    .spark {
+      fill: $copper-glow;
+      filter: url("#forge-glow");
+      opacity: 0;
+      animation: spark-burst 2s ease-out infinite;
+
+      &.spark-1 {
+        animation-delay: 1s;
+
+        --spark-x: 0px;
+        --spark-y: -15px;
+      }
+
+      &.spark-2 {
+        animation-delay: 1.05s;
+
+        --spark-x: -10px;
+        --spark-y: -20px;
+      }
+
+      &.spark-3 {
+        animation-delay: 1.1s;
+
+        --spark-x: 10px;
+        --spark-y: -18px;
+      }
+
+      &.spark-4 {
+        animation-delay: 1.15s;
+
+        --spark-x: -15px;
+        --spark-y: -12px;
+      }
+
+      &.spark-5 {
+        animation-delay: 1.2s;
+
+        --spark-x: 15px;
+        --spark-y: -10px;
+      }
+    }
+
+    // Conveyor belt items
+    .product-item {
+      animation: conveyor-move 4s linear infinite;
+
+      &.item-1 {
+        animation-delay: 0s;
+      }
+
+      &.item-2 {
+        animation-delay: 2s;
+      }
+    }
+
+    // Scanner beam
+    .scan-beam {
+      stroke: $teal-spark;
+      animation: scan-sweep 1.5s ease-in-out infinite;
+    }
+
+    .scan-indicator {
+      fill: $teal-spark;
+      filter: url("#forge-glow");
+      animation: scan-pulse 1.5s ease-in-out infinite;
+    }
+
+    // Data readout
+    .status-val {
+      fill: $ember;
+    }
+
+    .temp-val,
+    .cycle-val,
+    .yield-val {
+      animation: forge-value-flicker 4s ease-in-out infinite;
+    }
+
+    .cycle-val {
+      animation-delay: 1s;
+    }
+
+    .yield-val {
+      animation-delay: 2s;
+    }
+  }
+
+  // === FORGE ANIMATIONS ===
+
+  @keyframes forge-grid-breathe {
+    0%, 100% {
+      opacity: 0.06;
+    }
+
+    50% {
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes flame-flicker {
+    0% {
+      transform: scaleY(1) scaleX(1);
+      opacity: 0.9;
+    }
+
+    100% {
+      transform: scaleY(1.15) scaleX(0.95);
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer-rise {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 0.3;
+    }
+
+    50% {
+      transform: translateY(-5px);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes gauge-swing {
+    0%, 100% {
+      transform: rotate(-15deg);
+    }
+
+    50% {
+      transform: rotate(15deg);
+    }
+  }
+
+  @keyframes forge-led-blink {
+    0%, 100% {
+      fill: transparent;
+      stroke: rgba($warm-white, 0.3);
+    }
+
+    40%, 60% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url("#forge-glow");
+    }
+  }
+
+  @keyframes hammer-strike {
+    0%, 40%, 100% {
+      transform: rotate(0deg);
+    }
+
+    45% {
+      transform: rotate(-20deg);
+    }
+
+    50% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes spark-burst {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(var(--spark-x, 10px), var(--spark-y, -20px)) scale(0);
+    }
+  }
+
+  @keyframes conveyor-move {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateX(30px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(40px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scan-sweep {
+    0%, 100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scan-pulse {
+    0%, 100% {
+      r: 2;
+      opacity: 0.7;
+    }
+
+    50% {
+      r: 3;
+      opacity: 1;
+    }
+  }
+
+  @keyframes forge-value-flicker {
+    0%, 85%, 100% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 0.3;
+    }
+
+    95% {
+      opacity: 0.8;
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .forge-assembly-schematic * {
+      animation: none !important;
+    }
+
+    .flame {
+      opacity: 0.8 !important;
+    }
+
+    .status-led.led-heat {
+      fill: $ember !important;
+      opacity: 0.8;
+    }
+  }
+}
+
+// =============================================================================
+//ABOUT SECTION
+// =============================================================================
+
+.about-section {
+  padding: $space-24 $space-6;
+  background: #F5F5F4;  // Warmer stone-tinted white for visual separation from Principles
+
+  .section-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+  }
+
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .about-content {
+    .blueprint-label {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-3;
+      margin-bottom: $space-4;
+
+      .label-marker {
+        width: 12px;
+        height: 12px;
+        background: $blueprint-accent;
+        transform: rotate(45deg);
+      }
+
+      span:last-child {
+        font-family: $font-mono;
+        font-size: $type-scale-sm;
+        color: $blueprint-blue;
+        text-transform: uppercase;
+        letter-spacing: $tracking-widest;
+      }
+    }
+
+    .about-title {
+      font-family: $font-display;
+      font-size: $type-scale-4xl;
+      font-weight: $font-weight-bold;
+      color: $blueprint-dark;
+      margin: 0 0 $space-6;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-5xl;
+      }
+    }
+
+    .about-quote {
+      position: relative;
+      margin: 0 0 $space-6;
+      padding: $space-6;
+      padding-left: $space-10;
+      background: $warm-white;
+      border: 1px solid $blueprint-grid;
+      border-left: 4px solid $blueprint-blue;
+
+      .quote-mark {
+        position: absolute;
+        top: $space-4;
+        left: $space-3;
+        width: 24px;
+        height: 24px;
+        color: rgba($blueprint-blue, 0.3);
+
+        // stylelint-disable-next-line no-descending-specificity
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        font-family: $font-display;
+        font-size: $type-scale-lg;
+        font-style: italic;
+        color: $blueprint-dark;
+        line-height: $leading-relaxed;
+        margin: 0;
+      }
+    }
+
+    .about-description {
+      font-family: $font-body;
+      font-size: $type-scale-base;
+      color: $blueprint-light;
+      line-height: $leading-relaxed;
+      margin: 0 0 $space-8;
+    }
+
+    .about-locations {
+      margin-bottom: $space-8;
+
+      .locations-label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $blueprint-blue;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+        display: block;
+        margin-bottom: $space-3;
+      }
+
+      .locations-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-4;
+      }
+
+      .location-item {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-2;
+      }
+
+      .location-marker {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $blueprint-blue;
+        color: $warm-white;
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        font-weight: $font-weight-bold;
+
+        &::before {
+          content: attr(data-index);
+        }
+      }
+
+      .location-name {
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $blueprint-dark;
+      }
+    }
+
+    .about-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-8;
+    }
+
+    .footer-item {
+      display: flex;
+      flex-direction: column;
+      gap: $space-1;
+
+      .label {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $blueprint-light;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wider;
+      }
+
+      .value {
+        font-family: $font-heading;
+        font-size: $type-scale-base;
+        color: $blueprint-dark;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+
+  .about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: map-get($grid-breakpoints, lg) - 1px) {
+      order: -1;
+    }
+  }
+
+  .blueprint-schematic {
+    position: relative;
+    padding: $space-12;
+  }
+
+  .schematic-frame {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $blueprint-blue;
+    background: $warm-white;
+    position: relative;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 380px;
+      height: 380px;
+    }
+
+    // Corner registration marks
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 1px solid rgba($blueprint-blue, 0.3);
+    }
+
+    &::before {
+      top: 8px;
+      left: 8px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &::after {
+      bottom: 8px;
+      right: 8px;
+      border-left: none;
+      border-top: none;
+    }
+  }
+
+  .robot-arm-schematic {
+    width: 240px;
+    height: 240px;
+    color: $blueprint-blue;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 320px;
+      height: 320px;
+    }
+
+    // Grid breathing
+    .grid-layer {
+      animation: grid-breathe 8s ease-in-out infinite;
+    }
+
+    // Arc sweep animation
+    .arc-indicator {
+      stroke: $ember;
+      animation: arc-sweep 4s ease-in-out infinite;
+    }
+
+    // Ghost trail
+    .ghost-positions {
+      animation: ghost-fade 5s ease-in-out infinite;
+    }
+
+    // Joint pulses
+    .joint-center {
+      animation: joint-pulse 3s ease-in-out infinite;
+    }
+
+    .joint-j2 .joint-center {
+      animation-delay: 0.5s;
+    }
+
+    .joint-j3 .joint-center {
+      animation-delay: 1s;
+    }
+
+    // Status LEDs - ember glow
+    .status-led {
+      fill: transparent;
+      stroke: $blueprint-blue;
+      stroke-width: 1;
+      animation: led-pulse 2s ease-in-out infinite;
+
+      &.led-1 { animation-delay: 0s; }
+      &.led-2 { animation-delay: 0.4s; }
+      &.led-3 { animation-delay: 0.8s; }
+    }
+
+    // Gripper micro-motion
+    .gripper-finger-1 {
+      animation: gripper-open 4s ease-in-out infinite;
+      transform-origin: 210px 30px;
+    }
+
+    .gripper-finger-2 {
+      animation: gripper-open 4s ease-in-out infinite reverse;
+      transform-origin: 210px 44px;
+    }
+
+    // Grip point pulse
+    .grip-point {
+      stroke: $ember;
+      stroke-width: 1;
+      fill: none;
+      animation: grip-pulse 2s ease-in-out infinite;
+    }
+
+    // Data readout flicker
+    .data-readout {
+      .status-val {
+        fill: $ember;
+      }
+
+      .pos-val,
+      .cycle-val {
+        animation: value-update 3s ease-in-out infinite;
+      }
+
+      .cycle-val {
+        animation-delay: 1.5s;
+      }
+    }
+  }
+
+  // === ROBOT ARM ANIMATIONS ===
+
+  @keyframes grid-breathe {
+    0%, 100% { opacity: 0.06; }
+    50% { opacity: 0.1; }
+  }
+
+  @keyframes arc-sweep {
+    0%, 100% {
+      stroke-dasharray: 0 200;
+      opacity: 0.6;
+    }
+
+    50% {
+      stroke-dasharray: 100 200;
+      opacity: 1;
+    }
+  }
+
+  @keyframes ghost-fade {
+    0%, 100% {
+      opacity: 0.05;
+    }
+
+    50% {
+      opacity: 0.15;
+    }
+  }
+
+  @keyframes joint-pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes led-pulse {
+    0%, 100% {
+      fill: transparent;
+      stroke: $blueprint-blue;
+      filter: none;
+    }
+
+    50% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url("#ember-glow");
+    }
+  }
+
+  @keyframes gripper-open {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+
+    50% {
+      transform: rotate(2deg);
+    }
+  }
+
+  @keyframes grip-pulse {
+    0%, 100% {
+      r: 4;
+      opacity: 0.5;
+    }
+
+    50% {
+      r: 6;
+      opacity: 1;
+    }
+  }
+
+  @keyframes value-update {
+    0%, 85%, 100% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 0.3;
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .robot-arm-schematic * {
+      animation: none !important;
+    }
+
+    .status-led {
+      fill: $ember !important;
+      opacity: 0.7;
+    }
+  }
+
+  .schematic-labels {
+    .label-item {
+      position: absolute;
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $blueprint-blue;
+      letter-spacing: $tracking-wider;
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background: $blueprint-blue;
+      }
+
+      &.label-top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::before {
+          width: 1px;
+          height: $space-4;
+          left: 50%;
+          top: 100%;
+          margin-top: $space-1;
+        }
+      }
+
+      &.label-right {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &::before {
+          width: $space-2;
+          height: 1px;
+          right: 100%;
+          top: 50%;
+          margin-right: $space-1;
+        }
+      }
+
+      &.label-bottom {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::before {
+          width: 1px;
+          height: $space-4;
+          left: 50%;
+          bottom: 100%;
+          margin-bottom: $space-1;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+//CONTACT SECTION - Terminal Connection
+// =============================================================================
+
+.contact-section {
+  position: relative;
+  padding: $space-24 $space-6;
+  background: $blueprint-dark;
+  overflow: hidden;
+
+  // Blueprint grid background
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($blueprint-blue, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($blueprint-blue, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-12;
+    align-items: center;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: $space-16;
+    }
+  }
+
+  // Terminal marker
+  // stylelint-disable no-descending-specificity
+  .terminal-marker {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    margin-bottom: $space-6;
+
+    .marker-icon {
+      color: $ember;
+      font-size: $type-scale-lg;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    .marker-text {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $ember;
+      text-transform: uppercase;
+      letter-spacing: $tracking-widest;
+    }
+  }
+  // stylelint-enable no-descending-specificity
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.4; }
+  }
+
+  .contact-title {
+    font-family: $font-display;
+    font-size: $type-scale-5xl;
+    font-weight: $font-weight-bold;
+    line-height: $leading-tight;
+    color: $warm-white;
+    margin: 0 0 $space-6;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      font-size: $type-scale-6xl;
+    }
+
+    .title-line {
+      display: block;
+    }
+
+    .title-accent {
+      color: $ember;
+    }
+  }
+
+  .contact-description {
+    font-family: $font-body;
+    font-size: $type-scale-lg;
+    color: $stone-gray;
+    line-height: $leading-relaxed;
+    max-width: 480px;
+    margin-bottom: $space-8;
+  }
+
+  // CTA Button
+  .contact-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+  }
+
+  .btn-terminal {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-8;
+    background: $ember;
+    color: $warm-white;
+    font-family: $font-heading;
+    font-size: $type-scale-base;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: none;
+    transition: all $transition-base;
+    overflow: hidden;
+
+    .btn-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba($copper-glow, 0.3), transparent);
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    span:last-child {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $glow-ember;
+
+      .btn-glow {
+        opacity: 1;
+      }
+    }
+  }
+
+  .cta-subtext {
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: rgba($stone-gray, 0.7);
+  }
+
+  // Visual Element
+  .contact-visual {
+    display: none;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      display: block;
+    }
+  }
+
+  .visual-frame {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  // Corner brackets
+  // stylelint-disable no-descending-specificity
+  .frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: rgba($ember, 0.6);
+    border-style: solid;
+
+    &.top-left {
+      top: 0;
+      left: 0;
+      border-width: 2px 0 0 2px;
+    }
+
+    &.top-right {
+      top: 0;
+      right: 0;
+      border-width: 2px 2px 0 0;
+    }
+
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      border-width: 0 0 2px 2px;
+    }
+
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      border-width: 0 2px 2px 0;
+    }
+  }
+  // stylelint-enable no-descending-specificity
+
+  // Coordinate markers
+  .coordinate-marker {
+    position: absolute;
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: $stone-gray;
+    letter-spacing: $tracking-wide;
+
+    &.coord-x {
+      bottom: -$space-6;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.coord-y {
+      right: -$space-12;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  // Signal animation
+  .visual-content {
+    position: absolute;
+    inset: $space-8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // === COMMUNICATION BEACON SCHEMATIC ===
+  .comm-beacon-schematic {
+    width: 100%;
+    height: 100%;
+    color: rgba($blueprint-blue, 0.8);
+
+    // Grid breathing
+    .grid-layer {
+      animation: beacon-grid-breathe 8s ease-in-out infinite;
+    }
+
+    // Signal waves - expand outward
+    .wave {
+      stroke: rgba($ember, 0.6);
+      animation: wave-expand 3s ease-out infinite;
+      transform-origin: center;
+
+      &.wave-1 { animation-delay: 0s; }
+      &.wave-2 { animation-delay: 0.5s; }
+      &.wave-3 { animation-delay: 1s; }
+      &.wave-4 { animation-delay: 1.5s; }
+    }
+
+    // Data packets - travel outward
+    .packet {
+      fill: $ember;
+      filter: url("#beacon-glow");
+
+      &.packet-n { animation: packet-north 2.5s ease-in-out infinite; }
+      &.packet-e { animation: packet-east 2.5s ease-in-out infinite 0.3s; }
+      &.packet-s { animation: packet-south 2.5s ease-in-out infinite 0.6s; }
+      &.packet-w { animation: packet-west 2.5s ease-in-out infinite 0.9s; }
+      &.packet-ne { animation: packet-northeast 3s ease-in-out infinite 0.2s; }
+      &.packet-sw { animation: packet-southwest 3s ease-in-out infinite 0.8s; }
+    }
+
+    // Core pulse
+    .core-active {
+      stroke: $ember;
+      animation: core-ring-pulse 2s ease-in-out infinite;
+    }
+
+    .core-pulse {
+      fill: $ember;
+      filter: url("#beacon-glow");
+      animation: beacon-core-glow 1.5s ease-in-out infinite;
+    }
+
+    // Focus point
+    .focus-point {
+      fill: $ember;
+      filter: url("#beacon-glow");
+      animation: focus-pulse 2s ease-in-out infinite 0.5s;
+    }
+
+    // Status LEDs
+    .status-led {
+      fill: transparent;
+      stroke: rgba($blueprint-blue, 0.5);
+      stroke-width: 1;
+      animation: beacon-led-blink 2s ease-in-out infinite;
+
+      &.led-tx { animation-delay: 0s; }
+      &.led-rx { animation-delay: 0.25s; }
+      &.led-link { animation-delay: 0.5s; }
+      &.led-pwr { animation: beacon-led-steady 3s ease-in-out infinite; }
+    }
+
+    // Scanning beam
+    .beam-sweep {
+      transform-origin: 150px 150px;
+      animation: beam-rotate 6s linear infinite;
+    }
+
+    // Antenna oscillation
+    .antenna-secondary {
+      animation: dish-scan 4s ease-in-out infinite;
+      transform-origin: 150px 150px;
+    }
+
+    .antenna-tertiary {
+      animation: dish-scan 4s ease-in-out infinite reverse;
+      transform-origin: 150px 150px;
+    }
+
+    // Data readout
+    .link-val {
+      fill: $ember;
+    }
+
+    .freq-val, .signal-val, .uptime-val {
+      animation: beacon-value-flicker 4s ease-in-out infinite;
+    }
+
+    .signal-val { animation-delay: 1s; }
+    .uptime-val { animation-delay: 2s; }
+  }
+
+  // === BEACON ANIMATIONS ===
+
+  @keyframes beacon-grid-breathe {
+    0%, 100% {
+      opacity: 0.06;
+    }
+
+    50% {
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes wave-expand {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.8;
+      stroke-width: 2;
+    }
+
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+      stroke-width: 0.5;
+    }
+  }
+
+  @keyframes packet-north {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(0, -100px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes packet-east {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(100px, 0);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes packet-south {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(0, 80px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes packet-west {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(-100px, 0);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes packet-northeast {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(80px, -80px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes packet-southwest {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(-80px, 80px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes core-ring-pulse {
+    0%, 100% {
+      stroke-width: 2;
+      opacity: 0.8;
+    }
+
+    50% {
+      stroke-width: 3;
+      opacity: 1;
+      filter: url("#beacon-glow");
+    }
+  }
+
+  @keyframes beacon-core-glow {
+    0%, 100% {
+      r: 5;
+      opacity: 0.8;
+    }
+
+    50% {
+      r: 7;
+      opacity: 1;
+    }
+  }
+
+  @keyframes focus-pulse {
+    0%, 100% {
+      r: 4;
+      opacity: 0.7;
+    }
+
+    50% {
+      r: 6;
+      opacity: 1;
+    }
+  }
+
+  @keyframes beacon-led-blink {
+    0%, 100% {
+      fill: transparent;
+      stroke: rgba($blueprint-blue, 0.5);
+    }
+
+    40%, 60% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url("#beacon-glow");
+    }
+  }
+
+  @keyframes beacon-led-steady {
+    0%, 100% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url("#beacon-glow");
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes beam-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dish-scan {
+    0%, 100% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(5px);
+    }
+  }
+
+  @keyframes beacon-value-flicker {
+    0%, 85%, 100% { opacity: 1; }
+    90% { opacity: 0.3; }
+    95% { opacity: 0.8; }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .comm-beacon-schematic * {
+      animation: none !important;
+    }
+
+    .status-led.led-pwr {
+      fill: $ember !important;
+      opacity: 0.8;
+    }
+
+    .core-pulse {
+      opacity: 1 !important;
+    }
+  }
+}
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+.site-footer {
+  position: relative;
+  padding: $space-8 $space-6;
+  background: linear-gradient(180deg, $blueprint-dark 0%, $forge-black 100%);
+  text-align: center;
+  overflow: hidden;
+
+  // Glowing ember accent line at top
+  .footer-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $ember, transparent);
+    box-shadow: 0 0 20px rgba($ember, 0.5), 0 0 40px rgba($ember, 0.3);
+  }
+
+  // Subtle blueprint grid
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba($blueprint-blue, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($blueprint-blue, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .footer-container {
+    position: relative;
+    z-index: 1;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-4;
+  }
+
+  .footer-marker {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $ember;
+    letter-spacing: $tracking-wide;
+  }
+
+  .footer-divider {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: rgba($warm-white, 0.5);
+  }
+
+  .footer-name {
+    font-family: $font-mono;
+    font-size: $type-scale-sm;
+    color: $warm-white;
+    letter-spacing: $tracking-wide;
+  }
+}
