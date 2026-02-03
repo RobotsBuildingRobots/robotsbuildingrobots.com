@@ -930,6 +930,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       background: rgba($ember, 0.1);
       border-radius: $radius-sm;
 
+      // stylelint-disable-next-line no-descending-specificity
       svg {
         width: 20px;
         height: 20px;
@@ -974,6 +975,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       .tile-icon {
         background: rgba($teal-spark, 0.1);
 
+        // stylelint-disable-next-line no-descending-specificity
         svg {
           color: $teal-spark;
         }
@@ -1019,6 +1021,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   // Frame corners (matching contact section)
+  // stylelint-disable no-descending-specificity
   .frame-corner {
     position: absolute;
     width: 40px;
@@ -1050,6 +1053,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       border-width: 0 2px 2px 0;
     }
   }
+  // stylelint-enable no-descending-specificity
 
   // Coordinate markers
   .coordinate-marker {
@@ -1094,7 +1098,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     // Flame animations
     .flame {
       fill: $ember;
-      filter: url(#forge-glow);
+      filter: url("#forge-glow");
       animation: flame-flicker 0.5s ease-in-out infinite alternate;
 
       &.flame-1 {
@@ -1144,7 +1148,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       &.led-heat {
         fill: $ember;
         stroke: $ember;
-        filter: url(#forge-glow);
+        filter: url("#forge-glow");
         animation: none;
       }
 
@@ -1166,36 +1170,41 @@ $blueprint-accent: $ember; // Technical orange from design system
     // Sparks
     .spark {
       fill: $copper-glow;
-      filter: url(#forge-glow);
+      filter: url("#forge-glow");
       opacity: 0;
       animation: spark-burst 2s ease-out infinite;
 
       &.spark-1 {
         animation-delay: 1s;
+
         --spark-x: 0px;
         --spark-y: -15px;
       }
 
       &.spark-2 {
         animation-delay: 1.05s;
+
         --spark-x: -10px;
         --spark-y: -20px;
       }
 
       &.spark-3 {
         animation-delay: 1.1s;
+
         --spark-x: 10px;
         --spark-y: -18px;
       }
 
       &.spark-4 {
         animation-delay: 1.15s;
+
         --spark-x: -15px;
         --spark-y: -12px;
       }
 
       &.spark-5 {
         animation-delay: 1.2s;
+
         --spark-x: 15px;
         --spark-y: -10px;
       }
@@ -1222,7 +1231,7 @@ $blueprint-accent: $ember; // Technical orange from design system
 
     .scan-indicator {
       fill: $teal-spark;
-      filter: url(#forge-glow);
+      filter: url("#forge-glow");
       animation: scan-pulse 1.5s ease-in-out infinite;
     }
 
@@ -1301,7 +1310,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     40%, 60% {
       fill: $ember;
       stroke: $ember;
-      filter: url(#forge-glow);
+      filter: url("#forge-glow");
     }
   }
 
@@ -1481,6 +1490,7 @@ $blueprint-accent: $ember; // Technical orange from design system
         height: 24px;
         color: rgba($blueprint-blue, 0.3);
 
+        // stylelint-disable-next-line no-descending-specificity
         svg {
           width: 100%;
           height: 100%;
@@ -1736,6 +1746,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       stroke-dasharray: 0 200;
       opacity: 0.6;
     }
+
     50% {
       stroke-dasharray: 100 200;
       opacity: 1;
@@ -1743,13 +1754,25 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   @keyframes ghost-fade {
-    0%, 100% { opacity: 0.05; }
-    50% { opacity: 0.15; }
+    0%, 100% {
+      opacity: 0.05;
+    }
+
+    50% {
+      opacity: 0.15;
+    }
   }
 
   @keyframes joint-pulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
   }
 
   @keyframes led-pulse {
@@ -1758,26 +1781,44 @@ $blueprint-accent: $ember; // Technical orange from design system
       stroke: $blueprint-blue;
       filter: none;
     }
+
     50% {
       fill: $ember;
       stroke: $ember;
-      filter: url(#ember-glow);
+      filter: url("#ember-glow");
     }
   }
 
   @keyframes gripper-open {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(2deg); }
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+
+    50% {
+      transform: rotate(2deg);
+    }
   }
 
   @keyframes grip-pulse {
-    0%, 100% { r: 4; opacity: 0.5; }
-    50% { r: 6; opacity: 1; }
+    0%, 100% {
+      r: 4;
+      opacity: 0.5;
+    }
+
+    50% {
+      r: 6;
+      opacity: 1;
+    }
   }
 
   @keyframes value-update {
-    0%, 85%, 100% { opacity: 1; }
-    90% { opacity: 0.3; }
+    0%, 85%, 100% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 0.3;
+    }
   }
 
   // Reduced motion support
@@ -1785,6 +1826,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     .robot-arm-schematic * {
       animation: none !important;
     }
+
     .status-led {
       fill: $ember !important;
       opacity: 0.7;
@@ -1890,6 +1932,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   // Terminal marker
+  // stylelint-disable no-descending-specificity
   .terminal-marker {
     display: inline-flex;
     align-items: center;
@@ -1910,6 +1953,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       letter-spacing: $tracking-widest;
     }
   }
+  // stylelint-enable no-descending-specificity
 
   @keyframes blink {
     0%, 50%, 100% { opacity: 1; }
@@ -1985,6 +2029,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       z-index: 1;
     }
 
+    // stylelint-disable-next-line no-descending-specificity
     span:last-child {
       position: relative;
       z-index: 1;
@@ -2023,6 +2068,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   // Corner brackets
+  // stylelint-disable no-descending-specificity
   .frame-corner {
     position: absolute;
     width: 40px;
@@ -2054,6 +2100,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       border-width: 0 2px 2px 0;
     }
   }
+  // stylelint-enable no-descending-specificity
 
   // Coordinate markers
   .coordinate-marker {
@@ -2111,7 +2158,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     // Data packets - travel outward
     .packet {
       fill: $ember;
-      filter: url(#beacon-glow);
+      filter: url("#beacon-glow");
 
       &.packet-n { animation: packet-north 2.5s ease-in-out infinite; }
       &.packet-e { animation: packet-east 2.5s ease-in-out infinite 0.3s; }
@@ -2129,14 +2176,14 @@ $blueprint-accent: $ember; // Technical orange from design system
 
     .core-pulse {
       fill: $ember;
-      filter: url(#beacon-glow);
+      filter: url("#beacon-glow");
       animation: beacon-core-glow 1.5s ease-in-out infinite;
     }
 
     // Focus point
     .focus-point {
       fill: $ember;
-      filter: url(#beacon-glow);
+      filter: url("#beacon-glow");
       animation: focus-pulse 2s ease-in-out infinite 0.5s;
     }
 
@@ -2186,8 +2233,13 @@ $blueprint-accent: $ember; // Technical orange from design system
   // === BEACON ANIMATIONS ===
 
   @keyframes beacon-grid-breathe {
-    0%, 100% { opacity: 0.06; }
-    50% { opacity: 0.1; }
+    0%, 100% {
+      opacity: 0.06;
+    }
+
+    50% {
+      opacity: 0.1;
+    }
   }
 
   @keyframes wave-expand {
@@ -2196,6 +2248,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       opacity: 0.8;
       stroke-width: 2;
     }
+
     100% {
       transform: scale(1.2);
       opacity: 0;
@@ -2204,80 +2257,212 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   @keyframes packet-north {
-    0%, 100% { transform: translate(0, 0); opacity: 1; }
-    45% { transform: translate(0, -100px); opacity: 0; }
-    55% { transform: translate(0, 0); opacity: 0; }
-    65% { opacity: 1; }
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(0, -100px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
   }
 
   @keyframes packet-east {
-    0%, 100% { transform: translate(0, 0); opacity: 1; }
-    45% { transform: translate(100px, 0); opacity: 0; }
-    55% { transform: translate(0, 0); opacity: 0; }
-    65% { opacity: 1; }
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(100px, 0);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
   }
 
   @keyframes packet-south {
-    0%, 100% { transform: translate(0, 0); opacity: 1; }
-    45% { transform: translate(0, 80px); opacity: 0; }
-    55% { transform: translate(0, 0); opacity: 0; }
-    65% { opacity: 1; }
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(0, 80px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
   }
 
   @keyframes packet-west {
-    0%, 100% { transform: translate(0, 0); opacity: 1; }
-    45% { transform: translate(-100px, 0); opacity: 0; }
-    55% { transform: translate(0, 0); opacity: 0; }
-    65% { opacity: 1; }
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(-100px, 0);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
   }
 
   @keyframes packet-northeast {
-    0%, 100% { transform: translate(0, 0); opacity: 1; }
-    45% { transform: translate(80px, -80px); opacity: 0; }
-    55% { transform: translate(0, 0); opacity: 0; }
-    65% { opacity: 1; }
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(80px, -80px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
   }
 
   @keyframes packet-southwest {
-    0%, 100% { transform: translate(0, 0); opacity: 1; }
-    45% { transform: translate(-80px, 80px); opacity: 0; }
-    55% { transform: translate(0, 0); opacity: 0; }
-    65% { opacity: 1; }
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+
+    45% {
+      transform: translate(-80px, 80px);
+      opacity: 0;
+    }
+
+    55% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+
+    65% {
+      opacity: 1;
+    }
   }
 
   @keyframes core-ring-pulse {
-    0%, 100% { stroke-width: 2; opacity: 0.8; }
-    50% { stroke-width: 3; opacity: 1; filter: url(#beacon-glow); }
+    0%, 100% {
+      stroke-width: 2;
+      opacity: 0.8;
+    }
+
+    50% {
+      stroke-width: 3;
+      opacity: 1;
+      filter: url("#beacon-glow");
+    }
   }
 
   @keyframes beacon-core-glow {
-    0%, 100% { r: 5; opacity: 0.8; }
-    50% { r: 7; opacity: 1; }
+    0%, 100% {
+      r: 5;
+      opacity: 0.8;
+    }
+
+    50% {
+      r: 7;
+      opacity: 1;
+    }
   }
 
   @keyframes focus-pulse {
-    0%, 100% { r: 4; opacity: 0.7; }
-    50% { r: 6; opacity: 1; }
+    0%, 100% {
+      r: 4;
+      opacity: 0.7;
+    }
+
+    50% {
+      r: 6;
+      opacity: 1;
+    }
   }
 
   @keyframes beacon-led-blink {
-    0%, 100% { fill: transparent; stroke: rgba($blueprint-blue, 0.5); }
-    40%, 60% { fill: $ember; stroke: $ember; filter: url(#beacon-glow); }
+    0%, 100% {
+      fill: transparent;
+      stroke: rgba($blueprint-blue, 0.5);
+    }
+
+    40%, 60% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url("#beacon-glow");
+    }
   }
 
   @keyframes beacon-led-steady {
-    0%, 100% { fill: $ember; stroke: $ember; filter: url(#beacon-glow); opacity: 1; }
-    50% { opacity: 0.7; }
+    0%, 100% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url("#beacon-glow");
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
   }
 
   @keyframes beam-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes dish-scan {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(5px); }
+    0%, 100% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(5px);
+    }
   }
 
   @keyframes beacon-value-flicker {
@@ -2291,10 +2476,12 @@ $blueprint-accent: $ember; // Technical orange from design system
     .comm-beacon-schematic * {
       animation: none !important;
     }
+
     .status-led.led-pwr {
       fill: $ember !important;
       opacity: 0.8;
     }
+
     .core-pulse {
       opacity: 1 !important;
     }
