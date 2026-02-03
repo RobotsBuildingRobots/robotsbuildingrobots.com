@@ -33,6 +33,12 @@ gem 'bigdecimal'
 gem 'mutex_m'
 gem 'csv'
 
+# Ruby 4.0.0 removed these gems from the standard library
+# Required by Middleman, Rack, RuboCop, and Tilt
+gem 'cgi'
+gem 'tsort'
+gem 'rdoc'
+
 group :development do
   gem 'pry'
   gem 'pry-nav'
