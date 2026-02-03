@@ -78,7 +78,29 @@ function initFloatingNav() {
   // Update active nav dot
   function updateActiveSection() {
     const scrollPosition = window.scrollY + window.innerHeight / 3;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
 
+    // Check if we're near the bottom of the page (within 100px)
+    const nearBottom = scrollTop + windowHeight >= docHeight - 100;
+
+    // If near bottom, always highlight the last section (contact)
+    if (nearBottom) {
+      const lastSection = sections[sections.length - 1];
+      if (lastSection) {
+        const lastSectionId = lastSection.getAttribute('id');
+        navDots.forEach((dot) => {
+          dot.classList.remove('active');
+          if (dot.getAttribute('data-section') === lastSectionId) {
+            dot.classList.add('active');
+          }
+        });
+      }
+      return;
+    }
+
+    // Otherwise, use normal section detection
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
