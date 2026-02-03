@@ -803,6 +803,10 @@ $blueprint-accent: $ember; // Technical orange from design system
 // PRODUCTS SECTION - The Workshop
 // =============================================================================
 
+// =============================================================================
+// PRODUCTS SECTION - The Workshop (Two-Column with Forge Schematic)
+// =============================================================================
+
 .products-section {
   position: relative;
   padding: $space-24 $space-6;
@@ -828,225 +832,576 @@ $blueprint-accent: $ember; // Technical orange from design system
     margin: 0 auto;
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: $space-12;
-  }
-
-  // Workshop marker (like terminal marker)
-  .workshop-marker {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-2;
-    margin-bottom: $space-6;
-
-    .marker-icon {
-      color: $ember;
-      font-size: $type-scale-lg;
-      animation: blink 1.5s ease-in-out infinite;
-    }
-
-    .marker-text {
-      font-family: $font-mono;
-      font-size: $type-scale-xs;
-      color: $ember;
-      text-transform: uppercase;
-      letter-spacing: $tracking-widest;
-    }
-  }
-
-  .section-title {
-    font-family: $font-display;
-    font-size: $type-scale-4xl;
-    font-weight: $font-weight-bold;
-    color: $warm-white;
-    margin: 0 0 $space-4;
-
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      font-size: $type-scale-5xl;
-    }
-  }
-
-  .section-subtitle {
-    font-family: $font-body;
-    font-size: $type-scale-lg;
-    color: $stone-gray;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  // Category cards grid
-  .category-grid {
+  // === TWO-COLUMN WRAPPER ===
+  .products-wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $space-6;
-    margin-bottom: $space-12;
+    gap: $space-12;
+    align-items: center;
 
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      grid-template-columns: repeat(3, 1fr);
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      grid-template-columns: 1fr 1fr;
+      gap: $space-16;
     }
   }
 
-  .category-card {
-    background: rgba($warm-stone, 0.5);
+  // === LEFT CONTENT AREA ===
+  .products-content {
+    .workshop-marker {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-2;
+      margin-bottom: $space-6;
+
+      .marker-icon {
+        color: $ember;
+        font-size: $type-scale-lg;
+        animation: blink 1.5s ease-in-out infinite;
+      }
+
+      .marker-text {
+        font-family: $font-mono;
+        font-size: $type-scale-xs;
+        color: $ember;
+        text-transform: uppercase;
+        letter-spacing: $tracking-widest;
+      }
+    }
+
+    .section-title {
+      font-family: $font-display;
+      font-size: $type-scale-4xl;
+      font-weight: $font-weight-bold;
+      color: $warm-white;
+      margin: 0 0 $space-4;
+
+      @media (min-width: map-get($grid-breakpoints, md)) {
+        font-size: $type-scale-5xl;
+      }
+    }
+
+    .section-subtitle {
+      font-family: $font-body;
+      font-size: $type-scale-lg;
+      color: $stone-gray;
+      max-width: 400px;
+      margin: 0 0 $space-8;
+    }
+  }
+
+  // === STACKED CATEGORY TILES ===
+  .category-stack {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+  }
+
+  .category-tile {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    gap: $space-4;
+    align-items: center;
+    padding: $space-4 $space-6;
+    background: rgba($warm-stone, 0.6);
     border: 1px solid rgba($ember, 0.2);
-    padding: $space-8;
-    text-align: center;
     transition: all $transition-base;
 
     &:hover {
       border-color: rgba($ember, 0.5);
-      transform: translateY(-4px);
-      box-shadow: 0 0 30px rgba($ember, 0.15);
+      background: rgba($warm-stone, 0.8);
+      transform: translateX(8px);
+      box-shadow: -4px 0 20px rgba($ember, 0.15);
+    }
+
+    .tile-index {
+      font-family: $font-mono;
+      font-size: $type-scale-xs;
+      color: $ember;
+      font-weight: $font-weight-bold;
+      opacity: 0.7;
+    }
+
+    .tile-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba($ember, 0.1);
+      border-radius: $radius-sm;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        color: $ember;
+      }
+    }
+
+    .tile-content {
+      min-width: 0;
+
+      .tile-title {
+        font-family: $font-heading;
+        font-size: $type-scale-base;
+        font-weight: $font-weight-semibold;
+        color: $warm-white;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: $tracking-wide;
+      }
+
+      .tile-description {
+        font-family: $font-body;
+        font-size: $type-scale-sm;
+        color: $stone-gray;
+        margin: $space-1 0 0;
+      }
+    }
+
+    .tile-indicator {
+      .status-dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: $ember;
+        border-radius: 50%;
+        animation: status-pulse 2s ease-in-out infinite;
+      }
+    }
+
+    // Alternating accent for visual variety
+    &:nth-child(2) {
+      .tile-icon {
+        background: rgba($teal-spark, 0.1);
+
+        svg {
+          color: $teal-spark;
+        }
+      }
+
+      .tile-indicator .status-dot {
+        background: $teal-spark;
+      }
+
+      &:hover {
+        border-color: rgba($teal-spark, 0.5);
+        box-shadow: -4px 0 20px rgba($teal-spark, 0.15);
+      }
     }
   }
 
-  .card-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto $space-4;
+  @keyframes status-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+  }
+
+  // === RIGHT VISUAL AREA ===
+  .products-visual {
+    display: none;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      display: block;
+    }
+  }
+
+  .visual-frame {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  // Frame corners (matching contact section)
+  .frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: rgba($ember, 0.6);
+    border-style: solid;
+
+    &.top-left {
+      top: 0;
+      left: 0;
+      border-width: 2px 0 0 2px;
+    }
+
+    &.top-right {
+      top: 0;
+      right: 0;
+      border-width: 2px 2px 0 0;
+    }
+
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      border-width: 0 0 2px 2px;
+    }
+
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      border-width: 0 2px 2px 0;
+    }
+  }
+
+  // Coordinate markers
+  .coordinate-marker {
+    position: absolute;
+    font-family: $font-mono;
+    font-size: $type-scale-xs;
+    color: $stone-gray;
+    letter-spacing: $tracking-wide;
+
+    &.coord-x {
+      bottom: -$space-6;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.coord-y {
+      right: -$space-16;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  .visual-content {
+    position: absolute;
+    inset: $space-8;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba($ember, 0.1);
-    border-radius: 50%;
+  }
 
-    svg {
-      width: 30px;
-      height: 30px;
-      color: $ember;
+  // === FORGE ASSEMBLY SCHEMATIC ===
+  .forge-assembly-schematic {
+    width: 100%;
+    height: 100%;
+    color: rgba($warm-white, 0.8);
+
+    // Grid breathing
+    .grid-layer {
+      animation: forge-grid-breathe 8s ease-in-out infinite;
+    }
+
+    // Flame animations
+    .flame {
+      fill: $ember;
+      filter: url(#forge-glow);
+      animation: flame-flicker 0.5s ease-in-out infinite alternate;
+
+      &.flame-1 {
+        animation-delay: 0s;
+      }
+
+      &.flame-2 {
+        animation-delay: 0.15s;
+      }
+
+      &.flame-3 {
+        animation-delay: 0.3s;
+      }
+    }
+
+    // Heat shimmer
+    .heat-shimmer {
+      stroke: rgba($ember, 0.4);
+      animation: shimmer-rise 2s ease-in-out infinite;
+
+      &.shimmer-1 {
+        animation-delay: 0s;
+      }
+
+      &.shimmer-2 {
+        animation-delay: 0.5s;
+      }
+
+      &.shimmer-3 {
+        animation-delay: 1s;
+      }
+    }
+
+    // Temperature gauge needle
+    .temp-needle {
+      transform-origin: 60px 115px;
+      animation: gauge-swing 4s ease-in-out infinite;
+    }
+
+    // Status LEDs
+    .status-led {
+      fill: transparent;
+      stroke: rgba($warm-white, 0.3);
+      stroke-width: 1;
+      animation: forge-led-blink 2s ease-in-out infinite;
+
+      &.led-heat {
+        fill: $ember;
+        stroke: $ember;
+        filter: url(#forge-glow);
+        animation: none;
+      }
+
+      &.led-ready {
+        animation-delay: 0.3s;
+      }
+
+      &.led-cycle {
+        animation-delay: 0.6s;
+      }
+    }
+
+    // Hammer mechanism
+    .hammer-arm {
+      transform-origin: 150px 165px;
+      animation: hammer-strike 2s ease-in-out infinite;
+    }
+
+    // Sparks
+    .spark {
+      fill: $copper-glow;
+      filter: url(#forge-glow);
+      opacity: 0;
+      animation: spark-burst 2s ease-out infinite;
+
+      &.spark-1 {
+        animation-delay: 1s;
+        --spark-x: 0px;
+        --spark-y: -15px;
+      }
+
+      &.spark-2 {
+        animation-delay: 1.05s;
+        --spark-x: -10px;
+        --spark-y: -20px;
+      }
+
+      &.spark-3 {
+        animation-delay: 1.1s;
+        --spark-x: 10px;
+        --spark-y: -18px;
+      }
+
+      &.spark-4 {
+        animation-delay: 1.15s;
+        --spark-x: -15px;
+        --spark-y: -12px;
+      }
+
+      &.spark-5 {
+        animation-delay: 1.2s;
+        --spark-x: 15px;
+        --spark-y: -10px;
+      }
+    }
+
+    // Conveyor belt items
+    .product-item {
+      animation: conveyor-move 4s linear infinite;
+
+      &.item-1 {
+        animation-delay: 0s;
+      }
+
+      &.item-2 {
+        animation-delay: 2s;
+      }
+    }
+
+    // Scanner beam
+    .scan-beam {
+      stroke: $teal-spark;
+      animation: scan-sweep 1.5s ease-in-out infinite;
+    }
+
+    .scan-indicator {
+      fill: $teal-spark;
+      filter: url(#forge-glow);
+      animation: scan-pulse 1.5s ease-in-out infinite;
+    }
+
+    // Data readout
+    .status-val {
+      fill: $ember;
+    }
+
+    .temp-val,
+    .cycle-val,
+    .yield-val {
+      animation: forge-value-flicker 4s ease-in-out infinite;
+    }
+
+    .cycle-val {
+      animation-delay: 1s;
+    }
+
+    .yield-val {
+      animation-delay: 2s;
     }
   }
 
-  .card-title {
-    font-family: $font-heading;
-    font-size: $type-scale-lg;
-    font-weight: $font-weight-semibold;
-    color: $warm-white;
-    margin: 0 0 $space-2;
-    text-transform: uppercase;
-  }
+  // === FORGE ANIMATIONS ===
 
-  .card-description {
-    font-family: $font-body;
-    font-size: $type-scale-sm;
-    color: $stone-gray;
-    margin: 0;
-  }
-
-  // Gear mechanism animation
-  .forge-visual {
-    display: flex;
-    justify-content: center;
-    margin-bottom: $space-8;
-  }
-
-  .gear-mechanism {
-    position: relative;
-    width: 160px;
-    height: 120px;
-  }
-
-  .gear {
-    position: absolute;
-    border-radius: 50%;
-    background: linear-gradient(135deg, $ash, $charred);
-    border: 2px solid rgba($ember, 0.3);
-
-    // Notched edge effect (cog silhouette)
-    &::before {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      background: repeating-conic-gradient(
-        from 0deg,
-        rgba($ember, 0.25) 0deg 12deg,
-        transparent 12deg 24deg
-      );
-      mask: radial-gradient(circle, transparent 55%, black 56%);
-      -webkit-mask: radial-gradient(circle, transparent 55%, black 56%);
+  @keyframes forge-grid-breathe {
+    0%, 100% {
+      opacity: 0.06;
     }
 
-    .gear-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: radial-gradient(circle, $copper-glow, $charred);
-      border: 2px solid rgba($ember, 0.5);
-      z-index: 1;
+    50% {
+      opacity: 0.1;
     }
   }
 
-  // Large gear - center
-  .gear-large {
-    width: 70px;
-    height: 70px;
-    top: 25px;
-    left: 10px;
-    animation: rotate-clockwise 8s linear infinite;
+  @keyframes flame-flicker {
+    0% {
+      transform: scaleY(1) scaleX(1);
+      opacity: 0.9;
+    }
 
-    .gear-center {
-      width: 24px;
-      height: 24px;
+    100% {
+      transform: scaleY(1.15) scaleX(0.95);
+      opacity: 1;
     }
   }
 
-  // Medium gear - top right
-  .gear-medium {
-    width: 50px;
-    height: 50px;
-    top: 0;
-    right: 15px;
-    animation: rotate-counter 5s linear infinite;
+  @keyframes shimmer-rise {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 0.3;
+    }
 
-    .gear-center {
-      width: 16px;
-      height: 16px;
+    50% {
+      transform: translateY(-5px);
+      opacity: 0.6;
     }
   }
 
-  // Small gear - bottom right
-  .gear-small {
-    width: 40px;
-    height: 40px;
-    bottom: 10px;
-    right: 25px;
-    animation: rotate-clockwise 3s linear infinite;
+  @keyframes gauge-swing {
+    0%, 100% {
+      transform: rotate(-15deg);
+    }
 
-    .gear-center {
-      width: 12px;
-      height: 12px;
+    50% {
+      transform: rotate(15deg);
     }
   }
 
-  // Glow effect at mesh points
-  .gear-glow {
-    position: absolute;
-    top: 35px;
-    right: 45px;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle, rgba($ember, 0.4), transparent);
-    filter: blur(8px);
-    animation: gear-glow-pulse 2s ease-in-out infinite;
+  @keyframes forge-led-blink {
+    0%, 100% {
+      fill: transparent;
+      stroke: rgba($warm-white, 0.3);
+    }
+
+    40%, 60% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url(#forge-glow);
+    }
   }
 
-  @keyframes rotate-clockwise {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @keyframes hammer-strike {
+    0%, 40%, 100% {
+      transform: rotate(0deg);
+    }
+
+    45% {
+      transform: rotate(-20deg);
+    }
+
+    50% {
+      transform: rotate(0deg);
+    }
   }
 
-  @keyframes rotate-counter {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
+  @keyframes spark-burst {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(var(--spark-x, 10px), var(--spark-y, -20px)) scale(0);
+    }
   }
 
-  @keyframes gear-glow-pulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
+  @keyframes conveyor-move {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateX(30px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(40px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scan-sweep {
+    0%, 100% {
+      opacity: 0.5;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scan-pulse {
+    0%, 100% {
+      r: 2;
+      opacity: 0.7;
+    }
+
+    50% {
+      r: 3;
+      opacity: 1;
+    }
+  }
+
+  @keyframes forge-value-flicker {
+    0%, 85%, 100% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 0.3;
+    }
+
+    95% {
+      opacity: 0.8;
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .forge-assembly-schematic * {
+      animation: none !important;
+    }
+
+    .flame {
+      opacity: 0.8 !important;
+    }
+
+    .status-led.led-heat {
+      fill: $ember !important;
+      opacity: 0.8;
+    }
   }
 }
 
