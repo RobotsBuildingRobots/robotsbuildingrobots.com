@@ -15,6 +15,7 @@ This changelog documents the evolution of a personal branding website from a sim
 - **v2.x (2020)**: Multi-page application with Webpack integration, Bootstrap framework
 - **v3.x (2021-2025)**: Complete redesign with custom design system, single-page focus, modern tooling
 - **v4.x (2025)**: Infrastructure modernization, environment-based configuration, dependency stabilization
+- **v5.x (2026)**: Complete visual redesign with blueprint/schematic aesthetic, animated SVG schematics
 
 ### Key Architectural Patterns
 
@@ -29,6 +30,55 @@ This changelog documents the evolution of a personal branding website from a sim
 ## [Unreleased]
 
 No unreleased changes at this time.
+
+---
+
+## [5.0.0] - 2026-02-02 - RELEASED
+
+### MAJOR RELEASE - Complete Visual Redesign with Blueprint Aesthetic
+
+This version represents a complete visual redesign with a cohesive technical blueprint/schematic aesthetic across all sections.
+
+### Added
+- **Blueprint Design System**:
+  - Technical schematic visual language across all sections
+  - Animated SVG schematics with industrial/robotic theme
+  - Blueprint grid overlays and coordinate markers
+  - Frame corners and technical labels
+- **New Section Schematics**:
+  - About section: Robot arm schematic with animated joints and motion arcs
+  - Products/Workshop section: Forge assembly with furnace, anvil, hammer, and conveyor
+  - Contact section: Communication beacon with signal waves and data packets
+- **Enhanced Animations**:
+  - Flame flicker effects in forge schematic
+  - Hammer strike and spark burst animations
+  - Signal wave expansion for communication beacon
+  - Temperature gauge swing and LED status indicators
+  - Conveyor belt movement and QC scanner beam
+- **Stacked Category Tiles**: Workshop section redesigned with vertical tile stack
+
+### Changed
+- **Section Layouts**: All content sections now use consistent two-column layout (content + schematic)
+- **Visual Consistency**: Unified technical/industrial aesthetic replacing previous design
+- **Navigation Logic**: Fixed Connect nav dot highlighting when scrolling to bottom of page
+
+### Fixed
+- **Nav Highlighting Bug**: Connect section nav dot now properly highlights when user scrolls to page bottom
+
+### Developer Notes
+
+**Architecture Decision - Blueprint Aesthetic**: The move to a technical blueprint/schematic visual language creates unique brand identity distinct from typical portfolio sites. SVG-based animations provide smooth performance and consistent visual vocabulary across all sections reinforces brand.
+
+**Design Philosophy**:
+1. **Robot Arm (About)**: Represents the engineering/technical foundation
+2. **Forge Assembly (Workshop)**: Industrial metaphor for building products
+3. **Communication Beacon (Contact)**: Signal transmission for connection/outreach
+
+**Animation Strategy**: Each schematic uses CSS keyframe animations with careful timing. Products section includes 11 coordinated animations: `flame-flicker`, `shimmer-rise`, `gauge-swing`, `led-heat-blink`, `led-ready-blink`, `led-cycle-blink`, `hammer-strike`, `spark-burst`, `conveyor-move`, `scan-sweep`, `scan-indicator-blink`.
+
+**Navigation Fix**: The scroll highlighting issue was fixed by adding a "near bottom" check that prioritizes the last section (contact) when within 100px of the page bottom.
+
+**Reference**: Feature branch `feature/version_five_o`
 
 ---
 
@@ -688,6 +738,7 @@ The first tagged release of the personal branding website.
 
 | Version | Date | Type | Key Changes | LOC Impact |
 |---------|------|------|-------------|------------|
+| 5.0.0 | 2026-02-02 | Major | Complete visual redesign, blueprint aesthetic, animated SVG schematics | New design system |
 | 4.0.0 | 2025-12-01 | Major | Infrastructure modernization, dependency restoration, environment config | +6 packages, 100% linter compliance |
 | 3.5.1 | 2025-02-01 | Patch | Contact email update | Minimal |
 | 3.5.0 | 2024-11-28 | Minor | Feature parity, asset cleanup | +1,278 / -1,963 |
@@ -787,11 +838,11 @@ This project had two major redesigns (v2.0.0, v3.0.0):
 
 This project is proprietary software. All Rights Reserved.
 
-Copyright (c) 2017-2025 RobotsBuildingRobots, LLC
+Copyright (c) 2017-2026 RobotsBuildingRobots, LLC
 
 See the LICENSE file for details.
 
 ---
 
-**Generated**: 2025-12-01 using git tag analysis and commit history
+**Generated**: 2026-02-02 using git tag analysis and commit history
 **Maintainer**: RobotsBuildingRobots, LLC
