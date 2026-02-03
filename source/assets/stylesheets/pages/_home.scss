@@ -1243,42 +1243,197 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   .schematic-frame {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid $blueprint-blue;
     background: $warm-white;
+    position: relative;
 
     @media (min-width: map-get($grid-breakpoints, md)) {
-      width: 280px;
-      height: 280px;
+      width: 380px;
+      height: 380px;
     }
 
-    .geometric-visual {
-      width: 120px;
-      height: 120px;
-      color: $ember;
+    // Corner registration marks
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 1px solid rgba($blueprint-blue, 0.3);
+    }
 
-      @media (min-width: map-get($grid-breakpoints, md)) {
-        width: 180px;
-        height: 180px;
+    &::before {
+      top: 8px;
+      left: 8px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &::after {
+      bottom: 8px;
+      right: 8px;
+      border-left: none;
+      border-top: none;
+    }
+  }
+
+  .robot-arm-schematic {
+    width: 240px;
+    height: 240px;
+    color: $blueprint-blue;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      width: 320px;
+      height: 320px;
+    }
+
+    // Grid breathing
+    .grid-layer {
+      animation: grid-breathe 8s ease-in-out infinite;
+    }
+
+    // Arc sweep animation
+    .arc-indicator {
+      stroke: $ember;
+      animation: arc-sweep 4s ease-in-out infinite;
+    }
+
+    // Ghost trail
+    .ghost-positions {
+      animation: ghost-fade 5s ease-in-out infinite;
+    }
+
+    // Joint pulses
+    .joint-center {
+      animation: joint-pulse 3s ease-in-out infinite;
+    }
+
+    .joint-j2 .joint-center {
+      animation-delay: 0.5s;
+    }
+
+    .joint-j3 .joint-center {
+      animation-delay: 1s;
+    }
+
+    // Status LEDs - ember glow
+    .status-led {
+      fill: transparent;
+      stroke: $blueprint-blue;
+      stroke-width: 1;
+      animation: led-pulse 2s ease-in-out infinite;
+
+      &.led-1 { animation-delay: 0s; }
+      &.led-2 { animation-delay: 0.4s; }
+      &.led-3 { animation-delay: 0.8s; }
+    }
+
+    // Gripper micro-motion
+    .gripper-finger-1 {
+      animation: gripper-open 4s ease-in-out infinite;
+      transform-origin: 210px 30px;
+    }
+
+    .gripper-finger-2 {
+      animation: gripper-open 4s ease-in-out infinite reverse;
+      transform-origin: 210px 44px;
+    }
+
+    // Grip point pulse
+    .grip-point {
+      stroke: $ember;
+      stroke-width: 1;
+      fill: none;
+      animation: grip-pulse 2s ease-in-out infinite;
+    }
+
+    // Data readout flicker
+    .data-readout {
+      .status-val {
+        fill: $ember;
       }
 
-      .node-center {
-        animation: node-pulse 3s ease-in-out infinite;
+      .pos-val,
+      .cycle-val {
+        animation: value-update 3s ease-in-out infinite;
       }
 
-      .node-point {
-        opacity: 0.6;
+      .cycle-val {
+        animation-delay: 1.5s;
       }
     }
   }
 
-  @keyframes node-pulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
+  // === ROBOT ARM ANIMATIONS ===
+
+  @keyframes grid-breathe {
+    0%, 100% { opacity: 0.06; }
+    50% { opacity: 0.1; }
+  }
+
+  @keyframes arc-sweep {
+    0%, 100% {
+      stroke-dasharray: 0 200;
+      opacity: 0.6;
+    }
+    50% {
+      stroke-dasharray: 100 200;
+      opacity: 1;
+    }
+  }
+
+  @keyframes ghost-fade {
+    0%, 100% { opacity: 0.05; }
+    50% { opacity: 0.15; }
+  }
+
+  @keyframes joint-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  @keyframes led-pulse {
+    0%, 100% {
+      fill: transparent;
+      stroke: $blueprint-blue;
+      filter: none;
+    }
+    50% {
+      fill: $ember;
+      stroke: $ember;
+      filter: url(#ember-glow);
+    }
+  }
+
+  @keyframes gripper-open {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  @keyframes grip-pulse {
+    0%, 100% { r: 4; opacity: 0.5; }
+    50% { r: 6; opacity: 1; }
+  }
+
+  @keyframes value-update {
+    0%, 85%, 100% { opacity: 1; }
+    90% { opacity: 0.3; }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .robot-arm-schematic * {
+      animation: none !important;
+    }
+    .status-led {
+      fill: $ember !important;
+      opacity: 0.7;
+    }
   }
 
   .schematic-labels {

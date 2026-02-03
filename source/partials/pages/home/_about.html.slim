@@ -36,20 +36,128 @@ section#about.about-section
       .about-visual.scroll-animate.delay-2
         .blueprint-schematic
           .schematic-frame
-            / Abstract geometric network diagram
-            svg.geometric-visual[viewBox="0 0 200 200" fill="none"]
-              / Connection lines
-              line[x1="50" y1="100" x2="150" y2="100" stroke="currentColor" stroke-width="1" opacity="0.3"]
-              line[x1="100" y1="50" x2="100" y2="150" stroke="currentColor" stroke-width="1" opacity="0.3"]
-              line[x1="50" y1="100" x2="100" y2="50" stroke="currentColor" stroke-width="1" opacity="0.3"]
-              line[x1="150" y1="100" x2="100" y2="150" stroke="currentColor" stroke-width="1" opacity="0.3"]
-              / Nodes
-              circle[cx="100" cy="100" r="20" stroke="currentColor" stroke-width="2" fill="none"]
-              circle.node-center[cx="100" cy="100" r="8" fill="currentColor"]
-              circle.node-point[cx="50" cy="100" r="6" fill="currentColor"]
-              circle.node-point[cx="150" cy="100" r="6" fill="currentColor"]
-              circle.node-point[cx="100" cy="50" r="6" fill="currentColor"]
-              circle.node-point[cx="100" cy="150" r="6" fill="currentColor"]
+            svg.robot-arm-schematic[viewBox="0 0 300 300" fill="none"]
+              defs
+                linearGradient#arm-gradient[x1="0%" y1="0%" x2="100%" y2="0%"]
+                  stop[offset="0%" stop-color="currentColor" stop-opacity="0.2"]
+                  stop[offset="50%" stop-color="currentColor" stop-opacity="0.4"]
+                  stop[offset="100%" stop-color="currentColor" stop-opacity="0.2"]
+                filter#ember-glow[x="-50%" y="-50%" width="200%" height="200%"]
+                  feGaussianBlur[stdDeviation="3" result="blur"]
+                  feMerge
+                    feMergeNode[in="blur"]
+                    feMergeNode[in="SourceGraphic"]
+
+              / Background grid
+              g.grid-layer[opacity="0.06"]
+                - (1..5).each do |i|
+                  line[x1="#{i * 50}" y1="0" x2="#{i * 50}" y2="300" stroke="currentColor" stroke-width="0.5"]
+                  line[x1="0" y1="#{i * 50}" x2="300" y2="#{i * 50}" stroke="currentColor" stroke-width="0.5"]
+
+              / Motion arc indicator (animated ember sweep)
+              g.motion-arcs
+                path.arc-range[d="M 100 245 A 50 50 0 0 1 200 245" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 2" fill="none" opacity="0.2"]
+                path.arc-indicator[d="M 110 245 A 40 40 0 0 1 190 245" stroke-width="2" fill="none"]
+
+              / Ghost positions (motion trail)
+              g.ghost-positions[opacity="0.08"]
+                line[x1="150" y1="200" x2="120" y2="130" stroke="currentColor" stroke-width="2"]
+                line[x1="120" y1="130" x2="170" y2="75" stroke="currentColor" stroke-width="2"]
+
+              / === MAIN ROBOT ARM ===
+              g.robot-arm-main
+
+                / Base mount plate
+                g.arm-base
+                  rect[x="110" y="260" width="80" height="15" stroke="currentColor" stroke-width="1.5" fill="none" rx="2"]
+                  circle[cx="125" cy="267" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+                  circle[cx="175" cy="267" r="3" stroke="currentColor" stroke-width="0.75" fill="none"]
+                  / Base column
+                  rect[x="130" y="220" width="40" height="40" stroke="currentColor" stroke-width="2" fill="url(#arm-gradient)" rx="4"]
+                  / Servo housing
+                  rect[x="125" y="205" width="50" height="20" stroke="currentColor" stroke-width="1.5" fill="none" rx="3"]
+
+                / Joint 1 - Base rotation
+                g.joint-j1
+                  circle.joint-outer[cx="150" cy="195" r="16" stroke="currentColor" stroke-width="2" fill="none"]
+                  circle.joint-inner[cx="150" cy="195" r="10" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"]
+                  circle.joint-center[cx="150" cy="195" r="4" fill="currentColor"]
+                  circle.status-led.led-1[cx="165" cy="182" r="3"]
+
+                / Lower arm segment
+                g.arm-lower
+                  path[d="M 142 188 L 92 125 L 88 118 L 95 112 L 158 182 Z" stroke="currentColor" stroke-width="1.5" fill="url(#arm-gradient)"]
+                  line[x1="145" y1="185" x2="95" y2="122" stroke="currentColor" stroke-width="0.5" opacity="0.3"]
+
+                / Joint 2 - Shoulder
+                g.joint-j2
+                  rect[x="72" y="100" width="30" height="22" stroke="currentColor" stroke-width="1.5" fill="none" rx="3" transform="rotate(-40, 87, 111)"]
+                  circle.joint-outer[cx="90" cy="118" r="14" stroke="currentColor" stroke-width="2" fill="none"]
+                  circle.joint-inner[cx="90" cy="118" r="8" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"]
+                  circle.joint-center[cx="90" cy="118" r="4" fill="currentColor"]
+                  circle.status-led.led-2[cx="75" cy="105" r="3"]
+
+                / Upper arm segment
+                g.arm-upper
+                  path[d="M 95 110 L 162 58 L 170 62 L 168 72 L 102 118 Z" stroke="currentColor" stroke-width="1.5" fill="url(#arm-gradient)"]
+                  line[x1="98" y1="114" x2="165" y2="62" stroke="currentColor" stroke-width="0.5" opacity="0.3"]
+
+                / Joint 3 - Elbow
+                g.joint-j3
+                  circle.joint-outer[cx="168" cy="55" r="12" stroke="currentColor" stroke-width="2" fill="none"]
+                  circle.joint-inner[cx="168" cy="55" r="6" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"]
+                  circle.joint-center[cx="168" cy="55" r="3" fill="currentColor"]
+                  circle.status-led.led-3[cx="180" cy="45" r="3"]
+
+                / Wrist
+                g.wrist
+                  rect[x="175" y="42" width="22" height="14" stroke="currentColor" stroke-width="1.5" fill="none" rx="2" transform="rotate(20, 186, 49)"]
+                  circle.joint-j4[cx="192" cy="42" r="7" stroke="currentColor" stroke-width="1" fill="none"]
+                  circle[cx="192" cy="42" r="2.5" fill="currentColor"]
+
+                / End effector - Gripper
+                g.end-effector
+                  rect.gripper-mount[x="198" y="32" width="14" height="10" stroke="currentColor" stroke-width="1" fill="none" rx="1" transform="rotate(10, 205, 37)"]
+                  / Gripper finger 1
+                  g.gripper-finger-1
+                    path[d="M 210 30 L 235 18 L 240 24 L 218 34 Z" stroke="currentColor" stroke-width="1" fill="none"]
+                    line[x1="235" y1="18" x2="250" y2="28" stroke="currentColor" stroke-width="1.5"]
+                  / Gripper finger 2
+                  g.gripper-finger-2
+                    path[d="M 210 44 L 238 48 L 240 56 L 214 50 Z" stroke="currentColor" stroke-width="1" fill="none"]
+                    line[x1="238" y1="48" x2="252" y2="50" stroke="currentColor" stroke-width="1.5"]
+                  / Grip target
+                  circle.grip-point[cx="245" cy="38" r="4" stroke-dasharray="2 2"]
+
+              / Dimension lines
+              g.dimensions[opacity="0.3"]
+                line[x1="50" y1="40" x2="50" y2="260" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 2"]
+                line[x1="45" y1="40" x2="55" y2="40" stroke="currentColor" stroke-width="0.75"]
+                line[x1="45" y1="260" x2="55" y2="260" stroke="currentColor" stroke-width="0.75"]
+                line[x1="110" y1="285" x2="250" y2="285" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 2"]
+                line[x1="110" y1="280" x2="110" y2="290" stroke="currentColor" stroke-width="0.75"]
+                line[x1="250" y1="280" x2="250" y2="290" stroke="currentColor" stroke-width="0.75"]
+
+              / Technical labels
+              g.tech-labels[font-size="8" fill="currentColor" opacity="0.5"]
+                text[x="160" y="200"] J1
+                text[x="72" y="135"] J2
+                text[x="178" y="68"] J3
+                text[x="200" y="38"] J4
+
+              / Data readout
+              g.data-readout[opacity="0.4"]
+                rect[x="8" y="8" width="70" height="50" stroke="currentColor" stroke-width="0.5" fill="none"]
+                g[font-size="7" fill="currentColor"]
+                  text[x="12" y="20"] STATUS:
+                  text.status-val[x="48" y="20"] READY
+                  text[x="12" y="32"] POS:
+                  text.pos-val[x="32" y="32"] +045.2
+                  text[x="12" y="44"] CYCLE:
+                  text.cycle-val[x="40" y="44"] 1,247
+                text[x="235" y="18" font-size="6" opacity="0.3"] RBR-01
+                text[x="235" y="26" font-size="5" opacity="0.3"] REV.5
+
           .schematic-labels
             .label-item.label-top Founded 2016
             .label-item.label-bottom Remote-First
