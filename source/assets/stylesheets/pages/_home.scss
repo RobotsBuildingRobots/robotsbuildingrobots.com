@@ -970,7 +970,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       color: $warm-white;
       margin: 0 0 $space-4;
 
-      @media (min-width: map-get($grid-breakpoints, md)) {
+      @media (min-width: map-get($grid-breakpoints, lg)) {
         font-size: $type-scale-5xl;
       }
     }
@@ -1111,8 +1111,12 @@ $blueprint-accent: $ember; // Technical orange from design system
   .visual-frame {
     position: relative;
     aspect-ratio: 1;
-    max-width: 380px;
+    max-width: 280px;
     margin: 0 auto;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      max-width: 380px;
+    }
   }
 
   // Frame corners (matching contact section)
@@ -2111,8 +2115,12 @@ $blueprint-accent: $ember; // Technical orange from design system
   .visual-frame {
     position: relative;
     aspect-ratio: 1;
-    max-width: 350px;
+    max-width: 260px;
     margin: 0 auto;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      max-width: 350px;
+    }
   }
 
   // Corner brackets
