@@ -934,7 +934,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     gap: $space-12;
     align-items: center;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       grid-template-columns: 1fr 1fr;
       gap: $space-16;
     }
@@ -1103,7 +1103,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   .products-visual {
     display: none;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       display: block;
     }
   }
@@ -2020,7 +2020,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     gap: $space-12;
     align-items: center;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       grid-template-columns: 1.2fr 1fr;
       gap: $space-16;
     }
@@ -2103,7 +2103,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   .contact-visual {
     display: none;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       display: block;
     }
   }
