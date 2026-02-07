@@ -33,6 +33,24 @@ No unreleased changes at this time.
 
 ---
 
+## [5.1.1] - 2026-02-06
+
+### Fixed
+
+- **Brand Badge Alignment**: Fixed `.blueprint-badge` centering on mobile viewports
+  - Changed from `inline-flex` to `flex` with `justify-content: center`
+  - Badge now centers horizontally on small screens via `width: fit-content` with auto margins
+  - Left-aligns at `sm` breakpoint and above for desktop layout consistency
+
+### Developer Notes
+
+**Files Modified:**
+- `source/assets/stylesheets/pages/_home.scss` - Blueprint badge responsive alignment
+
+**Reference**: Feature branch `feature/version_five_1_1`
+
+---
+
 ## [5.1.0] - 2026-02-05
 
 ### Changed
@@ -795,6 +813,7 @@ The first tagged release of the personal branding website.
 
 | Version | Date | Type | Key Changes | LOC Impact |
 |---------|------|------|-------------|------------|
+| 5.1.1 | 2026-02-06 | Patch | Fix brand badge mobile alignment | Minimal |
 | 5.1.0 | 2026-02-05 | Minor | Button refactor, iPad responsive fixes, legacy cleanup | -3,800 lines |
 | 5.0.0 | 2026-02-03 | Major | Visual redesign, blueprint aesthetic, SVG schematics, Ruby 4.0.0 | New design system, +3 gems |
 | 4.0.0 | 2025-12-01 | Major | Infrastructure modernization, dependency restoration, environment config | +6 packages, 100% linter compliance |
