@@ -193,10 +193,11 @@ Content managed through YAML files in `data/`:
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history and architectural decisions.
 
-**Current Version**: 5.1.0
+**Current Version**: 5.2.0
 
 Major releases:
 - **v5.x (2026)**: Complete visual redesign with blueprint/schematic aesthetic, animated SVG schematics, Ruby 4.0.0 upgrade
+  - v5.2.0: Social meta tags (Open Graph, Twitter Card), tagline update
   - v5.1.0: Button system refactor, iPad responsive fixes, legacy cleanup
 - **v4.x (2025)**: Infrastructure modernization, environment-based configuration
 - **v3.x (2021-2025)**: Complete redesign with custom design system
