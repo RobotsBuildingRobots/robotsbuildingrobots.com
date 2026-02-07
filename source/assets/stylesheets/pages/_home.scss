@@ -284,46 +284,141 @@ $blueprint-accent: $ember; // Technical orange from design system
 }
 
 // =============================================================================
-// BLUEPRINT BUTTONS
+// TERMINAL BUTTONS (Global)
 // =============================================================================
 
-.btn-blueprint-primary {
+.btn-terminal {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: $space-2;
+  justify-content: center;
+  gap: $space-3;
   padding: $space-4 $space-8;
-  background: $blueprint-blue;
+  background: $ember;
   color: $warm-white;
   font-family: $font-heading;
   font-size: $type-scale-base;
   font-weight: $font-weight-semibold;
   text-decoration: none;
-  border: 2px solid $blueprint-blue;
+  border: 2px solid transparent;
+  cursor: pointer;
   transition: all $transition-base;
 
+  // Glow layer behind button
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: $ember;
+    filter: blur(16px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity $transition-base;
+  }
+
+  .btn-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
   &:hover {
-    background: $blueprint-dark;
-    border-color: $blueprint-dark;
+    background: $ember;
+    color: $forge-black;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+
+    &::before {
+      opacity: 0.5;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $warm-white;
+    outline-offset: 2px;
+
+    &::before {
+      opacity: 0.4;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    background: $ember-dark;
+    color: $warm-white;
+    box-shadow: inset 0 2px 4px rgb(0 0 0 / 25%);
+
+    &::before {
+      opacity: 0.3;
+    }
   }
 }
 
-.btn-blueprint-secondary {
+.btn-terminal-secondary {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: $space-2;
+  justify-content: center;
+  gap: $space-3;
   padding: $space-4 $space-8;
   background: transparent;
-  color: $blueprint-blue;
+  color: $ember;
   font-family: $font-heading;
   font-size: $type-scale-base;
   font-weight: $font-weight-semibold;
   text-decoration: none;
-  border: 2px solid $blueprint-blue;
+  border: 2px solid $ember;
+  cursor: pointer;
   transition: all $transition-base;
 
+  // Glow layer behind button
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: $ember;
+    filter: blur(16px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity $transition-base;
+  }
+
+  .btn-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
   &:hover {
-    background: rgba($blueprint-blue, 0.1);
+    background: $ember;
+    color: $forge-black;
+    border-color: $ember;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+
+    &::before {
+      opacity: 0.5;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $ember;
+    outline-offset: 2px;
+
+    &::before {
+      opacity: 0.4;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    background: $ember-dark;
+    color: $warm-white;
+    box-shadow: inset 0 2px 4px rgb(0 0 0 / 25%);
+
+    &::before {
+      opacity: 0.3;
+    }
   }
 }
 
@@ -839,7 +934,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     gap: $space-12;
     align-items: center;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       grid-template-columns: 1fr 1fr;
       gap: $space-16;
     }
@@ -875,7 +970,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       color: $warm-white;
       margin: 0 0 $space-4;
 
-      @media (min-width: map-get($grid-breakpoints, md)) {
+      @media (min-width: map-get($grid-breakpoints, lg)) {
         font-size: $type-scale-5xl;
       }
     }
@@ -1008,7 +1103,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   .products-visual {
     display: none;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       display: block;
     }
   }
@@ -1016,8 +1111,12 @@ $blueprint-accent: $ember; // Technical orange from design system
   .visual-frame {
     position: relative;
     aspect-ratio: 1;
-    max-width: 380px;
+    max-width: 280px;
     margin: 0 auto;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      max-width: 380px;
+    }
   }
 
   // Frame corners (matching contact section)
@@ -1925,7 +2024,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     gap: $space-12;
     align-items: center;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       grid-template-columns: 1.2fr 1fr;
       gap: $space-16;
     }
@@ -1998,53 +2097,6 @@ $blueprint-accent: $ember; // Technical orange from design system
     gap: $space-3;
   }
 
-  .btn-terminal {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: $space-3;
-    padding: $space-4 $space-8;
-    background: $ember;
-    color: $warm-white;
-    font-family: $font-heading;
-    font-size: $type-scale-base;
-    font-weight: $font-weight-semibold;
-    text-decoration: none;
-    border: none;
-    transition: all $transition-base;
-    overflow: hidden;
-
-    .btn-glow {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba($copper-glow, 0.3), transparent);
-      opacity: 0;
-      transition: opacity $transition-base;
-    }
-
-    .btn-icon {
-      width: 20px;
-      height: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    // stylelint-disable-next-line no-descending-specificity
-    span:last-child {
-      position: relative;
-      z-index: 1;
-    }
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: $glow-ember;
-
-      .btn-glow {
-        opacity: 1;
-      }
-    }
-  }
-
   .cta-subtext {
     font-family: $font-mono;
     font-size: $type-scale-xs;
@@ -2055,7 +2107,7 @@ $blueprint-accent: $ember; // Technical orange from design system
   .contact-visual {
     display: none;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, md)) {
       display: block;
     }
   }
@@ -2063,8 +2115,12 @@ $blueprint-accent: $ember; // Technical orange from design system
   .visual-frame {
     position: relative;
     aspect-ratio: 1;
-    max-width: 350px;
+    max-width: 260px;
     margin: 0 auto;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      max-width: 350px;
+    }
   }
 
   // Corner brackets

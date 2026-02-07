@@ -33,6 +33,43 @@ No unreleased changes at this time.
 
 ---
 
+## [5.1.0] - 2026-02-05
+
+### Changed
+
+- **Button System Refactored**: Unified button components from `btn-blueprint-primary/secondary` to `btn-terminal/btn-terminal-secondary` with consistent styling across the site
+  - Added glow effects on hover via `::before` pseudo-element
+  - Added proper focus-visible and active states for accessibility
+  - Simplified hero CTA button copy: "Connect With Us" → "Connect", "View Projects" → "Portfolio"
+  - Removed internal `btn-glow` span element from contact button markup
+
+- **iPad Responsive Improvements**: Adjusted breakpoints and sizing for better tablet display
+  - Floating navigation now shows at `xl` breakpoint instead of `lg` (hides on iPad)
+  - Products and contact visual frames now visible at `md` breakpoint instead of `lg`
+  - Visual frame max-widths reduced for tablet (280px/260px) and scale up at `lg` (380px/350px)
+  - Hero title font scaling moved from `md` to `lg` breakpoint
+
+### Removed
+
+- **Legacy Code Cleanup**: Removed all pre-v4 archived source code (~114 files, 3,800+ lines)
+  - Deleted `_data_last_version/` directory (legacy data files)
+  - Deleted `_source_last_version/` directory (legacy templates, stylesheets, JavaScript, images)
+  - Removed unused email field from `data/components.yml`
+  - Removed empty `data/.keep` file
+
+### Developer Notes
+
+**Files Modified:**
+- `source/assets/stylesheets/components/_floating-nav.scss` - Breakpoint adjustment
+- `source/assets/stylesheets/pages/_home.scss` - Button system refactor, responsive tweaks
+- `source/partials/pages/home/_hero.html.slim` - Button markup simplification
+- `source/partials/pages/home/_contact.html.slim` - Removed btn-glow span
+- `data/components.yml` - Removed email field
+
+**Reference**: Feature branch `feature/version_five_1`
+
+---
+
 ## [5.0.0] - 2026-02-03 - RELEASED
 
 ### MAJOR RELEASE - Complete Visual Redesign with Blueprint Aesthetic & Ruby 4.0.0 Upgrade
@@ -758,6 +795,7 @@ The first tagged release of the personal branding website.
 
 | Version | Date | Type | Key Changes | LOC Impact |
 |---------|------|------|-------------|------------|
+| 5.1.0 | 2026-02-05 | Minor | Button refactor, iPad responsive fixes, legacy cleanup | -3,800 lines |
 | 5.0.0 | 2026-02-03 | Major | Visual redesign, blueprint aesthetic, SVG schematics, Ruby 4.0.0 | New design system, +3 gems |
 | 4.0.0 | 2025-12-01 | Major | Infrastructure modernization, dependency restoration, environment config | +6 packages, 100% linter compliance |
 | 3.5.1 | 2025-02-01 | Patch | Contact email update | Minimal |
@@ -865,5 +903,5 @@ See the LICENSE file for details.
 
 ---
 
-**Generated**: 2026-02-03 using git tag analysis and commit history
+**Generated**: 2026-02-05 using git tag analysis and commit history
 **Maintainer**: RobotsBuildingRobots, LLC

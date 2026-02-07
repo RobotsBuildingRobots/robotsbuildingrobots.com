@@ -10,7 +10,7 @@
   z-index: $z-fixed;
   display: none;
 
-  @media (min-width: map-get($grid-breakpoints, lg)) {
+  @media (min-width: map-get($grid-breakpoints, xl)) {
     display: block;
   }
 
@@ -157,7 +157,7 @@
   justify-content: space-around;
   align-items: center;
 
-  @media (min-width: map-get($grid-breakpoints, lg)) {
+  @media (min-width: map-get($grid-breakpoints, xl)) {
     display: none;
   }
 

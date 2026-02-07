@@ -43,11 +43,9 @@ This is a professional portfolio and business website showcasing services, engag
 ├── data/                  # YAML data files for content
 │   ├── about.yml
 │   ├── components.yml
-│   ├── contact.yml
-│   ├── cta.yml
 │   ├── engagements.yml
-│   ├── services.yml
-│   └── settings.yml
+│   ├── products.yml
+│   └── services.yml
 ├── lib/                   # Ruby helper modules
 ├── source/                # Source files
 │   ├── assets/
@@ -169,11 +167,15 @@ rake deploy:github
 
 ### Component-Based Structure
 Reusable Slim partials in `source/partials/components/`:
-- Navigation
+- Body wrapper
+- Document wrapper
+- Floating navigation (side dots)
 - Footer
-- Meta tags
-- Favicons
-- Pre-loader
+- Header (meta, favicons, stylesheets)
+- JavaScript loading
+- Loader animation
+- Navigation
+- Title
 
 ### Data-Driven Content
 Content managed through YAML files in `data/`:
@@ -191,10 +193,11 @@ Content managed through YAML files in `data/`:
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history and architectural decisions.
 
-**Current Version**: 5.0.0
+**Current Version**: 5.1.0
 
 Major releases:
 - **v5.x (2026)**: Complete visual redesign with blueprint/schematic aesthetic, animated SVG schematics, Ruby 4.0.0 upgrade
+  - v5.1.0: Button system refactor, iPad responsive fixes, legacy cleanup
 - **v4.x (2025)**: Infrastructure modernization, environment-based configuration
 - **v3.x (2021-2025)**: Complete redesign with custom design system
 - **v2.x (2020)**: Multi-page application with Webpack integration
