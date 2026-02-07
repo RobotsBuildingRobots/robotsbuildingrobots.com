@@ -33,6 +33,35 @@ No unreleased changes at this time.
 
 ---
 
+## [5.2.0] - 2026-02-06
+
+### Added
+- **Social Meta Tags**: Open Graph and Twitter Card meta tags for rich link previews
+  - `og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `og:image` with dimensions
+  - `twitter:card` (summary_large_image), `twitter:title`, `twitter:description`, `twitter:image`
+  - `meta[name="description"]` populated from `data/components.yml`
+- **Social Preview Image**: Added `logo-meta.png` (1280x640) for link sharing across social platforms
+
+### Changed
+- **Site Tagline**: Updated from "How can we help you?" to "Engineering Excellence" in `data/components.yml`
+- **Title Consistency**: Browser title, OG title, and Twitter title now all render from `data/components.yml` vars (`social.formalname` and `social.focus`) instead of hardcoded strings
+- **Title Partial**: `_title.html.slim` refactored to use data vars for maintainability
+- **Meta Image Helper**: OG and Twitter image tags use `image_url` helper from `config.rb` for correct local and production URL resolution
+- **Index Frontmatter**: Removed redundant `title` field to avoid triple-segment title
+
+### Developer Notes
+
+**Files Modified:**
+- `data/components.yml` - Updated `social.focus` tagline
+- `source/partials/components/_header.html.slim` - Added all meta tags (description, OG, Twitter Card)
+- `source/partials/components/_title.html.slim` - Refactored to use data vars
+- `source/index.html.slim` - Removed frontmatter `title` field
+- `source/assets/images/logos/logo-meta.png` - New social preview image (1280x640)
+
+**Reference**: Feature branch `feature/version_5_2_0`
+
+---
+
 ## [5.1.1] - 2026-02-06
 
 ### Fixed
@@ -813,6 +842,7 @@ The first tagged release of the personal branding website.
 
 | Version | Date | Type | Key Changes | LOC Impact |
 |---------|------|------|-------------|------------|
+| 5.2.0 | 2026-02-06 | Minor | Social meta tags (OG, Twitter Card), tagline update | +5 files |
 | 5.1.1 | 2026-02-06 | Patch | Fix brand badge mobile alignment | Minimal |
 | 5.1.0 | 2026-02-05 | Minor | Button refactor, iPad responsive fixes, legacy cleanup | -3,800 lines |
 | 5.0.0 | 2026-02-03 | Major | Visual redesign, blueprint aesthetic, SVG schematics, Ruby 4.0.0 | New design system, +3 gems |
