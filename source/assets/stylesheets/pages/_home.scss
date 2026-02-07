@@ -101,14 +101,23 @@ $blueprint-accent: $ember; // Technical orange from design system
   }
 
   .blueprint-badge {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: $space-2;
     padding: $space-2 $space-4;
     background: rgba($blueprint-blue, 0.1);
     border: 1px solid $blueprint-blue;
     border-radius: $radius-sm;
     margin-bottom: $space-6;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+      margin-left: 0;
+      margin-right: 0;
+    }
 
     .badge-text {
       font-family: $font-mono;
