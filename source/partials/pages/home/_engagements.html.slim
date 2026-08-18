@@ -21,7 +21,7 @@ section#engagements.engagements-section
 
             .timeline-card
               .card-header
-                span.project-index #{'%02d' % (index + 1)}
+                span.project-index #{'%02d' % (data.engagements.projects.size - index)}
                 h3.project-name = project.company
               p.project-description = project.collaboration
               .card-footer
