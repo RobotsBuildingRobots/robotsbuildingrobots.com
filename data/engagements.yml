@@ -3,47 +3,57 @@ process: With engagements helping small startups to large enterprises, we bring 
 projects:
   -
     id: 1
-    company: Gathrly
+    company: Serenity
+    status: on-going
     collaboration: >-
-      Partnered with founders to define the technical roadmap and implement agile workflows from the ground up. Architected and delivered a lead management platform adopted by top-tier craft breweries. Mentored junior engineers, accelerating their growth while building a high-performance engineering culture.
+      Commanding an agentic build system for a client-management SaaS platform serving a timeshare-relief and financial-recovery consulting firm: 20 instruction files, 2,926 lines, govern how AI writes the code. Built on Rails 8.1 and Ruby 4.0 with Solid Queue, Cache, and Cable running on PostgreSQL 17 instead of Redis, and a 63-table domain carved into 118 service objects. Claude Code runs recurring multi-agent security audits of the live app, five agents in parallel with runtime verification; MCP-driven Playwright suites test the app in a real browser; and AI-generated summaries ship in the product itself. More test code than application code, zero RuboCop violations, clean Brakeman, 600+ PRs in 7.5 months, still building.
   -
     id: 2
-    company: USA Today
+    company: SOFware
     collaboration: >-
-      Architected a robust backend CMS with intuitive content creation tools for editorial teams. Redesigned the responsive frontend experience, streamlining user flows and elevating engagement across devices.
+      Engineered the qualification-tracking and scheduling capabilities U.S. Air Force Special Warfare units (JTAC, Combat Control, Special Tactics, TACP) rely on to manage operator training readiness under AFMAN 10-3500, serving as senior full-stack engineer across two Ruby on Rails applications and a shared gem, centered on an event-driven GraphQL domain. Built operator disenrollment end to end, from GraphQL API to dossier projections; designed a designation-scoped competency-construction API that applies JTAC requirements to individual operators; and led a CMMC security-hardening pass that protects CSV exports against spreadsheet formula injection.
   -
     id: 3
-    company: W. W. Norton
+    company: Arthur Maxwell
     collaboration: >-
-      Architected an interactive content delivery platform serving 300+ educational experiences for a leading global publisher. Established GitFlow workflows, code review standards, and quality guidelines. Elevated team capabilities through hands-on mentorship, driving measurable gains in productivity and code quality.
+      Took an offline iPad-driven eLearning management and classroom application to the web for global enterprise clients, rebuilding it on Ruby on Rails with Hotwire (Turbo + Stimulus).
   -
     id: 4
-    company: Crowd OX
+    company: SafeAccess
     collaboration: >-
-      Extended platform capabilities across three interconnected Rails engines. Modernized the testing infrastructure by migrating from Minitest to RSpec, increasing coverage from 0% to 60% overall with complete model-layer coverage—transforming a legacy codebase into a maintainable foundation.
+      Built the technical hiring pipeline and personally recruited the senior Ruby on Rails engineer who succeeded the co-founder and senior technical architect, securing continuity of innovation and application development.
   -
     id: 5
-    company: Eggplant
+    company: Sidebench
     collaboration: >-
-      Integrated Microsoft Active Directory (LDAP) authentication into the testing management platform, enabling enterprise-grade access control. Led daily pair programming sessions that strengthened team collaboration and accelerated junior engineer development.
+      Technical Architect for the Momints NFT Marketplace: drove the research and selection of scalable components, built the MVP, and produced the marketing materials. Authored the architecture package spanning system diagrams, server infrastructure, tech stack, third-party dependencies, data models, database schemas, and API specifications, giving the build team a straight line through development.
   -
     id: 6
     company: Advanced Building Technology
     collaboration: >-
-      Rebuilt the corporate website from the ground up with a mobile-first responsive architecture. Delivered on schedule to support new product launches, transforming a desktop-only experience into a seamless presence across all devices.
+      Led the rearchitecture of a website to a mobile-first responsive design in Ruby, cutting hosting costs, adding precise traffic measurement and monitoring, and sharpening the experience across mobile and tablet.
   -
     id: 7
-    company: Sidebench
+    company: Eggplant
     collaboration: >-
-      Served as Technical Architect for the Momints NFT Marketplace, guiding technology decisions from concept through MVP delivery. Defined system architecture, infrastructure strategy, and API specifications—balancing scalability requirements with risk mitigation to establish a solid foundation for growth.
+      Integrated Microsoft Active Directory (LDAP) into the authorization layer of a test-management application on the Digital Automation Intelligence platform. Ran daily pair programming sessions that mentored junior engineers and sharpened team performance, and introduced RSpec to expand test coverage across the platform.
   -
     id: 8
-    company: Arthur Maxwell Experience Builder
+    company: Crowd Ox
     collaboration: >-
-      Modernized a corporate eLearning platform serving 200+ users, transitioning from offline iPad-based delivery to a real-time classroom experience. Built with Rails, Hotwire, and Stimulus for responsive, interactive learning at scale.
+      Raised a legacy code base to over 60% test coverage with 100% model coverage, migrating the Partner application's test suite from Minitest to RSpec while expanding platform features across three Ruby on Rails engines.
   -
     id: 9
-    company: Serenity
-    status: on-going
+    company: USA Today
     collaboration: >-
-      Pioneering ongoing AI-assisted development methodology using Claude to build and enhance a production-ready Rails 8 application featuring Rodauth authentication, Hotwire (Turbo + Stimulus) for reactive interfaces, Solid Suite integration (Queue, Cache, Cable), and service-oriented design patterns. Collaborating with AI to implement custom UI components, establish comprehensive testing infrastructure, and ensure strict code quality standards, reducing traditional development time by 10x while maintaining professional-grade architecture and deployment practices on Heroku with full monitoring and error tracking capabilities.
+      Engineered a backend CMS with frontend content-creation interfaces and a responsive design that tightened user flows and elevated the customer experience.
+  -
+    id: 10
+    company: W. W. Norton
+    collaboration: >-
+      Architected and shipped an interactive delivery platform serving over 300 interactives globally, and set the engineering bar for the team: GitFlow, code reviews, quality guidelines, and workflow management. Mentored junior engineers, raising their productivity and contributions.
+  -
+    id: 11
+    company: Gathrly
+    collaboration: >-
+      Partnered with the founders to set the technical product roadmap and bring agile to the team. Led the design, engineering, and ongoing evolution of a lead management system for elite brewers, building a high-performance environment and mentoring junior engineers to raise their skills and output.
