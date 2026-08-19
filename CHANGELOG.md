@@ -33,6 +33,75 @@ No unreleased changes at this time.
 
 ---
 
+## [5.3.0] - 2026-08-18
+
+### Added
+
+- **SOFware Engagement**: New portfolio entry for USAF Special Warfare qualification tracking and scheduling under AFMAN 10-3500 (JTAC, Combat Control, Special Tactics, TACP)
+- **SafeAccess Engagement**: New portfolio entry covering the technical hiring pipeline and senior engineer succession
+- **Wrap Tuning on Engagement Cards**: `text-wrap: pretty`, `overflow-wrap: break-word`, and `hyphens: auto` on `.project-description`, plus `text-wrap: balance` on `.project-name`
+  - Counters the hyphenated compounds throughout the CV copy ("qualification-tracking", "designation-scoped competency-construction", "timeshare-relief")
+  - `.card-header` gained `flex-wrap: wrap` with a `$space-2 $space-3` gap; it was previously a non-wrapping flex row that could overflow
+
+### Changed
+
+- **Engagement Copy**: All eleven entries in `data/engagements.yml` now match the GitHub CV verbatim
+- **Engagement Ordering**: Reordered newest-first, with `id` values renumbered 1–11 to match
+  - The CV places USA Today ahead of W. W. Norton, reversing their prior relative order; the CV was treated as the source of truth
+- **Company Names**: `Arthur Maxwell Experience Builder` → `Arthur Maxwell`, `Crowd OX` → `Crowd Ox`, matching the CV headings
+- **Timeline Numbering**: Card index now counts down, so the newest engagement reads `11` and the oldest reads `01`
+  - Derived from `projects.size - index` rather than `index + 1`, so the sequence stays correct as entries are added or removed
+- **Product Category Copy**: OPEN SOURCE description changed from "Free tools for the community." to "We are all in this together."
+- **Engagement Card Measure**: Widened to carry the longer CV copy, which runs to ~730 characters for the largest entry
+  - Timeline `900px` → `1120px`; card `400px` → `40rem` stacked and `32rem` in the two-column layout, with `$space-8` padding at `xl`
+  - Description font size `$type-scale-sm` (14px) → `$type-scale-base` (16px)
+  - Raises the line length from roughly 45–50 characters to roughly 56, inside the comfortable range for body copy
+- **Timeline Breakpoint**: The alternating two-column layout now engages at `lg` (992px) instead of `md` (768px)
+  - At `md` each column was only ~352px wide, around 43 characters per line
+  - Viewports between 768px and 991px now render a single wide column
+- **Body Copy Alignment**: Left-side cards no longer mirror their paragraph text
+  - `.item-left .timeline-card { text-align: right }` had right-aligned the entire card; ragged-left long-form text is difficult to read
+  - Only the short chrome (index, name, status badge) mirrors now
+- **Package Manager**: Migrated to Yarn 4.17.0
+  - `packageManager` pinned with an integrity hash in `package.json`
+  - New `.yarnrc.yml` with `nodeLinker: node-modules`, `enableScripts: true`, `npmMinimalAgeGate: 0`
+  - `yarn.lock` regenerated
+
+### Fixed
+
+- **Dead SCSS Selectors**: Two rules authored as `.item-left &` compiled to selectors that could never match
+  - Nested under `.engagements-section .timeline-card`, SCSS expands `&` to the full compound selector, producing `.item-left .engagements-section .timeline-card .card-footer`
+  - That requires an `.item-left` ancestor **of** `.engagements-section`, but `.item-left` is a descendant of it
+  - Both the status badge and the card header had therefore never received their intended alignment
+- **Status Badge Alignment**: Badges now sit on each card's inner edge, symmetrically 32px from the centre line on both sides
+  - Rules moved into the `&.item-left` / `&.item-right` blocks on `.timeline-item`, where `&` resolves correctly
+  - `item-right` rules stated explicitly rather than relying on inherited defaults, so the intent survives future edits
+- **CI Yarn Installation**: Build and deploy workflows installed Yarn Classic globally, which refuses to run against a `packageManager` pin
+  - Failed with `This project's package.json defines "packageManager": "yarn@4.17.0". However the current global version of Yarn is 1.22.22.`
+  - Replaced `npm install --global yarn` with `corepack enable` and `corepack prepare --activate`
+  - Corepack is upgraded via `npm install --global corepack@latest` first; the version bundled with Node 22.6.0 has a signature keyring predating Yarn 4.17.0 and fails verification
+
+### Developer Notes
+
+**Files Modified:**
+- `data/engagements.yml` - CV copy sync, two new engagements, reordered newest-first
+- `data/products.yml` - OPEN SOURCE category description
+- `source/partials/pages/home/_engagements.html.slim` - Descending card index
+- `source/assets/stylesheets/pages/_home.scss` - Card measure, typography, breakpoint, and selector repairs
+- `package.json` - Yarn 4.17.0 `packageManager` pin
+- `.yarnrc.yml` - New Yarn 4 configuration
+- `yarn.lock` - Regenerated under Yarn 4
+- `.github/workflows/build.yml` - Corepack-based Yarn installation
+- `.github/workflows/deploy.yml` - Corepack-based Yarn installation
+
+**SCSS Nesting Caution**: The `.item-left &` pattern reads as correct but silently produces unmatchable selectors when the parent chain already contains the section wrapper. Mirroring rules belong inside the `&.item-left` block on `.timeline-item`.
+
+**Asset Pipeline**: SCSS is compiled by Webpack, not Middleman (`config.rb:26` ignores `assets/stylesheets/*`). Restarting the Middleman server alone will not pick up style changes; `yarn staging` or `yarn develop` is required.
+
+**Reference**: Feature branch `feature/version_5_3_0`, PR #243
+
+---
+
 ## [5.2.0] - 2026-02-06
 
 ### Added
