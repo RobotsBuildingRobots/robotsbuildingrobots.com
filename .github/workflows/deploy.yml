@@ -62,7 +62,9 @@ jobs:
 
       - name: Install Yarn
         run: |
-          npm install --global yarn
+          npm install --global corepack@latest
+          corepack enable
+          corepack prepare --activate
         if: github.event.pull_request.merged == true
 
       - name: Yarn Version

@@ -43,7 +43,9 @@ jobs:
           node --version
       - name: Install Yarn
         run: |
-          npm install --global yarn
+          npm install --global corepack@latest
+          corepack enable
+          corepack prepare --activate
       - name: Yarn Version
         run: |
           yarn --version
