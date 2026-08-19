@@ -751,7 +751,7 @@ $blueprint-accent: $ember; // Technical orange from design system
 
   .engagements-timeline {
     position: relative;
-    max-width: 900px;
+    max-width: 1120px;
     margin: 0 auto;
   }
 
@@ -762,7 +762,7 @@ $blueprint-accent: $ember; // Technical orange from design system
     bottom: 0;
     width: 2px;
 
-    @media (min-width: map-get($grid-breakpoints, md)) {
+    @media (min-width: map-get($grid-breakpoints, lg)) {
       left: 50%;
       transform: translateX(-50%);
     }
@@ -782,10 +782,10 @@ $blueprint-accent: $ember; // Technical orange from design system
     display: flex;
     align-items: flex-start;
     gap: $space-6;
-    margin-bottom: $space-8;
+    margin-bottom: $space-10;
     padding-left: $space-12;
 
-    @media (min-width: map-get($grid-breakpoints, md)) {
+    @media (min-width: map-get($grid-breakpoints, lg)) {
       padding: 0;
 
       &.item-left {
@@ -797,7 +797,11 @@ $blueprint-accent: $ember; // Technical orange from design system
           right: calc(50% - 10px);
         }
 
-        .timeline-card {
+        .card-header {
+          justify-content: flex-end;
+        }
+
+        .card-footer {
           text-align: right;
         }
       }
@@ -808,6 +812,14 @@ $blueprint-accent: $ember; // Technical orange from design system
 
         .timeline-marker {
           left: calc(50% - 10px);
+        }
+
+        .card-header {
+          justify-content: flex-start;
+        }
+
+        .card-footer {
+          text-align: left;
         }
       }
     }
@@ -831,20 +843,23 @@ $blueprint-accent: $ember; // Technical orange from design system
     border: 1px solid $blueprint-grid;
     padding: $space-6;
     flex: 1;
-    max-width: 400px;
+    max-width: 40rem;
     transition: all $transition-base;
+
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      max-width: 32rem;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      padding: $space-8;
+    }
 
     .card-header {
       display: flex;
+      flex-wrap: wrap;
       align-items: baseline;
-      gap: $space-3;
+      gap: $space-2 $space-3;
       margin-bottom: $space-3;
-
-      @media (min-width: map-get($grid-breakpoints, md)) {
-        .item-left & {
-          justify-content: flex-end;
-        }
-      }
     }
 
     .project-index {
@@ -860,22 +875,19 @@ $blueprint-accent: $ember; // Technical orange from design system
       font-weight: $font-weight-semibold;
       color: $blueprint-dark;
       margin: 0;
+      text-wrap: balance;
     }
 
     .project-description {
       font-family: $font-body;
-      font-size: $type-scale-sm;
+      font-size: $type-scale-base;
       color: $blueprint-light;
       line-height: $leading-relaxed;
-      margin: 0 0 $space-4;
-    }
-
-    .card-footer {
-      @media (min-width: map-get($grid-breakpoints, md)) {
-        .item-left & {
-          text-align: right;
-        }
-      }
+      margin: 0 0 $space-5;
+      text-align: left; // body copy never mirrors, even on left-side cards
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
 
     .status-badge {
