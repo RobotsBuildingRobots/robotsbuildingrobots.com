@@ -33,6 +33,28 @@ No unreleased changes at this time.
 
 ---
 
+## [5.3.1] - 2026-08-19
+
+### Fixed
+
+- **Engagement Card Word Breaks**: Removed `hyphens: auto` from `.project-description`
+  - Automatic hyphenation was splitting words mid-syllable at line ends, which reads poorly against the blueprint aesthetic
+  - Added in 5.3.0 as a hedge against the long hyphenated compounds in the CV copy; the hedge was unnecessary
+  - The longest unbreakable segment across all eleven engagements is 14 characters (`infrastructure`, `rearchitecture`, `specifications`), roughly 112px at the 16px body size and well inside the narrowest content box, so no word ever needed hyphenation to fit
+  - Compound words such as `qualification-tracking` still break at their existing hyphens, which is correct typography and requires no assistance
+  - `overflow-wrap: break-word` is retained as a safety valve for future copy; it does not trigger on any current content
+
+### Developer Notes
+
+**Files Modified:**
+- `source/assets/stylesheets/pages/_home.scss` - Removed automatic hyphenation from engagement card descriptions
+
+**Measure Reference**: Before reaching for `hyphens: auto`, check the longest unbreakable segment against the narrowest content box. Hyphenation earns its place only when a real word would otherwise overflow or strand a large gap.
+
+**Reference**: Feature branch `feature/version_5_3_1`
+
+---
+
 ## [5.3.0] - 2026-08-18
 
 ### Added

@@ -886,8 +886,7 @@ $blueprint-accent: $ember; // Technical orange from design system
       margin: 0 0 $space-5;
       text-align: left; // body copy never mirrors, even on left-side cards
       text-wrap: pretty;
-      overflow-wrap: break-word;
-      hyphens: auto;
+      overflow-wrap: break-word; // safety valve only; nothing in the copy needs it
     }
 
     .status-badge {
